@@ -2697,6 +2697,14 @@ figcaption {
   padding-top: 0px;
 }
 
+.paragraph > a {
+  display: inline;
+}
+
+li > a {
+  display: inline;
+}
+
 .div-block {
   position: relative;
   font-family: Inconsolata, monospace;
