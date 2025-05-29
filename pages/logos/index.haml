@@ -244,6 +244,44 @@
   const foregroundHexInput =
     document.getElementById("foreground-hex");
 
+  // URL parameter management
+  function getQueryParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return {
+      bg: urlParams.get('bg'),
+      fg: urlParams.get('fg')
+    };
+  }
+
+  function setQueryParams(bgColor, fgColor) {
+    const url = new URL(window.location);
+    url.searchParams.set('bg', bgColor.replace('#', ''));
+    url.searchParams.set('fg', fgColor.replace('#', ''));
+    window.history.replaceState({}, '', url);
+  }
+
+  function initializeColorsFromParams() {
+    const params = getQueryParams();
+    
+    // Set background color
+    if (params.bg && /^[0-9A-Fa-f]{6}$/.test(params.bg)) {
+      backgroundColorPicker.value = '#' + params.bg;
+      backgroundHexInput.value = '#' + params.bg;
+    } else {
+      backgroundColorPicker.value = "#222222";
+      backgroundHexInput.value = "#222222";
+    }
+    
+    // Set foreground color
+    if (params.fg && /^[0-9A-Fa-f]{6}$/.test(params.fg)) {
+      foregroundColorPicker.value = '#' + params.fg;
+      foregroundHexInput.value = '#' + params.fg;
+    } else {
+      foregroundColorPicker.value = "#eeeeee";
+      foregroundHexInput.value = "#eeeeee";
+    }
+  }
+
   // Store references to elements by type
   let backgroundElements = [];
   let foregroundElements = [];
@@ -306,6 +344,9 @@
     // Update hex inputs to stay synced with color pickers
     backgroundHexInput.value = backgroundColor;
     foregroundHexInput.value = foregroundColor;
+
+    // Update URL parameters
+    setQueryParams(backgroundColor, foregroundColor);
   }
 
   // Validate and apply hex input
@@ -391,5 +432,6 @@
   // Initialize on page load
   document.addEventListener("DOMContentLoaded", () => {
     initializeElements();
+    initializeColorsFromParams();
     updateColors();
   });
