@@ -19,7 +19,7 @@ Kickstarter United’s website
 1. Build the site
 
    ```
-   ./build-site
+   rake build
    ```
 
    The built site will get written to the `build/` directory.
@@ -27,7 +27,7 @@ Kickstarter United’s website
 1. Serve the site
 
    ```
-   ./serve-site
+   rake up
    ```
 
    This will start a web server that will host the site. This can be accessed at <http://localhost:8080/>.
