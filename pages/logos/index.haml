@@ -112,44 +112,30 @@
 .container
   .controls
     .color-group
-      %label{ :for => "background-color" }
+      %label{for: "background-color"}
         Background Color:
       .color-input-group
-        %input{ :type => "color", :id => "background-color", :class => "color-input", :value => "#222222" }
-        %input{ :type => "text", :id => "background-hex", :class => "hex-input", :value => "#222222", :placeholder => "#222222" }
+        %input#background-color.color-input{type: "color", value: "#222222"}
+        %input#background-hex.hex-input{type: "text", value: "#222222", placeholder: "#222222"}
       .color-group
-        %label{ :for => "foreground-color" }
+        %label{for: "foreground-color"}
           Foreground Color:
         .color-input-group
-          %input{ :type => "color", :id => "foreground-color", :class => "color-input", :value => "#eeeeee" }
-          %input{ :type => "text", :id => "foreground-hex", :class => "hex-input", :value => "#eeeeee", :placeholder => "#eeeeee" }
-      %button{ :class => "btn btn-primary", :onclick => "resetColors()" }
+          %input#foreground-color.color-input{type: "color", value: "#eeeeee"}
+          %input#foreground-hex.hex-input{type: "text", value: "#eeeeee", placeholder: "#eeeeee"}
+      %button.btn.btn-primary{onclick: "resetColors()"}
         Reset to Default
-      .color-group{ :style => "margin-top: 20px" }
-        %label{ :for => "resolution-input" }
+      .color-group{style: "margin-top: 20px"}
+        %label{for: "resolution-input"}
           PNG Resolution (pixels):
         .color-input-group
-          %input{ :type => "number", :id => "resolution-input", :class => "hex-input", :value => "1354", :min => "100", :max => "5000", :placeholder => "1354" }
-      %button{ :class => "btn btn-success", :onclick => "downloadPNG()", :style => "margin-top: 10px" }
+          %input#resolution-input.hex-input{type: "number", value: "1354", min: "100", max: "5000", placeholder: "1354"}
+      %button.btn.btn-success{ onclick: "downloadPNG()", style: "margin-top: 10px"}
         Download as PNG
   .svg-container
-    %svg{
-      :'id' => "svg2",
-      :'inkscape:version' => "0.92.2 5c3e80d, 2017-08-06",
-      :'sodipodi:docname' => "logo.svg",
-      :'version' => "1.1",
-      :'viewBox' => "0 0 682.16663 682.16797",
-      :'xml:space' => "preserve",
-      :'xmlns' => "http://www.w3.org/2000/svg",
-      :'xmlns:cc' => "http://creativecommons.org/ns#",
-      :'xmlns:dc' => "http://purl.org/dc/elements/1.1/",
-      :'xmlns:inkscape' => "http://www.inkscape.org/namespaces/inkscape",
-      :'xmlns:rdf' => "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      :'xmlns:sodipodi' => "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd",
-      :'xmlns:svg' => "http://www.w3.org/2000/svg"
-    }
+    %svg#svg2{'inkscape:version' => "0.92.2 5c3e80d, 2017-08-06", 'sodipodi:docname' => "logo.svg", 'version' => "1.1", 'viewBox' => "0 0 682.16663 682.16797", 'xml:space' => "preserve", 'xmlns' => "http://www.w3.org/2000/svg", 'xmlns:cc' => "http://creativecommons.org/ns#", 'xmlns:dc' => "http://purl.org/dc/elements/1.1/", 'xmlns:inkscape' => "http://www.inkscape.org/namespaces/inkscape", 'xmlns:rdf' => "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 'xmlns:sodipodi' => "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd", 'xmlns:svg' => "http://www.w3.org/2000/svg"}
       / Background rectangle to control white areas
-      %rect{ :id => "svg-background", :x => "0", :y => "0", :width => "100%", :height => "100%", :fill => "#222222" }
+      %rect#svg-background{x: "0", y: "0", width: "100%", height: "100%", fill: "#222222"}
       / Scaled group to create padding around logo
       %g{transform: "translate(68.2,68.2) scale(0.8)"}
         %namedview#namedview3917{bordercolor: "#666666", borderopacity: "1", gridtolerance: "10", guidetolerance: "10", "inkscape:current-layer" => "g10", "inkscape:cx" => "239.52097", "inkscape:cy" => "310.77392", "inkscape:pageopacity" => "0", "inkscape:pageshadow" => "2", "inkscape:window-height" => "1403", "inkscape:window-maximized" => "0", "inkscape:window-width" => "1782", "inkscape:window-x" => "0", "inkscape:window-y" => "0", "inkscape:zoom" => "0.70269229", objecttolerance: "10", pagecolor: "#222222", showgrid: "false"}
