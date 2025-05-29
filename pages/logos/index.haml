@@ -263,23 +263,14 @@
   function initializeColorsFromParams() {
     const params = getQueryParams();
     
-    // Set background color
-    if (params.bg && /^[0-9A-Fa-f]{6}$/.test(params.bg)) {
-      backgroundColorPicker.value = '#' + params.bg;
-      backgroundHexInput.value = '#' + params.bg;
-    } else {
-      backgroundColorPicker.value = "#222222";
-      backgroundHexInput.value = "#222222";
+    function setColorFromParam(param, colorPicker, hexInput, defaultColor) {
+      const color = param && /^[0-9A-Fa-f]{6}$/.test(param) ? '#' + param : defaultColor;
+      colorPicker.value = color;
+      hexInput.value = color;
     }
     
-    // Set foreground color
-    if (params.fg && /^[0-9A-Fa-f]{6}$/.test(params.fg)) {
-      foregroundColorPicker.value = '#' + params.fg;
-      foregroundHexInput.value = '#' + params.fg;
-    } else {
-      foregroundColorPicker.value = "#eeeeee";
-      foregroundHexInput.value = "#eeeeee";
-    }
+    setColorFromParam(params.bg, backgroundColorPicker, backgroundHexInput, "#222222");
+    setColorFromParam(params.fg, foregroundColorPicker, foregroundHexInput, "#eeeeee");
   }
 
   // Store references to elements by type
