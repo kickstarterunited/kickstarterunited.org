@@ -1,39 +1,24 @@
-name: Build and deploy site
+name: Build & Deploy kickstarterunited.org
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build_site:
-    name: Build site
+  deploy:
+    name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
-      - name: Install Ruby dependencies
-        run: bundle install
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+          ruby-version: "3.4"
       - name: Build site
-        run: ./build-site
-      - name: Save site artifacts
-        uses: actions/upload-artifact@v1
-        with:
-          name: built-site
-          path: build
-
-  deploy_site:
-    name: Deploy site
-    runs-on: ubuntu-latest
-    needs: build_site
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download site artifacts
-        uses: actions/download-artifact@v1
-        with:
-          name: built-site
+        run: bundle exec rake build
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: built-site
-          SINGLE_COMMIT: true
+          folder: build
+          single-commit: true

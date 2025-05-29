@@ -38,11 +38,12 @@
           %a.link{:href => "/#about"} About
           %a.link{:href => "/press"} Press
           %a.link{:href => "/first-contract/"} First Contract
+          %a.link{:href => "/logos/"} Logo Generator
           %a.link{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact
           %a.link{:href => "https://twitter.com/ksr_united", :target => "_blank"} Twitter
           %a.link{:href => "https://union.place/@kickstarterunited", :rel => "me", :target => "_blank"} Mastodon
       .div-block-2
-        = yield
+        != yield
       .section-7
         .text-block © Copyright 2023 Kickstarter United
     %script{:crossorigin => "anonymous", :integrity => "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", :src => "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js", :type => "text/javascript"}
