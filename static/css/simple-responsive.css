@@ -1,0 +1,33 @@
+/* Simple Responsive Navigation - Two Row Layout */
+@media (max-width: 768px) {
+    .navigation {
+        padding: 8px 16px !important;
+    }
+    .div-block-3 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px 8px;
+        grid-template: none;
+    }
+    .link {
+        margin: 0 6px;
+        padding: 4px 8px;
+        white-space: nowrap;
+    }
+    .link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 490px) {
+    .navigation {
+        padding: 6px 12px !important;
+    }
+    .div-block-3 {
+        gap: 1px 4px;
+    }
+    .link {
+        margin: 0 3px;
+        padding: 3px 6px;
+    }
+}
