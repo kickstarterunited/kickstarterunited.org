@@ -107,6 +107,14 @@
     background: #039054;
   }
 
+  .btn-info {
+    background: #17a2b8;
+  }
+
+  .btn-info:hover {
+    background: #138496;
+  }
+
 .section
   %h1 Kickstarter United Logo Generator
 .container
@@ -132,6 +140,8 @@
           %input#resolution-input.hex-input{type: "number", value: "1354", min: "100", max: "5000", placeholder: "1354"}
       %button.btn.btn-success{ onclick: "downloadPNG()", style: "margin-top: 10px"}
         Download as PNG
+      %button.btn.btn-info{ onclick: "downloadSVG()", style: "margin-top: 10px"}
+        Download as SVG
   .svg-container
     %svg#svg2{'inkscape:version' => "0.92.2 5c3e80d, 2017-08-06", 'sodipodi:docname' => "logo.svg", 'version' => "1.1", 'viewBox' => "0 0 682.16663 682.16797", 'xml:space' => "preserve", 'xmlns' => "http://www.w3.org/2000/svg", 'xmlns:cc' => "http://creativecommons.org/ns#", 'xmlns:dc' => "http://purl.org/dc/elements/1.1/", 'xmlns:inkscape' => "http://www.inkscape.org/namespaces/inkscape", 'xmlns:rdf' => "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 'xmlns:sodipodi' => "http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd", 'xmlns:svg' => "http://www.w3.org/2000/svg"}
       / Background rectangle to control white areas
@@ -262,13 +272,13 @@
 
   function initializeColorsFromParams() {
     const params = getQueryParams();
-    
+
     function setColorFromParam(param, colorPicker, hexInput, defaultColor) {
       const color = param && /^[0-9A-Fa-f]{6}$/.test(param) ? '#' + param : defaultColor;
       colorPicker.value = color;
       hexInput.value = color;
     }
-    
+
     setColorFromParam(params.bg, backgroundColorPicker, backgroundHexInput, "#222222");
     setColorFromParam(params.fg, foregroundColorPicker, foregroundHexInput, "#eeeeee");
   }
@@ -418,6 +428,27 @@
     });
     const url = URL.createObjectURL(svgBlob);
     img.src = url;
+  }
+
+  // Download SVG function
+  function downloadSVG() {
+    const svg = document.querySelector("svg");
+    const svgData = new XMLSerializer().serializeToString(svg);
+
+    // Create a blob with the SVG data
+    const svgBlob = new Blob([svgData], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+
+    // Create download link
+    const url = URL.createObjectURL(svgBlob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "ksru-logo-custom-colors.svg";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   }
 
   // Initialize on page load
