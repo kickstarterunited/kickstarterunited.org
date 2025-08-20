@@ -403,6 +403,9 @@
           !
 
 :javascript
+  // Configuration
+  const DEFAULT_LOGO = 'contract'; // Change this to 'original' to switch default
+
   // Initialize color controls
   const backgroundColorPicker =
     document.getElementById("background-color");
@@ -414,7 +417,7 @@
     document.getElementById("foreground-hex");
 
   // Current active SVG
-  let currentSvg = 'original';
+  let currentSvg = DEFAULT_LOGO;
 
   // URL parameter management
   function getQueryParams() {
@@ -447,12 +450,13 @@
     setColorFromParam(params.fg, foregroundColorPicker, foregroundHexInput, "#eeeeee");
 
     // Initialize logo version from URL
-    if (params.logo === 'contract') {
-      document.getElementById('logo-contract').checked = true;
-      currentSvg = 'contract';
+    const otherLogo = DEFAULT_LOGO === 'contract' ? 'original' : 'contract';
+    if (params.logo === otherLogo) {
+      document.getElementById(`logo-${otherLogo}`).checked = true;
+      currentSvg = otherLogo;
     } else {
-      document.getElementById('logo-original').checked = true;
-      currentSvg = 'original';
+      document.getElementById(`logo-${DEFAULT_LOGO}`).checked = true;
+      currentSvg = DEFAULT_LOGO;
     }
     switchLogo();
   }
