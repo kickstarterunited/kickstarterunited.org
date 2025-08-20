@@ -3341,3 +3341,9 @@ li > a {
     grid-row-end: 4;
   }
 }
+
+a.footer {
+  color: #fff;
+  display: inline;
+  text-decoration: none;
+}
