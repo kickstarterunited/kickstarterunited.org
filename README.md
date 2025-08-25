@@ -34,4 +34,4 @@ Kickstarter United’s website
 
 ## Deployment
 
-The website will be automatically deployed to GitHub Pages upon every push to the `master` branch.
+The website will be automatically deployed to GitHub Pages upon every push to the `main` branch.
