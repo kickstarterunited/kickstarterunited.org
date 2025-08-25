@@ -16,9 +16,21 @@ Kickstarter United’s website
    bundle install
    ```
 
+1. Start development server
+
+   ```bash
+   rake dev
+   ```
+
+   This will build the site, start a web server at <http://localhost:8080/>, and automatically rebuild and hot reload when you make changes to files. Your browser will automatically refresh to show the latest changes. Press Ctrl+C to stop.
+
+## Manual Build and Serve
+
+If you need to build or serve the site manually without file watching:
+
 1. Build the site
 
-   ```
+   ```bash
    rake build
    ```
 
@@ -26,7 +38,7 @@ Kickstarter United’s website
 
 1. Serve the site
 
-   ```
+   ```bash
    rake up
    ```
 

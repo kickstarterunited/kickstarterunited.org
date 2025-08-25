@@ -1,18 +1,29 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    em-websocket (0.5.3)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0)
+    eventmachine (1.2.7)
+    filewatcher (2.1.0)
+      module_methods (~> 0.1.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
+    http_parser.rb (0.8.0)
+    module_methods (0.1.0)
     rake (13.2.1)
     temple (0.8.2)
     tilt (2.0.10)
     webrick (1.9.1)
 
 PLATFORMS
+  arm64-darwin-24
   ruby
 
 DEPENDENCIES
+  em-websocket
+  filewatcher
   haml
   rake
   tilt
