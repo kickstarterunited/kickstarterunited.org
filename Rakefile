@@ -15,7 +15,7 @@ task :build do
 
   # Render HAML
   layout = Tilt::HamlTemplate.new('templates/layout.haml')
-  Dir['pages/**/*.haml'].map do |source|
+  Dir['pages/**/*.haml'].each do |source|
     template = Tilt::HamlTemplate.new(source)
     content  = layout.render { template.render }
     target   = source.sub(/^pages(.*?)\.haml$/, 'build\1.html')

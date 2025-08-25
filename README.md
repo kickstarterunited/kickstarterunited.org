@@ -7,7 +7,7 @@ Kickstarter United’s website
 1. Install Ruby
 
    ```
-   rbenv install
+   rbenv install --skip-existing
    ```
 
 1. Install Ruby dependencies
