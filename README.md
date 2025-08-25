@@ -18,11 +18,11 @@ Kickstarter United’s website
 
 1. Start development server
 
-   ```
+   ```bash
    rake dev
    ```
 
-   This will build the site, start a web server at <http://localhost:8080/>, and automatically rebuild when you make changes to files. Press Ctrl+C to stop.
+   This will build the site, start a web server at <http://localhost:8080/>, and automatically rebuild and hot reload when you make changes to files. Your browser will automatically refresh to show the latest changes. Press Ctrl+C to stop.
 
 ## Manual Build and Serve
 
