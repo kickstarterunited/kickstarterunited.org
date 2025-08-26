@@ -1,0 +1,9 @@
+plugins:
+  - rubocop-rake
+
+AllCops:
+  DisabledByDefault: true
+  NewCops: enable
+
+Layout:
+  Enabled: true
