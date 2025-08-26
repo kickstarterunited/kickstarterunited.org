@@ -7,6 +7,7 @@ task default: :build
 
 # Initialize rebuild callbacks array
 @rebuild_callbacks = []
+@dev_server_thread = nil
 
 desc 'Start server with watch and hot-reloading'
 task :dev do
@@ -16,7 +17,7 @@ task :dev do
 
   # Start dev server in background thread
   dev_server = DevServer.new
-  Thread.new { dev_server.start }
+  @dev_server_thread = Thread.new { dev_server.start }
 
   # Give server time to start
   sleep 1
@@ -54,14 +55,9 @@ task watch: :build do
   end
 
   listener.start
-
-  # Keep the script running
-  begin
-    sleep
-  rescue Interrupt
-    puts "\nStopping watch..."
-    listener.stop
-  end
+  @dev_server_thread&.join
+  puts "\nStopping watch..."
+  listener.stop
 end
 
 desc 'Build site'

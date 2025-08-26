@@ -6,7 +6,7 @@ gem 'tilt'
 gem 'webrick'
 
 # Live reload development server
-gem 'em-websocket'
-gem 'listen'
-gem 'base64' # em-websocket is old and doesn't know it needs to explicitly
-             # specify base64 as a dependency for recent Ruby versions
+gem 'em-websocket', require: false
+gem 'listen', require: false
+# em-websocket is old and doesn't know it needs to explicitly specify base64 as a dependency for recent Ruby versions:
+gem 'base64', require: false

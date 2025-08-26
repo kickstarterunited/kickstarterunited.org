@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require 'base64'
 require 'webrick'
 require 'em-websocket'
 require 'listen'
