@@ -67,6 +67,7 @@ end
 desc 'Build site'
 task :build do
   puts "Building site..."
+  raise 'foobar!!!!!!!'
   # Clean up old build
   rm_rf 'build'
 
