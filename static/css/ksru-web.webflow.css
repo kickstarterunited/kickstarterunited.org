@@ -21,6 +21,8 @@
   gap: 4px;
 }
 
+@layer legacy {
+
 .w-commerce-commercecheckoutformcontainer {
   width: 100%;
   min-height: 100vh;
@@ -3369,4 +3371,6 @@ a.footer {
   color: #fff;
   display: inline;
   text-decoration: none;
+}
+
 }

@@ -1,3 +1,5 @@
+@layer legacy {
+
 /* Simple Responsive Navigation - Two Row Layout */
 @media (max-width: 768px) {
     .navigation {
@@ -56,4 +58,6 @@
         margin: 0;
         padding: 1px 2px;
     }
+}
+
 }

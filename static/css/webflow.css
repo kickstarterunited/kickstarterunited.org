@@ -4,6 +4,9 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@layer legacy {
+
 [class^="w-icon-"],
 [class*=" w-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
@@ -1797,4 +1800,5 @@ textarea.w-select {
 }
 .w-condition-invisible {
   display: none !important;
+}
 }
