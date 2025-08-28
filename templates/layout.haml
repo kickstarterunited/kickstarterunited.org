@@ -34,9 +34,10 @@
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %link{:href => "/images/webclip.png", :rel => "apple-touch-icon"}/
   %body.body
-    .div-block
-      .navigation.w-nav{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
-        .div-block-3
+    .page.div-block
+      %a.sr-only{href: "#content"} Skip to main content
+      %header.navigation{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
+        %nav.div-block-3
           %a.link{:href => "/"} Home
           %a.link{:href => "/about"} About Us
           %a.link{:href => "/contracts/2022"} Our Contract
@@ -45,9 +46,10 @@
           %a.link{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact
           %a.link{:href => "/socials/"} Socials
           %a.link{:href => "/faq"} FAQ
-      .div-block-2
+
+      %main#content.div-block-2
         != yield
-      %footer.section-7.footer
+      %footer.section-7
         .text-block
           -# NOTE: When updating, also update pages/socials/index.haml
           %ul.social-links{"aria-label": "Follow us on social media"}

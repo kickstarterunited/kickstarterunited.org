@@ -1,24 +1,72 @@
+@layer components {
+  .page {
+    display: grid;
+    min-height: 100dvh;
+    grid:
+      "HEADER" auto
+      "MAIN"   1fr
+      "FOOTER" auto
+      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 1440px) 1fr [FULL-end] 16px [BLEED-end];
+    gap: 0;
 
-.footer {
-  color: #ffffff;
-}
+    > * {
+      grid-column: CONTENT;
+    }
 
-.footer a:any-link {
-  color: currentColor;
-}
+    > header {
+      grid-column: CONTENT;
+    }
 
-.social-links {
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
+    > footer {
+      grid-column: CONTENT;
+    }
+  }
 
-.social-links > * {
-  margin: 0;
-  display: flex;
-  gap: 4px;
+  .navigation {
+    height: auto;
+    align-self: end;
+    display: grid;
+    grid: auto / subgrid;
+    justify-items: flex-end;
+    --link-color: #FFF;
+
+    > * {
+      grid-column: CONTENT;
+      justify-content: space-around;
+    }
+
+    a {
+      border-radius: 4px;
+      text-underline-offset: 2px;
+
+      &:not(:hover, :focus) {
+        text-decoration: none;
+      }
+    }
+  }
+
+
+  .footer {
+    color: #ffffff;
+  }
+
+  .footer a:any-link {
+    color: currentColor;
+  }
+
+  .social-links {
+    margin: 0;
+    padding: 0;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .social-links > * {
+    margin: 0;
+    display: flex;
+    gap: 4px;
+  }
 }
 
 @layer legacy {
