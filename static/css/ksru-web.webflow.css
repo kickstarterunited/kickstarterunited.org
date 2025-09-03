@@ -16,6 +16,7 @@
 }
 
 .social-links > * {
+  margin: 0;
   display: flex;
   gap: 4px;
 }
