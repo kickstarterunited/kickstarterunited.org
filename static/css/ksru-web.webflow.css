@@ -6,20 +6,29 @@
       "HEADER" auto
       "MAIN"   1fr
       "FOOTER" auto
-      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 1440px) 1fr [FULL-end] 16px [BLEED-end];
+      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 1140px) 1fr [FULL-end] 16px [BLEED-end];
     gap: 0;
+  }
+  .page > * {
+    grid-column: CONTENT;
+  }
 
-    > * {
-      grid-column: CONTENT;
-    }
+  .page__header {
+    grid-column: BLEED;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  .page__header > * {
+    grid-column: CONTENT;
+  }
 
-    > header {
-      grid-column: CONTENT;
-    }
-
-    > footer {
-      grid-column: CONTENT;
-    }
+  .page__footer {
+    grid-column: BLEED;
+    display: grid;
+    grid-template-columns: subgrid;
+  }
+  .page__footer > * {
+    grid-column: CONTENT;
   }
 
   .navigation {
@@ -29,20 +38,37 @@
     grid: auto / subgrid;
     justify-items: flex-end;
     --link-color: #FFF;
+  }
 
-    > * {
-      grid-column: CONTENT;
-      justify-content: space-around;
-    }
+  .navigation > * {
+    grid-column: CONTENT;
+    justify-content: space-around;
+  }
 
-    a {
-      border-radius: 4px;
-      text-underline-offset: 2px;
+  .navigation a {
+    border-radius: 4px;
+    text-underline-offset: 2px;
+  }
 
-      &:not(:hover, :focus) {
-        text-decoration: none;
-      }
-    }
+  .navigation a:not(:hover, :focus) {
+    text-decoration: none;
+  }
+
+  .div-block-2 {
+    margin-inline: 0;
+    margin-block: 2em;
+  }
+}
+
+@layer utilities {
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 
 

@@ -35,8 +35,8 @@
     %link{:href => "/images/webclip.png", :rel => "apple-touch-icon"}/
   %body.body
     .page.div-block
-      %a.sr-only{href: "#content"} Skip to main content
-      %header.navigation{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
+      %header.page__header.navigation{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
+        %a.link.sr-only{href: "#content"} Skip to main content
         %nav.div-block-3
           %a.link{:href => "/"} Home
           %a.link{:href => "/about"} About Us
@@ -47,9 +47,9 @@
           %a.link{:href => "/socials/"} Socials
           %a.link{:href => "/faq"} FAQ
 
-      %main#content.div-block-2
+      %main.page__content#content.div-block-2
         != yield
-      %footer.section-7
+      %footer.page__footer.section-7
         .text-block
           -# NOTE: When updating, also update pages/socials/index.haml
           %ul.social-links{"aria-label": "Follow us on social media"}
