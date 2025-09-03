@@ -1,3 +1,26 @@
+
+.footer {
+  color: #ffffff;
+}
+
+.footer a:any-link {
+  color: currentColor;
+}
+
+.social-links {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.social-links > * {
+  margin: 0;
+  display: flex;
+  gap: 4px;
+}
+
 .w-commerce-commercecheckoutformcontainer {
   width: 100%;
   min-height: 100vh;
