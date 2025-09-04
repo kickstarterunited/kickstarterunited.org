@@ -9,7 +9,7 @@
     border: 1px solid gray;
     padding: 1rem;
   }
-  .rally__card > h4 {
+  .rally__card > h5 {
     margin-top: 0;
   }
 
@@ -28,9 +28,7 @@
   .rally__cta {
     flex: 1 1 0;
     display: grid;
-    /* max-width: 30ch; */
     text-align: center;
-    /* max-width: min-content; */
   }
   .rally__cta a {
     display: inline-block;
@@ -43,7 +41,6 @@
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
-    /* min-width: max-content; */
 
     transition: filter 0.2s ease-in-out;
   }
