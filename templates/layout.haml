@@ -6,6 +6,7 @@
     %meta{:content => "Kickstarter United", :property => "og:title"}/
     %meta{:content => "/images/logo.svg", :property => "og:image"}/
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %style @layer normalize, legacy, base, components, utilities;
     %link{:href => "/css/normalize.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/css/webflow.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/css/ksru-web.webflow.css", :rel => "stylesheet", :type => "text/css"}/
@@ -33,9 +34,10 @@
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %link{:href => "/images/webclip.png", :rel => "apple-touch-icon"}/
   %body.body
-    .div-block
-      .navigation.w-nav{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
-        .div-block-3
+    .page.div-block
+      %header.page__header.navigation{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}
+        %a.link.sr-only{href: "#content"} Skip to main content
+        %nav.div-block-3
           %a.link{:href => "/"} Home
           %a.link{:href => "/about"} About Us
           %a.link{:href => "/contracts/2022"} Our Contract
@@ -44,9 +46,10 @@
           %a.link{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact
           %a.link{:href => "/socials/"} Socials
           %a.link{:href => "/faq"} FAQ
-      .div-block-2
+
+      %main.page__content#content.div-block-2
         != yield
-      %footer.section-7.footer
+      %footer.page__footer.section-7
         .text-block
           -# NOTE: When updating, also update pages/socials/index.haml
           %ul.social-links{"aria-label": "Follow us on social media"}
