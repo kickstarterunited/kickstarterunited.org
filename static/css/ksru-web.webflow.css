@@ -1,5 +1,6 @@
 @layer base {
   a {
+    display: inline;
     color: currentColor;
   }
 }
