@@ -1,3 +1,9 @@
+@layer base {
+  a {
+    color: currentColor;
+  }
+}
+
 @layer components {
   .page {
     display: grid;
@@ -13,21 +19,15 @@
     grid-column: CONTENT;
   }
 
-  .page__header {
+  .page__header,
+  .page__footer {
+    color: #ffffff;
     grid-column: BLEED;
     display: grid;
     grid-template-columns: subgrid;
-  }
-  .page__header > * {
-    grid-column: CONTENT;
   }
 
-  .page__footer {
-    grid-column: BLEED;
-    display: grid;
-    grid-template-columns: subgrid;
-  }
-  .page__footer > * {
+  :is(.page__header, .page__footer) > * {
     grid-column: CONTENT;
   }
 
@@ -58,27 +58,6 @@
     margin-inline: 0;
     margin-block: 2em;
   }
-}
-
-@layer utilities {
-  .sr-only:not(:focus):not(:active) {
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-
-
-  .footer {
-    color: #ffffff;
-  }
-
-  .footer a:any-link {
-    color: currentColor;
-  }
 
   .social-links {
     margin: 0;
@@ -92,6 +71,18 @@
     margin: 0;
     display: flex;
     gap: 4px;
+  }
+}
+
+@layer utilities {
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 }
 
