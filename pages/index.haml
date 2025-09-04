@@ -17,21 +17,160 @@
   -# %p
   -#   For more information, see our
   -#   %a{:href => "#faq", :style => "display: inline"} FAQ
+
+- rally_registration_url = "https://us06web.zoom.us/webinar/register/WN__M_n2GlnT-yRfTbQ8D7lcw#/registration"
+
 .section-2
   %h3 What You Can Do
-  %p.paragraph
-    We are asking
-    %strong you
-    to sign this petition to support our fight to codify our 4-day work
-    week and a livable minimum salary for all members of our bargaining unit. Please read our
-    %a{:href => "https://actionnetwork.org/petitions/ksru-solidarity-petition", :style => "display: inline"} full petition text
-    and sign your name below.
-  %p
-    %link{:href => "https://actionnetwork.org/css/style-embed-v3.css", :rel => "stylesheet", :type => "text/css"}
-    %script{:src => "https://actionnetwork.org/widgets/v5/petition/ksru-solidarity-petition?format=js&source=widget"}
-    #can-petition-area-ksru-solidarity-petition
-      -# {:style => "width: 70%; margin: 0 auto;"}
-      -# this div is the target for our HTML insertion
+  %section#solidarity-rally
+    %header
+      %p.paragraph
+        %strong We’re fighting for a fair contract at Kickstarter.
+        We want to codify the four-day, 32-hour
+        workweek, raise the minimum salary, and protect workers from being replaced by contractors
+        or AI tools. Stand with Kickstarter United at our public virtual rally.
+
+    %article
+      %h4 Rally Details
+
+      %p
+        %strong When:
+        %time{ datetime: "2025-09-05T14:00:00-07:00" } Friday, September 5, 2025, 2:00 PM PT
+        (5:00 PM ET)
+        %br/
+        %strong Where:
+        Online (registration required).
+        %a{ href: rally_registration_url, rel: "noopener", target: "_blank", aria: { label: "Register for the rally (Opens in a new tab)" } }
+          Register here!
+        %br/
+        %strong Duration:
+        1 hour
+
+      %p
+        %em Can’t attend live?
+        Register anyway and we’ll share the recording.
+        %a{ href: "https://www.instagram.com/p/DOJg_kyEb4L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==", target: "_blank", rel: "noopener", aria: { label: "Spread the word via our Instagram post! (Opens in a new tab)" } }
+          Spread the word via our Instagram post!
+
+      %section
+        %h5 What you’ll hear
+
+        %ul
+          %li Unionized tech workers who’ve gone on strike and elected representatives who support a 32-hour week.
+          %li Kickstarter United members discussing our strike, our demands, and our union.
+
+      %section
+        %h5 Featured speakers and supporters
+
+        %ul
+          %li
+            %b The New York Times Tech Guild:
+            John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking strike.
+          %li
+            %b Alphabet Workers Union:
+            Parul Koul, president, sharing organizing lessons from big tech.
+          %li
+            %b New York State Assembly:
+            Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour week legislation.
+          %li
+            %b Seattle:
+            Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+
+      %section
+        %h5 Why it matters
+
+        %p
+          This rally builds community support and shows management that workers, creators, and backers
+          are united behind a fair contract. Your presence helps ensure our voices are heard.
+
+    %aside
+      %h4 Top Demands We’re Rallying For
+
+      %ul
+        %li A company-wide minimum salary.
+        %li Protections against AI and contractor replacement of our roles.
+        %li Codifying the four-day (32-hour) workweek we've worked under for more than three years.
+
+    / Structured data for better event previews
+    %script{ type: "application/ld+json" }
+      :plain
+        {
+          "@context": "https://schema.org",
+          "@type": "Event",
+          "name": "Kickstarter United - Solidarity Rally",
+          "startDate": "2025-09-05T17:00:00-04:00",
+          "endDate": "2025-09-05T18:00:00-04:00",
+          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "description": "Kickstarter United is rallying support for a fair contract: a codified four-day, 32-hour workweek, a company-wide minimum salary, and protections against replacement by contractors or AI.",
+          "organizer": {
+            "@type": "Organization",
+            "name": "Kickstarter United (OPEIU Local 153)"
+          },
+          "location": {
+            "@type": "VirtualLocation",
+            "url": "#{rally_registration_url}"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "#{rally_registration_url}",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          "performer": [
+            {
+              "@type": "Organization",
+              "name": "The New York Times Tech Guild",
+              "member": [
+                { "@type": "Person", "name": "John Cruickshank" },
+                { "@type": "Person", "name": "Kait Hoehne" }
+              ]
+            },
+            {
+              "@type": "Organization",
+              "name": "Alphabet Workers Union",
+              "member": [
+                { "@type": "Person", "name": "Parul Koul", "jobTitle": "President" }
+              ]
+            },
+            {
+              "@type": "Person",
+              "name": "Emily Gallagher",
+              "jobTitle": "New York State Assemblymember"
+            },
+            {
+              "@type": "Person",
+              "name": "Phara Souffrant Forrest",
+              "jobTitle": "New York State Assemblymember"
+            },
+            {
+              "@type": "Person",
+              "name": "Kshama Sawant",
+              "jobTitle": "Former Seattle City Councilmember and candidate for the United States Congress"
+            }
+          ],
+          "image": [
+            "https://kickstarterunited.org/images/logo.svg"
+          ]
+        }
+
+  %section.section-2#solidarity-petition
+    %h4 Sign Our Solidarity Petition
+
+    %p.paragraph
+      We are asking
+      %strong you
+      to sign this petition to support our fight to codify our 4-day work
+      week and a livable minimum salary for all members of our bargaining unit. Please read our
+      %a{:href => "https://actionnetwork.org/petitions/ksru-solidarity-petition", :style => "display: inline"} full petition text
+      and sign your name below.
+    %p
+      %link{:href => "https://actionnetwork.org/css/style-embed-v3.css", :rel => "stylesheet", :type => "text/css"}
+      %script{:src => "https://actionnetwork.org/widgets/v5/petition/ksru-solidarity-petition?format=js&source=widget"}
+      #can-petition-area-ksru-solidarity-petition
+        -# {:style => "width: 70%; margin: 0 auto;"}
+        -# this div is the target for our HTML insertion
 -# #faq.section-2
 -#   %h3 Frequently Asked Questions
 -#   %p.paragraph
