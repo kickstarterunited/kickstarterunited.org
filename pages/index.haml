@@ -24,72 +24,92 @@
   %h3 What You Can Do
   %section#solidarity-rally
     %header
-      %p.paragraph
+      %h4 Join Us for Our Solidarity Rally
+
+      %p
         %strong We’re fighting for a fair contract at Kickstarter.
         We want to codify the four-day, 32-hour
         workweek, raise the minimum salary, and protect workers from being replaced by contractors
         or AI tools. Stand with Kickstarter United at our public virtual rally.
 
-    %article
-      %h4 Rally Details
-
-      %p
-        %strong When:
-        %time{ datetime: "2025-09-05T14:00:00-07:00" } Friday, September 5, 2025, 2:00 PM PT
-        (5:00 PM ET)
-        %br/
-        %strong Where:
-        Online (registration required).
-        %a{ href: rally_registration_url, rel: "noopener", target: "_blank", aria: { label: "Register for the rally (Opens in a new tab)" } }
-          Register here!
-        %br/
-        %strong Duration:
-        1 hour
-
-      %p
-        %em Can’t attend live?
-        Register anyway and we’ll share the recording.
-        %a{ href: "https://www.instagram.com/p/DOJg_kyEb4L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==", target: "_blank", rel: "noopener", aria: { label: "Spread the word via our Instagram post! (Opens in a new tab)" } }
-          Spread the word via our Instagram post!
-
-      %section
-        %h5 What you’ll hear
-
-        %ul
-          %li Unionized tech workers who’ve gone on strike and elected representatives who support a 32-hour week.
-          %li Kickstarter United members discussing our strike, our demands, and our union.
-
-      %section
-        %h5 Featured speakers and supporters
-
-        %ul
+    %article.rally
+      %div.rally__toc
+        %ul.rally__links{role: "list"}
           %li
-            %b The New York Times Tech Guild:
-            John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking strike.
+            %a{ href: "#rally-details" } Rally Details
           %li
-            %b Alphabet Workers Union:
-            Parul Koul, president, sharing organizing lessons from big tech.
+            %a{ href: "#what-youll-hear" } What you’ll hear
           %li
-            %b New York State Assembly:
-            Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour week legislation.
+            %a{ href: "#featured-speakers" } Featured speakers and supporters
           %li
-            %b Seattle:
-            Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+            %a{ href: "#why-it-matters" } Why it matters
+          %li
+            %a{ href: "#our-top-demands" } Top Demands We’re Rallying For
 
-      %section
-        %h5 Why it matters
+      .rally__main
+        %div.rally__card#rally-details
+          %h5 Rally Details
 
-        %p
-          This rally builds community support and shows management that workers, creators, and backers
-          are united behind a fair contract. Your presence helps ensure our voices are heard.
+          %div.rally__details
+            %p.rally__logistics
+              %strong When:
+              %time{ datetime: "2025-09-05T14:00:00-07:00" } Friday, September 5, 2025, 2:00 PM PT
+              (5:00 PM ET)
+              %br/
+              %strong Where:
+              Online (registration required).
 
-    %aside
-      %h4 Top Demands We’re Rallying For
+              %br/
+              %strong Duration:
+              1 hour
 
-      %ul
-        %li A company-wide minimum salary.
-        %li Protections against AI and contractor replacement of our roles.
-        %li Codifying the four-day (32-hour) workweek we've worked under for more than three years.
+            %p.rally__cta
+              %a{ href: rally_registration_url, rel: "noopener", target: "_blank", aria: { label: "Register for the rally (Opens in a new tab)" } }
+                Register for the rally
+              %small
+                Can’t attend live? Register anyway and we’ll share the recording.
+        %p.rally__share
+          %a{ href: "https://www.instagram.com/p/DOJg_kyEb4L/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==", target: "_blank", rel: "noopener", aria: { label: "Spread the word via our Instagram post! (Opens in a new tab)" } }
+            Spread the word via our Instagram post!
+      .rally__aside
+        %section#what-youll-hear
+          %h5 What you’ll hear
+
+          %ul
+            %li Unionized tech workers who’ve gone on strike and elected representatives who support a 32-hour week.
+            %li Kickstarter United members discussing our strike, our demands, and our union.
+
+        %section#featured-speakers
+          %h5 Featured speakers and supporters
+
+          %ul
+            %li
+              %b The New York Times Tech Guild:
+              John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking strike.
+            %li
+              %b Alphabet Workers Union:
+              Parul Koul, president, sharing organizing lessons from big tech.
+            %li
+              %b New York State Assembly:
+              Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour week legislation.
+            %li
+              %b Seattle:
+              Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+
+        %section#why-it-matters
+          %h5 Why it matters
+
+          %p
+            This rally builds community support and shows management that workers, creators, and backers
+            are united behind a fair contract. Your presence helps ensure our voices are heard.
+
+        %aside
+          %h5#our-top-demands Top Demands We’re Rallying For
+
+          %ul
+            %li A company-wide minimum salary.
+            %li Protections against AI and contractor replacement of our roles.
+            %li Codifying the four-day (32-hour) workweek we've worked under for more than three years.
 
     / Structured data for better event previews
     %script{ type: "application/ld+json" }

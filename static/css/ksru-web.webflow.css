@@ -3,6 +3,21 @@
     display: inline;
     color: currentColor;
   }
+
+  ul[role] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul[role] li {
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding: 6rem 0 0;
+  }
 }
 
 @layer components {
@@ -33,6 +48,8 @@
   }
 
   .navigation {
+    z-index:1000;
+
     height: auto;
     align-self: end;
     display: grid;
