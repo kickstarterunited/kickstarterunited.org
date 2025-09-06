@@ -47,6 +47,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--ksru-font-family-heading);
+    line-height: 1.2;
   }
 
   /* Musical hexatonic scale: 𝑓ᵢ = 𝑓₀𝑟ⁱ⁄ⁿ, n=6, r=2, 𝑓₀=1em */
@@ -131,14 +132,13 @@
     gap: 4px;
   }
 
-
-
   .section, .section-2, .div-block {
     font-family: unset;
   }
 
   .body {
     font-size: unset;
+    line-height: 1.6;
     font-family: var(--ksru-font-family-body);
   }
 }
