@@ -22,6 +22,24 @@
 
 .section-2
   %h3 What You Can Do
+  %section#solidarity-fund
+    - go_fund_me_url = "https://www.gofundme.com/f/support-kickstarter-united-workers"
+    %header 
+      %h4 Donate to Our Solidarity Fund
+      %p
+        On Labor Day we launched our Solidarity fund on GoFundMe. If management forces a strike, 
+        this GoFundMe will help our most vulnerable workers weather the hardship of pay-stoppage.
+    %article.fund
+      .fund__main
+        %div.gfm-embed{ data: { url: "https://www.gofundme.com/f/support-kickstarter-united-workers/widget/medium?sharesheet=undefined&attribution_id=sl:c9a70e0a-71b0-4f51-9fd6-16cb0de227df" } }
+        %script{ src: "https://www.gofundme.com/static/js/embed.js", defer: true }
+
+      .fund__aside
+        %p
+          If we reach an agreement without striking, we will refund any donation on request and roll 
+          the remaining funds into a sympathetic solidarity and/or hardship fund to help our fellow workers
+
+
   %section#solidarity-rally
     %header
       %h4 Join Us for Our Solidarity Rally
@@ -191,7 +209,4 @@
       #can-petition-area-ksru-solidarity-petition
         -# {:style => "width: 70%; margin: 0 auto;"}
         -# this div is the target for our HTML insertion
--# #faq.section-2
--#   %h3 Frequently Asked Questions
--#   %p.paragraph
--#     %h4 Lorem ipsum
+
