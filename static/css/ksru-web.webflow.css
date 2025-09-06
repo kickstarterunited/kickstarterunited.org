@@ -17,6 +17,10 @@
     font-size: 100%;
   }
 
+  * + :is(p, ul, ol, dl, blockquote, pre, table, hr) {
+    margin: 1rem 0 0;
+  }
+
   body {
     font-family: var(--ksru-font-family-body);
   }
