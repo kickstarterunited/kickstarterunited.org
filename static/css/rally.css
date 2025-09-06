@@ -63,7 +63,6 @@
     .rally {
       display: grid;
       grid-template-columns: minmax(30ch, 1fr) 1fr;
-      align-items: baseline;
 
       gap: 1rem 2rem;
     }
