@@ -44,6 +44,16 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--ksru-font-family-heading);
   }
+
+  /* Musical hexatonic scale: 𝑓ᵢ = 𝑓₀𝑟ⁱ⁄ⁿ, n=6, r=2, 𝑓₀=1em */
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.7818em; }
+  h3 { font-size: 1.5874em; }
+  h4 { font-size: 1.4142em; }
+  h5 { font-size: 1.2599em; }
+  h6 { font-size: 1.1225em; }
+  p { font-size: 1em; }
+  small { font-size: .8909em; }
 }
 
 @layer components {
