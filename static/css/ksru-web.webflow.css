@@ -1,4 +1,26 @@
 @layer base {
+  html {
+    /* Fallback fonts */
+    --ksru-font-stack-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Font families */
+    --ksru-font-family-jost: 'Jost', var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-libre-franklin: 'Libre Franklin', var(--ksru-font-stack-system, sans-serif);
+
+    /* Content types */
+    --ksru-font-family-heading: var(--ksru-font-family-jost, monospace);
+
+    --ksru-font-family-body: var(--ksru-font-family-libre-franklin, sans-serif);
+
+    --ksru-line-length: 80ch;
+
+    font-size: 100%;
+  }
+
+  body {
+    font-family: var(--ksru-font-family-body);
+  }
+
   a {
     display: inline;
     color: currentColor;
@@ -17,6 +39,10 @@
   html {
     scroll-behavior: smooth;
     scroll-padding: 6rem 0 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ksru-font-family-heading);
   }
 }
 
@@ -89,6 +115,17 @@
     margin: 0;
     display: flex;
     gap: 4px;
+  }
+
+
+
+  .section, .section-2, .div-block {
+    font-family: unset;
+  }
+
+  .body {
+    font-size: unset;
+    font-family: var(--ksru-font-family-body);
   }
 }
 
