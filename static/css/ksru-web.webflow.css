@@ -1,4 +1,30 @@
 @layer base {
+  html {
+    /* Fallback fonts */
+    --ksru-font-stack-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Font families */
+    --ksru-font-family-jost: 'Jost', var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-libre-franklin: 'Libre Franklin', var(--ksru-font-stack-system, sans-serif);
+
+    /* Content types */
+    --ksru-font-family-heading: var(--ksru-font-family-jost, monospace);
+
+    --ksru-font-family-body: var(--ksru-font-family-libre-franklin, sans-serif);
+
+    --ksru-line-length: 80ch;
+
+    font-size: 100%;
+  }
+
+  * + :is(p, ul, ol, dl, blockquote, pre, table, hr) {
+    margin: 1rem 0 0;
+  }
+
+  body {
+    font-family: var(--ksru-font-family-body);
+  }
+
   a {
     display: inline;
     color: currentColor;
@@ -18,6 +44,21 @@
     scroll-behavior: smooth;
     scroll-padding: 6rem 0 0;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ksru-font-family-heading);
+    line-height: 1.2;
+  }
+
+  /* Musical hexatonic scale: 𝑓ᵢ = 𝑓₀𝑟ⁱ⁄ⁿ, n=6, r=2, 𝑓₀=1em */
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.7818em; }
+  h3 { font-size: 1.5874em; }
+  h4 { font-size: 1.4142em; }
+  h5 { font-size: 1.2599em; }
+  h6 { font-size: 1.1225em; }
+  p { font-size: 1em; }
+  small { font-size: .8909em; }
 }
 
 @layer components {
@@ -89,6 +130,16 @@
     margin: 0;
     display: flex;
     gap: 4px;
+  }
+
+  .section, .section-2, .div-block {
+    font-family: unset;
+  }
+
+  .body {
+    font-size: unset;
+    line-height: 1.6;
+    font-family: var(--ksru-font-family-body);
   }
 }
 
