@@ -76,26 +76,7 @@
 
     %article.rally
       .rally__main
-        %div.rally__card
-          %h4 Rally Details
-
-          %div
-            %p.rally__logistics
-              %strong When:
-              %time{ datetime: "2025-09-05T14:00:00-07:00" } Friday, September 5, 2025 (Past event)
-              %br/
-              %strong Where:
-              Online
-
-              %br/
-              %strong Duration:
-              1 hour
-
-            %p.rally__cta
-              %a{ href: rally_recording_url, rel: "noopener", target: "_blank", aria: { label: "Watch the rally (Opens in a new tab)" } }
-                Watch the rally
-            %small
-              %a.link{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact us for the webinar passcode.
+        %iframe{width: "560", height: "315", src: "https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p", title: "YouTube video player", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
 
       .rally__aside
         %h4 Featured speakers and supporters
