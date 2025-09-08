@@ -13,6 +13,8 @@
     --ksru-font-family-body: var(--ksru-font-family-libre-franklin, sans-serif);
 
     --ksru-line-length: 80ch;
+    --ksru-color-accent: #034752;
+    --ksru-color-accent-light: #05ce78;
 
     font-size: 100%;
   }
@@ -59,6 +61,19 @@
   h6 { font-size: 1.1225em; }
   p { font-size: 1em; }
   small { font-size: .8909em; }
+
+
+  hr {
+    --_line: radial-gradient(circle at center, var(--ksru-color-accent) max(128px, 33%), var(--ksru-color-accent-light) 70%, transparent calc(100% - 64px), transparent);
+    border: none;
+    height: 6px;
+    margin: 32px 0;
+    background-image: var(--_line), var(--_line);
+    background-position: left top, left 4px;
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 2px;
+
+  }
 }
 
 @layer components {
@@ -69,7 +84,7 @@
       "HEADER" auto
       "MAIN"   1fr
       "FOOTER" auto
-      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 1140px) 1fr [FULL-end] 16px [BLEED-end];
+      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 65ch) 1fr [FULL-end] 16px [BLEED-end];
     gap: 0;
   }
   .page > * {
@@ -406,9 +421,10 @@ figcaption {
 .section-2 {
   width: auto;
   max-width: 1140px;
-  margin: 32px auto;
-  padding: 0px;
-  border-top: 2px dashed #000;
+}
+
+* + .section-2 {
+  margin-top: 32px;
 }
 
 .section-3 {
