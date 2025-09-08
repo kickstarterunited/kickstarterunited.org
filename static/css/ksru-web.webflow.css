@@ -33,6 +33,13 @@
   a {
     display: inline;
     color: currentColor;
+
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
+  }
+
+  a:hover {
+    text-decoration-thickness: 3px;
   }
 
   ul {
@@ -154,6 +161,11 @@
     grid-column: BLEED;
     display: grid;
     grid-template-columns: subgrid;
+  }
+
+  .page__header a,
+  .page__footer a {
+    text-decoration-thickness: auto;
   }
 
   :is(.page__header, .page__footer) > * {
