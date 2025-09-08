@@ -240,6 +240,51 @@
   }
 }
 
+/* MARK: .media */
+@layer components {
+  @media screen and (min-width: 768px) {
+    .media {
+      display: grid;
+      grid-template-columns: minmax(30ch, 0.5fr);
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      gap: 1rem 2rem;
+    }
+
+    * + .media {
+      margin-top: 1rem;
+    }
+
+    .media > * {
+      margin: 0;
+    }
+
+    .media > :first-child {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .media__details {
+      align-self: center;
+    }
+  }
+}
+
+/* MARK: .solidarity */
+@layer components {
+  .solidarity {}
+
+  * + .solidarity {
+    margin-top: 1rem;
+  }
+
+  .solidarity__links {
+    display: flex;
+    gap: 0.25rem 1rem;
+    flex-wrap: wrap;
+  }
+}
+
 /* MARK: Utilities */
 @layer utilities {
   .sr-only:not(:focus):not(:active) {
@@ -582,8 +627,6 @@ li > a {
   grid-template-rows: auto auto;
   color: #fff;
 }
-
-
 
 .section-7 {
   display: block;
