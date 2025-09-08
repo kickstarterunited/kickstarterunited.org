@@ -75,13 +75,9 @@
     --_clr-2: color-mix(in lch, var(--ksru-color-accent-light), transparent 50%);
     --_line: radial-gradient(circle at center, var(--_clr-1) max(128px, 33%), var(--_clr-2) 70%, transparent calc(100% - 64px), transparent);
     border: none;
-    height: 6px;
+    height: 2px;
     margin: 32px 0;
-    background-image: var(--_line), var(--_line);
-    background-position: left top, left 4px;
-    background-repeat: no-repeat;
-    background-size: 100% 2px, 100% 2px;
-
+    background-image: var(--_line);
   }
 }
 
