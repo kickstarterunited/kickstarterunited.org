@@ -97,6 +97,7 @@
 }
 
 @layer components {
+  /* MARK: .surface */
   @property --surface-border-angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -145,6 +146,7 @@
 }
 
 @layer components {
+  /* MARK: .page */
   .page {
     display: grid;
     min-height: 100dvh;
@@ -176,6 +178,7 @@
     grid-column: CONTENT;
   }
 
+  /* MARK: .navigation */
   .navigation {
     z-index:1000;
 
@@ -206,6 +209,7 @@
     margin-block: 2em;
   }
 
+  /* MARK: .social-links */
   .social-links {
     margin: 0;
     padding: 0;
@@ -231,6 +235,7 @@
   }
 }
 
+/* MARK: .embed */
 @layer components {
   .embed {
     max-width: 100%;
@@ -243,6 +248,7 @@
   }
 }
 
+/* MARK: Utilities */
 @layer utilities {
   .sr-only:not(:focus):not(:active) {
     clip: rect(0 0 0 0);
@@ -255,6 +261,7 @@
   }
 }
 
+/* MARK: Legacy styles */
 @layer legacy {
 
 body {
