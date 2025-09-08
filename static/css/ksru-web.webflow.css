@@ -12,7 +12,7 @@
 
     --ksru-font-family-body: var(--ksru-font-family-libre-franklin, sans-serif);
 
-    --ksru-line-length: 80ch;
+    --ksru-line-length: 70ch;
 
     --ksru-color-accent: #034752;
     --ksru-color-accent-light: #05ce78;
@@ -141,7 +141,7 @@
       "HEADER" auto
       "MAIN"   1fr
       "FOOTER" auto
-      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, 65ch) 1fr [FULL-end] 16px [BLEED-end];
+      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, var(--ksru-line-length)) 1fr [FULL-end] 16px [BLEED-end];
     gap: 0;
   }
   .page > * {
