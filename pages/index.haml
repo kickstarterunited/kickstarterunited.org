@@ -1,5 +1,8 @@
 .section
   %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}/
+
+%hr/
+
 .section-2
   %h1 Our Next Contract
   %p.paragraph
@@ -18,36 +21,36 @@
   -#   For more information, see our
   -#   %a{:href => "#faq", :style => "display: inline"} FAQ
 
+%hr/
 
-.section-2
+.section-2.solidarity
   %h2 What You Can Do
-  %div.rally__toc
-    %ul.rally__links{role: "list"}
-      %li
-        %a{ href: "#solidarity-fund" } Donate
-      %li
-        %a{ href: "#solidarity-petition" } Sign
-      %li
-        %a{ href: "#solidarity-rally" } Watch
+  %ul.solidarity__links{role: "list"}
+    %li
+      %a{ href: "#solidarity-fund" } Donate
+    %li
+      %a{ href: "#solidarity-petition" } Sign
+    %li
+      %a{ href: "#solidarity-rally" } Watch
 
-  %section#solidarity-fund
+  %article.surface#solidarity-fund
     - go_fund_me_url = "https://www.gofundme.com/f/support-kickstarter-united-workers"
     %header
       %h3 Donate to Our Solidarity Fund
       %p
         On Labor Day we launched our Solidarity fund on GoFundMe. If management forces a strike,
         this GoFundMe will help our most vulnerable workers weather the hardship of pay-stoppage.
-    %article.fund
-      .fund__main
+    .media
+      %div
         %div.gfm-embed{ data: { url: "https://www.gofundme.com/f/support-kickstarter-united-workers/widget/medium?sharesheet=undefined&attribution_id=sl:c9a70e0a-71b0-4f51-9fd6-16cb0de227df" } }
         %script{ src: "https://www.gofundme.com/static/js/embed.js", defer: true }
 
-      .fund__aside
-        %p
-          If we reach an agreement without striking, we will refund any donation on request and roll
-          the remaining funds into a sympathetic solidarity and/or hardship fund to help our fellow workers
+      %p.media__details
+        If we reach an agreement without striking, we will refund any donation
+        on request and roll the remaining funds into a sympathetic solidarity
+        and/or hardship fund to help our fellow workers
 
-  %section#solidarity-petition{ style: "margin-top: 2rem;" }
+  %article.surface#solidarity-petition
     %h3 Sign Our Solidarity Petition
 
     %p.paragraph
@@ -64,7 +67,7 @@
         -# {:style => "width: 70%; margin: 0 auto;"}
         -# this div is the target for our HTML insertion
 
-  %section#solidarity-rally{ style: "margin-top: 2rem;" }
+  %article.surface#solidarity-rally
     - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
     %header
       %h3 Watch Our Solidarity Rally
@@ -74,11 +77,10 @@
         We featured unionized tech workers who’ve gone on strike, elected representatives who support a 32-hour week, and
         Kickstarter United members discussing our our demands and our union.
 
-    %article.rally
-      .rally__main
-        %iframe{width: "560", height: "315", src: "https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p", title: "YouTube video player", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
+    .media
+      %iframe.embed.embed--video{width: "1024", height: "576", src: "https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p", title: "Kickstarter United Solidarity Rally – September 2023", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
 
-      .rally__aside
+      .media__details
         %h4 Featured speakers and supporters
         %ul
           %li
@@ -93,70 +95,5 @@
           %li
             %b Seattle:
             Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
-
-
-    / Structured data for better event previews
-    %script{ type: "application/ld+json" }
-      :plain
-        {
-          "@context": "https://schema.org",
-          "@type": "Event",
-          "name": "Kickstarter United - Solidarity Rally",
-          "startDate": "2025-09-05T17:00:00-04:00",
-          "endDate": "2025-09-05T18:00:00-04:00",
-          "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-          "eventStatus": "https://schema.org/EventScheduled",
-          "description": "Kickstarter United is rallying support for a fair contract: a codified four-day, 32-hour workweek, a company-wide minimum salary, and protections against replacement by contractors or AI.",
-          "organizer": {
-            "@type": "Organization",
-            "name": "Kickstarter United (OPEIU Local 153)"
-          },
-          "location": {
-            "@type": "VirtualLocation",
-            "url": "#{rally_recording_url}"
-          },
-          "offers": {
-            "@type": "Offer",
-            "url": "#{rally_recording_url}",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          },
-          "performer": [
-            {
-              "@type": "Organization",
-              "name": "The New York Times Tech Guild",
-              "member": [
-                { "@type": "Person", "name": "John Cruickshank" },
-                { "@type": "Person", "name": "Kait Hoehne" }
-              ]
-            },
-            {
-              "@type": "Organization",
-              "name": "Alphabet Workers Union",
-              "member": [
-                { "@type": "Person", "name": "Parul Koul", "jobTitle": "President" }
-              ]
-            },
-            {
-              "@type": "Person",
-              "name": "Emily Gallagher",
-              "jobTitle": "New York State Assemblymember"
-            },
-            {
-              "@type": "Person",
-              "name": "Phara Souffrant Forrest",
-              "jobTitle": "New York State Assemblymember"
-            },
-            {
-              "@type": "Person",
-              "name": "Kshama Sawant",
-              "jobTitle": "Former Seattle City Councilmember and candidate for the United States Congress"
-            }
-          ],
-          "image": [
-            "https://kickstarterunited.org/images/logo.svg"
-          ]
-        }
 
 
