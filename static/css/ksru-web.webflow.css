@@ -62,6 +62,10 @@
   p { font-size: 1em; }
   small { font-size: .8909em; }
 
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
   hr {
     --_line: radial-gradient(circle at center, var(--ksru-color-accent) max(128px, 33%), var(--ksru-color-accent-light) 70%, transparent calc(100% - 64px), transparent);
