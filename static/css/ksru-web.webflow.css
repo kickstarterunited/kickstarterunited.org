@@ -15,6 +15,7 @@
     --ksru-line-length: 80ch;
     --ksru-color-accent: #034752;
     --ksru-color-accent-light: #05ce78;
+    --ksru-color-bg-loading: #ddd;
 
     font-size: 100%;
   }
@@ -159,6 +160,18 @@
     font-size: unset;
     line-height: 1.6;
     font-family: var(--ksru-font-family-body);
+  }
+}
+
+@layer components {
+  .embed {
+    max-width: 100%;
+    height: auto;
+    background-color: var(--ksru-color-bg-loading);
+  }
+  .embed--video {
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
   }
 }
 
