@@ -22,8 +22,12 @@
     font-size: 100%;
   }
 
-  * + :is(p, ul, ol, dl, blockquote, pre, table, hr) {
-    margin: 1rem 0 0;
+  :is(p, ul, ol, dl, li, blockquote, pre, table, hr) {
+    margin: 0;
+  }
+
+  * + :is(p, ul, ol, dl, li, blockquote, pre, table, hr) {
+    margin-top: 0.75rem;
   }
 
   body {
