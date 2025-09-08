@@ -165,8 +165,6 @@
   .page__footer {
     color: #ffffff;
     grid-column: BLEED;
-    display: grid;
-    grid-template-columns: subgrid;
   }
 
   .page__header a,
@@ -174,9 +172,6 @@
     text-decoration-thickness: auto;
   }
 
-  :is(.page__header, .page__footer) > * {
-    grid-column: CONTENT;
-  }
 
   /* MARK: .navigation */
   .navigation {
@@ -184,14 +179,11 @@
 
     height: auto;
     align-self: end;
-    display: grid;
-    grid: auto / subgrid;
     justify-items: flex-end;
     --link-color: #FFF;
   }
 
   .navigation > * {
-    grid-column: CONTENT;
     justify-content: space-around;
   }
 
