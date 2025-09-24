@@ -31,7 +31,10 @@
     %li
       %a{ href: "#solidarity-petition" } Sign
     %li
+      %a{ href: "#board-letter" } Read
+    %li
       %a{ href: "#solidarity-rally" } Watch
+
 
   %p
     With management refusing to move on the 4-day week and fair pay,
@@ -71,6 +74,23 @@
       #can-petition-area-ksru-solidarity-petition
         -# {:style => "width: 70%; margin: 0 auto;"}
         -# this div is the target for our HTML insertion
+  
+  %article.surface#board-letter
+    %header
+      %h3 Read our Appeal to the Board
+      %p
+        At the bargaining table, Kickstarter management keeps passing the buck, claiming they can’t codify the 4-day work week because
+        “they don’t own the company.” So we went straight to the board.
+      %p
+        Many board members have built careers around innovative, socially driven business models and Kickstarter was chartered as a PBC to meaningfully commit to those values. 
+        We felt the board should know management’s actions at the table don’t align with that ethos.
+      %p
+        Their response? A brief dismissal of our concerns and a rejection of our invitation to the table.
+      %p
+        We implore the board to do the right thing and marry their actions to their words by supporting our cause.
+      %p
+        %strong Read the full letter below
+        %embed{ src: '/docs/letter_to_the_board.pdf', type: 'application/pdf', width: '100%', height: '600px' }
 
   %article.surface#solidarity-rally
     - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
