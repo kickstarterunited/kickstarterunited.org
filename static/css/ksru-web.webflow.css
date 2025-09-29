@@ -158,6 +158,7 @@
   .surface.breaking {
     background-color: color-mix(in oklch, var(--ksru-color-accent-light), white 90%);
     color: color-mix(in oklch, var(--ksru-color-accent), black 30%);
+    corner-shape: bevel square bevel square;
   }
 
   * + .surface {
