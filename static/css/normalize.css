@@ -1,6 +1,9 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 @layer normalize {
+:root {
+  interpolate-size: allow-keywords;
+}
 
 /**
  * 1. Set default font family to sans-serif.
@@ -25,13 +28,10 @@ body {
    ========================================================================== */
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11
- * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
 article,
 aside,
-details,
 figcaption,
 figure,
 footer,
@@ -40,8 +40,7 @@ hgroup,
 main,
 menu,
 nav,
-section,
-summary {
+section {
   display: block;
 }
 /**
