@@ -1,18 +1,22 @@
 .section
   %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}/
 
-
-
 %article.surface.breaking
-  %h2 A Resounding YES to Strike ✊
-
+  %h2.flex.flex-wrap.justify-between.gap-x-2
+    %span
+      A Resounding
+      %strong
+        YES to Strike
+    %span.text-balance{role: "presentation", "aria-hidden": "true"}
+      ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
   %p
     On September 26, 2025,
     %strong 85% of Kickstarter United (OPEIU Local 153) members
     %strong voted to authorize a strike
     beginning Thursday, October 2 at 8 a.m. unless management reaches a fair contract agreement.
 
-  %p Our demands are simple:
+  %p
+    %strong Our demands are simple:
 
   %ul
     %li Protect the 32-hour, 4-day workweek that’s been in place for over three years.
@@ -23,6 +27,22 @@
     %a{href: "https://www.opeiulocal153.org/news/kickstarter-united-opeiu-153-workers-authorize-strike-demanding-four-day-workweek-and-minimum-salary"}
       Kickstarter United-OPEIU 153 Workers Authorize Strike Demanding Four-Day
       Workweek and Minimum Salary
+
+  %p
+    %strong
+      %mark.highlight
+        %span.uppercase We are not
+        asking people to boycott
+        %a{href: "//kickstarter.com"} kickstarter.com
+      or withhold support from creators.
+
+  %p
+    -# `="... "` to get haml to include a space before the "here's"
+    = "If you want to support us, "
+    -# `>` eats the space around the link so the it ends with "do!"
+    %a{href: '#what-you-can-do'}> here's what you can do
+    !
+
 
 %hr/
 
@@ -51,7 +71,7 @@
 %hr/
 
 .section-2.solidarity
-  %h2 What You Can Do
+  %h2#what-you-can-do What You Can Do
   %ul.solidarity__links{role: "list"}
     %li
       %a{ href: "#solidarity-fund" } Donate
@@ -99,7 +119,7 @@
 
       %strong sign now to help us avoid a strike!
 
-    %div
+    %div.embed
       %link{:href => "https://actionnetwork.org/css/style-embed-v3.css", :rel => "stylesheet", :type => "text/css"}
       %script{:src => "https://actionnetwork.org/widgets/v5/letter/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike?format=js&source=widget"}
       #can-letter-area-tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike

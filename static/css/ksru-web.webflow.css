@@ -18,15 +18,16 @@
     --ksru-color-accent-light: #05ce78;
     --ksru-color-bg: #ffffff;
     --ksru-color-bg-loading: #ddd;
+    --ksru-color-accent-rich: #ffcf56;
 
     font-size: 100%;
   }
 
-  :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr) {
+  :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed) {
     margin: 0;
   }
 
-  * + :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr) {
+  * + :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed) {
     margin-top: 0.75rem;
   }
 
@@ -127,12 +128,6 @@
     background: var(--ksru-color-bg);
   }
 
-  @supports (corner-shape: squircle) {
-    .surface {
-      corner-shape: squircle;
-      border-radius: 32px;
-    }
-  }
 
   .surface::before {
     --_clr-1: var(--ksru-color-accent);
@@ -140,7 +135,7 @@
 
     content: "";
     position: absolute;
-    inset: -1px;
+    inset: -2px;
     border-radius: inherit;
     corner-shape: inherit;
     z-index: -1;
@@ -151,19 +146,43 @@
   }
 
   .surface.breaking::before {
-    inset: -1px;
-    filter: blur(2px);
+    /* inset: -12px; */
+    rotate: 2deg;
+    /* filter: blur(2px); */
+  }
+
+  @media (width > 600px) {
+    .surface.breaking::before {
+      inset: -12px;
+    }
   }
 
   .surface.breaking {
+    --_border-color: color-mix(in oklch, var(--ksru-color-accent-light), var(--ksru-color-accent) 50%);
+    --_bgc: color-mix(in oklch, var(--ksru-color-accent-light), white 80%);
     background-color: color-mix(in oklch, var(--ksru-color-accent-light), white 90%);
+    background-image: radial-gradient(circle at top right, transparent 0%, transparent 50%, var(--_bgc) 75%), radial-gradient(circle at bottom left, transparent 0%, transparent 50%, var(--_bgc) 75%);
     color: color-mix(in oklch, var(--ksru-color-accent), black 30%);
-    corner-shape: bevel square bevel square;
+    border: 6px double var(--_border-color);
+    box-shadow: 0 0 8px color-mix(in oklch, var(--ksru-color-accent), transparent 50%);
+
+    /* @supports (corner-shape: bevel square bevel square) {
+      corner-shape: bevel square bevel square;
+      border-radius: 32px;
+    } */
   }
 
   * + .surface {
     margin-top: 2rem;
   }
+
+  @supports (corner-shape: squircle) {
+    .surface {
+      corner-shape: squircle;
+      border-radius: 64px;
+    }
+  }
+
 }
 
 @keyframes surface-border-rotate {
@@ -254,6 +273,33 @@
   }
 }
 
+@layer components {
+  /* MARK: .highlight */
+  .highlight {
+    --_color: var(--highlight-color, var(--ksru-color-accent-rich));
+    --_lighter-pressure: color-mix(in oklch, var(--_color), transparent 40%);
+    --_tail: color-mix(in oklch, var(--_lighter-pressure), transparent 60%);
+    padding: 0 0.2em;
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle bevel;
+      border-radius: 50% / 0.2lh 0.4lh 0rem 0.25lh;
+    }
+
+    background-color: transparent;
+    background-image: linear-gradient(to right, var(--_color), var(--_lighter-pressure), calc(100% - 2ch), var(--_tail));
+
+    /* Prevents background-break when wrapping */
+    box-decoration-break: clone;
+    font-weight: bold;
+
+
+    position: relative;
+    isolation: isolate;
+  }
+
+}
+
 /* MARK: .embed */
 @layer components {
   .embed {
@@ -261,6 +307,11 @@
     height: auto;
     background-color: var(--ksru-color-bg-loading);
   }
+
+  * + .embed {
+    margin-top: 1rem;
+  }
+
   .embed--video {
     aspect-ratio: 16 / 9;
     border-radius: 16px;
@@ -269,6 +320,11 @@
 
 /* MARK: .media */
 @layer components {
+
+    * + .media {
+      margin-top: 1rem;
+    }
+
   @media screen and (min-width: 768px) {
     .media {
       display: grid;
@@ -276,10 +332,6 @@
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
       gap: 1rem 2rem;
-    }
-
-    * + .media {
-      margin-top: 1rem;
     }
 
     .media > * {
@@ -322,6 +374,31 @@
     position: absolute;
     white-space: nowrap;
     width: 1px;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .flex {
+    display: flex;
+  }
+
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .gap-x-2 {
+    gap-x: 0.0rem;
+  }
+
+  .text-balance {
+    text-wrap: pretty;
+    text-wrap: balance;
   }
 }
 
