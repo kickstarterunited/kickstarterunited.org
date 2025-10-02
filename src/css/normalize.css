@@ -5,6 +5,11 @@
   interpolate-size: allow-keywords;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition-behavior: allow-discrete;
+}
+
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS and IE text size adjust after device orientation change,
