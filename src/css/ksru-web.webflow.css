@@ -474,6 +474,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     flex: 1 1 0;
+    color: var(--ksru-text-primary);
   }
 
   .rally__cta-group * + :is(button, .btn) {
@@ -809,7 +810,7 @@
     text-wrap: pretty;
     text-wrap: balance;
   }
-  
+
   .text-center {
     text-align: center;
   }
