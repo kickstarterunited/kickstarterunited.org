@@ -242,7 +242,7 @@
       
       if(Number.isNaN(start))return;
       
-      var days = Math.floor((Date.now() - start) / 86400000)+10;
+      var days = Math.floor((Date.now() - start) / 86400000)+1;
 
       el.textContent=String(days);
       el.style.visibility = 'visible';
