@@ -22,14 +22,19 @@
     --ksru-color-outline: var(--ksru-color-accent);
     --ksru-color-outline-accent: var(--ksru-color-accent-rich);
 
+    --ksru-text-primary: #1a1b1f;
+    --ksru-text-accent: #fff;
+
     font-size: 100%;
+
+    scrollbar-color: var(--ksru-color-accent-light) var(--ksru-color-bg);
   }
 
-  :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed) {
+  :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed, figure, figcaption, button) {
     margin: 0;
   }
 
-  * + :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed) {
+  * + :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed, figure, figcaption, button) {
     margin-top: 0.75rem;
   }
 
@@ -110,8 +115,10 @@
     --_line: radial-gradient(circle at center, var(--_clr-1) max(128px, 33%), var(--_clr-2) 70%, transparent calc(100% - 64px), transparent);
     border: none;
     height: 2px;
-    margin: 32px 0;
+    /* 32px - 96px, between 480px - 1024px viewport */
+    margin: clamp(32px, -24.45px + 11.76vw, 96px) 0;
     background-image: var(--_line);
+
   }
 
   details::details-content {
@@ -149,7 +156,19 @@
     text-decoration-thickness: 2px;
   }
 }
+@layer components {
+  button, .btn {
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 44px;
+    min-height: 44px;
+    align-content: center;
+  }
 
+  * + :is(button, .btn) {
+    margin-top: 1rem;
+  }
+}
 @layer components {
   /* MARK: .surface */
   @property --surface-border-angle {
@@ -311,26 +330,132 @@
     gap: 1rem;
   }
 
+  * + .rally-gallery {
+    margin-top: 2rem;
+  }
+
+  .rally-gallery > * {
+    margin-top: 0;
+  }
+
   .rally {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    --_rad: 16px;
+    display: grid;
+    grid-row: span 3;
+    grid-template-columns: subgrid;
+    gap: 1rem;
+    text-wrap: pretty;
+  }
+
+  .rally > * {
+    margin-top: 0;
   }
 
   .rally img {
-    border-radius: 16px;
+    border-radius: var(--_rad);
     corner-shape: squircle;
   }
 
-  .rally-dialog {
-    width: 80%;
-    height: 80%;
+  .rally figcaption {
+    font-size: 0.875rem;
+    color: var(--ksru-text-secondary, #444);
+    margin-top: -0.5rem;
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+  .rally__dialog {
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: stretch;
+    height: -moz-available;
+    height: -webkit-fill-available;
+    height: stretch;
+    margin: 44px;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    pointer-events: none;
+
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out,
+    overlay 0.5s ease-in-out allow-discrete,
+    display 0.5s ease-in-out allow-discrete;
+
+    opacity: 0;
+    transform: translateY(1em);
+  }
+
+  .rally__dialog:open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .rally__dialog::backdrop {
+    transition: display 0.5s allow-discrete, overlay 0.5s allow-discrete,
+      background-color 0.5s;
+    background-color: transparent;
+  }
+
+  .rally__dialog:open::backdrop {
+    background-color: color-mix(in oklch, color-mix(in oklch, var(--ksru-color-accent), black 50%), transparent 10%);
+  }
+
+  @starting-style {
+    .rally__dialog:open {
+      opacity: 0;
+      transform: translateY(-1em);
     }
+
+    .rally-dialog::backdrop {
+      background-color: transparent;
+    }
+  }
+
+  .rally__dialog img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .rally__cta-group {
+    --_bgc: var(--ksru-color-accent-light);
+
+    border: 1px solid var(--_bgc);
+    color: var(--ksru-text-primary);
+    border-radius: var(--_rad);
+    corner-shape: square square squircle squircle;
+    padding-top: var(--_rad);
+    margin-top: calc(-1 * var(--_rad));
+    display: flex;
+  }
+
+  .rally__cta-group :is(button, .btn) {
+    margin: 0;
+    padding: 0.5em 0.75em;
+    text-align: center;
+    font: inherit;
+    border: none;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    flex: 1 1 0;
+  }
+
+  .rally__cta-group * + :is(button, .btn) {
+    border-left: 1px solid color-mix(in oklch, var(--ksru-color-accent-light), white 20%);
+  }
+
+  .rally__cta {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    font: inherit;
+    font-weight: 500;
+    border: 1px solid var(--ksru-color-accent);
+    background-color: var(--ksru-color-accent);
+    color: var(--ksru-text-accent);
+    border-radius: var(--_rad);
+    corner-shape: squircle;
+    text-decoration: none;
   }
 }
 

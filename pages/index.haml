@@ -61,38 +61,43 @@
           width: "1080",
           height: "1080",
         }/
-        %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} View Flyer
-        %a{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download Flyer
-        %dialog.rally-dialog#seattle-rally-flyer{popover: nil, closedby: "any" }
+        %div.rally__cta-group
+          %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} Details
+          %a.btn{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download
+        %dialog.rally__dialog#seattle-rally-flyer{closedby: "any" }
           %img{src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", alt: "Kickstarter United members and supporters rallying in Seattle", width: "1080", height: "1080"}/
 
       %figcaption
         Strike rally to be held on October 2, 2025 at 6pm PST at Cal Anderson Park in Seattle, WA.
-        %a{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP now!
-
-
+      %a.rally__cta.btn{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP for Seattle
 
     %figure.rally
+      - src = "images/rally/kickstarter-united-rally-nyc-2025-10-07.png"
+      - alt = "Kickstarter United members and supporters rallying in New York City"
+      - width = "1080"
+      - height = "1080"
+
       %div
-        %img{
-          src: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png",
-          alt: "Kickstarter United members and supporters rallying in New York City",
-          width: "1080",
-          height: "1080"
-        }/
-        %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} View Flyer
-        %a{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download Flyer
-        %dialog.rally-dialog#nyc-rally-flyer{popover: nil, closedby: "any" }
-          %img{src: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", alt: "Kickstarter United members and supporters rallying in New York City", width: "1080", height: "1080"}/
+        %dialog.rally__dialog#nyc-rally-flyer{closedby: "any" }
+          %img{src: src, alt: alt, width: width, height: height}/
+
+        %img{src: src, alt: alt, width: width, height: height}/
+
+        %div.rally__cta-group
+          %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} Details
+          %a.btn{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download
+
 
       %figcaption
         Come rally with us on October 7, 2025 in New York City at Union Square Ventures.
-        %a{href: "//bit.ly/KSRUrally"} RSVP now!
+
+      %a.rally__cta.btn{href: "//bit.ly/KSRUrally"} RSVP for NYC
+
 
 %hr/
 
 .section-2
-  %h1 Our Next Contract
+  %h2 Our Next Contract
   %p.paragraph
     In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
     %a{:href => "/contracts/2022", :style => "display: inline;"} first contract
@@ -167,20 +172,6 @@
             #can-letter-area-tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike
               -# {:style => "width: 70%; margin: 0 auto;"}
               -# this div is the target for our HTML insertion
-
-    -# .solidarity__item#solidarity-rally
-    -#   %details{name: "solidarity"}
-    -#     %summary Rally With Us
-
-    -#     %div
-    -#       %p
-    -#         On September 5th, we held a public virtual rally to support our fight for a fair contract.
-    -#         We featured unionized tech workers who’ve gone on strike, elected representatives who support a 32-hour week,
-    -#         and Kickstarter United members discussing our demands and our union.
-
-    -#       %p
-    -#         If you missed it, you can watch the full recording
-    -#         %a{href: "https://www.youtube.com/watch?v=BqjoIgS3-kU"} on YouTube.
 
     .solidarity__item#board-letter
       %details{name: "solidarity"}
