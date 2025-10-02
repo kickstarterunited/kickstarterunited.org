@@ -4,6 +4,7 @@ gem 'haml'
 gem 'rake'
 gem 'tilt'
 gem 'webrick'
+gem 'tailwindcss-ruby'
 
 # Live reload development server
 gem 'em-websocket', require: false

@@ -5,9 +5,9 @@ require 'tilt/haml'
 
 task default: :build
 
-# Initialize rebuild callbacks array
 @rebuild_callbacks = []
 @dev_server_thread = nil
+@tailwind_thread = nil
 
 desc 'Start server with watch and hot-reloading'
 task :dev do
@@ -25,8 +25,19 @@ task :dev do
   # Register a callback for when watch rebuilds
   @rebuild_callbacks << -> { dev_server.reload }
 
+  # Start Tailwind CSS watcher in background thread
+  Rake::Task[:tailwind_dev].invoke
+
   # Now run the watch task
   Rake::Task[:watch].invoke
+end
+
+task :tailwind_dev do
+  puts "Starting Tailwind CSS watcher..."
+  @tailwind_thread = Thread.new do
+    sh 'bundle exec tailwindcss -w -i src/css/input.css -o static/css/output.css'
+  rescue
+  end
 end
 
 desc 'Watch for changes and rebuild'
@@ -56,6 +67,7 @@ task watch: :build do
 
   listener.start
   @dev_server_thread&.join
+  @tailwind_thread&.join
   puts "\nStopping watch..."
   listener.stop
 end

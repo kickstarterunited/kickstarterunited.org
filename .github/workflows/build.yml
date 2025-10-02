@@ -2,7 +2,7 @@ name: Build
 
 on:
   pull_request:
-  
+
   workflow_dispatch:
 
 jobs:
@@ -15,5 +15,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: "3.4"
+      - name: Tailwind CSS build
+        run: bundle exec tailwindcss -m -i src/css/input.css -o static/css/output.css
       - name: Build site
         run: bundle exec rake build
