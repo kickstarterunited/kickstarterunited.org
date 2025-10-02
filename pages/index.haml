@@ -235,7 +235,6 @@
 %script{defer: true}
   :plain
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('updateStrikeDays')
       var el = document.querySelector('#day-count');
       if(!el)return;
       
@@ -247,5 +246,4 @@
 
       el.textContent=String(days);
       el.style.visibility = 'visible';
-
     })
