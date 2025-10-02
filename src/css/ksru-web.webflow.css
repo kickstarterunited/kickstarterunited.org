@@ -129,7 +129,7 @@
     overflow: clip;
   }
 
-  details:open::details-content {
+  details[open]::details-content {
     opacity: 1;
     block-size: auto;
   }
@@ -420,7 +420,7 @@
     transform: translateY(1em);
   }
 
-  .rally__dialog:open {
+  .rally__dialog[open] {
     opacity: 1;
     transform: translateY(0);
   }
@@ -431,12 +431,12 @@
     background-color: transparent;
   }
 
-  .rally__dialog:open::backdrop {
+  .rally__dialog[open]::backdrop {
     background-color: color-mix(in oklch, color-mix(in oklch, var(--ksru-color-accent), black 50%), transparent 10%);
   }
 
   @starting-style {
-    .rally__dialog:open {
+    .rally__dialog[open] {
       opacity: 0;
       transform: translateY(-1em);
     }
@@ -755,7 +755,7 @@
 
   .solidarity__item summary:hover,
   .solidarity__item summary:focus:focus-visible,
-  .solidarity__item :open summary {
+  .solidarity__item [open] summary {
     background-color: transparent;
     color: white;
   }
