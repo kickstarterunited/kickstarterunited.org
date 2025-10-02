@@ -135,6 +135,19 @@
     border-radius: 4px;
     outline-offset: var(--_offset);
   }
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    color: inherit;
+    padding: 0;
+    text-align: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 2px;
+  }
 }
 
 @layer components {
@@ -288,6 +301,36 @@
     font-size: unset;
     line-height: 1.6;
     font-family: var(--ksru-font-family-body);
+  }
+}
+
+@layer components {
+  .rally-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .rally {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .rally img {
+    border-radius: 16px;
+    corner-shape: squircle;
+  }
+
+  .rally-dialog {
+    width: 80%;
+    height: 80%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
 }
 

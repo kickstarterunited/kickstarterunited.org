@@ -17,6 +17,10 @@
     %link{:href => "/css/simple-responsive.css", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
     %link{:href => "/images/webclip.png", :rel => "apple-touch-icon"}/
+
+    %script{src: "https://unpkg.com/invokers-polyfill@latest/invoker.min.js", type: "module", async: true}
+    %script{src: "https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@latest", crossorigin: "anonymous", nomodule: true, async: true}
+
   %body.body
     .page.div-block
       %header.page__header.navigation{"data-animation" => "default", "data-collapse" => "medium", "data-duration" => "400"}

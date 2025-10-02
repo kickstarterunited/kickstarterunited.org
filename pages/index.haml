@@ -47,6 +47,51 @@
 %hr/
 
 .section-2
+  %h1 Rally With Us
+
+  %p
+    Our strike rallies are a chance to come together in solidarity. Join us in Seattle and New York as workers, friends, and community members gather to support a fair contract. Together, we'll raise our voices for a 32-hour week and livable wages.
+
+  %div.rally-gallery
+    %figure.rally
+      %div
+        %img{
+          src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png",
+          alt: "Kickstarter United members and supporters rallying in Seattle",
+          width: "1080",
+          height: "1080",
+        }/
+        %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} View Flyer
+        %a{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download Flyer
+        %dialog.rally-dialog#seattle-rally-flyer{popover: nil, closedby: "any" }
+          %img{src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", alt: "Kickstarter United members and supporters rallying in Seattle", width: "1080", height: "1080"}/
+
+      %figcaption
+        Strike rally to be held on October 2, 2025 at 6pm PST at Cal Anderson Park in Seattle, WA.
+        %a{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP now!
+
+
+
+    %figure.rally
+      %div
+        %img{
+          src: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png",
+          alt: "Kickstarter United members and supporters rallying in New York City",
+          width: "1080",
+          height: "1080"
+        }/
+        %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} View Flyer
+        %a{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download Flyer
+        %dialog.rally-dialog#nyc-rally-flyer{popover: nil, closedby: "any" }
+          %img{src: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", alt: "Kickstarter United members and supporters rallying in New York City", width: "1080", height: "1080"}/
+
+      %figcaption
+        Come rally with us on October 7, 2025 in New York City at Union Square Ventures.
+        %a{href: "//bit.ly/KSRUrally"} RSVP now!
+
+%hr/
+
+.section-2
   %h1 Our Next Contract
   %p.paragraph
     In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
@@ -127,6 +172,15 @@
     -#   %details{name: "solidarity"}
     -#     %summary Rally With Us
 
+    -#     %div
+    -#       %p
+    -#         On September 5th, we held a public virtual rally to support our fight for a fair contract.
+    -#         We featured unionized tech workers who’ve gone on strike, elected representatives who support a 32-hour week,
+    -#         and Kickstarter United members discussing our demands and our union.
+
+    -#       %p
+    -#         If you missed it, you can watch the full recording
+    -#         %a{href: "https://www.youtube.com/watch?v=BqjoIgS3-kU"} on YouTube.
 
     .solidarity__item#board-letter
       %details{name: "solidarity"}
