@@ -1,17 +1,16 @@
-.section
-  %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}/
-
 .days-on-strike
-  %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
-    ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
-  %h2.text-center
-    Days on strike
-    %span.day-count
-      = (Date.today - Date.new(2025, 10, 2)).to_i + 1
-  %p.text-center
-    Since October 2, 2025
-  %div.flex.flex-wrap.justify-between.gap-x-2
-    %a.btn.btn-success.text-center{href: '#what-you-can-do'}> How to Support
+  %div.container
+    %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}
+  %div.container
+    %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
+      ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
+    %h2.text-center
+      Days on strike
+      %span#day-count.day-count{"aria-live" => "polite"} 0
+    %p.text-center
+      Since October 2, 2025
+    %div.flex.flex-wrap.justify-between.gap-x-2
+      %a.btn.btn-success.text-center{href: '#what-you-can-do'}> How to Support
 
 %article.surface.breaking
   %h2.flex.flex-wrap.justify-between.gap-x-2
@@ -233,5 +232,20 @@
                 %li
                   %b Seattle:
                   Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+%script{defer: true}
+  :plain
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('updateStrikeDays')
+      var el = document.querySelector('#day-count');
+      if(!el)return;
+      
+      var start = Date.parse('2025-10-02');
+      
+      if(Number.isNaN(start))return;
+      
+      var days = Math.floor((Date.now() - start) / 86400000)+10;
 
+      el.textContent=String(days);
+      el.style.visibility = 'visible';
 
+    })

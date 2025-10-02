@@ -1052,11 +1052,13 @@ label {
   margin-right: auto;
   margin-left: auto;
   width: auto;
-  max-width: 375px;
   border: 5px solid var(--ksru-color-accent-light);
   border-radius: 28px;
   padding: clamp(20px, 3vw, 36px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 * + .days-on-strike {
@@ -1067,11 +1069,12 @@ label {
   font-size: 3em;
   display: block;
   color: var(--ksru-color-accent-light);
+  visibility: hidden;
 }
 
 .days-on-strike .pump {
   text-align: center;
-  font-size: 1.7818em;
+  font-size: 1.6em;
   display: block;
 }
 

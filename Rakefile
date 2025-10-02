@@ -2,7 +2,6 @@
 
 require 'haml'
 require 'tilt/haml'
-require 'date'
 
 task default: :build
 
