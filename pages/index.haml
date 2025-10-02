@@ -1,6 +1,18 @@
 .section
   %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}/
 
+.days-on-strike
+  %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
+    ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
+  %h2.text-center
+    Days on strike
+    %span.day-count
+      = (Date.today - Date.new(2025, 10, 2)).to_i + 1
+  %p.text-center
+    Since October 2, 2025
+  %div.flex.flex-wrap.justify-between.gap-x-2
+    %a.btn.btn-success.text-center{href: '#what-you-can-do'}> How to Support
+
 %article.surface.breaking
   %h2.flex.flex-wrap.justify-between.gap-x-2
     %span
