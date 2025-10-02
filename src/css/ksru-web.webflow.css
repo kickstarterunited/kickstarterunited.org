@@ -172,6 +172,7 @@
     cursor: pointer;
     width: 100%;
     text-decoration: none;
+    color: var(--ksru-color-bg);
   }
 
   * + :is(button, .btn) {
@@ -188,7 +189,7 @@
   }
 
   .btn-success {
-    background: #05ce78;
+    background: var(--ksru-color-accent-light);
   }
 
   .btn-success:hover {
