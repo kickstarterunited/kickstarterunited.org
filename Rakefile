@@ -35,10 +35,8 @@ end
 task :tailwind_dev do
   puts "Starting Tailwind CSS watcher..."
   @tailwind_thread = Thread.new do
-    begin
-      sh 'bundle exec tailwindcss -w -i src/css/input.css -o static/css/output.css'
-    rescue
-    end
+    sh 'bundle exec tailwindcss -w -i src/css/input.css -o static/css/output.css'
+  rescue
   end
 end
 
