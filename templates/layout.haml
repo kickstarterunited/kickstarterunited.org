@@ -19,7 +19,6 @@
     %script{type: "module", async: true}
       :plain
         import {isSupported, apply} from "https://unpkg.com/invokers-polyfill@latest/invoker.js"
-        console.log({ isSupported: isSupported() })
         if (!isSupported()) {
           apply()
         };

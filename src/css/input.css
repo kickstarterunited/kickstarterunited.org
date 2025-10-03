@@ -2,7 +2,7 @@
 
 @import "./base/legacy.css";
 
-@import "./simple-responsive.css";
+/* TODO: extract the rest of ksru-web.webflow.css to component files */
 @import "./ksru-web.webflow.css";
 
 @import "./components/days-on-strike.css";

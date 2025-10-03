@@ -26,8 +26,6 @@
     --ksru-text-accent: #fff;
 
     font-size: 100%;
-
-    scrollbar-color: var(--ksru-color-accent-light) var(--ksru-color-bg);
   }
 
   :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed, figure, figcaption, button) {
@@ -156,6 +154,7 @@
     text-decoration-thickness: 2px;
   }
 }
+
 
 @layer components {
   button, .btn {
