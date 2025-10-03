@@ -1,4 +1,6 @@
 @import "tailwindcss";
 
+@import "./base/legacy.css";
+
 @import "./simple-responsive.css";
 @import "./ksru-web.webflow.css";
