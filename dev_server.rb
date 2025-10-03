@@ -6,6 +6,7 @@ require 'webrick'
 require 'em-websocket'
 require 'listen'
 require 'json'
+require 'fileutils'
 
 class DevServer
   LIVE_RELOAD_SCRIPT = <<~JS
@@ -68,7 +69,8 @@ class DevServer
   end
 
   def start_build_watcher
-    listener = Listen.to('build') do |modified, added, removed|
+    FileUtils.mkdir_p(@build_dir) unless File.directory?(@build_dir)
+    listener = Listen.to(@build_dir) do |modified, added, removed|
       puts "Build change detected!"
       reload_clients
     end
