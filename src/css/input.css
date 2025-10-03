@@ -4,3 +4,5 @@
 
 @import "./simple-responsive.css";
 @import "./ksru-web.webflow.css";
+
+@import "./components/days-on-strike.css";
