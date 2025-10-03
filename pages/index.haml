@@ -237,11 +237,11 @@
     document.addEventListener('DOMContentLoaded', function () {
       var el = document.querySelector('#day-count');
       if(!el)return;
-      
-      var start = Date.parse('2025-10-02');
-      
+
+      var start = Date.parse('2025-10-02 EST');
+
       if(Number.isNaN(start))return;
-      
+
       var days = Math.floor((Date.now() - start) / 86400000)+1;
 
       el.textContent=String(days);
