@@ -1,5 +1,12 @@
 {
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "tailwindCSS.includeLanguages": {
+    "haml": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class: ?\"([^\"]*)\"", "([a-zA-Z0-9\\-:]+)"],
+    ["(\\.[\\w\\-.]+)[\\n\\=\\{\\s]", "([\\w\\-]+)"]
+  ]
 }
