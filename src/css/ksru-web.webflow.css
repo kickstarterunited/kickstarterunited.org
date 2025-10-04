@@ -1,11 +1,13 @@
 @layer base {
   html {
     /* Fallback fonts */
-    --ksru-font-stack-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --ksru-font-stack-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     /* Font families */
-    --ksru-font-family-jost: 'Jost', var(--ksru-font-stack-system, sans-serif);
-    --ksru-font-family-libre-franklin: 'Libre Franklin', var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-jost: "Jost", var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-libre-franklin: "Libre Franklin",
+      var(--ksru-font-stack-system, sans-serif);
 
     /* Content types */
     --ksru-font-family-heading: var(--ksru-font-family-jost, monospace);
@@ -15,24 +17,57 @@
     --ksru-line-length: 70ch;
 
     --ksru-color-accent: #034752;
-    --ksru-color-accent-light: #05ce78;
+    --ksru-color-accent-light: #04a862;
     --ksru-color-bg: #ffffff;
     --ksru-color-bg-loading: #ddd;
     --ksru-color-accent-rich: #ffcf56;
     --ksru-color-outline: var(--ksru-color-accent);
     --ksru-color-outline-accent: var(--ksru-color-accent-rich);
 
-    --ksru-text-primary: #1a1b1f;
+    --ksru-text-primary: #1a1f1b;
     --ksru-text-accent: #fff;
 
     font-size: 100%;
   }
 
-  :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed, figure, figcaption, button) {
+  :is(
+      p,
+      ul,
+      ol,
+      dl,
+      dt,
+      dd,
+      li,
+      blockquote,
+      pre,
+      table,
+      hr,
+      embed,
+      figure,
+      figcaption,
+      button
+    ) {
     margin: 0;
   }
 
-  * + :is(p, ul, ol, dl, dt, dd, li, blockquote, pre, table, hr, embed, figure, figcaption, button) {
+  *
+    + :is(
+      p,
+      ul,
+      ol,
+      dl,
+      dt,
+      dd,
+      li,
+      blockquote,
+      pre,
+      table,
+      hr,
+      embed,
+      figure,
+      figcaption,
+      button
+    ) {
     margin-top: 0.75rem;
   }
 
@@ -86,21 +121,42 @@
     scroll-padding: 6rem 0 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--ksru-font-family-heading);
     line-height: 1.2;
     text-wrap: pretty;
   }
 
   /* Musical hexatonic scale: 𝑓ᵢ = 𝑓₀𝑟ⁱ⁄ⁿ, n=6, r=2, 𝑓₀=1em */
-  h1 { font-size: 2em; }
-  h2 { font-size: 1.7818em; }
-  h3 { font-size: 1.5874em; }
-  h4 { font-size: 1.4142em; }
-  h5 { font-size: 1.2599em; }
-  h6 { font-size: 1.1225em; }
-  p { font-size: 1em; }
-  small { font-size: .8909em; }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.7818em;
+  }
+  h3 {
+    font-size: 1.5874em;
+  }
+  h4 {
+    font-size: 1.4142em;
+  }
+  h5 {
+    font-size: 1.2599em;
+  }
+  h6 {
+    font-size: 1.1225em;
+  }
+  p {
+    font-size: 1em;
+  }
+  small {
+    font-size: 0.8909em;
+  }
 
   img {
     max-width: 100%;
@@ -109,14 +165,23 @@
 
   hr {
     --_clr-1: color-mix(in lch, var(--ksru-color-accent), transparent 0%);
-    --_clr-2: color-mix(in lch, var(--ksru-color-accent-light), transparent 50%);
-    --_line: radial-gradient(circle at center, var(--_clr-1) max(128px, 33%), var(--_clr-2) 70%, transparent calc(100% - 64px), transparent);
+    --_clr-2: color-mix(
+      in lch,
+      var(--ksru-color-accent-light),
+      transparent 50%
+    );
+    --_line: radial-gradient(
+      circle at center,
+      var(--_clr-1) max(128px, 33%),
+      var(--_clr-2) 70%,
+      transparent calc(100% - 64px),
+      transparent
+    );
     border: none;
     height: 2px;
     /* 32px - 96px, between 480px - 1024px viewport */
     margin: clamp(32px, -24.45px + 11.76vw, 96px) 0;
     background-image: var(--_line);
-
   }
 
   details::details-content {
@@ -155,7 +220,6 @@
   }
 }
 
-
 @layer components {
   button,
   .btn {
@@ -165,12 +229,10 @@
     box-sizing: border-box;
     min-width: 44px;
     min-height: 44px;
-    align-content: center;
-
     padding: 10px 20px;
-    border-radius: 4px;
-    font-size: 16px;
-    margin-top: 10px;
+    align-content: center;
+    border-radius: 16px;
+    corner-shape: squircle;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -179,7 +241,6 @@
   * + :is(button, .btn) {
     margin-top: 1rem;
   }
-
 
   .btn-primary {
     background: #222222;
@@ -225,10 +286,13 @@
     background: var(--ksru-color-bg);
   }
 
-
   .surface::before {
     --_clr-1: var(--surface-border-color, var(--ksru-color-accent));
-    --_clr-2: color-mix(in oklch, var(--ksru-color-accent-light), transparent 80%);
+    --_clr-2: color-mix(
+      in oklch,
+      var(--ksru-color-accent-light),
+      transparent 80%
+    );
     --_inset: var(--surface-border-inset, -2px);
 
     content: "";
@@ -238,7 +302,14 @@
     corner-shape: inherit;
     z-index: -1;
 
-    background: conic-gradient(from var(--surface-border-angle, 0deg) at center, var(--_clr-1), var(--_clr-2), var(--_clr-1), var(--_clr-2), var(--_clr-1));
+    background: conic-gradient(
+      from var(--surface-border-angle, 0deg) at center,
+      var(--_clr-1),
+      var(--_clr-2),
+      var(--_clr-1),
+      var(--_clr-2),
+      var(--_clr-1)
+    );
   }
 
   .surface.breaking::before {
@@ -252,13 +323,33 @@
   }
 
   .surface.breaking {
-    --_border-color: color-mix(in oklch, var(--ksru-color-accent-light), var(--ksru-color-accent) 50%);
+    --_border-color: color-mix(
+      in oklch,
+      var(--ksru-color-accent-light),
+      var(--ksru-color-accent) 50%
+    );
     --_bgc: color-mix(in oklch, var(--ksru-color-accent-light), white 80%);
-    background-color: color-mix(in oklch, var(--ksru-color-accent-light), white 90%);
-    background-image: radial-gradient(circle at top right, transparent 0%, transparent 50%, var(--_bgc) 75%), radial-gradient(circle at bottom left, transparent 0%, transparent 50%, var(--_bgc) 75%);
+    background-color: color-mix(
+      in oklch,
+      var(--ksru-color-accent-light),
+      white 90%
+    );
+    background-image: radial-gradient(
+        circle at top right,
+        transparent 0%,
+        transparent 50%,
+        var(--_bgc) 75%
+      ),
+      radial-gradient(
+        circle at bottom left,
+        transparent 0%,
+        transparent 50%,
+        var(--_bgc) 75%
+      );
     color: color-mix(in oklch, var(--ksru-color-accent), black 30%);
     border: 6px double var(--_border-color);
-    box-shadow: 0 0 8px color-mix(in oklch, var(--ksru-color-accent), transparent 50%);
+    box-shadow: 0 0 8px
+      color-mix(in oklch, var(--ksru-color-accent), transparent 50%);
   }
 
   * + .surface {
@@ -271,7 +362,6 @@
       border-radius: 64px;
     }
   }
-
 }
 
 @keyframes surface-border-rotate {
@@ -287,9 +377,13 @@
     min-height: 100dvh;
     grid:
       "HEADER" auto
-      "MAIN"   1fr
+      "MAIN" 1fr
       "FOOTER" auto
-      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(auto, var(--ksru-line-length)) 1fr [FULL-end] 16px [BLEED-end];
+      / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(
+        auto,
+        var(--ksru-line-length)
+      )
+      1fr [FULL-end] 16px [BLEED-end];
     gap: 0;
   }
   .page > * {
@@ -307,30 +401,6 @@
   .page__header a,
   .page__footer a {
     text-decoration-thickness: auto;
-  }
-
-
-  /* MARK: .navigation */
-  .navigation {
-    z-index:1000;
-
-    height: auto;
-    align-self: end;
-    justify-items: flex-end;
-    --link-color: #FFF;
-  }
-
-  .navigation > * {
-    justify-content: space-around;
-  }
-
-  .navigation a {
-    border-radius: 4px;
-    text-underline-offset: 2px;
-  }
-
-  .navigation a:not(:hover, :focus) {
-    text-decoration: none;
   }
 
   .div-block-2 {
@@ -353,7 +423,9 @@
     gap: 4px;
   }
 
-  .section, .section-2, .div-block {
+  .section,
+  .section-2,
+  .div-block {
     font-family: unset;
   }
 
@@ -418,8 +490,8 @@
     pointer-events: none;
 
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out,
-    overlay 0.5s ease-in-out allow-discrete,
-    display 0.5s ease-in-out allow-discrete;
+      overlay 0.5s ease-in-out allow-discrete,
+      display 0.5s ease-in-out allow-discrete;
 
     opacity: 0;
     transform: translateY(1em);
@@ -437,7 +509,11 @@
   }
 
   .rally__dialog[open]::backdrop {
-    background-color: color-mix(in oklch, color-mix(in oklch, var(--ksru-color-accent), black 50%), transparent 10%);
+    background-color: color-mix(
+      in oklch,
+      color-mix(in oklch, var(--ksru-color-accent), black 50%),
+      transparent 10%
+    );
   }
 
   @starting-style {
@@ -483,7 +559,8 @@
   }
 
   .rally__cta-group * + :is(button, .btn) {
-    border-left: 1px solid color-mix(in oklch, var(--ksru-color-accent-light), white 20%);
+    border-left: 1px solid
+      color-mix(in oklch, var(--ksru-color-accent-light), white 20%);
   }
 
   .rally__cta {
@@ -520,18 +597,20 @@
     }
   }
 
-  .deck:hover, .deck:focus-within {
+  .deck:hover,
+  .deck:focus-within {
     /* top: calc(100% - 6lh); */
   }
   .deck-card {
-    --ease-squish-4: cubic-bezier(.5,-.7,.1,1.5);
-    --ease-in-out-3: cubic-bezier(.5,0,.5,1);
+    --ease-squish-4: cubic-bezier(0.5, -0.7, 0.1, 1.5);
+    --ease-in-out-3: cubic-bezier(0.5, 0, 0.5, 1);
     max-width: 30ch;
     height: unset !important;
     aspect-ratio: 2.5 / 3.5;
     transform-origin: bottom center;
     transform: rotate(var(--r, 0deg)) translateY(var(--t, 0px));
-    transition: transform-origin .5s var(--ease-squish-4),transform .25s var(--ease-in-out-3);
+    transition: transform-origin 0.5s var(--ease-squish-4),
+      transform 0.25s var(--ease-in-out-3);
 
     background-color: white;
     color: black;
@@ -540,7 +619,8 @@
     border-radius: inherit;
   }
 
-  .deck-card:hover, .deck-card:focus-within {
+  .deck-card:hover,
+  .deck-card:focus-within {
     --t: -3lh;
   }
 
@@ -564,7 +644,6 @@
     --r: calc(-1 * var(--scalar) * -2deg);
     z-index: -4;
   }
-
 }
 
 @layer components {
@@ -581,17 +660,21 @@
     }
 
     background-color: transparent;
-    background-image: linear-gradient(to right, var(--_color), var(--_lighter-pressure), calc(100% - 2ch), var(--_tail));
+    background-image: linear-gradient(
+      to right,
+      var(--_color),
+      var(--_lighter-pressure),
+      calc(100% - 2ch),
+      var(--_tail)
+    );
 
     /* Prevents background-break when wrapping */
     box-decoration-break: clone;
     font-weight: bold;
 
-
     position: relative;
     isolation: isolate;
   }
-
 }
 
 /* MARK: .embed */
@@ -614,10 +697,9 @@
 
 /* MARK: .media */
 @layer components {
-
-    * + .media {
-      margin-top: 1rem;
-    }
+  * + .media {
+    margin-top: 1rem;
+  }
 
   @media screen and (min-width: 768px) {
     .media {
@@ -645,7 +727,8 @@
 
 /* MARK: .solidarity */
 @layer components {
-  .solidarity {}
+  .solidarity {
+  }
 
   * + .solidarity {
     margin-top: 1rem;
@@ -666,7 +749,6 @@
 
     padding: 0;
     border-radius: var(--_padding);
-
   }
 
   .solidarity__list > * {
@@ -683,8 +765,6 @@
     corner-shape: inherit;
     overflow: hidden;
   }
-
-
 
   .solidarity__list > *:first-child {
     border-top-left-radius: inherit;
@@ -707,8 +787,6 @@
   .solidarity__list {
     background-color: transparent;
   }
-
-
 
   .solidarity__list::before {
     --_stop-1: var(--ksru-color-accent-light);

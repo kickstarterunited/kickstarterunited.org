@@ -121,8 +121,6 @@
   }
 
   .navigation {
-    position: -webkit-sticky;
-    position: sticky;
     top: 0px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -145,9 +143,6 @@
     grid-template-columns: 1fr 1fr;
     -ms-grid-rows: auto auto;
     grid-template-rows: auto auto;
-    background-color: #519758;
-    background-image: linear-gradient(135deg, #034752, #05ce78),
-      linear-gradient(180deg, #000, #fff);
   }
 
   ._404-wrap {
@@ -366,126 +361,5 @@
     align-items: flex-start;
     color: #fff;
     text-align: center;
-  }
-}
-
-@layer base {
-  @media (max-width: 991px) {
-    .navigation {
-      padding: 25px 30px;
-    }
-
-    .div-block-2 {
-      margin-right: 12px;
-      margin-left: 12px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .container {
-      text-align: center;
-    }
-
-    .section {
-      margin-right: 15px;
-      margin-left: 15px;
-    }
-
-    .paragraph-bigger {
-      font-size: 16px;
-      line-height: 28px;
-    }
-
-    .navigation {
-      padding: 20px 30px;
-    }
-
-    ._404-wrap {
-      padding: 30px;
-    }
-  }
-
-  @media (max-width: 479px) {
-    .navigation {
-      padding-right: 20px;
-      padding-left: 20px;
-    }
-  }
-
-  a.footer {
-    color: #fff;
-    display: inline;
-    text-decoration: none;
-  }
-}
-
-@layer base {
-  /* Simple Responsive Navigation - Two Row Layout */
-  @media (max-width: 768px) {
-    .navigation {
-      padding: 8px 16px !important;
-    }
-
-    .div-block-3 {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2px 8px;
-      grid-template: none;
-    }
-
-    .link {
-      margin: 0 6px;
-      padding: 4px 8px;
-      white-space: nowrap;
-    }
-
-    .link:hover {
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  @media (max-width: 505px) {
-    .navigation {
-      padding: 6px 12px !important;
-    }
-
-    .div-block-3 {
-      gap: 1px 4px;
-    }
-
-    .link {
-      margin: 0 3px;
-      padding: 3px 6px;
-    }
-  }
-
-  @media (max-width: 430px) {
-    .navigation {
-      padding: 4px 8px !important;
-    }
-
-    .div-block-3 {
-      gap: 0px 2px;
-    }
-
-    .link {
-      margin: 0 1px;
-      padding: 2px 4px;
-    }
-  }
-
-  @media (max-width: 385px) {
-    .navigation {
-      padding: 2px 4px !important;
-    }
-
-    .div-block-3 {
-      gap: 0px 1px;
-    }
-
-    .link {
-      margin: 0;
-      padding: 1px 2px;
-    }
   }
 }
