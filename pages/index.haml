@@ -1,16 +1,19 @@
-.days-on-strike
-  %div.container
-    %img.image{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}
-  %div.container
+%article.days-on-strike.gap-12.flex.flex-col.md:flex-row.items-stretch{
+  class: "[corner-shape:squircle]"
+}
+  %div.flex-1.shrink.basis-auto.self-center
+    %img.justify-self-center{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}
+  %div.days-on-strike__bill
     %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
       ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
     %h2.text-center
       Days on strike
-      %span#day-count.day-count{"aria-live" => "polite"} 0
+    %p#day-count.day-count
+      0
     %p.text-center
       Since October 2, 2025
-    %div.flex.flex-wrap.justify-between.gap-x-2
-      %a.btn.btn-success.text-center{href: '#what-you-can-do'}> How to Support
+
+    %a.btn.btn-success.justify-self-stretch{href: '#what-you-can-do'}> How to Support
 
 %article.surface.breaking
   %h2.flex.flex-wrap.justify-between.gap-x-2

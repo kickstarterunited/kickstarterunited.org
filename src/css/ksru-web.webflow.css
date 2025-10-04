@@ -157,8 +157,11 @@
 
 
 @layer components {
-  button, .btn {
-    display: inline-block;
+  button,
+  .btn {
+    display: block;
+    font: inherit;
+    font-weight: 500;
     box-sizing: border-box;
     min-width: 44px;
     min-height: 44px;
@@ -169,9 +172,8 @@
     font-size: 16px;
     margin-top: 10px;
     cursor: pointer;
-    width: 100%;
     text-decoration: none;
-    color: var(--ksru-color-bg);
+    text-align: center;
   }
 
   * + :is(button, .btn) {
@@ -189,18 +191,22 @@
 
   .btn-success {
     background: var(--ksru-color-accent-light);
+    color: var(--ksru-text-accent);
   }
 
   .btn-success:hover {
-    background: #039054;
+    background: color-mix(in oklch, var(--ksru-color-accent-light), white 20%);
+    color: var(--ksru-text-accent);
   }
 
   .btn-info {
-    background: #17a2b8;
+    background: var(--color-teal-600);
+    color: var(--ksru-text-accent);
   }
 
   .btn-info:hover {
-    background: #138496;
+    background: var(--color-teal-500);
+    color: var(--ksru-text-accent);
   }
 }
 
