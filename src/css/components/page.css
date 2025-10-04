@@ -37,7 +37,7 @@
   padding-inline-end: var(--_height);
 
   border-bottom-right-radius: calc(infinity * 1px);
-  corner-shape: bevel;
+  /* corner-shape: round; */
 
   font-size: clamp(
     1rem,
