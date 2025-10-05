@@ -240,11 +240,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       var el = document.querySelector('#day-count');
       if(!el)return;
-
-      var start = Date.parse('2025-10-02 EST');
+      
+      // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
+      var start = Date.UTC(2025, 9, 2, 12, 0, 0);
 
       if(Number.isNaN(start))return;
-
+      // todo, Now should be offset for est
       var days = Math.floor((Date.now() - start) / 86400000)+1;
 
       el.textContent=String(days);
