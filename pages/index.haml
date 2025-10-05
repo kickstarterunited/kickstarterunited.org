@@ -60,7 +60,7 @@
 
 %hr/
 
-.section-2
+%div
   %h1 Rally With Us
 
   %p
@@ -110,11 +110,11 @@
 
 %hr/
 
-.section-2
+%div
   %h2 Our Next Contract
-  %p.paragraph
+  %p
     In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
-    %a{:href => "/contracts/2022", :style => "display: inline;"} first contract
+    %a{:href => "/contracts/2022"} first contract
     was won in 2022). From the outset we have been clear with
     management that our top priorities are codifying the
     %strong#4dww-defn 4-day, 32-hour work week (4DWW)
@@ -134,7 +134,7 @@
 
 %hr/
 
-.section-2.solidarity
+.solidarity
   %h2#what-you-can-do What You Can Do
 
   %p
@@ -240,7 +240,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       var el = document.querySelector('#day-count');
       if(!el)return;
-      
+
       // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
       var start = Date.UTC(2025, 9, 2, 12, 0, 0);
 

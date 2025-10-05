@@ -28,8 +28,8 @@
           import("https://unpkg.com/@oddbird/css-anchor-positioning");
         }
 
-  %body.body
-    .page.div-block
+  %body{class: "leading-[1.6]"}
+    .page
       %header.page__header
         %p.page__logo Kickstarter United
 
@@ -83,10 +83,10 @@
                 %a.menu__item{:href => "/union-assets"} Creator Assets
 
 
-      %main.page__content#content.div-block-2
+      %main.page__content#content.mx-0.my-8
         != yield
-      %footer.page__footer.section-7
-        .text-block
+      %footer.page__footer
+        .p-4.text-center
           -# NOTE: When updating, also update pages/socials/index.haml
           %ul.social-links{"aria-label": "Follow us on social media"}
             %li
