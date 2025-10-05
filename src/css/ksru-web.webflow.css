@@ -398,14 +398,21 @@
     --ksru-outline-color: var(--ksru-color-outline-accent);
   }
 
+  .page__footer {
+    background-color: #519758;
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#034752),
+      to(#05ce78)
+    );
+    background-image: linear-gradient(90deg, #034752, #05ce78);
+  }
+
   .page__header a,
   .page__footer a {
     text-decoration-thickness: auto;
-  }
-
-  .div-block-2 {
-    margin-inline: 0;
-    margin-block: 2em;
   }
 
   /* MARK: .social-links */
@@ -421,18 +428,6 @@
     margin: 0;
     display: flex;
     gap: 4px;
-  }
-
-  .section,
-  .section-2,
-  .div-block {
-    font-family: unset;
-  }
-
-  .body {
-    font-size: unset;
-    line-height: 1.6;
-    font-family: var(--ksru-font-family-body);
   }
 }
 
