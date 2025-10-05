@@ -1,253 +1,254 @@
-%article.days-on-strike.gap-12.flex.flex-col.md:flex-row.items-stretch{
-  class: "[corner-shape:squircle]"
-}
-  %div.flex-1.shrink.basis-auto.self-center
-    %img.justify-self-center{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}
-  %div.days-on-strike__bill
-    %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
-      ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
-    %h2.text-center
-      Days on strike
-    %p#day-count.day-count
-      0
-    %p.text-center
-      Since October 2, 2025
+!= render 'templates/layout' do
+  %article.days-on-strike.gap-12.flex.flex-col.md:flex-row.items-stretch{
+    class: "[corner-shape:squircle]"
+  }
+    %div.flex-1.shrink.basis-auto.self-center
+      %img.justify-self-center{:alt => "Kickstarter United Logo", :src => "images/logo.svg", :width => "256"}
+    %div.days-on-strike__bill
+      %span.pump.text-center{role: "presentation", "aria-hidden": "true"}
+        ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
+      %h2.text-center
+        Days on strike
+      %p#day-count.day-count
+        0
+      %p.text-center
+        Since October 2, 2025
 
-    %a.btn.btn-success.justify-self-stretch{href: '#what-you-can-do'}> How to Support
+      %a.btn.btn-success.justify-self-stretch{href: '#what-you-can-do'}> How to Support
 
-%article.surface.breaking
-  %h2.flex.flex-wrap.justify-between.gap-x-2
-    %span
-      A Resounding
+  %article.surface.breaking
+    %h2.flex.flex-wrap.justify-between.gap-x-2
+      %span
+        A Resounding
+        %strong
+          YES to Strike
+      %span.text-balance{role: "presentation", "aria-hidden": "true"}
+        ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
+    %p
+      On September 26, 2025,
+      %strong 85% of Kickstarter United (OPEIU Local 153) members
+      %strong voted to authorize a strike
+      beginning Thursday, October 2 at 8 a.m. unless management reaches a fair contract agreement.
+
+    %p
+      %strong Our demands are simple:
+
+    %ul
+      %li Protect the 32-hour, 4-day workweek that’s been in place for over three years.
+      %li Establish a minimum salary that provides a livable wage for all workers.
+
+    %p
+      Read the full press release from OPEIU here:
+      %a{href: "https://www.opeiulocal153.org/news/kickstarter-united-opeiu-153-workers-authorize-strike-demanding-four-day-workweek-and-minimum-salary"}
+        Kickstarter United-OPEIU 153 Workers Authorize Strike Demanding Four-Day
+        Workweek and Minimum Salary
+
+    %p
       %strong
-        YES to Strike
-    %span.text-balance{role: "presentation", "aria-hidden": "true"}
-      ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
-  %p
-    On September 26, 2025,
-    %strong 85% of Kickstarter United (OPEIU Local 153) members
-    %strong voted to authorize a strike
-    beginning Thursday, October 2 at 8 a.m. unless management reaches a fair contract agreement.
+        %mark.highlight
+          %span.uppercase We are not
+          asking people to boycott
+          %a{href: "//kickstarter.com"} kickstarter.com
+        or withhold support from creators.
 
-  %p
-    %strong Our demands are simple:
-
-  %ul
-    %li Protect the 32-hour, 4-day workweek that’s been in place for over three years.
-    %li Establish a minimum salary that provides a livable wage for all workers.
-
-  %p
-    Read the full press release from OPEIU here:
-    %a{href: "https://www.opeiulocal153.org/news/kickstarter-united-opeiu-153-workers-authorize-strike-demanding-four-day-workweek-and-minimum-salary"}
-      Kickstarter United-OPEIU 153 Workers Authorize Strike Demanding Four-Day
-      Workweek and Minimum Salary
-
-  %p
-    %strong
-      %mark.highlight
-        %span.uppercase We are not
-        asking people to boycott
-        %a{href: "//kickstarter.com"} kickstarter.com
-      or withhold support from creators.
-
-  %p
-    -# `="... "` to get haml to include a space before the "here's"
-    = "If you want to support us, "
-    -# `>` eats the space around the link so the it ends with "do!"
-    %a{href: '#what-you-can-do'}> here's what you can do
-    !
+    %p
+      -# `="... "` to get haml to include a space before the "here's"
+      = "If you want to support us, "
+      -# `>` eats the space around the link so the it ends with "do!"
+      %a{href: '#what-you-can-do'}> here's what you can do
+      !
 
 
-%hr/
+  %hr/
 
-%div
-  %h1 Rally With Us
+  %div
+    %h1 Rally With Us
 
-  %p
-    Our strike rallies are a chance to come together in solidarity. Join us in Seattle and New York as workers, friends, and community members gather to support a fair contract. Together, we'll raise our voices for a 32-hour week and livable wages.
+    %p
+      Our strike rallies are a chance to come together in solidarity. Join us in Seattle and New York as workers, friends, and community members gather to support a fair contract. Together, we'll raise our voices for a 32-hour week and livable wages.
 
-  %div.rally-gallery
-    %figure.rally
-      %div
-        %img{
-          src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png",
-          alt: "Kickstarter United members and supporters rallying in Seattle",
-          width: "1080",
-          height: "1080",
-        }/
-        %div.rally__cta-group
-          %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} Details
-          %a.btn{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download
-        %dialog.rally__dialog#seattle-rally-flyer{closedby: "any" }
-          %img{src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", alt: "Kickstarter United members and supporters rallying in Seattle", width: "1080", height: "1080"}/
+    %div.rally-gallery
+      %figure.rally
+        %div
+          %img{
+            src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png",
+            alt: "Kickstarter United members and supporters rallying in Seattle",
+            width: "1080",
+            height: "1080",
+          }/
+          %div.rally__cta-group
+            %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} Details
+            %a.btn{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download
+          %dialog.rally__dialog#seattle-rally-flyer{closedby: "any" }
+            %img{src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", alt: "Kickstarter United members and supporters rallying in Seattle", width: "1080", height: "1080"}/
 
-      %figcaption
-        Strike rally to be held on October 2, 2025 at 6pm PST at Cal Anderson Park in Seattle, WA.
-      %a.rally__cta.btn{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP for Seattle
+        %figcaption
+          Strike rally to be held on October 2, 2025 at 6pm PST at Cal Anderson Park in Seattle, WA.
+        %a.rally__cta.btn{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP for Seattle
 
-    %figure.rally
-      - src = "images/rally/kickstarter-united-rally-nyc-2025-10-07.png"
-      - alt = "Kickstarter United members and supporters rallying in New York City"
-      - width = "1080"
-      - height = "1080"
+      %figure.rally
+        - src = "images/rally/kickstarter-united-rally-nyc-2025-10-07.png"
+        - alt = "Kickstarter United members and supporters rallying in New York City"
+        - width = "1080"
+        - height = "1080"
 
-      %div
-        %dialog.rally__dialog#nyc-rally-flyer{closedby: "any" }
+        %div
+          %dialog.rally__dialog#nyc-rally-flyer{closedby: "any" }
+            %img{src: src, alt: alt, width: width, height: height}/
+
           %img{src: src, alt: alt, width: width, height: height}/
 
-        %img{src: src, alt: alt, width: width, height: height}/
-
-        %div.rally__cta-group
-          %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} Details
-          %a.btn{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download
+          %div.rally__cta-group
+            %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} Details
+            %a.btn{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download
 
 
-      %figcaption
-        Come rally with us on October 7, 2025 in New York City at Union Square Ventures.
+        %figcaption
+          Come rally with us on October 7, 2025 in New York City at Union Square Ventures.
 
-      %a.rally__cta.btn{href: "//bit.ly/KSRUrally"} RSVP for NYC
+        %a.rally__cta.btn{href: "//bit.ly/KSRUrally"} RSVP for NYC
 
 
-%hr/
+  %hr/
 
-%div
-  %h2 Our Next Contract
-  %p
-    In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
-    %a{:href => "/contracts/2022"} first contract
-    was won in 2022). From the outset we have been clear with
-    management that our top priorities are codifying the
-    %strong#4dww-defn 4-day, 32-hour work week (4DWW)
-    as the standard and
-    %strong raising the minimum salary
-    for all members of the bargaining unit.
-    While we are proud of the progress we have made in some areas,
-    management
-    %em continues to block real progress
-    on the
-    %span{"aria-labelledby": "4dww-dfn"} 4DWW
-    and fair minimum salaries.
+  %div
+    %h2 Our Next Contract
+    %p
+      In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
+      %a{:href => "/contracts/2022"} first contract
+      was won in 2022). From the outset we have been clear with
+      management that our top priorities are codifying the
+      %strong#4dww-defn 4-day, 32-hour work week (4DWW)
+      as the standard and
+      %strong raising the minimum salary
+      for all members of the bargaining unit.
+      While we are proud of the progress we have made in some areas,
+      management
+      %em continues to block real progress
+      on the
+      %span{"aria-labelledby": "4dww-dfn"} 4DWW
+      and fair minimum salaries.
 
-  %p
-    For more information, see our
-    %a{href: "/faq", "aria-label": "Frequently asked questions"} FAQ
+    %p
+      For more information, see our
+      %a{href: "/faq", "aria-label": "Frequently asked questions"} FAQ
 
-%hr/
+  %hr/
 
-.solidarity
-  %h2#what-you-can-do What You Can Do
+  .solidarity
+    %h2#what-you-can-do What You Can Do
 
-  %p
-    With management refusing to move on the 4-day week and fair pay,
-    %strong we need you to stand with us more than ever.
-    Here’s how you can take action today:
+    %p
+      With management refusing to move on the 4-day week and fair pay,
+      %strong we need you to stand with us more than ever.
+      Here’s how you can take action today:
 
-  .surface.solidarity__list
-    .solidarity__item#solidarity-fund
-      %details{name: "solidarity"}
-        - go_fund_me_url = "https://www.gofundme.com/f/support-kickstarter-united-workers"
-        %summary
-          Donate
-          %span to Our Solidarity Fund
-        %div
-          %p
-            On Labor Day we launched our Solidarity fund on GoFundMe. If management forces a strike,
-            this GoFundMe will help our most vulnerable workers weather the hardship of pay-stoppage.
+    .surface.solidarity__list
+      .solidarity__item#solidarity-fund
+        %details{name: "solidarity"}
+          - go_fund_me_url = "https://www.gofundme.com/f/support-kickstarter-united-workers"
+          %summary
+            Donate
+            %span to Our Solidarity Fund
+          %div
+            %p
+              On Labor Day we launched our Solidarity fund on GoFundMe. If management forces a strike,
+              this GoFundMe will help our most vulnerable workers weather the hardship of pay-stoppage.
 
-          .media
-            %div
-              %div.gfm-embed{ data: { url: "https://www.gofundme.com/f/support-kickstarter-united-workers/widget/medium?sharesheet=undefined&attribution_id=sl:c9a70e0a-71b0-4f51-9fd6-16cb0de227df" } }
-              %script{ src: "https://www.gofundme.com/static/js/embed.js", defer: true }
+            .media
+              %div
+                %div.gfm-embed{ data: { url: "https://www.gofundme.com/f/support-kickstarter-united-workers/widget/medium?sharesheet=undefined&attribution_id=sl:c9a70e0a-71b0-4f51-9fd6-16cb0de227df" } }
+                %script{ src: "https://www.gofundme.com/static/js/embed.js", defer: true }
 
-            %p.media__details
-              If we reach an agreement without striking, we will refund any donation
-              on request and roll the remaining funds into a sympathetic solidarity
-              and/or hardship fund to help our fellow workers
+              %p.media__details
+                If we reach an agreement without striking, we will refund any donation
+                on request and roll the remaining funds into a sympathetic solidarity
+                and/or hardship fund to help our fellow workers
 
-    .solidarity__item#solidarity-petition
-      %details{name: "solidarity"}
-        %summary Tell Kickstarter Management: Meet Workers' Demands
+      .solidarity__item#solidarity-petition
+        %details{name: "solidarity"}
+          %summary Tell Kickstarter Management: Meet Workers' Demands
 
-        %div
-          %p
-            %strong We're fighting for a fair contract
-            that protects our 4-day, 32-hour work
-            week and raises pay for the lowest-paid employees. Unless management acts,
-            we are prepared to strike on October 2. Read our
-            %a{href: "https://actionnetwork.org/letters/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike"}
-              full petition text
-            and
+          %div
+            %p
+              %strong We're fighting for a fair contract
+              that protects our 4-day, 32-hour work
+              week and raises pay for the lowest-paid employees. Unless management acts,
+              we are prepared to strike on October 2. Read our
+              %a{href: "https://actionnetwork.org/letters/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike"}
+                full petition text
+              and
 
-            %strong sign now to help us avoid a strike!
+              %strong sign now to help us avoid a strike!
 
-          %div.embed
-            %link{:href => "https://actionnetwork.org/css/style-embed-v3.css", :rel => "stylesheet", :type => "text/css"}
-            %script{:src => "https://actionnetwork.org/widgets/v5/letter/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike?format=js&source=widget"}
-            #can-letter-area-tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike
-              -# {:style => "width: 70%; margin: 0 auto;"}
-              -# this div is the target for our HTML insertion
+            %div.embed
+              %link{:href => "https://actionnetwork.org/css/style-embed-v3.css", :rel => "stylesheet", :type => "text/css"}
+              %script{:src => "https://actionnetwork.org/widgets/v5/letter/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike?format=js&source=widget"}
+              #can-letter-area-tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike
+                -# {:style => "width: 70%; margin: 0 auto;"}
+                -# this div is the target for our HTML insertion
 
-    .solidarity__item#board-letter
-      %details{name: "solidarity"}
-        %summary Read our Appeal to the Board
+      .solidarity__item#board-letter
+        %details{name: "solidarity"}
+          %summary Read our Appeal to the Board
 
-        %div
-          %p
-            At the bargaining table, Kickstarter management keeps passing the buck, claiming they can’t codify the 4-day work week because
-            “they don’t own the company.” So we went straight to the board.
-          %p
-            Many board members have built careers around innovative, socially driven business models and Kickstarter was chartered as a PBC to meaningfully commit to those values.
-            We felt the board should know management’s actions at the table don’t align with that ethos.
-          %p
-            Their response? A brief dismissal of our concerns and a rejection of our invitation to the table.
-          %p
-            We implore the board to do the right thing and marry their actions to their words by supporting our cause.
-          %p
-            %strong Read the full letter below
-            %embed{ src: '/docs/letter_to_the_board.pdf', type: 'application/pdf', width: '100%', height: '600px' }
+          %div
+            %p
+              At the bargaining table, Kickstarter management keeps passing the buck, claiming they can’t codify the 4-day work week because
+              “they don’t own the company.” So we went straight to the board.
+            %p
+              Many board members have built careers around innovative, socially driven business models and Kickstarter was chartered as a PBC to meaningfully commit to those values.
+              We felt the board should know management’s actions at the table don’t align with that ethos.
+            %p
+              Their response? A brief dismissal of our concerns and a rejection of our invitation to the table.
+            %p
+              We implore the board to do the right thing and marry their actions to their words by supporting our cause.
+            %p
+              %strong Read the full letter below
+              %embed{ src: '/docs/letter_to_the_board.pdf', type: 'application/pdf', width: '100%', height: '600px' }
 
-    .solidarity__item#solidarity-watch
-      %details{name: "solidarity"}
-        - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
-        %summary Watch Our Solidarity Rally
+      .solidarity__item#solidarity-watch
+        %details{name: "solidarity"}
+          - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
+          %summary Watch Our Solidarity Rally
 
-        %div
-          %p On September 5th, we held a public virtual rally to support our fight for a fair contract.
-          %p
-            We featured unionized tech workers who’ve gone on strike, elected representatives who support a 32-hour week, and
-            Kickstarter United members discussing our our demands and our union.
+          %div
+            %p On September 5th, we held a public virtual rally to support our fight for a fair contract.
+            %p
+              We featured unionized tech workers who’ve gone on strike, elected representatives who support a 32-hour week, and
+              Kickstarter United members discussing our our demands and our union.
 
-          .media
-            %iframe.embed.embed--video{width: "1024", height: "576", src: "https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p", title: "Kickstarter United Solidarity Rally – September 2023", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
+            .media
+              %iframe.embed.embed--video{width: "1024", height: "576", src: "https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p", title: "Kickstarter United Solidarity Rally – September 2023", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
 
-            .media__details
-              %h4 Featured speakers and supporters
-              %ul
-                %li
-                  %b The New York Times Tech Guild:
-                  John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking strike.
-                %li
-                  %b Alphabet Workers Union:
-                  Parul Koul, president, sharing organizing lessons from big tech.
-                %li
-                  %b New York State Assembly:
-                  Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour week legislation.
-                %li
-                  %b Seattle:
-                  Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
-%script{defer: true}
-  :plain
-    document.addEventListener('DOMContentLoaded', function () {
-      var el = document.querySelector('#day-count');
-      if(!el)return;
+              .media__details
+                %h4 Featured speakers and supporters
+                %ul
+                  %li
+                    %b The New York Times Tech Guild:
+                    John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking strike.
+                  %li
+                    %b Alphabet Workers Union:
+                    Parul Koul, president, sharing organizing lessons from big tech.
+                  %li
+                    %b New York State Assembly:
+                    Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour week legislation.
+                  %li
+                    %b Seattle:
+                    Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+  %script{defer: true}
+    :plain
+      document.addEventListener('DOMContentLoaded', function () {
+        var el = document.querySelector('#day-count');
+        if(!el)return;
 
-      // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
-      var start = Date.UTC(2025, 9, 2, 12, 0, 0);
+        // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
+        var start = Date.UTC(2025, 9, 2, 12, 0, 0);
 
-      if(Number.isNaN(start))return;
-      // todo, Now should be offset for est
-      var days = Math.floor((Date.now() - start) / 86400000)+1;
+        if(Number.isNaN(start))return;
+        // todo, Now should be offset for est
+        var days = Math.floor((Date.now() - start) / 86400000)+1;
 
-      el.textContent=String(days);
-      el.style.visibility = 'visible';
-    })
+        el.textContent=String(days);
+        el.style.visibility = 'visible';
+      })
