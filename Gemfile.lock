@@ -70,7 +70,6 @@ DEPENDENCIES
   rubocop
   rubocop-rake
   tailwindcss-ruby
-  tilt
   webrick
 
 BUNDLED WITH

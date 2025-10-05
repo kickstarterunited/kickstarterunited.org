@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'haml'
-require 'tilt/haml'
 
 task default: :build
 
@@ -82,9 +81,9 @@ task :build do
   cp_r 'static', 'build'
 
   # Render HAML
-  layout = Tilt::HamlTemplate.new('templates/layout.haml')
+  layout = Haml::Template.new('templates/layout.haml')
   Dir['pages/**/*.haml'].each do |source|
-    template = Tilt::HamlTemplate.new(source)
+    template = Haml::Template.new(source)
     content  = layout.render { template.render }
     target   = source.sub(/^pages(.*?)\.haml$/, 'build\1.html')
     dirname  = File.dirname(target)
