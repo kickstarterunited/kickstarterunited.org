@@ -52,8 +52,8 @@ If you need to build or serve the site manually without file watching:
 
 ## Templating
 
-To re-use templates, you can create a new `.haml` file in the `templates/`
-and then reference it from your current `.haml` file like so:
+To re-use templates, you can create a new `.haml` file and then reference it
+from your current `.haml` file like so:
 
 ```haml
 != render 'templates/foobar.haml', local_a: 1, local_b: 2 do
