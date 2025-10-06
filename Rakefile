@@ -82,7 +82,7 @@ task :build do
 
   # Render HAML
   renderer = Renderer.new
-  Dir['pages/**/*.haml'].each do |source|
+  Dir['pages/**/index.haml'].each do |source|
     content  = renderer.render_with_haml_ext(source)
     target   = source.sub(/^pages(.*?)\.haml$/, 'build\1.html')
     dirname  = File.dirname(target)
