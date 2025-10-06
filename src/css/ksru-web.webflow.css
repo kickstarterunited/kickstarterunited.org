@@ -77,6 +77,7 @@
 
   body {
     font-family: var(--ksru-font-family-body);
+    margin-top: 0;
   }
 
   a {
@@ -291,8 +292,9 @@
     --_clr-2: color-mix(
       in oklch,
       var(--ksru-color-accent-light),
-      transparent 80%
+      transparent 100%
     );
+    --_clr-2: var(--_clr-1);
     --_inset: var(--surface-border-inset, -2px);
 
     content: "";
@@ -328,13 +330,13 @@
       var(--ksru-color-accent-light),
       var(--ksru-color-accent) 50%
     );
-    --_bgc: color-mix(in oklch, var(--ksru-color-accent-light), white 80%);
+    --_bgc: color-mix(in oklch, var(--ksru-color-accent-light), white 60%);
     background-color: color-mix(
       in oklch,
       var(--ksru-color-accent-light),
       white 90%
     );
-    background-image: radial-gradient(
+    /* background-image: radial-gradient(
         circle at top right,
         transparent 0%,
         transparent 50%,
@@ -345,7 +347,7 @@
         transparent 0%,
         transparent 50%,
         var(--_bgc) 75%
-      );
+      ); */
     color: color-mix(in oklch, var(--ksru-color-accent), black 30%);
     border: 6px double var(--_border-color);
     box-shadow: 0 0 8px
