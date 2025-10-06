@@ -24,8 +24,19 @@
 }
 
 .page__nav {
-  flex: 0 0 auto;
   justify-self: end;
+
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.page__nav > * {
+  margin: 0;
+}
+
+.page__nav :is(button, .btn):not([popover] *):hover {
+  background-color: color-mix(in srgb, white, transparent 90%);
 }
 
 .page__logo {
@@ -78,30 +89,13 @@
     inset-inline-end: 2lh;
     background-color: var(--_stop-2);
   }
+}
 
-  /* --_stop-1: var(--ksru-color-accent);
-  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 25%);
-  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 50%);
-  --_stop-4: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 75%);
-  --_stop-5: transparent;
-  --_stop-size: 1lh;
+.link--standalone {
+  text-decoration: none;
+}
 
-  background-position: 0 100%;
-  background-size: 100% auto;
-  background-color: white;
-  background-clip: border-box;
-
-  background-image: linear-gradient(
-    225deg,
-    var(--_stop-1),
-    var(--_stop-1) calc(var(--_stop-size) * 2),
-    var(--_stop-2) calc(var(--_stop-size) * 2),
-    var(--_stop-2) calc(var(--_stop-size) * 3),
-    var(--_stop-3) calc(var(--_stop-size) * 3),
-    var(--_stop-3) calc(var(--_stop-size) * 4),
-    var(--_stop-4) calc(var(--_stop-size) * 4),
-    var(--_stop-4) calc(var(--_stop-size) * 5),
-    var(--_stop-5) calc(var(--_stop-size) * 5),
-    var(--_stop-5) calc(var(--_stop-size) * 6)
-  ); */
+.link--standalone:hover,
+.link--standalone:focus:focus-visible {
+  text-decoration: underline;
 }

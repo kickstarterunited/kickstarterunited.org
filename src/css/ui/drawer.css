@@ -1,0 +1,30 @@
+.drawer {
+  /* gotta manually override dialog user styles */
+  inset-block: 0;
+  inset-inline: auto 0;
+  width: auto;
+  height: auto;
+  max-height: none;
+  overflow: auto;
+
+  flex-direction: column;
+  align-items: stretch;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.drawer::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3.5px);
+}
+
+.drawer[open] {
+  display: flex;
+}
+
+.drawer__item {
+  padding: 0.5em 1em;
+}
+
+.drawer [command="close"] {
+  align-self: flex-end;
+}
