@@ -2,8 +2,19 @@ plugins:
   - rubocop-rake
 
 AllCops:
-  DisabledByDefault: true
   NewCops: enable
 
-Layout:
-  Enabled: true
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/MethodLength:
+  Max: 30
+
+Lint/SuppressedException:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/RescueStandardError:
+  Enabled: false
