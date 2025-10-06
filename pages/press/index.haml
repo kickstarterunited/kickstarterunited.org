@@ -1,44 +1,13 @@
 != render 'templates/layout' do
   #press
     %h1 Selected Press and Media Coverage:
-    .mt-6
-      %b The Oral History
-      %div
-        %a{:href => "/oral-history"}
-          “An oral history of our union, hosted by the Engelberg Center and compiled by one of our former organizers.”
-      %b 01) New York Times
-      %div
-        %a{:target => "_blank", :href => "https://www.nytimes.com/2020/02/18/technology/kickstarter-union.html"}
-          “Kickstarter Employees Vote to Unionize in a Big Step for Tech”
-      %b 02) Washington Post
-      %div
-        %a{:target => "_blank", :href => "https://www.washingtonpost.com/business/2020/02/18/kickstarter-forms-union/"}
-          “Kickstarter staff votes to unionize, a sign of rising labor tensions in tech”
-      %b 03) The Guardian
-      %div
-        %a{:target => "_blank", :href => "https://www.theguardian.com/us-news/2020/feb/18/kickstarter-union-crowdfunding-tech"}
-          “Kickstarter workers vote to unionize amid growing industry unrest”
-      %b 04) Vice
-      %div
-        %a{:target => "_blank", :href => "https://www.vice.com/en_us/article/3a8pp5/kickstarter-employees-win-historic-union-election"}
-          “Kickstarter Employees Win Historic Union Election”
-      %b 05) Forbes
-      %div
-        %a{:target => "_blank", :href => "https://www.forbes.com/sites/mattperez/2020/02/18/kickstarter-staff-votes-to-unionize-paving-the-way-for-other-tech-workers/#73e8a73404f0"}
-          “Kickstarter Staff Votes To Unionize, Paving The Way For Other Tech Workers”
-      %b 06) Business Insider
-      %div
-        %a{:target => "_blank", :href => "https://www.businessinsider.com/kickstarter-union-employees-tech-workers-2020-2"}
-          “Kickstarter has unionized, becoming the first tech company to do so as workers organize across the industry”
-      %b 07) The Verge
-      %div
-        %a{:target => "_blank", :href => "https://www.theverge.com/2020/2/18/21142308/kickstarter-employee-vote-union-unionize"}
-          “Kickstarter employees vote to unionize”
-      %b 08) Kickstarter Union Oral History
-      %div
-        %a{:target => "_blank", :href => "https://engelberg-center-live.simplecast.com/"}
-          “A podcast featuring an oral history directly from our organizers and members”
-      %b 09) Crain's New York
-      %div
-        %a{:target => "_blank", :href => "https://www.crainsnewyork.com/labor-unions/kickstarter-workers-win-profit-sharing-and-guaranteed-raises-first-union-contract"}
-          “Kickstarter workers win profit sharing and guaranteed raises in first union contract”
+    %ul.mt-6
+      != render 'pages/press/press_link', href: "/oral-history", outlet: "The Oral History", title: '"An oral history of our union, hosted by the Engelberg Center and compiled by one of our former organizers."'
+      != render 'pages/press/press_link', href: "https://www.nytimes.com/2020/02/18/technology/kickstarter-union.html", outlet: "New York Times", title: '"Kickstarter Employees Vote to Unionize in a Big Step for Tech"'
+      != render 'pages/press/press_link', href: "https://www.washingtonpost.com/business/2020/02/18/kickstarter-forms-union/", outlet: "Washington Post", title: '"Kickstarter staff votes to unionize, a sign of rising labor tensions in tech"'
+      != render 'pages/press/press_link', href: "https://www.theguardian.com/us-news/2020/feb/18/kickstarter-union-crowdfunding-tech", outlet: "The Guardian", title: '"Kickstarter workers vote to unionize amid growing industry unrest"'
+      != render 'pages/press/press_link', href: "https://www.vice.com/en_us/article/3a8pp5/kickstarter-employees-win-historic-union-election", outlet: "Vice", title: '"Kickstarter Employees Win Historic Union Election"'
+      != render 'pages/press/press_link', href: "https://www.forbes.com/sites/mattperez/2020/02/18/kickstarter-staff-votes-to-unionize-paving-the-way-for-other-tech-workers/#73e8a73404f0", outlet: "Forbes", title: '"Kickstarter Staff Votes To Unionize, Paving The Way For Other Tech Workers"'
+      != render 'pages/press/press_link', href: "https://www.businessinsider.com/kickstarter-union-employees-tech-workers-2020-2", outlet: "Business Insider", title: '"Kickstarter has unionized, becoming the first tech company to do so as workers organize across the industry"'
+      != render 'pages/press/press_link', href: "https://www.theverge.com/2020/2/18/21142308/kickstarter-employee-vote-union-unionize", outlet: "The Verge", title: '"Kickstarter employees vote to unionize"'
+      != render 'pages/press/press_link', href: "https://www.crainsnewyork.com/labor-unions/kickstarter-workers-win-profit-sharing-and-guaranteed-raises-first-union-contract", outlet: "Crain's New York", title: '"Kickstarter workers win profit sharing and guaranteed raises in first union"'
