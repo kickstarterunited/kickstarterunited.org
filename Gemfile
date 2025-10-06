@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gem 'haml'
 gem 'rake'
-gem 'webrick'
 gem 'tailwindcss-ruby'
+gem 'webrick'
 
 # Live reload development server
 gem 'em-websocket', require: false

@@ -10,7 +10,7 @@ desc 'Start server with watch and hot-reloading'
 task :dev do
   require_relative 'lib/dev_server'
 
-  puts "Starting development server with live reload..."
+  puts 'Starting development server with live reload...'
 
   # Start dev server in background thread
   dev_server = DevServer.new
@@ -29,8 +29,9 @@ task :dev do
   Rake::Task[:watch].invoke
 end
 
+desc 'Start Tailwind CSS watcher'
 task :tailwind_dev do
-  puts "Starting Tailwind CSS watcher..."
+  puts 'Starting Tailwind CSS watcher...'
   @tailwind_thread = Thread.new do
     sh 'bundle exec tailwindcss -w -i src/css/input.css -o static/css/output.css'
   rescue
@@ -41,8 +42,8 @@ desc 'Watch for changes and rebuild'
 task watch: :build do
   require 'listen'
 
-  puts "Watching for changes..."
-  puts "Press Ctrl+C to stop"
+  puts 'Watching for changes...'
+  puts 'Press Ctrl+C to stop'
 
   # Initial build
   Rake::Task[:build].invoke
@@ -71,7 +72,7 @@ end
 
 desc 'Build site'
 task :build do
-  puts "Building site..."
+  puts 'Building site...'
   # Clean up old build
   rm_rf 'build'
 
@@ -88,9 +89,9 @@ task :build do
     dirname  = File.dirname(target)
     mkdir_p dirname unless Dir.exist? dirname
     touch target
-    File.open(target, 'w') { |file| file.write(content) }
+    File.write(target, content)
   end
-  puts "Build complete!"
+  puts 'Build complete!'
 end
 
 desc 'Start server'

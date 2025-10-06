@@ -8,6 +8,7 @@ require 'listen'
 require 'json'
 require 'fileutils'
 
+# Simple development server with live reload functionality
 class DevServer
   LIVE_RELOAD_SCRIPT = <<~JS
     <script>
@@ -52,16 +53,16 @@ class DevServer
   def start_livereload_server
     Thread.new do
       EM.run do
-        EM::WebSocket.run(host: "0.0.0.0", port: @livereload_port) do |ws|
-          ws.onopen { |handshake|
+        EM::WebSocket.run(host: '0.0.0.0', port: @livereload_port) do |ws|
+          ws.onopen do |_handshake|
             @clients << ws
             puts "Live reload client connected (#{@clients.length} total)"
-          }
+          end
 
-          ws.onclose {
+          ws.onclose do
             @clients.delete(ws)
             puts "Live reload client disconnected (#{@clients.length} remaining)"
-          }
+          end
         end
       end
     end
@@ -70,19 +71,19 @@ class DevServer
 
   def start_build_watcher
     FileUtils.mkdir_p(@build_dir) unless File.directory?(@build_dir)
-    listener = Listen.to(@build_dir) do |modified, added, removed|
-      puts "Build change detected!"
+    listener = Listen.to(@build_dir) do |_modified, _added, _removed|
+      puts 'Build change detected!'
       reload_clients
     end
     listener.start
-    puts "Build watcher started - listening for changes in build/"
+    puts 'Build watcher started - listening for changes in build/'
   end
 
   def start_http_server
     server = WEBrick::HTTPServer.new(
       Port: @port,
       DocumentRoot: @build_dir,
-      Logger: WEBrick::Log.new('/dev/null'),
+      Logger: WEBrick::Log.new(File::NULL),
       AccessLog: []
     )
 
@@ -106,7 +107,7 @@ class DevServer
     end
 
     puts "Development server running at http://localhost:#{@port}"
-    puts "Live reload enabled - changes will auto-refresh your browser"
+    puts 'Live reload enabled - changes will auto-refresh your browser'
 
     trap('INT') do
       puts "\nShutting down server..."
@@ -126,7 +127,7 @@ class DevServer
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   server = DevServer.new
   server.start
 end
