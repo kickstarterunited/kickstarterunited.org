@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require 'haml'
-require 'tilt/haml'
-
 task default: :build
 
 @rebuild_callbacks = []
@@ -11,7 +8,7 @@ task default: :build
 
 desc 'Start server with watch and hot-reloading'
 task :dev do
-  require_relative 'dev_server'
+  require_relative 'lib/dev_server'
 
   puts "Starting development server with live reload..."
 
@@ -81,11 +78,12 @@ task :build do
   # Copy static files into build
   cp_r 'static', 'build'
 
+  require_relative 'lib/renderer'
+
   # Render HAML
-  layout = Tilt::HamlTemplate.new('templates/layout.haml')
-  Dir['pages/**/*.haml'].each do |source|
-    template = Tilt::HamlTemplate.new(source)
-    content  = layout.render { template.render }
+  renderer = Renderer.new
+  Dir['pages/**/index.haml'].each do |source|
+    content  = renderer.render_with_haml_ext(source)
     target   = source.sub(/^pages(.*?)\.haml$/, 'build\1.html')
     dirname  = File.dirname(target)
     mkdir_p dirname unless Dir.exist? dirname

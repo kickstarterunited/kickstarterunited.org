@@ -1,30 +1,8 @@
-%h2 Creator Assets
-%p Please use these assets in your campaign story and thumbnail image to express support for Kickstarter United!
+!= render 'templates/layout' do
+  %h2 Creator Assets
+  %p Please use these assets in your campaign story and thumbnail image to express support for Kickstarter United!
 
-.border-4.p-4.mt-4.bg-gray-200
-  %img{src: "/images/union_assets/banner-1.png"}
-  .mt-6.mb-1.flex
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3.mt-1{href: "/images/union_assets/banner-1.png", download: true, type: "image/png"}
-      Download
-
-.border-4.p-4.mt-4.bg-gray-200
-  %img{src: "/images/union_assets/banner-2-large.png"}
-  .mt-6.mb-1.flex
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3{href: "/images/union_assets/banner-2-large.png", download: true, type: "image/png"}
-      Download (large)
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3.ml-4{href: "/images/union_assets/banner-2-small.png", download: true, type: "image/png"}
-      Download (small)
-
-.border-4.p-4.mt-4.bg-gray-200
-  %img{src: "/images/union_assets/banner-3.png"}
-  .mt-6.mb-1.flex
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3.mt-1{href: "/images/union_assets/banner-3.png", download: true, type: "image/png"}
-      Download
-
-.border-4.p-4.mt-4.bg-gray-200
-  %img{src: "/images/union_assets/story-1920x1080.png"}
-  .mt-6.mb-1.flex
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3.mt-1{href: "/images/union_assets/story-1920x1080.png", download: true, type: "image/png"}
-      Download (1920x1080)
-    %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3.mt-1.ml-4{href: "/images/union_assets/story-680x383.png", download: true, type: "image/png"}
-      Download (680x383)
+  != render 'pages/union-assets/asset_box', href: "/images/union_assets/banner-1.png", button_text: "Download"
+  != render 'pages/union-assets/asset_box', href: "/images/union_assets/banner-2-large.png", button_text: "Download (large)", alt_button: {href: "/images/union_assets/banner-2-small.png", text: "Download (small)"}
+  != render 'pages/union-assets/asset_box', href: "/images/union_assets/banner-3.png", button_text: "Download"
+  != render 'pages/union-assets/asset_box', href: "/images/union_assets/story-1920x1080.png", button_text: "Download (1920x1080)", alt_button: {href: "/images/union_assets/story-680x383.png", text: "Download (680x383)"}

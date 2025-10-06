@@ -28,6 +28,12 @@ Kickstarter United’s website
 
 If you need to build or serve the site manually without file watching:
 
+1. Bundle CSS with tailwind
+
+   ```bash
+   bundle exec tailwindcss -i src/css/input.css -o static/css/output.css
+   ```
+
 1. Build the site
 
    ```bash
@@ -43,6 +49,16 @@ If you need to build or serve the site manually without file watching:
    ```
 
    This will start a web server that will host the site. This can be accessed at <http://localhost:8080/>.
+
+## Templating
+
+To re-use templates, you can create a new `.haml` file and then reference it
+from your current `.haml` file like so:
+
+```haml
+!= render 'templates/foobar.haml', local_a: 1, local_b: 2 do
+  ...
+```
 
 ## Deployment
 
