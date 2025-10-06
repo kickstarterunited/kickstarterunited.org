@@ -3,7 +3,7 @@
     border: 5px solid var(--ksru-color-accent-light);
     border-radius: 28px;
     padding: 32px;
-    @apply shadow-lg;
+    /* @apply shadow-lg; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -18,7 +18,7 @@
       grid place-items-center
       border border-green-900/10 p-6 rounded-2xl
       bg-green-50 text-green-950
-      inset-shadow-sm inset-shadow-gray-300;
+      inset-shadow-xs inset-shadow-gray-300;
   }
 
   .days-on-strike .day-count {
