@@ -60,12 +60,19 @@
                 %a.menu__item{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact Us
 
             .popover
+              %button#about-trigger{class: "[anchor-name:--events-trigger]", popovertarget: "events-links"}
+                Events
+              %menu.menu#events-links{class: "[position-anchor:--events-trigger]", popover: nil, "aria-labelledby" => "about-trigger"}
+                %a.menu__item{:href => "/events/calendar"} Calendar
+
+            .popover
               %button#contracts-trigger{class: "[anchor-name:--contracts-trigger]", popovertarget: "contracts-links"}
                 Contracts
               %menu.menu#contracts-links{popover: nil, "aria-labelledby" => "contracts-trigger"}
                 %a.menu__item{:href => "/contracts/2025"} 2025 Contract
                 %a.menu__item{:href => "/contracts/2022"} 2022 Contract
                 %a.menu__item{:href => "/may-day-severance-agreement"} May Day Severance Agreement
+
             .popover
               %button#resources-trigger{class: "[anchor-name:--resources-trigger]", popovertarget: "resources-links"}
                 Resources
@@ -122,6 +129,8 @@
       %a.menu__item{:href => "/about"} About Us
       %a.menu__item{:href => "/oral-history"} Oral History
       %a.menu__item{:href => "/every-worker-needs-a-union"} Every Worker Needs a Union
+      %div.menu__title Events
+      %a.menu__item{:href => "/events/calendar"} Calendar
       %div.menu__title Contracts & Agreements
       %a.menu__item{:href => "/contracts/2025"} 2025 Contract
       %a.menu__item{:href => "/contracts/2022"} 2022 Contract
@@ -132,5 +141,3 @@
       %a.menu__item{:href => "/press"} Press
       %a.menu__item{:href => "/socials"} Socials
       %a.menu__item{:href => "/union-assets"} Creator Assets
-
-
