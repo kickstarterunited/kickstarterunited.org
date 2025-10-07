@@ -6,26 +6,7 @@
 
   %div
     %h1 Our Socials
-    %p{:style => "align: center"}
+    %p
       Follow us on social media:
-      -# NOTE: When updating, also update templates/layout.haml
-      -#
-      -# Below, we want these to be inline with the paragraph text, so we use
-      -# spans instead of list items. The `role` attributes are for accessibility.
-      %span.social-links{role: "list"}
-        %span{role: "listitem"}
-          🦋
-          %a{:href => "https://bsky.app/profile/kickstarterunited.org", :rel => "me", :target => "_blank"} Bluesky
-        %span{role: "listitem"}
-          📷
-          %a{:href => "https://www.instagram.com/kickstarter_united", :rel => "me", :target => "_blank"} Instagram
-        %span{role: "listitem"}
-          💼
-          %a{:href => "https://www.linkedin.com/in/kickstarter-united-4924ba37b/", :rel => "me", :target => "_blank"} LinkedIn
-        %span{role: "listitem"}
-          🐘
-          %a{:href => "https://union.place/@kickstarterunited", :rel => "me", :target => "_blank"} Mastodon
-        %span{role: "listitem"}
-          💩
-          %a{:href => "https://twitter.com/ksr_united", :target => "_blank"} Twitter
+      != render 'templates/social_links'
 

@@ -81,23 +81,7 @@
         != yield
       %footer.page__footer
         .p-4.text-center
-          -# NOTE: When updating, also update pages/socials/index.haml
-          %ul.social-links{"aria-label": "Follow us on social media"}
-            %li
-              🦋
-              %a{:href => "https://bsky.app/profile/kickstarterunited.org", :rel => "me", :target => "_blank"} Bluesky
-            %li
-              📷
-              %a{:href => "https://www.instagram.com/kickstarter_united", :rel => "me", :target => "_blank"} Instagram
-            %li
-              💼
-              %a{:href => "https://www.linkedin.com/in/kickstarter-united-4924ba37b/", :rel => "me", :target => "_blank"} LinkedIn
-            %li
-              🐘
-              %a{:href => "https://union.place/@kickstarterunited", :rel => "me", :target => "_blank"} Mastodon
-            %li
-              💩
-              %a{:href => "https://twitter.com/ksr_united", :target => "_blank"} Twitter
+          != render 'templates/social_links'
           %br
           © Copyright 2025 Kickstarter United
     %script{:crossorigin => "anonymous", :integrity => "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", :src => "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js", :type => "text/javascript"}
