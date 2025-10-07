@@ -1,0 +1,18 @@
+!= render 'templates/layout' do
+  %h1 Projects our Workers Love
+  %p
+    Here we'll be featuring live projects that have expressed support for Kickstarter United.
+  %p
+    If you're a creator,
+    %a{href: "/creators"} here are some ways you can support us.
+    If you have a live project who would like to be featured here, please fill out
+    %a{href: "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", target: "_blank"} this form
+    to let us know!
+
+  %ul.mt-6.flex.list-none.p-0.flex-wrap
+    != render 'pages/projects-our-workers-love/project', slug: "ironspike/rigsby-wi-volume-2-burn-it-down-by-se-case"
+    != render 'pages/projects-our-workers-love/project', slug: "ww3/poisongirls"
+    != render 'pages/projects-our-workers-love/project', slug: "restorationgames/return-to-dark-tower-expeditions"
+    != render 'pages/projects-our-workers-love/project', slug: "shiftrpg/shift-rpg"
+    != render 'pages/projects-our-workers-love/project', slug: "apexpublications/apex-magazine-2026"
+    != render 'pages/projects-our-workers-love/project', slug: "theninagalaxy/to-love-like-venus"
