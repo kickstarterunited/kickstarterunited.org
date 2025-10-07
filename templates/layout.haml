@@ -1,18 +1,18 @@
 !!!
 %html{"data-wf-page" => "5ce75a59757fff6268d29f8b", "data-wf-site" => "5ce75a58757fffbe19d29f88"}
   %head
-    %meta{:charset => "utf-8"}/
+    %meta{charset: "utf-8"}/
     %title Kickstarter United
-    %meta{:content => "Kickstarter United", :property => "og:title"}/
-    %meta{:content => "/images/logo.svg", :property => "og:image"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{content: "Kickstarter United", property: "og:title"}/
+    %meta{content: "/images/logo.svg", property: "og:image"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
 
     %link{rel: "preconnect", href: "https://fonts.googleapis.com"}
     %link{rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true}
     %link{href: "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap", rel: "stylesheet"}
 
-    %link{:href => "/css/output.css", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %link{href: "/css/output.css", rel: "stylesheet", type: "text/css"}/
+    %link{href: "/images/favicon.ico", rel: "shortcut icon", type: "image/x-icon"}/
 
     %script{src: "https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@latest", crossorigin: "anonymous", nomodule: true, async: true}
     %script{type: "module", async: true}
@@ -84,7 +84,7 @@
           != render 'templates/social_links'
           %br
           © Copyright 2025 Kickstarter United
-    %script{:crossorigin => "anonymous", :integrity => "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", :src => "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js", :type => "text/javascript"}
+    %script{crossorigin: "anonymous", integrity: "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", src: "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js", type: "text/javascript"}
 
     - # These are outside the nav, because we need to duplicate the links for a
     - # mobile menu, and I didn't want to clutter the top of the file with dual
@@ -94,7 +94,7 @@
     %dialog.drawer.menu#mobile-nav{"aria-labelledby" => "menu-trigger", closedby: "any"}
       %button{command: "close", commandfor: "mobile-nav"} Close
 
-      %a.menu__item{:href => "/"} Home
+      %a.menu__item{href: "/"} Home
       %div.menu__title About
       != render 'templates/about_links'
 
