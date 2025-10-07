@@ -47,31 +47,24 @@
               %line{ x1: "3", y1: "18", x2: "21", y2: "18", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round" }
             Menu
 
-          -# NOTE: if you update links here, you need to update it in the
-          -# `#mobile-nav` below too.
           %div{class: "hidden md:flex md:flex-wrap"}
             .popover
               %button#about-trigger{class: "[anchor-name:--about-trigger]", popovertarget: "about-links"}
                 About
               %menu.menu#about-links{class: "[position-anchor:--about-trigger]", popover: nil, "aria-labelledby" => "about-trigger"}
-                %a.menu__item{:href => "/about"} About Us
-                %a.menu__item{:href => "/oral-history"} Oral History
-                %a.menu__item{:href => "/every-worker-needs-a-union"} Every Worker Needs a Union
-                %a.menu__item{:href => "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform", :target => "_blank"} Contact Us
+                != render 'templates/about_links'
 
             .popover
               %button#about-trigger{class: "[anchor-name:--events-trigger]", popovertarget: "events-links"}
                 Events
               %menu.menu#events-links{class: "[position-anchor:--events-trigger]", popover: nil, "aria-labelledby" => "about-trigger"}
-                %a.menu__item{:href => "/events/calendar"} Calendar
+                != render 'templates/events_links'
 
             .popover
               %button#contracts-trigger{class: "[anchor-name:--contracts-trigger]", popovertarget: "contracts-links"}
                 Contracts
               %menu.menu#contracts-links{popover: nil, "aria-labelledby" => "contracts-trigger"}
-                %a.menu__item{:href => "/contracts/2025"} 2025 Contract
-                %a.menu__item{:href => "/contracts/2022"} 2022 Contract
-                %a.menu__item{:href => "/may-day-severance-agreement"} May Day Severance Agreement
+                != render 'templates/contracts_links'
 
             .popover
               %button#resources-trigger{class: "[anchor-name:--resources-trigger]", popovertarget: "resources-links"}
@@ -81,34 +74,14 @@
                 popover: nil,
                 "aria-labelledby" => "resources-trigger"
               }
-                %a.menu__item{:href => "/faq"} FAQ
-                %a.menu__item{:href => "/logos"} Logo Generator
-                %a.menu__item{:href => "/press"} Press
-                %a.menu__item{:href => "/socials"} Socials
-                %a.menu__item{:href => "/union-assets"} Creator Assets
+                != render 'templates/resources_links'
 
 
       %main.page__content#content.mx-0.my-8
         != yield
       %footer.page__footer
         .p-4.text-center
-          -# NOTE: When updating, also update pages/socials/index.haml
-          %ul.social-links{"aria-label": "Follow us on social media"}
-            %li
-              🦋
-              %a{:href => "https://bsky.app/profile/kickstarterunited.org", :rel => "me", :target => "_blank"} Bluesky
-            %li
-              📷
-              %a{:href => "https://www.instagram.com/kickstarter_united", :rel => "me", :target => "_blank"} Instagram
-            %li
-              💼
-              %a{:href => "https://www.linkedin.com/in/kickstarter-united-4924ba37b/", :rel => "me", :target => "_blank"} LinkedIn
-            %li
-              🐘
-              %a{:href => "https://union.place/@kickstarterunited", :rel => "me", :target => "_blank"} Mastodon
-            %li
-              💩
-              %a{:href => "https://twitter.com/ksr_united", :target => "_blank"} Twitter
+          != render 'templates/social_links'
           %br
           © Copyright 2025 Kickstarter United
     %script{:crossorigin => "anonymous", :integrity => "sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=", :src => "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js", :type => "text/javascript"}
@@ -117,27 +90,17 @@
     - # mobile menu, and I didn't want to clutter the top of the file with dual
     - # menus. Don't worry: accessibility is preserved via the Dialog and
     - # Popover APIs.
-    - # NOTE: this means if you update a link, you need to do it in the popover
-    - # menu AND the mobile menu.
-
 
     %dialog.drawer.menu#mobile-nav{"aria-labelledby" => "menu-trigger", closedby: "any"}
       %button{command: "close", commandfor: "mobile-nav"} Close
 
       %a.menu__item{:href => "/"} Home
       %div.menu__title About
-      %a.menu__item{:href => "/about"} About Us
-      %a.menu__item{:href => "/oral-history"} Oral History
-      %a.menu__item{:href => "/every-worker-needs-a-union"} Every Worker Needs a Union
+      != render 'templates/about_links'
+
       %div.menu__title Events
-      %a.menu__item{:href => "/events/calendar"} Calendar
+      != render 'templates/events_links'
       %div.menu__title Contracts & Agreements
-      %a.menu__item{:href => "/contracts/2025"} 2025 Contract
-      %a.menu__item{:href => "/contracts/2022"} 2022 Contract
-      %a.menu__item{:href => "/may-day-severance-agreement"} May Day Severance Agreement
+      != render 'templates/contracts_links'
       %div.menu__title Resources
-      %a.menu__item{:href => "/faq"} FAQ
-      %a.menu__item{:href => "/logos"} Logo Generator
-      %a.menu__item{:href => "/press"} Press
-      %a.menu__item{:href => "/socials"} Socials
-      %a.menu__item{:href => "/union-assets"} Creator Assets
+      != render 'templates/resources_links'
