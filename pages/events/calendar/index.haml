@@ -5,10 +5,26 @@
 
   -# %a.btn{href: "webcal://calendar.google.com/calendar/ical/78fd6e9858fc09edd503da1c76329b27795c283cfac1d1e94202563ed3251a61%40group.calendar.google.com/public/basic.ics"} Subscribe with iCal
 
-  %iframe{
+  %iframe.hidden.md:block{
     :src => "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&src=NzhmZDZlOTg1OGZjMDllZGQ1MDNkYTFjNzYzMjliMjc3OTVjMjgzY2ZhYzFkMWU5NDIwMjU2M2VkMzI1MWE2MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23f09300",
     :style => "border:solid 1px #777",
     :width => "800",
+    :height => "600",
+    :frameborder => "0",
+    :scrolling => "no"
+  }
+  %iframe.hidden.sm:block.md:hidden{
+    :src => "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&src=NzhmZDZlOTg1OGZjMDllZGQ1MDNkYTFjNzYzMjliMjc3OTVjMjgzY2ZhYzFkMWU5NDIwMjU2M2VkMzI1MWE2MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23f09300",
+    :style => "border:solid 1px #777",
+    :width => "600",
+    :height => "600",
+    :frameborder => "0",
+    :scrolling => "no"
+  }
+  %iframe.block.sm:hidden{
+    :src => "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&mode=AGENDA&src=NzhmZDZlOTg1OGZjMDllZGQ1MDNkYTFjNzYzMjliMjc3OTVjMjgzY2ZhYzFkMWU5NDIwMjU2M2VkMzI1MWE2MUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23f09300",
+    :style => "border:solid 1px #777",
+    :width => "375",
     :height => "600",
     :frameborder => "0",
     :scrolling => "no"
