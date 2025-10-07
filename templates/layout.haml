@@ -37,7 +37,7 @@
           %a.btn.link.sr-only{href: "#content"} Skip to main content
           -# See the dialog at the bottom of the file.
           %button#menu-trigger{
-            class: "flex gap-1 items-center md:hidden",
+            class: "flex gap-1 items-center sm:hidden",
             command: "show-modal",
             commandfor: "mobile-nav"
           }
@@ -47,7 +47,7 @@
               %line{ x1: "3", y1: "18", x2: "21", y2: "18", stroke: "currentColor", "stroke-width": "2", "stroke-linecap": "round" }
             Menu
 
-          %div{class: "hidden md:flex md:flex-wrap"}
+          %div{class: "hidden sm:flex sm:flex-wrap"}
             .popover
               %button#about-trigger{class: "[anchor-name:--about-trigger]", popovertarget: "about-links"}
                 About
