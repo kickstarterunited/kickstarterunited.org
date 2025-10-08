@@ -58,83 +58,6 @@
       %a{href: '#what-you-can-do'}> here's what you can do
       !
 
-
-  %hr/
-
-  %div
-    %h1#rally-with-us
-      %a.no-underline{href: '#rally-with-us'} Rally With Us
-
-    %p
-      Our strike rallies are a chance to come together in solidarity. Join us in Seattle and New York as workers, friends, and community members gather to support a fair contract. Together, we'll raise our voices for a 32-hour week and livable wages.
-
-    %div.rally-gallery
-      %figure.rally
-        %div
-          %img{
-            src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png",
-            alt: "Kickstarter United members and supporters rallying in Seattle",
-            width: "1080",
-            height: "1080",
-          }/
-          %div.rally__cta-group
-            %button{command: "show-modal", commandfor: "seattle-rally-flyer", type: "button"} Details
-            %a.btn{href: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", download: true, type: "image/png"} Download
-          %dialog.rally__dialog#seattle-rally-flyer{closedby: "any" }
-            %img{src: "images/rally/kickstarter-united-rally-seattle-2025-10-02.png", alt: "Kickstarter United members and supporters rallying in Seattle", width: "1080", height: "1080"}/
-
-        %figcaption
-          Strike rally to be held on October 2, 2025 at 6pm PST at Cal Anderson Park in Seattle, WA.
-        %a.rally__cta.btn{href: "https://forms.gle/ZuvKnXV4RJjwSj1P9"} RSVP for Seattle
-
-      %figure.rally
-        - src = "images/rally/kickstarter-united-rally-nyc-2025-10-07.png"
-        - alt = "Kickstarter United members and supporters rallying in New York City"
-        - width = "1080"
-        - height = "1080"
-
-        %div
-          %dialog.rally__dialog#nyc-rally-flyer{closedby: "any" }
-            %img{src: src, alt: alt, width: width, height: height}/
-
-          %img{src: src, alt: alt, width: width, height: height}/
-
-          %div.rally__cta-group
-            %button{command: "show-modal", commandfor: "nyc-rally-flyer", type: "button"} Details
-            %a.btn{href: "images/rally/kickstarter-united-rally-nyc-2025-10-07.png", download: true, type: "image/png"} Download
-
-
-        %figcaption
-          Come rally with us on October 7, 2025 in New York City at Union Square Ventures.
-
-        %a.rally__cta.btn{href: "//bit.ly/KSRUrally"} RSVP for NYC
-
-
-  %hr/
-
-  %div
-    %h2#our-next-contract
-      %a.no-underline{href: '#our-next-contract'} Our Next Contract
-    %p
-      In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
-      %a{href: "/contracts/2022"} first contract
-      was won in 2022). From the outset we have been clear with
-      management that our top priorities are codifying the
-      %strong#4dww-defn 4-day, 32-hour work week (4DWW)
-      as the standard and
-      %strong raising the minimum salary
-      for all members of the bargaining unit.
-      While we are proud of the progress we have made in some areas,
-      management
-      %em continues to block real progress
-      on the
-      %span{"aria-labelledby": "4dww-dfn"} 4DWW
-      and fair minimum salaries.
-
-    %p
-      For more information, see our
-      %a{href: "/faq", "aria-label": "Frequently asked questions"} FAQ
-
   %hr/
 
   .solidarity
@@ -222,7 +145,20 @@
       .solidarity__item#solidarity-watch
         %details{name: "solidarity"}
           - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
-          %summary Watch Our Solidarity Rally
+          %summary Watch Our Solidarity Rallies
+
+          %div
+            %p On October 2nd—the first day of our strike—we held a solidarity rally in Seattle.
+
+            .media
+              %iframe.embed.embed--video{width: "1024", height: "576", src: "https://www.youtube.com/embed/RdbEhsz94W4", title: "Kickstarter United Solidarity Rally – September 2023", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
+
+              -# .media__details
+              -#   %h4 Featured speakers and supporters
+              -#   %ul
+              -#     %li
+              -#       %b Speaker Organization:
+              -#       Speaker summary
 
           %div
             %p On September 5th, we held a public virtual rally to support our fight for a fair contract.
@@ -248,6 +184,32 @@
                   %li
                     %b Seattle:
                     Kshama Sawant, former City Council member and current candidate for the United States Congress, advocating a 30-hour week and a $25 per hour minimum wage.
+
+  %hr/
+
+  %div
+    %h2#our-next-contract
+      %a.no-underline{href: '#our-next-contract'} Our Next Contract
+    %p
+      In July of 2025 we began bargaining with the management at Kickstarter for our second union contract (our
+      %a{href: "/contracts/2022"} first contract
+      was won in 2022). From the outset we have been clear with
+      management that our top priorities are codifying the
+      %strong#4dww-defn 4-day, 32-hour work week (4DWW)
+      as the standard and
+      %strong raising the minimum salary
+      for all members of the bargaining unit.
+      While we are proud of the progress we have made in some areas,
+      management
+      %em continues to block real progress
+      on the
+      %span{"aria-labelledby": "4dww-dfn"} 4DWW
+      and fair minimum salaries.
+
+    %p
+      For more information, see our
+      %a{href: "/faq", "aria-label": "Frequently asked questions"} FAQ
+
   %script{defer: true}
     :plain
       document.addEventListener('DOMContentLoaded', function () {
@@ -264,3 +226,5 @@
         el.textContent=String(days);
         el.style.visibility = 'visible';
       })
+
+  %hr/
