@@ -1,8 +1,11 @@
 -# expects: href, button_text, alt_button (optional, hash with :href and :text)
 - alt_button ||= nil
+- width ||= nil
+- height ||= nil
+- alt ||= button_text
 
 .border-4.p-4.mt-4.bg-gray-200
-  %img.mx-auto{src: href}
+  %img.mx-auto{src: href, width: width, height: height, alt: alt, loading: "lazy"}
   .mt-6.mb-1.flex
     %a.no-underline.text-black.border-4.w-auto.bg-white.px-6.py-3{href:, download: true, type: "image/png"}
       = button_text
