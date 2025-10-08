@@ -145,7 +145,20 @@
       .solidarity__item#solidarity-watch
         %details{name: "solidarity"}
           - rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB"
-          %summary Watch Our Solidarity Rally
+          %summary Watch Our Solidarity Rallies
+
+          %div
+            %p On October 2nd—the first day of our strike—we held a solidarity rally in Seattle.
+
+            .media
+              %iframe.embed.embed--video{width: "1024", height: "576", src: "https://www.youtube.com/embed/RdbEhsz94W4", title: "Kickstarter United Solidarity Rally – September 2023", frameborder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share", referrerpolicy: "strict-origin-when-cross-origin", allowfullscreen: true}
+
+              -# .media__details
+              -#   %h4 Featured speakers and supporters
+              -#   %ul
+              -#     %li
+              -#       %b Speaker Organization:
+              -#       Speaker summary
 
           %div
             %p On September 5th, we held a public virtual rally to support our fight for a fair contract.
