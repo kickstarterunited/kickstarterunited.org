@@ -224,7 +224,7 @@
 @layer components {
   button,
   .btn {
-    display: block;
+    display: inline-block;
     font: inherit;
     font-weight: 500;
     box-sizing: border-box;
