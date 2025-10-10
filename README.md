@@ -2,63 +2,20 @@
 
 Kickstarter United’s website
 
-## Development
+## Astro
 
-1. Install Ruby
+All commands are run from the root of the project, from a terminal:
 
-   ```
-   rbenv install --skip-existing
-   ```
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `bun install`             | Installs dependencies                            |
+| `bun dev`                 | Starts local dev server at `localhost:4321`      |
+| `bun run build`           | Build your production site to `./dist/`          |
+| `bun preview`             | Preview your build locally, before deploying     |
+| `bun astro ...`           | Run CLI commands like `astro add`, `astro check` |
+| `bun astro -- --help`     | Get help using the Astro CLI                     |
 
-1. Install Ruby dependencies
-
-   ```
-   bundle install
-   ```
-
-1. Start development server
-
-   ```bash
-   rake dev
-   ```
-
-   This will build the site, start a web server at <http://localhost:8080/>, and automatically rebuild and hot reload when you make changes to files. Your browser will automatically refresh to show the latest changes. Press Ctrl+C to stop.
-
-## Manual Build and Serve
-
-If you need to build or serve the site manually without file watching:
-
-1. Bundle CSS with tailwind
-
-   ```bash
-   bundle exec tailwindcss -i src/css/input.css -o static/css/output.css
-   ```
-
-1. Build the site
-
-   ```bash
-   rake build
-   ```
-
-   The built site will get written to the `build/` directory.
-
-1. Serve the site
-
-   ```bash
-   rake up
-   ```
-
-   This will start a web server that will host the site. This can be accessed at <http://localhost:8080/>.
-
-## Templating
-
-To re-use templates, you can create a new `.haml` file and then reference it
-from your current `.haml` file like so:
-
-```haml
-!= render 'templates/foobar.haml', local_a: 1, local_b: 2 do
-  ...
-```
+See: [Astro documentation](https://docs.astro.build)
 
 ## Deployment
 

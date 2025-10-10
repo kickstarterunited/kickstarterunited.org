@@ -1,0 +1,36 @@
+---
+const { href, button_text, alt_button, width, height, alt } = Astro.props;
+---
+
+<div class="border-4 p-4 mt-4 bg-gray-200">
+  <img
+    class="mx-auto"
+    src={href}
+    alt={alt || button_text}
+    width={width}
+    height={height}
+    loading="lazy"
+  />
+  <div class="mt-6 mb-1 flex">
+    <a
+      class="no-underline text-black border-4 w-auto bg-white px-6 py-3"
+      href={href}
+      download
+      type="image/png"
+    >
+      {button_text}
+    </a>
+    {
+      alt_button && (
+        <a
+          class="no-underline text-black border-4 w-auto bg-white px-6 py-3 ml-4"
+          href={alt_button.href}
+          download
+          type="image/png"
+        >
+          {alt_button.text}
+        </a>
+      )
+    }
+  </div>
+</div>
