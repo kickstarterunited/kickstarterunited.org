@@ -2,6 +2,12 @@
 
 Kickstarter United’s website
 
+## Setup
+
+1. Install [bun](https://bun.com/).
+2. `bun install` to install packages.
+3. `bun dev` to start your local dev server.
+
 ## Astro
 
 All commands are run from the root of the project, from a terminal:
