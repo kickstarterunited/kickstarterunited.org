@@ -3,14 +3,9 @@
   min-height: 100dvh;
 }
 
-.page > * {
-  grid-column: CONTENT;
-}
-
 .page__header,
 .page__footer {
   color: #ffffff;
-  grid-column: BLEED;
 
   --ksru-outline-color: var(--ksru-color-outline-accent);
 }
@@ -37,9 +32,7 @@
   flex-wrap: wrap;
   width: auto;
   gap: 0;
-  /* grid-template-columns: 1fr auto auto auto auto; */
   padding: 0;
-  /* background-color: var(--ksru-color-accent); */
   align-items: stretch;
 
   background-color: var(--ksru-color-accent);
@@ -82,7 +75,6 @@
   padding-inline-end: var(--_height);
 
   border-bottom-right-radius: calc(infinity * 1px);
-  /* corner-shape: round; */
 
   font-size: clamp(
     1rem,
