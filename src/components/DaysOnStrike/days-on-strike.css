@@ -1,3 +1,5 @@
+@reference "../../styles/global.css";
+
 @layer components {
   .days-on-strike {
     border: 5px solid var(--ksru-color-accent-light);
