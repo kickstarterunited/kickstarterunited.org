@@ -1,0 +1,23 @@
+---
+import SocialLinks from "../components/SocialLinks.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="w-auto">
+    <img
+      class="mx-auto"
+      alt="Kickstarter United Logo"
+      src="../images/logo.svg"
+      width="256"
+    />
+  </div>
+  <hr />
+  <div>
+    <h1>Our Socials</h1>
+    <p>
+      Follow us on social media:
+      <SocialLinks />
+    </p>
+  </div>
+</BaseLayout>
