@@ -2,7 +2,59 @@
 import AboutLinks from "../AboutLinks.astro";
 import ContractsLinks from "../ContractsLinks.astro";
 import EventsLinks from "../EventsLinks.astro";
+import MenuIcon from "../Icon/MenuIcon.astro";
 import ResourcesLinks from "../ResourcesLinks.astro";
+
+// Link data extracted from the imported components above
+type NavItem = Link | Menu;
+type Link = { label: string; href: string; target?: string };
+type Menu = { label: string; links: NavItem[] };
+
+export const items: NavItem[] = [
+  {
+    label: "About",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Oral History", href: "/oral-history" },
+      {
+        label: "Every Worker Needs a Union",
+        href: "/every-worker-needs-a-union",
+      },
+      {
+        label: "Contact Us",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSd3JgEtyy72nD6zAwdZsIMeJ5PMg3pIOtkwR7l1uooCJI9bTA/viewform",
+        target: "_blank",
+      },
+    ],
+  },
+  { label: "Events", links: [{ label: "Calendar", href: "/events/calendar" }] },
+  {
+    label: "Contracts",
+    links: [
+      { label: "2025 Contract", href: "/contracts/2025" },
+      { label: "2022 Contract", href: "/contracts/2022" },
+      {
+        label: "May Day Severance Agreement",
+        href: "/may-day-severance-agreement",
+      },
+    ],
+  },
+  {
+    label: "Resources",
+    links: [
+      { label: "FAQ", href: "/faq" },
+      { label: "Logo Generator", href: "/logos" },
+      { label: "Press", href: "/press" },
+      { label: "Socials", href: "/socials" },
+      { label: "Creator Assets", href: "/union-assets" },
+      {
+        label: "Projects our Workers Love",
+        href: "/projects-our-workers-love",
+      },
+      { label: "How Creators Can Help", href: "/creators" },
+    ],
+  },
+];
 ---
 
 <nav class="page__nav">
@@ -15,38 +67,7 @@ import ResourcesLinks from "../ResourcesLinks.astro";
     command="show-modal"
     commandfor="mobile-nav"
   >
-    <svg
-      class="inline"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <line
-        x1="3"
-        y1="6"
-        x2="21"
-        y2="6"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"></line>
-      <line
-        x1="3"
-        y1="12"
-        x2="21"
-        y2="12"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"></line>
-      <line
-        x1="3"
-        y1="18"
-        x2="21"
-        y2="18"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"></line>
-    </svg>
+    <MenuIcon />
     Menu
   </button>
 
