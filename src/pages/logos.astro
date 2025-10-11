@@ -2,7 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout>
+<BaseLayout title="Kickstarter United Logo Generator">
   <style>
     .container {
       max-width: 1200px;
@@ -1030,13 +1030,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         params.bg,
         backgroundColorPicker,
         backgroundHexInput,
-        "#222222",
+        "#222222"
       );
       setColorFromParam(
         params.fg,
         foregroundColorPicker,
         foregroundHexInput,
-        "#eeeeee",
+        "#eeeeee"
       );
 
       // Initialize logo version from URL
@@ -1076,7 +1076,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
         // Add the background rectangle(s)
         const svgBackground = activeSvg.querySelector(
-          "#svg-background, #svg-background-contract",
+          "#svg-background, #svg-background-contract"
         );
         if (svgBackground) {
           categories.background.push(svgBackground);
@@ -1135,7 +1135,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         if (style && style.includes("fill:")) {
           const newStyle = style.replace(
             /fill\s*:\s*[^;]+/gi,
-            `fill: ${color}`,
+            `fill: ${color}`
           );
           element.setAttribute("style", newStyle);
         } else if (fill) {
@@ -1146,10 +1146,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       }
 
       backgroundElements.forEach((el) =>
-        updateElementColor(el, backgroundColor),
+        updateElementColor(el, backgroundColor)
       );
       foregroundElements.forEach((el) =>
-        updateElementColor(el, foregroundColor),
+        updateElementColor(el, foregroundColor)
       );
 
       // Update hex inputs to stay synced with color pickers
@@ -1188,7 +1188,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     // Event listeners for hex inputs
     function addHexListeners(hexInput, colorPicker) {
       hexInput.addEventListener("blur", () =>
-        applyHexColor(hexInput, colorPicker),
+        applyHexColor(hexInput, colorPicker)
       );
       hexInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") applyHexColor(hexInput, colorPicker);
@@ -1223,7 +1223,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       setQueryParams(
         backgroundColorPicker.value,
         foregroundColorPicker.value,
-        currentSvg,
+        currentSvg
       );
     }
 

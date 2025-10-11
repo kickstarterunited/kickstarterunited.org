@@ -5,6 +5,7 @@ import EventsLinks from "../components/EventsLinks.astro";
 import ResourcesLinks from "../components/ResourcesLinks.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import "../styles/global.css";
+const { title } = Astro.props;
 ---
 
 <html
@@ -15,7 +16,7 @@ import "../styles/global.css";
   <head>
     <meta charset="utf-8" />
     <meta name="generator" content={Astro.generator} />
-    <title>Kickstarter United</title>
+    <title>{title ? `${title} – ` : ""} Kickstarter United</title>
     <meta content="Kickstarter United" property="og:title" />
     <meta content="/images/logo.svg" property="og:image" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
