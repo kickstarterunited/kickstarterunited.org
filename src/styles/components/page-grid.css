@@ -1,0 +1,38 @@
+.page-grid {
+  @apply grid gap-0;
+  /* prettier-ignore */
+  grid:
+    "HEADER" auto
+    "MAIN  " 1fr
+    "FOOTER" auto
+    / [BLEED-start]
+        16px
+        [FULL-start]
+          1fr
+          [CONTENT] minmax(auto, var(--ksru-line-length))
+          1fr
+        [FULL-end]
+        16px
+      [BLEED-end];
+}
+
+.page-grid > * {
+  @apply col-[CONTENT];
+}
+
+.page-grid__bleed {
+  @apply col-[BLEED];
+}
+
+.page-grid__full {
+  @apply col-[FULL];
+}
+
+.page-grid__content {
+  @apply col-[CONTENT];
+}
+
+.page-grid > .page-grid__subgrid {
+  @apply col-[BLEED];
+  @apply grid grid-cols-[subgrid] gap-[inherit];
+}

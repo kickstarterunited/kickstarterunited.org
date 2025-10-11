@@ -1,14 +1,6 @@
 /* MARK: .page */
 .page {
-  display: grid;
   min-height: 100dvh;
-  grid:
-    "HEADER" auto "MAIN" 1fr "FOOTER" auto / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(
-      auto,
-      var(--ksru-line-length)
-    )
-    1fr [FULL-end] 16px [BLEED-end];
-  gap: 0;
 }
 
 .page > * {
