@@ -18,7 +18,7 @@ dialog[open] {
   @apply shadow-lg border border-gray-200 bg-white rounded-2xl;
 }
 
-.menu>* {
+.menu > * {
   padding: 0.5rem 1rem;
 }
 

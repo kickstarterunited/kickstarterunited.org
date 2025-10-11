@@ -1,3 +1,45 @@
+/* MARK: .page */
+.page {
+  display: grid;
+  min-height: 100dvh;
+  grid:
+    "HEADER" auto "MAIN" 1fr "FOOTER" auto / [BLEED-start] 16px [FULL-start] 1fr [CONTENT] minmax(
+      auto,
+      var(--ksru-line-length)
+    )
+    1fr [FULL-end] 16px [BLEED-end];
+  gap: 0;
+}
+
+.page > * {
+  grid-column: CONTENT;
+}
+
+.page__header,
+.page__footer {
+  color: #ffffff;
+  grid-column: BLEED;
+
+  --ksru-outline-color: var(--ksru-color-outline-accent);
+}
+
+.page__footer {
+  background-color: #519758;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#034752),
+    to(#05ce78)
+  );
+  background-image: linear-gradient(90deg, #034752, #05ce78);
+}
+
+.page__header a,
+.page__footer a {
+  text-decoration-thickness: auto;
+}
+
 .page__header {
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +73,7 @@
   align-items: center;
 }
 
-.page__nav>* {
+.page__nav > * {
   margin: 0;
 }
 
@@ -50,9 +92,11 @@
   border-bottom-right-radius: calc(infinity * 1px);
   /* corner-shape: round; */
 
-  font-size: clamp(1rem,
-      calc(1rem + (0.5rem * (100vw - 480px) / 544px)),
-      1.5rem);
+  font-size: clamp(
+    1rem,
+    calc(1rem + (0.5rem * (100vw - 480px) / 544px)),
+    1.5rem
+  );
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.03em;

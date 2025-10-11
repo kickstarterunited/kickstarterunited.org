@@ -9,7 +9,7 @@
     justify-content: space-between;
   }
 
-  *+.days-on-strike {
+  * + .days-on-strike {
     margin-top: 32px;
   }
 

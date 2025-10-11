@@ -64,6 +64,7 @@ import "../styles/global.css";
         <nav class="page__nav">
           <a class="btn link sr-only" href="#content">Skip to main content</a>
           {/* See the dialog at the bottom of the file. */}
+          <!-- @ts-ignore command and commandfor errors -->
           <button
             id="menu-trigger"
             class="flex gap-1 items-center sm:hidden"
@@ -201,12 +202,10 @@ import "../styles/global.css";
         type="text/javascript"></script>
 
       {
-        /*
-      These are outside the nav, because we need to duplicate the links for a
-      mobile menu, and I didn't want to clutter the top of the file with dual
-      menus. Don't worry: accessibility is preserved via the Dialog and
-      Popover APIs.
-        */
+        // These are outside the nav, because we need to duplicate the links
+        // for a mobile menu, and I didn't want to clutter the top of the file
+        // with dual menus. Don't worry: accessibility is preserved via the
+        // Dialog and Popover APIs.
       }
       <dialog
         class="drawer menu"
@@ -214,6 +213,7 @@ import "../styles/global.css";
         aria-labelledby="menu-trigger"
         closedby="any"
       >
+        <!-- @ts-ignore command and commandfor errors -->
         <button command="close" commandfor="mobile-nav">Close</button>
         <a class="menu__item" href="/">Home</a>
         <div class="menu__title">About</div>

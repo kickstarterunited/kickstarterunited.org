@@ -92,7 +92,7 @@
     text-transform: uppercase;
   }
 
-  li>a {
+  li > a {
     display: inline;
   }
 }
