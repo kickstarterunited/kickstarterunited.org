@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import type { NavLinkProps } from "./NavLink.astro";
+import NavLink from "./NavLink.astro";
+
+export interface NavMenuProps extends Omit<HTMLAttributes<"div">, "children"> {
+  /** Required unique ID for the menu */
+  id: string;
+  /** The visible label */
+  label: string;
+  /** The list of links or sub-menus in this menu */
+  items: (NavLinkProps | NavMenuProps)[];
+  /** Optional long label for the mobile menu (defaults to `label`) */
+  title?: string;
+}
+
+const { id, label, title: _, items, ...divProps } = Astro.props as NavMenuProps;
+---
+
+<div class="popover" {...divProps}>
+  <button
+    id={`${id}-trigger`}
+    class="menu"
+    style={`anchor-name: --${id}-trigger`}
+    popovertarget={`${id}-links`}
+  >
+    {label}
+  </button>
+  <menu
+    id={`${id}-links`}
+    class="menu"
+    style={`position-anchor: --${id}-trigger`}
+    popover
+    aria-labelledby={`${id}-trigger`}
+  >
+    {
+      items.map((props) =>
+        "href" in props ? <NavLink {...props} /> : <NavMenu {...props} />
+      )
+    }
+  </menu>
+</div>

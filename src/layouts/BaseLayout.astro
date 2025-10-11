@@ -1,11 +1,11 @@
 ---
 import AboutLinks from "../components/AboutLinks.astro";
-import PageNav from "../components/PageNav/PageNav.astro";
 import ContractsLinks from "../components/ContractsLinks.astro";
 import EventsLinks from "../components/EventsLinks.astro";
 import ResourcesLinks from "../components/ResourcesLinks.astro";
 import SocialLinks from "../components/SocialLinks.astro";
 import "../styles/global.css";
+import Nav from "../components/Nav/Nav.astro";
 const { title } = Astro.props;
 ---
 
@@ -63,8 +63,7 @@ const { title } = Astro.props;
           <a class="link--standalone" href="/">Kickstarter United</a>
         </p>
 
-                popovertarget="about-links"
-        <PageNav />
+        <Nav />
       </header>
 
       <main class="page__content mx-0 my-8" id="content">
@@ -85,30 +84,6 @@ const { title } = Astro.props;
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.4.1.min.220afd743d.js"
         type="text/javascript"></script>
-
-      {
-        // These are outside the nav, because we need to duplicate the links
-        // for a mobile menu, and I didn't want to clutter the top of the file
-        // with dual menus. Don't worry: accessibility is preserved via the
-        // Dialog and Popover APIs.
-      }
-      <dialog
-        class="drawer menu"
-        id="mobile-nav"
-        aria-labelledby="menu-trigger"
-        closedby="any"
-      >
-        <button command="close" commandfor="mobile-nav">Close</button>
-        <a class="menu__item" href="/">Home</a>
-        <div class="menu__title">About</div>
-        <AboutLinks />
-        <div class="menu__title">Events</div>
-        <EventsLinks />
-        <div class="menu__title">Contracts & Agreements</div>
-        <ContractsLinks />
-        <div class="menu__title">Resources</div>
-        <ResourcesLinks />
-      </dialog>
     </div>
   </body>
 </html>

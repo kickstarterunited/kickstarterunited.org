@@ -1,0 +1,64 @@
+---
+import "./nav.css";
+
+import AboutLinks from "../AboutLinks.astro";
+import ContractsLinks from "../ContractsLinks.astro";
+import EventsLinks from "../EventsLinks.astro";
+import MenuIcon from "../Icon/MenuIcon.astro";
+import ResourcesLinks from "../ResourcesLinks.astro";
+import NavLink from "./NavLink.astro";
+import NavMenu from "./NavMenu.astro";
+import { sitemap } from "./sitemap";
+---
+
+<nav class="page__nav">
+  <a class="btn link sr-only" href="#content">Skip to main content</a>
+  {/* See the dialog at the bottom of the file. */}
+  <!-- @ts-ignore command and commandfor errors -->
+  <button
+    id="menu-trigger"
+    class="flex gap-1 items-center sm:hidden"
+    command="show-modal"
+    commandfor="mobile-nav"
+  >
+    <MenuIcon /> Menu
+  </button>
+
+  <div class="nav__list hidden sm:flex sm:flex-wrap">
+    {
+      sitemap.map((props) =>
+        "href" in props ? (
+          <NavLink {...props} class="btn" />
+        ) : (
+          <NavMenu {...props} />
+        )
+      )
+    }
+  </div>
+</nav>
+
+{
+  // These are outside the nav, because we need to duplicate the links
+  // for a mobile menu, and I didn't want to clutter the top of the file
+  // with dual menus. Don't worry: accessibility is preserved via the
+  // Dialog and Popover APIs.
+  // TODO: Refactor this to use `sitemap`
+}
+<dialog
+  class="drawer menu"
+  id="mobile-nav"
+  aria-labelledby="menu-trigger"
+  closedby="any"
+>
+  <!-- @ts-ignore command and commandfor errors -->
+  <button command="close" commandfor="mobile-nav">Close</button>
+  <a class="menu__item" href="/">Home</a>
+  <div class="menu__title">About</div>
+  <AboutLinks />
+  <div class="menu__title">Events</div>
+  <EventsLinks />
+  <div class="menu__title">Contracts & Agreements</div>
+  <ContractsLinks />
+  <div class="menu__title">Resources</div>
+  <ResourcesLinks />
+</dialog>

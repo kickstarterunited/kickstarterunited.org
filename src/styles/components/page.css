@@ -50,22 +50,6 @@
   --_stop-size: 1lh;
 }
 
-.page__nav {
-  justify-self: end;
-
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-}
-
-.page__nav > * {
-  margin: 0;
-}
-
-.page__nav :is(button, .btn):not([popover] *):hover {
-  background-color: color-mix(in srgb, white, transparent 90%);
-}
-
 .page__logo {
   flex: 1 0 auto;
   --_padding-block: 1.25rem;
