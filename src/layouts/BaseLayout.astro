@@ -1,5 +1,6 @@
 ---
 import AboutLinks from "../components/AboutLinks.astro";
+import PageNav from "../components/PageNav/PageNav.astro";
 import ContractsLinks from "../components/ContractsLinks.astro";
 import EventsLinks from "../components/EventsLinks.astro";
 import ResourcesLinks from "../components/ResourcesLinks.astro";
@@ -62,124 +63,8 @@ const { title } = Astro.props;
           <a class="link--standalone" href="/">Kickstarter United</a>
         </p>
 
-        <nav class="page__nav">
-          <a class="btn link sr-only" href="#content">Skip to main content</a>
-          {/* See the dialog at the bottom of the file. */}
-          <button
-            id="menu-trigger"
-            class="flex gap-1 items-center sm:hidden"
-            command="show-modal"
-            commandfor="mobile-nav"
-          >
-            <svg
-              class="inline"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                x1="3"
-                y1="6"
-                x2="21"
-                y2="6"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"></line>
-              <line
-                x1="3"
-                y1="12"
-                x2="21"
-                y2="12"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"></line>
-              <line
-                x1="3"
-                y1="18"
-                x2="21"
-                y2="18"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"></line>
-            </svg>
-            Menu
-          </button>
-
-          <div class="hidden sm:flex sm:flex-wrap">
-            <div class="popover">
-              <button
-                id="about-trigger"
-                class="menu [anchor-name:--about-trigger]"
                 popovertarget="about-links"
-              >
-                About
-              </button>
-              <menu
-                id="about-links"
-                class="menu [position-anchor:--about-trigger]"
-                popover
-                aria-labelledby="about-trigger"
-              >
-                <AboutLinks />
-              </menu>
-            </div>
-
-            <div class="popover">
-              <button
-                id="events-trigger"
-                class="[anchor-name:--events-trigger]"
-                popovertarget="events-links"
-              >
-                Events
-              </button>
-              <menu
-                id="events-links"
-                class="menu [position-anchor:--events-trigger]"
-                popover
-                aria-labelledby="about-trigger"
-              >
-                <EventsLinks />
-              </menu>
-            </div>
-
-            <div class="popover">
-              <button
-                id="contracts-trigger"
-                class="[anchor-name:--contracts-trigger]"
-                popovertarget="contracts-links"
-              >
-                Contracts
-              </button>
-              <menu
-                id="contracts-links"
-                class="menu"
-                popover
-                aria-labelledby="contracts-trigger"
-              >
-                <ContractsLinks />
-              </menu>
-            </div>
-
-            <div class="popover">
-              <button
-                id="resources-trigger"
-                class="[anchor-name:--resources-trigger]"
-                popovertarget="resources-links"
-              >
-                Resources
-              </button>
-              <menu
-                id="resources-links"
-                class="menu [position-anchor:--resources-trigger] [position-area:end_span-start]"
-                popover
-                aria-labelledby="resources-trigger"
-              >
-                <ResourcesLinks />
-              </menu>
-            </div>
-          </div>
-        </nav>
+        <PageNav />
       </header>
 
       <main class="page__content mx-0 my-8" id="content">
