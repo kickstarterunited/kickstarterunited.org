@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import Menu from "./Menu.astro";
+
+export interface MenuLinkProps extends Omit<HTMLAttributes<"a">, "children"> {
+  /** The visible label */
+  label: string;
+  /** Required URL for the link */
+  href: string;
+}
+
+export interface MenuButtonProps
+  extends Omit<HTMLAttributes<"button">, "children"> {
+  /** Required unique ID for the menu */
+  id: string;
+  /** If `true`, renders the menu flat without a surrounding div */
+  isFlat?: boolean;
+  /** The visible label */
+  label: string;
+  /** The list of links or sub-menus in this menu */
+  items: (MenuLinkProps | MenuButtonProps)[];
+  /** Optional long label for the mobile menu (defaults to `label`) */
+  title?: string;
+}
+
+export type Props = (MenuLinkProps | MenuButtonProps) & {
+  /**
+   * - If `true`, renders the menu flat without a surrounding div
+   * - If `false` or omitted, renders the menu as a popover
+   * @default false
+   */
+  isFlat?: boolean;
+};
+
+const { label, isFlat, ...restProps } = Astro.props;
+---
+
+{
+  "href" in restProps ? (
+    <a {...restProps} class:list={[restProps.class, "menu__item"]}>
+      {label}
+    </a>
+  ) : (
+    <Menu label={label} {...restProps} isFlat={isFlat} />
+  )
+}

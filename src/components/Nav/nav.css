@@ -1,0 +1,21 @@
+@layer components {
+  .page__nav {
+    justify-self: end;
+
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+  }
+
+  .page__nav > * {
+    margin: 0;
+  }
+
+  .page__nav :is(button, .btn):not([popover] *):hover {
+    background-color: color-mix(in srgb, white, transparent 90%);
+  }
+
+  .nav__list > * {
+    margin: 0;
+  }
+}

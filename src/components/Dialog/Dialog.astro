@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import "./dialog.css";
+
+export interface Props extends HTMLAttributes<"dialog"> {
+  /** Unique ID for the dialog */
+  id: string;
+}
+
+const { class: className, ...props } = Astro.props;
+---
+
+<dialog {...props} class:list={["dialog", className]}>
+  <button command="close" commandfor={props.id}>Close</button>
+
+  <slot />
+</dialog>

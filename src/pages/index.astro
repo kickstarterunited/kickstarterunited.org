@@ -1,33 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import DaysOnStrike from "../components/DaysOnStrike/DaysOnStrike.astro";
 ---
 
-<BaseLayout>
-  <article
-    class="days-on-strike gap-12 flex flex-col md:flex-row items-stretch [corner-shape:squircle]"
-    id="home-hero"
-  >
-    <div class="flex-1 shrink basis-auto self-center">
-      <img
-        class="justify-self-center"
-        alt="Kickstarter United Logo"
-        src="images/logo.svg"
-        width="256"
-      />
-    </div>
-    <div class="days-on-strike__bill">
-      <span class="pump text-center" role="presentation" aria-hidden="true">
-        ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
-      </span>
-      <h2 class="text-center">Days on strike</h2>
-      <p id="day-count" class="day-count" style="visibility: hidden;">0</p>
-      <p class="text-center">Since October 2, 2025</p>
-
-      <a class="btn btn-success justify-self-stretch" href="#what-you-can-do">
-        How to Support</a
-      >
-    </div>
-  </article>
+<BaseLayout title="Home">
+  <DaysOnStrike />
 
   <article class="surface breaking">
     <h2 class="flex flex-wrap justify-between gap-x-2">
@@ -249,6 +226,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
             <div class="media">
               <iframe
+                loading="lazy"
                 class="embed embed--video"
                 width="1024"
                 height="576"
@@ -287,6 +265,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
             <div class="media">
               <iframe
+                loading="lazy"
                 class="embed embed--video"
                 width="1024"
                 height="576"
@@ -356,23 +335,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <a href="/faq" aria-label="Frequently asked questions"> FAQ</a>
     </p>
   </div>
-
-  <script is:inline defer>
-    document.addEventListener("DOMContentLoaded", function () {
-      var el = document.querySelector("#day-count");
-      if (!el) return;
-
-      // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
-      var start = Date.UTC(2025, 9, 2, 12, 0, 0);
-
-      if (Number.isNaN(start)) return;
-      // todo, Now should be offset for est
-      var days = Math.floor((Date.now() - start) / 86400000) + 1;
-
-      el.textContent = String(days);
-      el.style.visibility = "visible";
-    });
-  </script>
 
   <hr />
 </BaseLayout>

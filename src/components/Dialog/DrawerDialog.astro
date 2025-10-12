@@ -1,0 +1,10 @@
+---
+import type { ComponentProps } from "astro/types";
+import Dialog from "./Dialog.astro";
+
+type Props = ComponentProps<typeof Dialog>;
+---
+
+<Dialog {...Astro.props} class:list="dialog--drawer">
+  <slot />
+</Dialog>

@@ -1,0 +1,47 @@
+---
+import "./nav.css";
+import { nav } from "./nav";
+
+import MenuIcon from "../Icon/MenuIcon.astro";
+import DrawerMenu from "../Menu/DrawerMenu.astro";
+import Menu from "../Menu/Menu.astro";
+---
+
+{
+  // Below, the mobile menu is rendered, followed by the desktop menu, and their
+  // visibility is controlled with CSS media queries.
+}
+<nav class="page__nav">
+  <a class="btn link sr-only" href="#content">Skip to main content</a>
+
+  {/* Render the mobile menu. */}
+  <button
+    id="menu-trigger"
+    class="flex gap-1 items-center sm:hidden"
+    command="show-modal"
+    commandfor="mobile-nav"
+  >
+    <MenuIcon /> Menu
+  </button>
+  <DrawerMenu
+    id="mobile-nav"
+    aria-labelledby="menu-trigger"
+    closedby="any"
+    items={[{ href: "/", label: "Home" }, ...nav]}
+  />
+
+  {/* Render the desktop menu. */}
+  <div class="nav__list hidden sm:flex sm:flex-wrap">
+    {
+      nav.map(({ label, ...props }) =>
+        "href" in props ? (
+          <a {...props} class:list={[props.class, "btn"]}>
+            {label}
+          </a>
+        ) : (
+          <Menu {...props} label={label} />
+        )
+      )
+    }
+  </div>
+</nav>

@@ -1,10 +1,12 @@
+@reference "../../styles/global.css";
+
 .menu {
   flex-direction: column;
   corner-shape: squircle;
 }
 
 .menu:popover-open,
-dialog[open] {
+dialog.menu[open] {
   display: flex;
 }
 
@@ -15,7 +17,8 @@ dialog[open] {
   position-area: end span-end;
   position-try-fallbacks: flip-inline;
 
-  @apply shadow-lg border border-gray-200 bg-white rounded-2xl;
+  @apply shadow-lg border border-gray-200
+       bg-white rounded-2xl;
 }
 
 .menu > * {
@@ -28,8 +31,10 @@ dialog[open] {
 }
 
 .menu__title {
-  font-weight: 500;
-  font-size: 0.875em;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  color: var(--ksru-color-accent);
   text-transform: uppercase;
   border-bottom: 1px solid currentColor;
   padding-top: 1rem;
