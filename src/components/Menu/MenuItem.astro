@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import Menu from "./Menu.astro";
 
-export interface MenuLinkProps extends Omit<HTMLAttributes<"a">, "children"> {
+interface MenuLinkProps extends Omit<HTMLAttributes<"a">, "children"> {
   /** The visible label */
   label: string;
   /** Required URL for the link */
@@ -23,7 +23,7 @@ export interface MenuButtonProps
   title?: string;
 }
 
-export type Props = (MenuLinkProps | MenuButtonProps) & {
+type Props = (MenuLinkProps | MenuButtonProps) & {
   /**
    * - If `true`, renders the menu flat without a surrounding div
    * - If `false` or omitted, renders the menu as a popover
