@@ -1,14 +1,13 @@
 ---
 import "./nav.css";
+import { nav } from "./nav";
 
 import AboutLinks from "../AboutLinks.astro";
 import ContractsLinks from "../ContractsLinks.astro";
 import EventsLinks from "../EventsLinks.astro";
 import MenuIcon from "../Icon/MenuIcon.astro";
-import ResourcesLinks from "../ResourcesLinks.astro";
-import NavLink from "./NavLink.astro";
-import NavMenu from "./NavMenu.astro";
-import { sitemap } from "./sitemap";
+import DrawerMenu from "../Menu/DrawerMenu.astro";
+import Menu from "../Menu/Menu.astro";
 ---
 
 <nav class="page__nav">
@@ -25,11 +24,13 @@ import { sitemap } from "./sitemap";
 
   <div class="nav__list hidden sm:flex sm:flex-wrap">
     {
-      sitemap.map((props) =>
+      nav.map(({ label, ...props }) =>
         "href" in props ? (
-          <NavLink {...props} class="btn" />
+          <a {...props} class:list={[props.class, "btn"]}>
+            {label}
+          </a>
         ) : (
-          <NavMenu {...props} />
+          <Menu {...props} label={label} />
         )
       )
     }

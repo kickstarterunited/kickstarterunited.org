@@ -1,0 +1,47 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import MenuItem, { type MenuButtonProps } from "./MenuItem.astro";
+
+import "./menu.css";
+
+export type Props = MenuButtonProps;
+
+const { id, isFlat, label, items, title, ...divProps } = Astro.props;
+---
+
+{
+  isFlat ? (
+    // Render a flat menu with section labels
+    <>
+      <div class="menu__title">{title ?? label}</div>
+      {items.map((item) => (
+        <MenuItem {...item} class:list={[item.class, "menu__item"]} isFlat />
+      ))}
+    </>
+  ) : (
+    <div {...divProps}>
+      <button
+        id={`${id}-trigger`}
+        style={`anchor-name: --${id}-trigger`}
+        popovertarget={`${id}-links`}
+      >
+        {label}
+      </button>
+      <div
+        id={`${id}-links`}
+        class="menu"
+        style={`position-anchor: --${id}-trigger`}
+        popover
+        aria-labelledby={`${id}-trigger`}
+      >
+        {items.map((item) => (
+          <MenuItem
+            {...item}
+            class:list={[item.class, "menu__item"]}
+            isFlat={isFlat ?? true}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}

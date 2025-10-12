@@ -1,7 +1,7 @@
-import type { NavLinkProps } from "./NavLink.astro";
-import type { NavMenuProps } from "./NavMenu.astro";
+import type { ComponentProps } from "astro/types";
+import type MenuItem from "../Menu/MenuItem.astro";
 
-export const sitemap: (NavLinkProps | NavMenuProps)[] = [
+export const nav: ComponentProps<typeof MenuItem>[] = [
   {
     id: "about",
     label: "About",
