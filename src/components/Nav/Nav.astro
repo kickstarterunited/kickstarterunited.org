@@ -2,17 +2,19 @@
 import "./nav.css";
 import { nav } from "./nav";
 
-import AboutLinks from "../AboutLinks.astro";
-import ContractsLinks from "../ContractsLinks.astro";
-import EventsLinks from "../EventsLinks.astro";
 import MenuIcon from "../Icon/MenuIcon.astro";
 import DrawerMenu from "../Menu/DrawerMenu.astro";
 import Menu from "../Menu/Menu.astro";
 ---
 
+{
+  // Below, the mobile menu is rendered, followed by the desktop menu, and their
+  // visibility is controlled with CSS media queries.
+}
 <nav class="page__nav">
   <a class="btn link sr-only" href="#content">Skip to main content</a>
-  {/* See the dialog at the bottom of the file. */}
+
+  {/* Render the mobile menu. */}
   <button
     id="menu-trigger"
     class="flex gap-1 items-center sm:hidden"
@@ -21,7 +23,14 @@ import Menu from "../Menu/Menu.astro";
   >
     <MenuIcon /> Menu
   </button>
+  <DrawerMenu
+    id="mobile-nav"
+    aria-labelledby="menu-trigger"
+    closedby="any"
+    items={[{ href: "/", label: "Home" }, ...nav]}
+  />
 
+  {/* Render the desktop menu. */}
   <div class="nav__list hidden sm:flex sm:flex-wrap">
     {
       nav.map(({ label, ...props }) =>
@@ -36,28 +45,3 @@ import Menu from "../Menu/Menu.astro";
     }
   </div>
 </nav>
-
-{
-  // These are outside the nav, because we need to duplicate the links
-  // for a mobile menu, and I didn't want to clutter the top of the file
-  // with dual menus. Don't worry: accessibility is preserved via the
-  // Dialog and Popover APIs.
-  // TODO: Refactor this to use `sitemap`
-}
-<dialog
-  class="drawer menu"
-  id="mobile-nav"
-  aria-labelledby="menu-trigger"
-  closedby="any"
->
-  <button command="close" commandfor="mobile-nav">Close</button>
-  <a class="menu__item" href="/">Home</a>
-  <div class="menu__title">About</div>
-  <AboutLinks />
-  <div class="menu__title">Events</div>
-  <EventsLinks />
-  <div class="menu__title">Contracts & Agreements</div>
-  <ContractsLinks />
-  <div class="menu__title">Resources</div>
-  <ResourcesLinks />
-</dialog>
