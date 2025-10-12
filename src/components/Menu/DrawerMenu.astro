@@ -1,0 +1,17 @@
+---
+import type { ComponentProps } from "astro/types";
+
+import MenuItem from "./MenuItem.astro";
+import DrawerDialog from "../Dialog/DrawerDialog.astro";
+
+export interface Props extends ComponentProps<typeof DrawerDialog> {
+  /** The list of links or sub-menus in this menu */
+  items: ComponentProps<typeof MenuItem>[];
+}
+
+const { items, ...dialogProps } = Astro.props;
+---
+
+<DrawerDialog {...dialogProps} class:list="menu">
+  {items.map((item) => <MenuItem {...item} isFlat />)}
+</DrawerDialog>
