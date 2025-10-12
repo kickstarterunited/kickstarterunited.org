@@ -1,14 +1,16 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-export interface NavLinkProps extends Omit<HTMLAttributes<"a">, "children"> {
+export interface Props extends Omit<HTMLAttributes<"a">, "children"> {
   /** The visible label */
   label: string;
   /** Required URL for the link */
   href: string;
 }
+// for easy imports and intellisense
+export type NavLinkProps = Props;
 
-const { label, ...props } = Astro.props as NavLinkProps;
+const { label, ...props } = Astro.props;
 ---
 
 <a {...props} class:list={[props.class, "menu__item"]}>

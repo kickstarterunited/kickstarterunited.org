@@ -3,18 +3,20 @@ import type { HTMLAttributes } from "astro/types";
 import type { NavLinkProps } from "./NavLink.astro";
 import NavLink from "./NavLink.astro";
 
-export interface NavMenuProps extends Omit<HTMLAttributes<"div">, "children"> {
+export interface Props extends Omit<HTMLAttributes<"div">, "children"> {
   /** Required unique ID for the menu */
   id: string;
   /** The visible label */
   label: string;
   /** The list of links or sub-menus in this menu */
-  items: (NavLinkProps | NavMenuProps)[];
+  items: (NavLinkProps | Props)[];
   /** Optional long label for the mobile menu (defaults to `label`) */
   title?: string;
 }
+// for easy imports and intellisense
+export type NavMenuProps = Props;
 
-const { id, label, title: _, items, ...divProps } = Astro.props as NavMenuProps;
+const { id, label, title: _, items, ...divProps } = Astro.props;
 ---
 
 <div class="popover" {...divProps}>
