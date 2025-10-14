@@ -27,9 +27,9 @@ import "./days-on-strike.css";
     >
   </div>
 </article>
-<script is:inline defer>
+<script>
   document.addEventListener("DOMContentLoaded", function () {
-    var el = document.querySelector("#day-count");
+    var el = document.getElementById("day-count");
     if (!el) return;
 
     // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
