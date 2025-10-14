@@ -25,4 +25,9 @@ declare namespace astroHTML.JSX {
      */
     commandfor?: string;
   }
+  interface SVGAttributes {
+    "xmlns:inkscape"?: string;
+    "xmlns:rdf"?: string;
+    "xmlns:sodipodi"?: string;
+  }
 }
