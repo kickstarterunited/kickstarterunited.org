@@ -1,0 +1,20 @@
+---
+import type { InferEntrySchema } from "astro:content";
+interface Props {
+  slug: string;
+  frontmatter: InferEntrySchema<"blog">;
+}
+const { slug, frontmatter } = Astro.props;
+const pubDate = frontmatter.pubDate;
+---
+
+<li>
+  <a href={`/blog/${slug}/`}>{frontmatter.title}</a>
+  <i>
+    ({
+      new Date(
+        pubDate.getTime() + pubDate.getTimezoneOffset() * 60000
+      ).toLocaleDateString()
+    })
+  </i>
+</li>

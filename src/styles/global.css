@@ -2,6 +2,10 @@
 
 @import "./base/legacy.css";
 
+ol {
+  list-style-type: revert;
+}
+
 /* TODO: extract the rest of ksru-web.webflow.css to component files */
 @layer components {
   @import "./ksru-web.webflow.css";
