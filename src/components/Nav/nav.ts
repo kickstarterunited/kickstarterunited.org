@@ -1,5 +1,6 @@
 import type { ComponentProps } from "astro/types";
 import type MenuItem from "../Menu/MenuItem.astro";
+import { allBlogPosts } from "../../blog/getBlogPosts";
 
 export const nav: ComponentProps<typeof MenuItem>[] = [
   {
@@ -52,4 +53,12 @@ export const nav: ComponentProps<typeof MenuItem>[] = [
       },
     ],
   },
+  ...(allBlogPosts.length > 0
+    ? [
+        {
+          label: "Blog",
+          href: "/blog",
+        },
+      ]
+    : []),
 ];
