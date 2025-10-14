@@ -31,24 +31,13 @@ const { title } = Astro.props;
 
     <link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg" />
 
-    <script
-      is:inline
-      src="https://cdn.jsdelivr.net/npm/@oddbird/popover-polyfill@latest"
-      crossorigin="anonymous"
-      nomodule="true"
-      async></script>
-    <script is:inline type="module" async>
-      import {
-        isSupported,
-        apply,
-      } from "https://unpkg.com/invokers-polyfill@latest/invoker.js";
-      if (!isSupported()) {
-        apply();
-      }
+    <script src="../scripts/popover.js"></script>
+    <script>
+      import "invokers-polyfill";
     </script>
-    <script is:inline type="module">
+    <script>
       if (!("anchorName" in document.documentElement.style)) {
-        import("https://unpkg.com/@oddbird/css-anchor-positioning");
+        import("@oddbird/css-anchor-positioning");
       }
     </script>
   </head>
