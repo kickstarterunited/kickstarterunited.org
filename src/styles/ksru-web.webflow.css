@@ -383,23 +383,6 @@
 }
 
 @layer components {
-  /* MARK: .social-links */
-  .social-links {
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-
-  .social-links > * {
-    margin: 0;
-    display: flex;
-    gap: 4px;
-  }
-}
-
-@layer components {
   .rally-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
