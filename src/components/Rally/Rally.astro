@@ -13,25 +13,29 @@ const { image, alt, locationId, caption, rsvpCTA, rsvpLink } = Astro.props;
 const imageId = `${locationId}-rally-flyer`;
 ---
 
-<figure class="rally">
-  <div>
-    <img src={image} alt={alt} width="1080" height="1080" />
-    <div class="rally__cta-group">
-      <button command="show-modal" commandfor={imageId} type="button">
-        Details
-      </button>
-      <a class="btn" href={image} download={imageId} type="image/png">
-        Download
+<center>
+  <div class="max-w-md">
+    <figure class="rally">
+      <div>
+        <img src={image} alt={alt} width="1080" height="1080" />
+        <div class="rally__cta-group">
+          <button command="show-modal" commandfor={imageId} type="button">
+            Details
+          </button>
+          <a class="btn" href={image} download={imageId} type="image/png">
+            Download
+          </a>
+        </div>
+        <dialog class="rally__dialog" id={imageId} closedby="any">
+          <img src={image} width="1080" height="1080" />
+        </dialog>
+      </div>
+      <figcaption>
+        {caption}
+      </figcaption>
+      <a class="rally__cta btn" href={rsvpLink}>
+        {rsvpCTA}
       </a>
-    </div>
-    <dialog class="rally__dialog" id={imageId} closedby="any">
-      <img src={image} width="1080" height="1080" />
-    </dialog>
+    </figure>
   </div>
-  <figcaption>
-    {caption}
-  </figcaption>
-  <a class="rally__cta btn" href={rsvpLink}>
-    {rsvpCTA}
-  </a>
-</figure>
+</center>
