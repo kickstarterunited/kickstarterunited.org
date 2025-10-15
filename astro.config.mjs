@@ -8,6 +8,7 @@ export default defineConfig({
   redirects: {
     "/events": "/events/calendar",
     "/first-contract": "/contracts/2022",
+    "/boston": "https://actionnetwork.org/events/kickstarter-on-strike-rally-boston/",
     "/pickets/1": "https://us06web.zoom.us/webinar/register/WN_IlRTeoRrRYGlqzK4d2dcbQ",
     "/pickets/2": "https://us06web.zoom.us/webinar/register/WN_4wYSXn3DTDSKxym7vKGXOw",
     "/pickets/3": "https://us06web.zoom.us/j/85647234791?pwd=waI7hgqpLk2DGT0bzHlGWT99ZNmTAQ.1",
