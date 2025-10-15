@@ -1,0 +1,15 @@
+---
+interface Props {
+  emoji: string;
+  href: string;
+  children: any;
+}
+const { emoji, href } = Astro.props;
+---
+
+<li class="m-0 flex gap-1">
+  {`${emoji} `}
+  <a href={href} rel="me" target="_blank">
+    <slot />
+  </a>
+</li>
