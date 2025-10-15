@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DaysOnStrike from "../components/DaysOnStrike/DaysOnStrike.astro";
+import Rally from "../components/Rally/Rally.astro";
+import RallySection from "../components/Rally/RallySection.astro";
 ---
 
 <BaseLayout title="Home">
@@ -64,6 +66,12 @@ import DaysOnStrike from "../components/DaysOnStrike/DaysOnStrike.astro";
       <a href="#what-you-can-do">here's what you can do</a>!
     </p>
   </article>
+
+  {false && (
+    <hr />
+
+    <RallySection />
+  )}
 
   <hr />
 
