@@ -8,17 +8,19 @@ const SHEET_EXPORT_URL = `${SHEET_URL}/export?format=csv&gid=0`;
 async function fetchFromSheets() {
   const response = await fetch(SHEET_EXPORT_URL);
   const csv = await response.text();
-  const rows = csv.split("\n").map((row) => row.split(","));
-
-  // Skip header row and filter out empty rows
-  return rows
-    .slice(1)
-    .map((row) => ({
-      creatorSlug: row[0].trim(),
-      projectSlug: row[1].trim(),
-    }))
-    .filter((datum) => datum.creatorSlug && datum.projectSlug)
-    .map((datum) => `${datum.creatorSlug}/${datum.projectSlug}`);
+  return csv.split("\n").flatMap((row) =>
+    row
+      .split(",")
+      .map((cell) => cell.trim())
+      .filter((cell) => cell && !/ /.test(cell))
+      .map((cell) => {
+        const match = cell.match(
+          /kickstarter\.com\/projects\/([^/ ]+)\/([^/?# ]+)/
+        );
+        return match && match.length === 3 ? `${match[1]}/${match[2]}` : null;
+      })
+      .filter((link) => link !== null)
+  );
 }
 
 function shuffle<T>(array: T[]) {
