@@ -1,16 +1,11 @@
 ---
-import { Image } from "astro:assets";
+import Logo from "../images/logo.svg";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="About Us">
   <div class="w-auto">
-    <Image
-      class="mx-auto"
-      alt="Kickstarter United Logo"
-      src="../images/logo.svg"
-      width="256"
-    />
+    <Logo class="mx-auto" width="256" height="256" />
   </div>
 
   <hr />
