@@ -1,9 +1,21 @@
 ---
+import { Image } from "astro:assets";
+interface Props {
+  href: string;
+  button_text: string;
+  alt_button?: {
+    href: string;
+    text: string;
+  };
+  width: number;
+  height: number;
+  alt?: string;
+}
 const { href, button_text, alt_button, width, height, alt } = Astro.props;
 ---
 
 <div class="border-4 p-4 mt-4 bg-gray-200">
-  <img
+  <Image
     class="mx-auto"
     src={href}
     alt={alt || button_text}

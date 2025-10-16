@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "./days-on-strike.css";
 ---
 
@@ -7,11 +8,11 @@ import "./days-on-strike.css";
   id="home-hero"
 >
   <div class="flex-1 shrink basis-auto self-center">
-    <img
+    <Image
       class="justify-self-center"
       alt="Kickstarter United Logo"
       src="images/logo.svg"
-      width="256"
+      width={256}
     />
   </div>
   <div class="days-on-strike__bill">
