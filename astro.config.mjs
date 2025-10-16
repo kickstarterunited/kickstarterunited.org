@@ -2,9 +2,12 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite'
 
+import preact from "@astrojs/preact";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://kickstarterunited.org/',
+
   redirects: {
     "/events": "/events/calendar",
     "/first-contract": "/contracts/2022",
@@ -14,9 +17,12 @@ export default defineConfig({
     "/pickets/3": "https://us06web.zoom.us/j/85647234791?pwd=waI7hgqpLk2DGT0bzHlGWT99ZNmTAQ.1",
     "/pickets/4": "https://us06web.zoom.us/j/86774183137?pwd=US2oOVlVT9uvD8LC7UTrthevBBUtOm.1"
   },
+
   vite: {
     plugins: [
       tailwindcss(),
     ],
-  }
+  },
+
+  integrations: [preact()]
 });
