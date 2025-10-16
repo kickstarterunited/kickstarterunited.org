@@ -7,22 +7,13 @@ interface Props {
     image: ImageMetadata;
     text: string;
   };
-  width: number;
-  height: number;
   alt?: string;
 }
-const { image, button_text, alt_button, width, height, alt } = Astro.props;
+const { image, button_text, alt_button, alt } = Astro.props;
 ---
 
 <div class="border-4 p-4 mt-4 bg-gray-200">
-  <Image
-    class="mx-auto"
-    src={image}
-    alt={alt || button_text}
-    width={width}
-    height={height}
-    loading="lazy"
-  />
+  <Image class="mx-auto" src={image} alt={alt || button_text} loading="lazy" />
   <div class="mt-6 mb-1 flex">
     <a
       class="no-underline text-black border-4 w-auto bg-white px-6 py-3"

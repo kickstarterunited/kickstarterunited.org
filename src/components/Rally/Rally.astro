@@ -18,7 +18,7 @@ const imageId = `${locationId}-rally-flyer`;
   <div class="max-w-md">
     <figure class="rally">
       <div>
-        <Image src={image} alt={alt} width="1080" height="1080" />
+        <Image src={image} alt={alt} />
         <div class="rally__cta-group">
           <button command="show-modal" commandfor={imageId} type="button">
             Details
@@ -28,7 +28,7 @@ const imageId = `${locationId}-rally-flyer`;
           </a>
         </div>
         <dialog class="rally__dialog" id={imageId} closedby="any">
-          <Image src={image} width="1080" height="1080" alt={alt} />
+          <Image src={image} alt={alt} />
         </dialog>
       </div>
       <figcaption>
