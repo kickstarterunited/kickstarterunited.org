@@ -1,0 +1,10 @@
+export default function Project({ slug }: { slug: string }) {
+  return (
+    <li class="m-1">
+      <iframe
+        class="sm:w-[248px] sm:h-[397px] w-[170px] h-[360px]"
+        src={`https://www.kickstarter.com/projects/${slug}/widget/card.html?v=2`}
+      ></iframe>
+    </li>
+  );
+}
