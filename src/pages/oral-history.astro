@@ -1,15 +1,15 @@
 ---
 import { Image } from "astro:assets";
+import KSRUOralHistoryCover from "../images/ksruoralhistory-cover.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="The Kickstarter United Oral History">
   <div class="w-auto">
     <Image
-      class="mx-auto"
+      class="mx-auto w-1/2"
       alt="Kickstarter United Oral History logo"
-      src="/images/ksruoralhistory-cover.jpg"
-      width="50%"
+      src={KSRUOralHistoryCover}
     />
   </div>
 
