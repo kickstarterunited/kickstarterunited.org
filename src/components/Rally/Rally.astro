@@ -1,6 +1,7 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
-  image: string;
+  image: ImageMetadata;
   locationId: string;
   alt: string;
   caption: string;
@@ -17,17 +18,17 @@ const imageId = `${locationId}-rally-flyer`;
   <div class="max-w-md">
     <figure class="rally">
       <div>
-        <img src={image} alt={alt} width="1080" height="1080" />
+        <Image src={image} alt={alt} width="1080" height="1080" />
         <div class="rally__cta-group">
           <button command="show-modal" commandfor={imageId} type="button">
             Details
           </button>
-          <a class="btn" href={image} download={imageId} type="image/png">
+          <a class="btn" href={image.src} download={imageId} type="image/png">
             Download
           </a>
         </div>
         <dialog class="rally__dialog" id={imageId} closedby="any">
-          <img src={image} width="1080" height="1080" />
+          <Image src={image} width="1080" height="1080" alt={alt} />
         </dialog>
       </div>
       <figcaption>
