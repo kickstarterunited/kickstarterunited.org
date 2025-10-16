@@ -1,23 +1,23 @@
 ---
 import { Image } from "astro:assets";
 interface Props {
-  href: string;
+  image: ImageMetadata;
   button_text: string;
   alt_button?: {
-    href: string;
+    image: ImageMetadata;
     text: string;
   };
   width: number;
   height: number;
   alt?: string;
 }
-const { href, button_text, alt_button, width, height, alt } = Astro.props;
+const { image, button_text, alt_button, width, height, alt } = Astro.props;
 ---
 
 <div class="border-4 p-4 mt-4 bg-gray-200">
   <Image
     class="mx-auto"
-    src={href}
+    src={image}
     alt={alt || button_text}
     width={width}
     height={height}
@@ -26,7 +26,7 @@ const { href, button_text, alt_button, width, height, alt } = Astro.props;
   <div class="mt-6 mb-1 flex">
     <a
       class="no-underline text-black border-4 w-auto bg-white px-6 py-3"
-      href={href}
+      href={image.src}
       download
       type="image/png"
     >
@@ -36,7 +36,7 @@ const { href, button_text, alt_button, width, height, alt } = Astro.props;
       alt_button && (
         <a
           class="no-underline text-black border-4 w-auto bg-white px-6 py-3 ml-4"
-          href={alt_button.href}
+          href={alt_button.image.src}
           download
           type="image/png"
         >

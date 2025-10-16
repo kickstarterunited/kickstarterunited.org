@@ -1,6 +1,24 @@
 ---
 import AssetBox from "../components/AssetBox.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Banner1 from "../images/union_assets/banner-1.png";
+import Banner2Large from "../images/union_assets/banner-2-large.png";
+import Banner2Small from "../images/union_assets/banner-2-small.png";
+import Banner3 from "../images/union_assets/banner-3.png";
+import Story1920x1080 from "../images/union_assets/story-1920x1080.png";
+import Story680x383 from "../images/union_assets/story-680x383.png";
+import StrikeUnityKSRUSealBlack from "../images/union_assets/Strike_Unity_KSRUSeal_Black.png";
+import StrikeUnityKSRUSealBlackSVG from "../images/union_assets/Strike_Unity_KSRUSeal_Black.svg";
+import StrikeUnityKSRUSealWhite from "../images/union_assets/Strike_Unity_KSRUSeal_White.png";
+import StrikeUnityKSRUSealWhiteSVG from "../images/union_assets/Strike_Unity_KSRUSeal_White.svg";
+import UnitedWithKSRUTagLeft from "../images/union_assets/UnitedWithKSRU_Tag_Right-1.png";
+import UnitedWithKSRUTagLeftSVG from "../images/union_assets/UnitedWithKSRU_Tag_Right-1.svg";
+import UnitedWithKSRUTagRight from "../images/union_assets/UnitedWithKSRU_Tag_Right.png";
+import UnitedWithKSRUTagRightSVG from "../images/union_assets/UnitedWithKSRU_Tag_Right.svg";
+import KSRULogoWhiteSticker from "../images/union_assets/KSRU-Logo-White-Sticker.png";
+import KSRULogoWhiteStickerSVG from "../images/union_assets/KSRU-Logo-White-Sticker.svg";
+import KSRULogoBlackSticker from "../images/union_assets/KSRU-Logo-Black-Sticker.png";
+import KSRULogoBlackStickerSVG from "../images/union_assets/KSRU-Logo-Black-Sticker.svg";
 ---
 
 <BaseLayout title="Union Assets">
@@ -11,94 +29,89 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </p>
 
   <AssetBox
-    href="/images/union_assets/banner-1.png"
+    image={Banner1}
     button_text="Download"
     width={3054}
     height={846}
     alt="'We stand with Kickstarter United' in bold black text with the Kickstarter United OPEIU 153 union logo"
   />
   <AssetBox
-    href="/images/union_assets/banner-2-large.png"
+    image={Banner2Large}
     button_text="Download (large)"
     alt_button={{
-      href: "/images/union_assets/banner-2-small.png",
+      image: Banner2Small,
       text: "Download (small)",
     }}
     width={3750}
     height={720}
     alt="'We stand with Kickstarter United' in bold white text on a black flag with the Kickstarter United OPEIU 153 union logo"
   />
+  <AssetBox image={Banner3} button_text="Download" width={2751} height={720} />
   <AssetBox
-    href="/images/union_assets/banner-3.png"
-    button_text="Download"
-    width={2751}
-    height={720}
-  />
-  <AssetBox
-    href="/images/union_assets/story-1920x1080.png"
+    image={Story1920x1080}
     button_text="Download (1920x1080)"
     alt_button={{
-      href: "/images/union_assets/story-680x383.png",
+      image: Story680x383,
       text: "Download (680x383)",
     }}
     width={1920}
     height={1080}
   />
   <AssetBox
-    href="/images/union_assets/Strike_Unity_KSRUSeal_Black.png"
+    image={StrikeUnityKSRUSealBlack}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/Strike_Unity_KSRUSeal_Black.svg",
+      image: StrikeUnityKSRUSealBlackSVG,
       text: "Download (SVG)",
     }}
     width={928}
     height={928}
   />
   <AssetBox
-    href="/images/union_assets/Strike_Unity_KSRUSeal_White.png"
+    image={StrikeUnityKSRUSealWhite}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/Strike_Unity_KSRUSeal_White.svg",
+      image: StrikeUnityKSRUSealWhiteSVG,
       text: "Download (SVG)",
     }}
     width={928}
     height={928}
   />
   <AssetBox
-    href="/images/union_assets/UnitedWithKSRU_Tag_Right-1.png"
+    image={UnitedWithKSRUTagLeft}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/UnitedWithKSRU_Tag_Right.svg",
+      image: UnitedWithKSRUTagLeftSVG,
       text: "Download (SVG)",
     }}
     width={1104}
     height={241}
   />
   <AssetBox
-    href="/images/union_assets/UnitedWithKSRU_Tag_Right.png"
+    image={UnitedWithKSRUTagRight}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/UnitedWithKSRU_Tag_Right.svg",
+      image: UnitedWithKSRUTagRightSVG,
       text: "Download (SVG)",
     }}
     width={1104}
     height={241}
   />
   <AssetBox
-    href="/images/union_assets/KSRU-Logo-White-Sticker.png"
+    image={KSRULogoWhiteSticker}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/KSRU-Logo-White-Sticker.svg",
+      image: KSRULogoWhiteStickerSVG,
       text: "Download (SVG)",
     }}
     width={594}
     height={593}
   />
   <AssetBox
-    href="/images/union_assets/KSRU-Logo-Black-Sticker.png"
+    image={KSRULogoBlackSticker}
     button_text="Download (PNG)"
     alt_button={{
-      href: "/images/union_assets/KSRU-Logo-Black-Sticker.svg",
+      image: KSRULogoBlackStickerSVG,
       text: "Download (SVG)",
     }}
     width={593}
