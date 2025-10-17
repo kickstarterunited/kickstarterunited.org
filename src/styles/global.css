@@ -8,3 +8,7 @@
   @import "./components/page.css";
   @import "./components/page-grid.css";
 }
+
+@view-transition {
+  navigation: auto;
+}
