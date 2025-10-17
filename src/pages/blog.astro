@@ -1,0 +1,53 @@
+---
+import BlogPost from "../components/BlogPost.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { allBlogPosts } from "../blog/getBlogPosts";
+
+const tagCounts = Object.entries(
+  allBlogPosts.reduce((acc: Record<string, number>, post) => {
+    post.data.tags.forEach((tag) => {
+      acc[tag] = (acc[tag] || 0) + 1;
+    });
+    return acc;
+  }, {})
+);
+
+tagCounts.sort(([, countA], [, countB]) => countB - countA);
+const tagsPresent = tagCounts.length > 0;
+---
+
+<BaseLayout title={"Blog Index"}>
+  <h1>Blog</h1>
+  <p>
+    Here you can find all our blog posts!
+    {tagsPresent && (<span>You can also click the tag buttons to sort by tag.</span>)}
+  </p>
+  {tagsPresent && (
+    <h3 class="mt-6">Tags:</h3>
+    <ul class="list-none flex">
+      {
+        tagCounts.map(([tag, count]) => (
+          <li class="m-2">
+            <a class="border-4 p-2 no-underline" href={`/blog/tags/${tag}`}>
+              <b>{tag}</b> ({count} posts)
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  )}
+
+  <h3 class="mt-6">Posts:</h3>
+  {allBlogPosts.length > 0 ? (
+    <ul>
+      {
+        allBlogPosts.map((post) => (
+          <BlogPost slug={post.id} frontmatter={post.data} />
+        ))
+      }
+    </ul>
+  ) : (
+    <p> No posts yet!  Check back later. </p>
+  )}
+
+</BaseLayout>
