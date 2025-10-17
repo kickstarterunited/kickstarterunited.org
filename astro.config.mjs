@@ -21,5 +21,9 @@ export default defineConfig({
     ],
   },
 
-  integrations: [preact()]
+  integrations: [preact()],
+
+  prefetch: {
+    prefetchAll: true
+  }
 });
