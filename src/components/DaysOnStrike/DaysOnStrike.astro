@@ -3,19 +3,16 @@ import "./days-on-strike.css";
 import Logo from "../../images/logo.svg";
 ---
 
-<article
-  class="days-on-strike gap-12 flex flex-col md:flex-row items-stretch [corner-shape:squircle]"
-  id="home-hero"
->
+<article class="days-on-strike" id="home-hero">
   <div class="flex-1 shrink basis-auto self-center">
     <Logo class="justify-self-center" width={256} height={256} />
   </div>
   <div class="days-on-strike__bill">
-    <span class="pump text-center" role="presentation" aria-hidden="true">
+    <span class="text-center text-2xl" role="presentation" aria-hidden="true">
       ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
     </span>
     <h2 class="text-center">Days on strike</h2>
-    <p id="day-count" class="day-count" style="visibility: hidden;">0</p>
+    <p id="day-count" class="day-count"></p>
     <p class="text-center">Since October 2, 2025</p>
 
     <a class="btn btn-success justify-self-stretch" href="#what-you-can-do">
@@ -24,18 +21,19 @@ import Logo from "../../images/logo.svg";
   </div>
 </article>
 <script>
+  // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
+  const start = Date.UTC(2025, 9, 2, 12, 0, 0);
+
+  if (Number.isNaN(start)) {
+    throw new Error("can't set number of days on strike!");
+  }
+
+  // todo, Now should be offset for est
+  const days = Math.floor((Date.now() - start) / 86400000) + 1;
+
   document.addEventListener("DOMContentLoaded", function () {
     var el = document.getElementById("day-count");
     if (!el) return;
-
-    // 8:00 AM EST on 2025-10-02 == 12:00:00 UTC
-    var start = Date.UTC(2025, 9, 2, 12, 0, 0);
-
-    if (Number.isNaN(start)) return;
-    // todo, Now should be offset for est
-    var days = Math.floor((Date.now() - start) / 86400000) + 1;
-
     el.textContent = String(days);
-    el.style.visibility = "visible";
   });
 </script>

@@ -3,12 +3,8 @@
 @layer components {
   .days-on-strike {
     border: 5px solid var(--ksru-color-accent-light);
-    border-radius: 28px;
-    padding: 32px;
-    /* @apply shadow-lg; */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+    @apply p-8 rounded-4xl gap-12 flex flex-col md:flex-row items-stretch [corner-shape:squircle];
   }
 
   * + .days-on-strike {
@@ -20,17 +16,8 @@
   }
 
   .days-on-strike .day-count {
-    font-size: 3em;
-    display: block;
     color: var(--ksru-color-accent-light);
-    visibility: hidden;
 
-    @apply shadow-sm shadow-gray-200 border border-gray-300 rounded mx-auto min-w-[2ch] px-6 text-center bg-white aspect-square content-center;
-  }
-
-  .days-on-strike .pump {
-    text-align: center;
-    font-size: 1.6em;
-    display: block;
+    @apply mt-0 h-28 w-28 text-5xl shadow-sm shadow-gray-200 border border-gray-300 rounded m-auto px-6 text-center bg-white aspect-square content-center;
   }
 }
