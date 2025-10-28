@@ -92,7 +92,8 @@
     text-decoration-thickness: 3px;
   }
 
-  ul {
+  ul,
+  ol {
     padding-inline-start: 1.5rem;
   }
 
