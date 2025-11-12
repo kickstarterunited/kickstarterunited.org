@@ -1,0 +1,66 @@
+---
+import type { CssVariable } from "astro:assets";
+import "./Firework.css";
+
+import type { CSSProperty, HTMLAttributes } from "astro/types";
+import type { JSX } from "astro/jsx-runtime";
+
+interface Props extends HTMLAttributes<"b"> {
+  /** Size of the firework's initial explosion */
+  initialSize: CssVariable;
+  /** Size of the firework at the end of its animation */
+  finalSize: CssVariable;
+  /** 1st color of the firework */
+  color1: CssVariable;
+  /** 2nd color of the firework */
+  color2: CssVariable;
+  /** 3rd color of the firework */
+  color3: CssVariable;
+  /** 4th color of the firework */
+  color4: CssVariable;
+  /** 5th color of the firework */
+  color5: CssVariable;
+  /** Initial Y position of the firework */
+  initialY: CssVariable;
+  /** Y offset of the firework */
+  yOffset: CssVariable;
+  /** X offset of the firework */
+  xOffset: CssVariable;
+}
+
+const {
+  initialSize,
+  finalSize,
+  color1,
+  color2,
+  color3,
+  color4,
+  color5,
+  initialY,
+  yOffset,
+  xOffset,
+  ...props
+} = Astro.props;
+
+// Build style object, only including defined properties
+const styleProps: JSX.CSSProperties = Object.fromEntries(
+  Object.entries({
+    "--firework-initial-size": initialSize,
+    "--firework-final-size": finalSize,
+    "--firework-color-1": color1,
+    "--firework-color-2": color2,
+    "--firework-color-3": color3,
+    "--firework-color-4": color4,
+    "--firework-color-5": color5,
+    "--firework-initial-y": initialY,
+    "--firework-y-offset": yOffset,
+    "--firework-x-offset": xOffset,
+  }).filter(([_, value]) => !!value)
+) as Record<string, CSSProperty>;
+
+const styleProp = props.style ?? {};
+const style = { ...styleProps, ...styleProp };
+const resolvedStyles = Object.entries(style).length ? style : undefined;
+---
+
+<b {...props} class:list={["firework", props.class]} style={resolvedStyles}></b>
