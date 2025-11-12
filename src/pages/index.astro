@@ -2,355 +2,111 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import DaysOnStrike from "../components/DaysOnStrike/DaysOnStrike.astro";
 import RallySection from "../components/Rally/RallySection.astro";
+import Logo from "../images/logo.svg";
 ---
 
 <BaseLayout title="Home">
-  <DaysOnStrike />
-
-  <article class="surface breaking">
-    <h2 class="flex flex-wrap justify-between gap-x-2">
-      <span>
-        A Resounding
-        <strong>YES to Strike</strong>
-      </span>
-      <span class="text-balance" role="presentation" aria-hidden="true">
-        ✊🏿 ✊🏾 ✊🏽 ✊🏼 ✊🏻
-      </span>
-    </h2>
-    <p>
-      On September 26, 2025,
-      <strong>85% of Kickstarter United (OPEIU Local 153) members</strong>
-      <strong>voted to authorize a strike</strong>
-      beginning Thursday, October 2 at 8 a.m. unless management reaches a fair contract
-      agreement.
-    </p>
-
-    <p>
-      <strong>Our demands are simple:</strong>
-    </p>
-
-    <ul>
-      <li>
-        Protect the 32-hour, 4-day workweek that’s been in place for over three
-        years.
-      </li>
-      <li>
-        Establish a minimum salary that provides a livable wage for all workers.
-      </li>
-    </ul>
-
-    <p>
-      Read the full press release from OPEIU here:
-      <a
-        href="https://www.opeiulocal153.org/news/kickstarter-united-opeiu-153-workers-authorize-strike-demanding-four-day-workweek-and-minimum-salary"
-      >
-        Kickstarter United-OPEIU 153 Workers Authorize Strike Demanding Four-Day
-        Workweek and Minimum Salary
-      </a>
-    </p>
-
-    <p>
-      <strong>
-        <mark class="highlight">
-          <span class="uppercase">We are not</span>
-          asking people to boycott
-          <a href="//kickstarter.com"> kickstarter.com</a>
-        </mark>
-        or withhold support from creators.
-      </strong>
-    </p>
-
-    <p>
-      If you want to support us,
-      <a href="#what-you-can-do">here's what you can do</a>!
-    </p>
-  </article>
-
-  {false && (
-    <hr />
-
-    <RallySection />
-  )}
-
-  <hr />
-
-  <div class="solidarity">
-    <h2 id="what-you-can-do">
-      <a class="no-underline" href="#what-you-can-do"> What You Can Do</a>
-    </h2>
-
-    <p>
-      With management refusing to move on the 4-day week and fair pay,
-      <strong>we need you to stand with us more than ever.</strong>
-      Here’s how you can take action today:
-    </p>
-
-    <div class="surface solidarity__list">
-      <div class="solidarity__item" id="solidarity-fund">
-        <details name="solidarity">
-          {
-            /* go_fund_me_url = "https://www.gofundme.com/f/support-kickstarter-united-workers" */
-          }
-          <summary>
-            Donate
-            <span>to Our Solidarity Fund</span>
-          </summary>
-          <div>
-            <p>
-              On Labor Day we launched our Solidarity fund on GoFundMe. If
-              management forces a strike, this GoFundMe will help our most
-              vulnerable workers weather the hardship of pay-stoppage.
-            </p>
-
-            <div class="media">
-              <div>
-                <div
-                  class="gfm-embed"
-                  data-url="https://www.gofundme.com/f/support-kickstarter-united-workers/widget/medium?sharesheet=undefined&attribution_id=sl:c9a70e0a-71b0-4f51-9fd6-16cb0de227df"
-                >
-                </div>
-                <script
-                  is:inline
-                  src="https://www.gofundme.com/static/js/embed.js"
-                  defer></script>
-              </div>
-
-              <p class="media__details">
-                If we reach an agreement without striking, we will refund any
-                donation on request and roll the remaining funds into a
-                sympathetic solidarity and/or hardship fund to help our fellow
-                workers
-              </p>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="solidarity__item" id="solidarity-petition">
-        <details name="solidarity">
-          <summary>Tell Kickstarter Management: Meet Workers' Demands</summary>
-
-          <div>
-            <p>
-              <strong>We're fighting for a fair contract</strong>
-              that protects our 4-day, 32-hour work week and raises pay for the lowest-paid
-              employees. Unless management acts, we are prepared to strike on October
-              2. Read our
-              <a
-                href="https://actionnetwork.org/letters/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike"
-              >
-                full petition text
-              </a>
-              and
-
-              <strong> sign now to help us avoid a strike!</strong>
-            </p>
-
-            <div class="embed">
-              <link
-                href="https://actionnetwork.org/css/style-embed-v3.css"
-                rel="stylesheet"
-                type="text/css"
-              />
-              <script
-                is:inline
-                src="https://actionnetwork.org/widgets/v5/letter/tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike?format=js&source=widget"
-              ></script>
-              <div
-                id="can-letter-area-tell-kickstarter-management-meet-your-workers-demands-to-avoid-a-strike"
-              >
-                {/* this div is the target for our HTML insertion */}
-              </div>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div class="solidarity__item" id="solidarity-assets">
-        <details name="solidarity">
-          <summary>For Creators</summary>
-
-          <div>
-            <p>
-              <a href="/creators">
-                If you're a creator and want to support us, click here to see
-                some ways you can help!
-              </a>
-            </p>
-          </div>
-        </details>
-      </div>
-
-      <div class="solidarity__item" id="board-letter">
-        <details name="solidarity">
-          <summary>Read our Appeal to the Board</summary>
-
-          <div>
-            <p>
-              At the bargaining table, Kickstarter management keeps passing the
-              buck, claiming they can’t codify the 4-day work week because “they
-              don’t own the company.” So we went straight to the board.
-            </p>
-            <p>
-              Many board members have built careers around innovative, socially
-              driven business models and Kickstarter was chartered as a PBC to
-              meaningfully commit to those values. We felt the board should know
-              management’s actions at the table don’t align with that ethos.
-            </p>
-            <p>
-              Their response? A brief dismissal of our concerns and a rejection
-              of our invitation to the table.
-            </p>
-            <p>
-              We implore the board to do the right thing and marry their actions
-              to their words by supporting our cause.
-            </p>
-            <p>
-              <strong>Read the full letter below</strong>
-              <embed
-                src="/docs/letter_to_the_board.pdf"
-                type="application/pdf"
-                width="100%"
-                height="600px"
-              />
-            </p>
-          </div>
-        </details>
-      </div>
-
-      <div class="solidarity__item" id="solidarity-watch">
-        <details name="solidarity">
-          {
-            /* rally_recording_url = "https://us06web.zoom.us/rec/share/6OKlx_dx69PNAN5KD4RXHGUEMnJ4guwswqFwYpm00wfOAAs7JTyy847bMTYFgPfH.tu_yKEq1X0jhpnSB" */
-          }
-          <summary>Watch Our Solidarity Rallies</summary>
-
-
-          <div>
-            <p>
-              On October 23rd we held a solidarity rally in Boston;
-              you can find some great moments from it on
-              <a href="https://www.instagram.com/p/DQKe1kKDhsE/">our instagram</a>!
-            </p>
-          </div>
-
-          <div>
-            <p>
-              On October 2nd—the first day of our strike—we held a solidarity
-              rally in Seattle.
-            </p>
-
-            <div class="media">
-              <iframe
-                loading="lazy"
-                class="embed embed--video"
-                width="1024"
-                height="576"
-                src="https://www.youtube.com/embed/RdbEhsz94W4"
-                title="Kickstarter United Solidarity Rally – September 2023"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-
-              {
-                /*
-								<div class="media__details">
-									<h4>Featured speakers and supporters</h4>
-									<ul>
-										<li>
-											<b>Speaker Organization:</b>
-											Speaker summary
-										</li>
-									</ul>
-								</div>
-								*/
-              }
-            </div>
-          </div>
-
-          <div>
-            <p>
-              On September 5th, we held a public virtual rally to support our
-              fight for a fair contract.
-            </p>
-            <p>
-              We featured unionized tech workers who’ve gone on strike, elected
-              representatives who support a 32-hour week, and Kickstarter United
-              members discussing our our demands and our union.
-            </p>
-
-            <div class="media">
-              <iframe
-                loading="lazy"
-                class="embed embed--video"
-                width="1024"
-                height="576"
-                src="https://www.youtube.com/embed/BqjoIgS3-kU?si=vwrh0FGqfbNWM-8p"
-                title="Kickstarter United Solidarity Rally – September 2023"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-
-              <div class="media__details">
-                <h4>Featured speakers and supporters</h4>
-                <ul>
-                  <li>
-                    <b>The New York Times Tech Guild:</b>
-                    John Cruickshank and Kait Hoehne, leaders in last year’s groundbreaking
-                    strike.
-                  </li>
-                  <li>
-                    <b>Alphabet Workers Union:</b>
-                    Parul Koul, president, sharing organizing lessons from big tech.
-                  </li>
-                  <li>
-                    <b>New York State Assembly:</b>
-                    Emily Gallagher and Phara Souffrant Forrest, sponsors of 32-hour
-                    week legislation.
-                  </li>
-                  <li>
-                    <b>Seattle:</b>
-                    Kshama Sawant, former City Council member and current candidate
-                    for the United States Congress, advocating a 30-hour week and
-                    a $25 per hour minimum wage.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </details>
-      </div>
-    </div>
-  </div>
+  <Logo class="justify-self-center" width={256} height={256} />
 
   <hr />
 
   <div>
-    <h2 id="our-next-contract">
-      <a class="no-underline" href="#our-next-contract"> Our Next Contract</a>
-    </h2>
-    <p>
-      In April of 2025 we began bargaining with the management at Kickstarter for
-      our second union contract (our
-      <a href="/contracts/2022"> first contract</a>
-      was won in 2022). From the outset we have been clear with management that our
-      top priorities are codifying the
-      <strong id="4dww-defn">4-day, 32-hour work week (4DWW)</strong>
-      as the standard and
-      <strong>raising the minimum salary</strong>
-      for all members of the bargaining unit. While we are proud of the progress
-      we have made in some areas, management
-      <em>continues to block real progress</em>
-      on the
-      <span aria-labelledby="4dww-dfn">4DWW</span>
-      and fair minimum salaries.
-    </p>
+    <div class="surface breaking">
+      <h1 class="heading-3">Kickstarter United Prevails!</h1>
+      <p>
+        After <strong>7 months</strong> of bargaining and <strong>42</strong> days
+        of striking, Kickstarter United has voted to end the strike after <strong
+        >
+          securing historic protections
+        </strong> for our union. When we fight, we win! Here’s what we won together:
+      </p>
+      <ul>
+        <li>
+          <strong>Extremely strong protections codified</strong> for our Four-Day
+          Workweek
+        </li>
+        <li>
+          <strong>Improving pay equity</strong> by establishing a salary floor, with
+          a bonus for our most undervalued workers
+        </li>
+        <li>
+          Protections for workers in a world with <strong>generative AI</strong>
+        </li>
+        <li><strong>Much more!</strong></li>
+      </ul>
+    </div>
 
-    <p>
-      For more information, see our
-      <a href="/faq" aria-label="Frequently asked questions"> FAQ</a>
+    <div class="surface">
+      <h2>Codified Four-Day Workweek!</h2>
+      <p>
+        We have <strong>codified our Four-Day Workweek</strong>, with strong
+        protections if management tries to force us to revert to a five-day
+        workweek.
+      </p>
+      <ul>
+        <li>
+          Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
+          with notice in advance, and a time limit
+        </li>
+        <li>
+          Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
+          with the union
+        </li>
+        <li>
+          If management tries to force it anyway, <strong>we can strike</strong>
+        </li>
+      </ul>
+    </div>
+
+    <div class="surface">
+      <h2>Raising the minimum salary floor!</h2>
+      <p>
+        The market undervalues some of our most vital workers, and we won strong
+        provisions to <strong>raise their minimum salary floor</strong> considerably!
+      </p>
+      <ul>
+        <li>
+          An <strong>escalating increase</strong> in the pay floor based on cost
+          of living, an <strong>average 6% increase</strong> to our most undervalued
+          workers
+        </li>
+        <li>A one-time $6,000 bonus for the most undervalued workers</li>
+        <li>
+          Yearly national benchmarking to push pay upwards <strong
+            >across the whole unit</strong
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="surface">
+      <h2>Much, much more!</h2>
+
+      <p>
+        We won many improvements to our working conditions with <strong
+          >no regressions</strong
+        > in our worker protections!
+      </p>
+      <ul>
+        <li>
+          Cannot replace a role with AI, and management must work with employees
+          if AI changes a role
+        </li>
+        <li>
+          Strong protections against replacing full time employees with
+          contractors
+        </li>
+        <li>
+          More input from employees with a regular forum for business operations
+        </li>
+      </ul>
+    </div>
+
+    <p class="mt-8">
+      <strong>Thank you</strong> to everyone who showed support, wrote emails to
+      leadership, donated to our strike fund, and came to our pickets. <strong>
+        When we fight, we win!
+      </strong>
     </p>
   </div>
-
-  <hr />
 </BaseLayout>
