@@ -117,18 +117,16 @@
   --_x: -50%;
   --_y: -50%;
   --_initial-y: -50%;
-  /*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
+
   transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
-  /*   animation: fireworkPseudo 2s infinite; */
 }
 
 .firework::after {
   --_x: -50%;
   --_y: -50%;
   --_initial-y: -50%;
-  /*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
+
   transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
-  /*   animation: fireworkPseudo 2s infinite; */
 }
 
 .firework:nth-child(2) {
@@ -197,10 +195,3 @@ body:not([data-fireworks-hidden="true"]):has(.firework) {
     opacity: 0;
   }
 }
-
-/* @keyframes fireworkPseudo {
-  0% { transform: translate(-50%, -50%); width: var(--_initial-size); opacity: 1; }
-  50% { width: 0.5vmin; opacity: 1; }
-  100% { width: var(--_final-size); opacity: 0; }
-}
- */
