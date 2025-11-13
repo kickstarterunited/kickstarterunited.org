@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import "./Carousel.css";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** Include prev/next buttons? */
+  scrollButtons?: boolean;
+  /** Include scroll markers (pagination)? */
+  scrollMarkers?: boolean;
+  /** Force stopping at each item? */
+  forceSnap?: boolean;
+  /** Fade inactive items? */
+  inertItems?: boolean;
+}
+
+const {
+  forceSnap = false,
+  inertItems = false,
+  scrollButtons = false,
+  scrollMarkers = false,
+
+  class: cls,
+  ...props
+} = Astro.props;
+---
+
+<div
+  {...props}
+  class:list={[
+    "carousel",
+    {
+      "carousel--scroll-buttons": scrollButtons,
+      "carousel--scroll-markers": scrollMarkers,
+      "carousel--force-snap": forceSnap,
+      "carousel--inert": inertItems,
+    },
+    cls,
+  ]}
+>
+  <slot />
+</div>
