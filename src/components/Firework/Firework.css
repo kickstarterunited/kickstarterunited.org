@@ -170,6 +170,18 @@
   animation-delay: -0.4s;
 }
 
+body:not([data-fireworks-hidden="true"]):has(.firework) {
+  overflow-x: clip;
+}
+
+[data-fireworks-hidden="true"] .firework {
+  display: none;
+}
+
+[data-fireworks-hidden="true"] button[command="--hide-fireworks"] {
+  display: none;
+}
+
 @keyframes firework {
   0% {
     transform: translate(var(--_x), var(--_initial-y));
