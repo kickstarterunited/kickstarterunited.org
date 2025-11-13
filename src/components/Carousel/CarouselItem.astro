@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** Required label for the carousel item */
+  itemLabel: string;
+}
+
+const { class: cls, itemLabel, ...props } = Astro.props;
+---
+
+<div {...props} class:list={["carousel__item", cls]} data-label={itemLabel}>
+  <div>
+    <slot />
+  </div>
+</div>
