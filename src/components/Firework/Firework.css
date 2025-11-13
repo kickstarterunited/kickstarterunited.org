@@ -169,7 +169,7 @@
 }
 
 body:not([data-fireworks-hidden="true"]):has(.firework) {
-  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 [data-fireworks-hidden="true"] .firework {
