@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import DaysOnStrike from "../components/DaysOnStrike/DaysOnStrike.astro";
-import RallySection from "../components/Rally/RallySection.astro";
+import Firework from "../components/Firework/Firework.astro";
 import Logo from "../images/logo.svg";
+import HideFireworkButton from "../components/Firework/HideFireworkButton.astro";
 ---
 
 <BaseLayout title="Home">
@@ -13,6 +13,11 @@ import Logo from "../images/logo.svg";
   <div>
     <div class="surface breaking">
       <h1 class="heading-3">Kickstarter United Prevails!</h1>
+
+      <div class="relative" id="fireworks">
+        <Firework /><Firework /><Firework />
+      </div>
+
       <p>
         After <strong>7 months</strong> of bargaining and <strong>42</strong> days
         of striking, Kickstarter United has voted to end the strike after <strong
@@ -34,6 +39,16 @@ import Logo from "../images/logo.svg";
         </li>
         <li><strong>Much more!</strong></li>
       </ul>
+
+      <div class="sticky bottom-0 text-center py-4">
+        <HideFireworkButton
+          class="btn btn-info mt-4"
+          commandfor="fireworks"
+          aria-label="Thanks, that's enough celebration for now! (disables animations)"
+        >
+          Thanks, that's enough celebration for now
+        </HideFireworkButton>
+      </div>
     </div>
 
     <div class="surface">

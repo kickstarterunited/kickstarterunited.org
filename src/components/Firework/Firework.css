@@ -1,0 +1,197 @@
+.firework,
+.firework::before,
+.firework::after {
+  --_initial-size: var(--firework-initial-size, 0.75vmin);
+  --_final-size: var(--firework-final-size, 80vmin);
+  --_particle-size: var(--firework-particle-size, 85vmin);
+  --_color-1: var(--firework-color-1, var(--ksru-color-accent-light));
+  --_color-2: var(--firework-color-2, khaki);
+  --_color-3: var(--firework-color-3, white);
+  --_color-4: var(--firework-color-4, lime);
+  --_color-5: var(--firework-color-5, gold);
+  --_color-6: var(--firework-color-6, mediumseagreen);
+  --_y: var(--firework-y, -30vmin);
+  --_x: var(--firework-x, -50%);
+  --_initial-y: var(--firework-initial-y, 60vmin);
+
+  content: "";
+  animation: firework 2s infinite ease-in;
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--_y));
+  width: var(--_initial-size);
+  aspect-ratio: 1;
+  pointer-events: none;
+  background:
+    /*
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 0% 0%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 100% 0%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 100% 100%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 0% 100%,
+    */ radial-gradient(
+        circle,
+        var(--_color-1) var(--_particle-size),
+        #0000 0
+      )
+      50% 0%,
+    radial-gradient(circle, var(--_color-2) var(--_particle-size), #0000 0) 100%
+      50%,
+    radial-gradient(circle, var(--_color-3) var(--_particle-size), #0000 0) 50%
+      100%,
+    radial-gradient(circle, var(--_color-4) var(--_particle-size), #0000 0) 0%
+      50%,
+    /* bottom right */
+      radial-gradient(circle, var(--_color-5) var(--_particle-size), #0000 0)
+      80% 90%,
+    radial-gradient(circle, var(--_color-6) var(--_particle-size), #0000 0) 95%
+      90%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 90%
+      70%,
+    radial-gradient(circle, var(--_color-2) var(--_particle-size), #0000 0) 100%
+      60%,
+    radial-gradient(circle, var(--_color-3) var(--_particle-size), #0000 0) 55%
+      80%,
+    radial-gradient(circle, var(--_color-4) var(--_particle-size), #0000 0) 70%
+      77%,
+    /* bottom left */
+      radial-gradient(circle, var(--_color-5) var(--_particle-size), #0000 0)
+      22% 90%,
+    radial-gradient(circle, var(--_color-6) var(--_particle-size), #0000 0) 45%
+      90%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 33%
+      70%,
+    radial-gradient(circle, var(--_color-2) var(--_particle-size), #0000 0) 10%
+      60%,
+    radial-gradient(circle, var(--_color-3) var(--_particle-size), #0000 0) 31%
+      80%,
+    radial-gradient(circle, var(--_color-4) var(--_particle-size), #0000 0) 28%
+      77%,
+    radial-gradient(circle, var(--_color-5) var(--_particle-size), #0000 0) 13%
+      72%,
+    /* top left */
+      radial-gradient(circle, var(--_color-6) var(--_particle-size), #0000 0)
+      80% 10%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 95%
+      14%,
+    radial-gradient(circle, var(--_color-2) var(--_particle-size), #0000 0) 90%
+      23%,
+    radial-gradient(circle, var(--_color-3) var(--_particle-size), #0000 0) 100%
+      43%,
+    radial-gradient(circle, var(--_color-4) var(--_particle-size), #0000 0) 85%
+      27%,
+    radial-gradient(circle, var(--_color-5) var(--_particle-size), #0000 0) 77%
+      37%,
+    radial-gradient(circle, var(--_color-6) var(--_particle-size), #0000 0) 60%
+      7%,
+    /* top right */
+      radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0)
+      22% 14%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 45%
+      20%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 33%
+      34%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 10%
+      29%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 31%
+      37%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 28%
+      7%,
+    radial-gradient(circle, var(--_color-1) var(--_particle-size), #0000 0) 13%
+      42%;
+  background-size: var(--_initial-size) var(--_initial-size);
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .firework,
+  .firework::before,
+  .firework::after {
+    animation: none;
+    opacity: 0 !important;
+  }
+}
+
+.firework::before {
+  --_x: -50%;
+  --_y: -50%;
+  --_initial-y: -50%;
+
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+}
+
+.firework::after {
+  --_x: -50%;
+  --_y: -50%;
+  --_initial-y: -50%;
+
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+}
+
+.firework:nth-child(2) {
+  --_x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --_color-1: var(--color-red-100);
+  --_color-2: violet;
+  --_color-3: fuchsia;
+  --_color-4: orchid;
+  --_color-5: plum;
+  --_color-6: lavender;
+  --_final-size: 80vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --_x: -30vmin;
+  --_y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --_color-1: cyan;
+  --_color-2: lightcyan;
+  --_color-3: lightblue;
+  --_color-4: PaleTurquoise;
+  --_color-5: SkyBlue;
+  --_color-6: lavender;
+  --_final-size: 100vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
+
+body:not([data-fireworks-hidden="true"]):has(.firework) {
+  overflow-x: clip;
+}
+
+[data-fireworks-hidden="true"] .firework {
+  display: none;
+}
+
+[data-fireworks-hidden="true"] button[command="--hide-fireworks"] {
+  display: none;
+}
+
+@keyframes firework {
+  0% {
+    transform: translate(var(--_x), var(--_initial-y));
+    width: var(--_initial-size);
+    opacity: 1;
+  }
+  50% {
+    width: 0.5vmin;
+    opacity: 1;
+  }
+  100% {
+    width: var(--_final-size);
+    opacity: 0;
+  }
+}

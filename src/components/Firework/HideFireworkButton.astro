@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends Omit<HTMLAttributes<"button">, "command"> {
+  commandfor: string;
+}
+
+const props = Astro.props;
+---
+
+<button {...props} command="--hide-fireworks"><slot /></button>
+
+<script>
+  const fireworks = document.getElementById("fireworks");
+  fireworks?.addEventListener("command", (event) => {
+    if (event.command === "--hide-fireworks") {
+      document.body.dataset.fireworksHidden = "true";
+    }
+  });
+</script>
