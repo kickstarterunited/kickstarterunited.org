@@ -7,25 +7,25 @@ import type { JSX } from "astro/jsx-runtime";
 
 interface Props extends HTMLAttributes<"b"> {
   /** Size of the firework's initial explosion */
-  initialSize: CssVariable;
+  initialSize?: CssVariable;
   /** Size of the firework at the end of its animation */
-  finalSize: CssVariable;
+  finalSize?: CssVariable;
   /** 1st color of the firework */
-  color1: CssVariable;
+  color1?: CssVariable;
   /** 2nd color of the firework */
-  color2: CssVariable;
+  color2?: CssVariable;
   /** 3rd color of the firework */
-  color3: CssVariable;
+  color3?: CssVariable;
   /** 4th color of the firework */
-  color4: CssVariable;
+  color4?: CssVariable;
   /** 5th color of the firework */
-  color5: CssVariable;
+  color5?: CssVariable;
   /** Initial Y position of the firework */
-  initialY: CssVariable;
+  initialY?: CssVariable;
   /** Y offset of the firework */
-  yOffset: CssVariable;
+  yOffset?: CssVariable;
   /** X offset of the firework */
-  xOffset: CssVariable;
+  xOffset?: CssVariable;
 }
 
 const {
