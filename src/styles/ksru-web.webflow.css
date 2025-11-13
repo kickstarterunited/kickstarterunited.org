@@ -313,6 +313,7 @@
     inset: var(--_inset);
     border-radius: inherit;
     corner-shape: inherit;
+    opacity: inherit;
     z-index: -1;
 
     background: conic-gradient(

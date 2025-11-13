@@ -18,7 +18,9 @@
   container-type: inline-size scroll-state;
   /* Gotta make sure the value is rounded to pixels */
   inline-size: round(nearest, 70ch, 1px);
-  max-inline-size: 100vw;
+
+  /* TODO: Undo this once we can go full bleed */
+  max-inline-size: calc(100vw - 2 * var(--spacing) * 8);
 
   anchor-name: --carousel;
 

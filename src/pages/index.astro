@@ -3,6 +3,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Firework from "../components/Firework/Firework.astro";
 import Logo from "../images/logo.svg";
 import HideFireworkButton from "../components/Firework/HideFireworkButton.astro";
+import Carousel from "../components/Carousel/Carousel.astro";
+import CarouselItem from "../components/Carousel/CarouselItem.astro";
 ---
 
 <BaseLayout title="Home">
@@ -27,15 +29,23 @@ import HideFireworkButton from "../components/Firework/HideFireworkButton.astro"
       </p>
       <ul>
         <li>
-          <strong>Extremely strong protections codified</strong> for our Four-Day
-          Workweek
+          <a href="#four-day-workweek"
+            ><strong>Extremely strong protections codified</strong> for our Four-Day
+            Workweek</a
+          >
         </li>
         <li>
-          <strong>Improving pay equity</strong> by establishing a salary floor, with
-          a bonus for our most undervalued workers
+          <a href="#minimum-salary-floor"
+            ><strong>Improving pay equity</strong> by establishing a salary floor,
+            with a bonus for our most undervalued workers</a
+          >
         </li>
         <li>
-          Protections for workers in a world with <strong>generative AI</strong>
+          <a href="#much-more">
+            Protections for workers in a world with <strong
+              >generative AI</strong
+            >
+          </a>
         </li>
         <li><strong>Much more!</strong></li>
       </ul>
@@ -51,71 +61,85 @@ import HideFireworkButton from "../components/Firework/HideFireworkButton.astro"
       </div>
     </div>
 
-    <div class="surface">
-      <h2>Codified Four-Day Workweek!</h2>
-      <p>
-        We have <strong>codified our Four-Day Workweek</strong>, with strong
-        protections if management tries to force us to revert to a five-day
-        workweek.
-      </p>
-      <ul>
-        <li>
-          Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
-          with notice in advance, and a time limit
-        </li>
-        <li>
-          Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
-          with the union
-        </li>
-        <li>
-          If management tries to force it anyway, <strong>we can strike</strong>
-        </li>
-      </ul>
-    </div>
+    <Carousel class="mt-8 p-2" forceSnap inertItems scrollButtons scrollMarkers>
+      <CarouselItem id="four-day-workweek" itemLabel="Four-Day Workweek">
+        <div class="surface">
+          <h2>Codified Four-Day Workweek!</h2>
+          <p>
+            We have <strong>codified our Four-Day Workweek</strong>, with strong
+            protections if management tries to force us to revert to a five-day
+            workweek.
+          </p>
+          <ul>
+            <li>
+              Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
+              with notice in advance, and a time limit
+            </li>
+            <li>
+              Permanent changes to Five-Day Workweek <strong>must</strong> involve
+              bargaining with the union
+            </li>
+            <li>
+              If management tries to force it anyway, <strong
+                >we can strike</strong
+              >
+            </li>
+          </ul>
+        </div>
+      </CarouselItem>
 
-    <div class="surface">
-      <h2>Raising the minimum salary floor!</h2>
-      <p>
-        The market undervalues some of our most vital workers, and we won strong
-        provisions to <strong>raise their minimum salary floor</strong> considerably!
-      </p>
-      <ul>
-        <li>
-          An <strong>escalating increase</strong> in the pay floor based on cost
-          of living, an <strong>average 6% increase</strong> to our most undervalued
-          workers
-        </li>
-        <li>A one-time $6,000 bonus for the most undervalued workers</li>
-        <li>
-          Yearly national benchmarking to push pay upwards <strong
-            >across the whole unit</strong
-          >
-        </li>
-      </ul>
-    </div>
+      <CarouselItem id="minimum-salary-floor" itemLabel="Minimum Salary Floor">
+        <div class="surface">
+          <h2>Raising the minimum salary floor!</h2>
+          <p>
+            The market undervalues some of our most vital workers, and we won
+            strong provisions to <strong
+              >raise their minimum salary floor</strong
+            >
+            considerably!
+          </p>
+          <ul>
+            <li>
+              An <strong>escalating increase</strong> in the pay floor based on cost
+              of living, an <strong>average 6% increase</strong> to our most undervalued
+              workers
+            </li>
+            <li>A one-time $6,000 bonus for the most undervalued workers</li>
+            <li>
+              Yearly national benchmarking to push pay upwards <strong
+                >across the whole unit</strong
+              >
+            </li>
+          </ul>
+        </div>
+      </CarouselItem>
 
-    <div class="surface">
-      <h2>Much, much more!</h2>
+      <CarouselItem id="much-more" itemLabel="Much, much more!">
+        <div class="surface">
+          <h2>Much, much more!</h2>
 
-      <p>
-        We won many improvements to our working conditions with <strong
-          >no regressions</strong
-        > in our worker protections!
-      </p>
-      <ul>
-        <li>
-          Cannot replace a role with AI, and management must work with employees
-          if AI changes a role
-        </li>
-        <li>
-          Strong protections against replacing full time employees with
-          contractors
-        </li>
-        <li>
-          More input from employees with a regular forum for business operations
-        </li>
-      </ul>
-    </div>
+          <p>
+            We won many improvements to our working conditions with <strong
+              >no regressions</strong
+            > in our worker protections!
+          </p>
+          <ul>
+            <li>
+              Cannot replace a role with AI, and management must work with
+              employees if AI changes a role
+            </li>
+            <li>
+              Strong protections against replacing full time employees with
+              contractors
+            </li>
+            <li>
+              More input from employees with a regular forum for business
+              operations
+            </li>
+          </ul>
+        </div>
+      </CarouselItem>
+    </Carousel>
 
     <p class="mt-8">
       <strong>Thank you</strong> to everyone who showed support, wrote emails to
