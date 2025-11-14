@@ -12,7 +12,7 @@ import CarouselItem from "../components/Carousel/CarouselItem.astro";
 
   <hr />
 
-  <div>
+  <div class="page-grid__subgrid">
     <div class="surface breaking">
       <h1 class="heading-3">Kickstarter United Prevails!</h1>
 
@@ -61,7 +61,13 @@ import CarouselItem from "../components/Carousel/CarouselItem.astro";
       </div>
     </div>
 
-    <Carousel class="mt-8 p-2" forceSnap inertItems scrollButtons scrollMarkers>
+    <Carousel
+      class="mt-8 p-2 page-grid__full"
+      forceSnap
+      inertItems
+      scrollButtons
+      scrollMarkers
+    >
       <CarouselItem id="four-day-workweek" itemLabel="Four-Day Workweek">
         <div class="surface">
           <h2>Codified Four-Day Workweek!</h2>

@@ -9,14 +9,14 @@
         16px
         [FULL-start]
           1fr
-          [CONTENT] minmax(auto, var(--ksru-line-length))
+          [CONTENT] min(100%, var(--ksru-line-length))
           1fr
         [FULL-end]
         16px
       [BLEED-end];
 }
 
-.page-grid > * {
+:is(.page-grid, .page-grid__subgrid) > * {
   @apply col-[CONTENT];
 }
 
@@ -32,7 +32,7 @@
   @apply col-[CONTENT];
 }
 
-.page-grid > .page-grid__subgrid {
+.page-grid__subgrid {
   @apply col-[BLEED];
   @apply grid grid-cols-[subgrid] gap-[inherit];
 }
