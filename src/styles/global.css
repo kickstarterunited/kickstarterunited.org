@@ -16,3 +16,8 @@ ol {
 @view-transition {
   navigation: auto;
 }
+
+/* this element is inserted by a script so I can't add a tailwind class to it */
+.formkit-form {
+  margin: auto;
+}
