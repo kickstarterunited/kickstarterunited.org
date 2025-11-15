@@ -17,11 +17,7 @@ ol {
   navigation: auto;
 }
 
-.newsletter-signup {
-  margin: 20px 0;
-  text-align: center;
-}
-
+/* this element is inserted by a script so I can't add a tailwind class to it */
 .formkit-form {
   margin: auto;
 }
