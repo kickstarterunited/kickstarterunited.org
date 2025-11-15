@@ -16,3 +16,12 @@ ol {
 @view-transition {
   navigation: auto;
 }
+
+.newsletter-signup {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.formkit-form {
+  margin: auto;
+}
