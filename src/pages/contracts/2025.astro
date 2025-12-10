@@ -1,10 +1,81 @@
 ---
+import { Image } from "astro:assets";
+import BargainingUnit from "../../images/2025_contract/we-won.png";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="2025 Contract">
+  <div class="w-auto">
+    <Image
+      class="mx-auto"
+      alt="A screenshot of a Zoom meeting where our Bargaining Unit members were celebrating their new contract and the conclusion of their strike"
+      src={BargainingUnit}
+    />
+  </div>
+  <hr />
+
   <div>
-    <h2 class="heading-3">Our second contract</h2>
-    <p>Watch this space!</p>
+    <h1 class="heading-3">Our new contract</h1>
+    <p>
+      On XXX, 2025, XX% of our union voted YES to ratify
+      a new collective bargaining agreement. Kickstarter United bargained
+      for over 7 months and undertook a historic 42 day long strike in order to
+      secure vital new protections and benefits that we hope will not only
+      improve the lives of our members, but will also serve as an inspiration to
+      working people everywhere. All of these wins also come in addition to
+      the benefits from our first contract, with no major concessions from the union.
+
+      Some of the improvements we won in this new contract include:
+    </p>
+
+    <p></p>
+    <ul>
+      <li>📅 Strong protections for the 4-day work week that Kickstarter and our workers have thrived under</li>
+      <li>
+        💰 A minimum salary based on an Annual Living Wage Review
+      </li>
+      <li>
+        🧮 Salary benchmarking annually to ensure pay is keeping up with the market
+      </li>
+      <li>
+        🤖 New protections against uses of AI which would replace workers
+      </li>
+      <li>
+        📈 Even better terms for our profit-sharing bonus pool
+      </li>
+      <li>
+        🏥 Up to a week of paid leave in case of a miscarriage
+      </li>
+      <li>
+        🌴 The ability to roll over a week's worth of PTO into the new year
+      </li>
+      <li>
+        👷‍♂️ Strengthened protections against the use of subcontractors to replace union workers
+      </li>
+      <li>
+        ➕ Plus plenty of other small but meaningful improvements
+      </li>
+    </ul>
+    <p></p>
+  </div>
+
+  <div>
+    <p>
+      You can read a
+      <a href="" target="_blank"
+        >full copy of our contract (with the signatures ommitted) here</a
+      >. We're happy to share it for others to help build their contracts in the
+      tech industry. If you have any questions about our contract, please feel free to use our contact
+      form. We'll try to answer at our earliest convenience.
+    </p>
+  </div>
+
+  <div class="mt-4">
+    <h2>Statements from our members</h2>
+
+    <center>
+      <div class="w-3/4">
+      </div>
+    </center>
   </div>
 </BaseLayout>
