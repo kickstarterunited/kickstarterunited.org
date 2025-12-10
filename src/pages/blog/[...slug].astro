@@ -16,7 +16,7 @@ const frontmatter = post.data;
 const tags = frontmatter.tags;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title} class="prose">
   <Content />
 
   {tags.length > 0 &&(
