@@ -4,12 +4,21 @@ import "./social-links.css";
 interface Props {
   label: string;
   href: string;
+  showLabel?: boolean;
 }
-const { label, href } = Astro.props;
+const { label, href, showLabel } = Astro.props;
 ---
 
 <li class="m-0">
-  <a href={href} rel="me" target="_blank" class="btn social-link__btn" aria-label={label}>
+  <a
+    href={href}
+    rel="me"
+    target="_blank"
+    class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
+    aria-label={!showLabel ? label : undefined}
+    title={!showLabel ? `Follow us on ${label}` : undefined}
+  >
     <slot />
+    {showLabel && <span>{label}</span>}
   </a>
 </li>

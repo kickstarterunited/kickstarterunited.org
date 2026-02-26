@@ -4,6 +4,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+}
+
+.social-link__btn--labeled {
+  padding: 8px 16px;
 }
 
 .social-link__btn:hover {
