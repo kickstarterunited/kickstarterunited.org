@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Firework from "../components/Firework/Firework.astro";
 import Logo from "../images/logo.svg";
-import HideFireworkButton from "../components/Firework/HideFireworkButton.astro";
 import Carousel from "../components/Carousel/Carousel.astro";
 import CarouselItem from "../components/Carousel/CarouselItem.astro";
 ---
@@ -15,10 +13,6 @@ import CarouselItem from "../components/Carousel/CarouselItem.astro";
   <div>
     <div class="surface breaking">
       <h1 class="heading-3">Kickstarter United Prevails!</h1>
-
-      <div class="relative" id="fireworks">
-        <Firework /><Firework /><Firework />
-      </div>
 
       <p>
         After <strong>7 months</strong> of bargaining and <strong>42</strong> days
@@ -50,15 +44,6 @@ import CarouselItem from "../components/Carousel/CarouselItem.astro";
         <li><strong>Much more!</strong></li>
       </ul>
 
-      <div class="sticky bottom-0 text-center py-4">
-        <HideFireworkButton
-          class="btn btn-info mt-4"
-          commandfor="fireworks"
-          aria-label="Thanks, that's enough celebration for now! (disables animations)"
-        >
-          Thanks, that's enough celebration for now
-        </HideFireworkButton>
-      </div>
     </div>
 
     <Carousel class="mt-8 p-2" forceSnap inertItems scrollButtons scrollMarkers>
