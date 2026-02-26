@@ -1,15 +1,24 @@
 ---
+import "./social-links.css";
+
 interface Props {
-  emoji: string;
+  label: string;
   href: string;
-  children: any;
+  showLabel?: boolean;
 }
-const { emoji, href } = Astro.props;
+const { label, href, showLabel } = Astro.props;
 ---
 
-<li class="m-0 flex gap-1">
-  {`${emoji} `}
-  <a href={href} rel="me" target="_blank">
+<li class="m-0">
+  <a
+    href={href}
+    rel="me noopener noreferrer"
+    target="_blank"
+    class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
+    aria-label={!showLabel ? label : undefined}
+    title={!showLabel ? `Follow us on ${label}` : undefined}
+  >
     <slot />
+    {showLabel && <span>{label}</span>}
   </a>
 </li>
