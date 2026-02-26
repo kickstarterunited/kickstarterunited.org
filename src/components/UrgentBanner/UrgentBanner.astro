@@ -1,0 +1,32 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import "./UrgentBanner.css";
+
+/**
+ * Full-width dark teal banner with animated gradient background, gold accents,
+ * and a bouncy scale-in entrance animation. Breaks out of the content column
+ * to span the full viewport width.
+ *
+ * Does NOT handle outer margins; the instance is responsible for positioning
+ * (e.g. `class="mt-[calc(-2rem+2px)]"`).
+ *
+ * CSS classes available for slot content:
+ * - `.urgent-banner__when`    - callout box with gold left border
+ * - `.urgent-banner__cta`     - oversized pulsing CTA button
+ * - `.urgent-banner__actions` - flex row for secondary action buttons
+ */
+interface Props extends HTMLAttributes<"div"> {
+  /** Text for the gold pill badge (e.g. "TOMORROW") */
+  badge?: string;
+}
+
+const { badge, class: cls, ...props } = Astro.props;
+---
+
+<div {...props} class:list={["urgent-banner surface", cls]}>
+  <div class="urgent-banner__inner">
+    {badge && <p class="urgent-banner__badge">{badge}</p>}
+    <slot />
+  </div>
+</div>

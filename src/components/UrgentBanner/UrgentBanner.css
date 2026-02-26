@@ -1,0 +1,166 @@
+@reference "../../styles/global.css";
+
+.urgent-banner {
+  --_gold: var(--ksru-color-accent-rich);
+  --_teal: var(--ksru-color-accent);
+  --_green: var(--ksru-color-accent-light);
+
+  /*
+   * Three-layer gradient stack:
+   * 1. Green glow (top-left, drifts via @property animation)
+   * 2. Gold glow  (bottom-right, drifts opposite)
+   * 3. Dark teal base
+   */
+  background:
+    radial-gradient(ellipse at var(--_glow1-x, 20%) var(--_glow1-y, 0%), color-mix(in oklch, var(--_green), transparent 70%) 0%, transparent 60%),
+    radial-gradient(ellipse at var(--_glow2-x, 80%) var(--_glow2-y, 100%), color-mix(in oklch, var(--_gold), transparent 80%) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--_teal), black 10%) 0%, var(--_teal) 100%);
+  /* urgent-banner-glow: drifts the gradient glow positions via @property custom properties */
+  /* surface-border-rotate: rotates the animated conic-gradient border (defined in global CSS) */
+  animation: urgent-banner-glow 12s ease-in-out infinite alternate, surface-border-rotate 6s linear infinite;
+  color: #fff;
+  border: 3px solid var(--_gold);
+  border-top: none;
+  box-shadow: 0 0 24px color-mix(in oklch, var(--_gold), transparent 60%);
+  text-align: center;
+
+  /* Full-viewport breakout */
+  margin-inline: calc(50% - 50vw);
+  padding-inline: calc(50vw - 50%);
+  border-radius: 0;
+  border-inline: none;
+
+  /* Animated border via existing keyframes */
+  --surface-border-color: var(--_gold);
+}
+
+/* Bouncy scale-in entrance via @starting-style.
+ * linear() defines a spring-like curve: overshoots to 122%, settles with a small bounce.
+ * Opacity fades in faster (0.3s) so content is visible before the bounce finishes. */
+.urgent-banner__inner {
+  transition: opacity 0.3s ease-out, scale 0.5s linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
+  opacity: 1;
+  scale: 1;
+
+  @starting-style {
+    opacity: 0;
+    scale: 0.5;
+  }
+}
+
+/* Feed gold/green into the .surface animated conic-gradient border */
+.urgent-banner::before {
+  --_clr-1: var(--_gold);
+  --_clr-2: var(--_green);
+  border-radius: 0;
+}
+
+.urgent-banner h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1.2;
+  margin-block: 0.25rem 0.75rem;
+}
+
+.urgent-banner h1 .highlight {
+  color: var(--_teal);
+}
+
+.urgent-banner strong {
+  color: var(--_gold);
+}
+
+.urgent-banner__badge {
+  display: inline-block;
+  background: var(--_gold);
+  color: var(--_teal);
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  padding: 0.25em 1em;
+  border-radius: 999px;
+  margin-bottom: 0.5rem;
+}
+
+.urgent-banner__when {
+  background: color-mix(in oklch, var(--_teal), black 20%);
+  border-left: 4px solid var(--_gold);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-block: 1.25rem;
+  text-align: left;
+  max-width: 28rem;
+  margin-inline: auto;
+}
+
+.urgent-banner__when dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  align-items: baseline;
+}
+
+.urgent-banner__when dt {
+  color: var(--_gold);
+  font-weight: 700;
+  text-align: right;
+}
+
+.urgent-banner__when dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: left;
+}
+
+.urgent-banner__cta {
+  font-size: 1.2rem;
+  padding: 14px 32px;
+  animation: urgent-banner-pulse 2s ease-in-out infinite;
+}
+
+.urgent-banner__cta:hover,
+.urgent-banner__cta:focus-visible {
+  animation: none;
+}
+
+.urgent-banner__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.urgent-banner__actions .btn {
+  margin-top: 0;
+}
+
+/* @property registrations allow the gradient glow positions to be animated.
+ * Without these, the browser can't interpolate custom properties in gradients. */
+@property --_glow1-x { syntax: "<percentage>"; initial-value: 20%; inherits: false; }
+@property --_glow1-y { syntax: "<percentage>"; initial-value: 0%; inherits: false; }
+@property --_glow2-x { syntax: "<percentage>"; initial-value: 80%; inherits: false; }
+@property --_glow2-y { syntax: "<percentage>"; initial-value: 100%; inherits: false; }
+
+@keyframes urgent-banner-glow {
+  0% { --_glow1-x: 20%; --_glow1-y: 0%; --_glow2-x: 80%; --_glow2-y: 100%; }
+  50% { --_glow1-x: 70%; --_glow1-y: 30%; --_glow2-x: 30%; --_glow2-y: 70%; }
+  100% { --_glow1-x: 40%; --_glow1-y: 10%; --_glow2-x: 60%; --_glow2-y: 90%; }
+}
+
+@keyframes urgent-banner-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .urgent-banner {
+    animation: none !important;
+  }
+  .urgent-banner__inner {
+    transition: none;
+  }
+  .urgent-banner__cta {
+    animation: none;
+  }
+}

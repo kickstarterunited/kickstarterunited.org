@@ -5,10 +5,56 @@ import Logo from "../images/logo.svg";
 import HideFireworkButton from "../components/Firework/HideFireworkButton.astro";
 import Carousel from "../components/Carousel/Carousel.astro";
 import CarouselItem from "../components/Carousel/CarouselItem.astro";
+import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
+
+// Rally auto-hides after 1pm ET on Feb 27, 2026
+const RALLY_CUTOFF = "2026-02-27T18:00:00Z"; // 1pm EST = 6pm UTC
+const showRally = Date.now() < new Date(RALLY_CUTOFF).getTime();
 ---
 
 <BaseLayout title="Home">
-  <Logo class="mx-auto" width={256} height={256} />
+  {showRally && (
+    <UrgentBanner badge="TOMORROW" id="rally" data-cutoff={RALLY_CUTOFF} class="mt-[calc(-2rem+2px)]">
+      <h1><span class="highlight">Rally to End Retaliation</span></h1>
+      <p>
+        On February 11, Kickstarter management terminated bargaining unit members
+        and forced others out, <strong>targeting strike leaders and union
+        activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
+        following a 42-day strike!
+      </p>
+      <p>
+        Join us at a <strong>virtual rally</strong> to demand reinstatement and an
+        end to retaliation.
+      </p>
+      <div class="urgent-banner__when">
+        <dl>
+          <dt>When</dt>
+          <dd>Thursday, February 27 at noon ET / 9am Pacific</dd>
+          <dt>Where</dt>
+          <dd>Virtual (Zoom)</dd>
+        </dl>
+      </div>
+      <p class="mt-4">
+        <a href="/rally" class="btn btn-success urgent-banner__cta">Register for the Rally</a>
+      </p>
+      <div class="urgent-banner__actions">
+        <a href="/petition" class="btn btn-info">Sign the Petition</a>
+        <a href="mailto:e@kickstarter.com" class="btn btn-info">Email the CEO</a>
+      </div>
+    </UrgentBanner>
+  )}
+
+  <script>
+    const rally = document.getElementById("rally");
+    if (rally) {
+      const cutoff = new Date(rally.dataset.cutoff!).getTime();
+      const ms = cutoff - Date.now();
+      if (ms <= 0) rally.remove();
+      else setTimeout(() => rally.remove(), ms);
+    }
+  </script>
+
+  <Logo class="mx-auto mt-24" width={256} height={256} />
 
   <hr />
 
