@@ -11,15 +11,32 @@
 }
 
 .page__footer {
-  background-color: #519758;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#034752),
-    to(#05ce78)
-  );
-  background-image: linear-gradient(90deg, #034752, #05ce78);
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  gap: 0;
+  padding: 0;
+  align-items: stretch;
+
+  background-color: var(--ksru-color-accent);
+}
+
+.page__footer-social {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+}
+
+.page__footer-social ul {
+  margin-bottom: 0;
+}
+
+.page__footer-info {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
 }
 
 .page__header a,
@@ -41,64 +58,15 @@
   position: sticky;
   top: 0;
   z-index: 1;
-
-  --_stop-1: var(--ksru-color-accent-light);
-  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 25%);
-  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 50%);
-  --_stop-4: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 75%);
-  --_stop-5: var(--ksru-color-accent);
-  --_stop-size: 1lh;
 }
 
 .page__logo {
-  flex: 1 0 auto;
-  --_padding-block: 1.25rem;
-  --_height: calc(1lh + var(--_padding-block) * 2);
-  padding-block: var(--_padding-block);
-  padding-inline-start: 1rem;
-  padding-inline-end: var(--_height);
-
-  border-bottom-right-radius: calc(infinity * 1px);
-
   font-size: clamp(
     1rem,
     calc(1rem + (0.5rem * (100vw - 480px) / 544px)),
     1.5rem
   );
-  text-transform: uppercase;
   font-weight: 600;
-  letter-spacing: 0.03em;
-
-  background-color: var(--_stop-3);
-  color: white;
-
-  --_stop-1: var(--ksru-color-accent-light);
-  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-4) 33%);
-  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-4) 66%);
-  --_stop-4: var(--ksru-color-accent);
-
-  position: relative;
-  isolation: isolate;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    corner-shape: inherit;
-  }
-
-  &::after {
-    inset-inline-end: 4lh;
-    background-color: var(--_stop-1);
-  }
-
-  &::before {
-    inset-inline-end: 2lh;
-    background-color: var(--_stop-2);
-  }
 }
 
 .link--standalone {
