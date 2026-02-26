@@ -49,7 +49,7 @@ const { title } = Astro.props;
   <body class="leading-[1.6]">
     <div class="page page-grid">
       <header class="page__header page-grid__bleed">
-        <p class="page__logo">
+        <p class="page__logo retro-ribbon retro-ribbon--end">
           <a class="link--standalone" href="/">Kickstarter United</a>
         </p>
 
@@ -61,11 +61,12 @@ const { title } = Astro.props;
       </main>
 
       <footer class="page__footer page-grid__bleed">
-        <div class="p-4 text-center">
+        <div class="page__footer-social">
           <SocialLinks />
-          <br />
-          © Copyright 2025 Kickstarter United
         </div>
+        <p class="page__footer-info retro-ribbon retro-ribbon--start">
+          © Copyright 2025 Kickstarter United
+        </p>
       </footer>
     </div>
   </body>
