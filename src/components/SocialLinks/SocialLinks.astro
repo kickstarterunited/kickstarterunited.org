@@ -46,7 +46,7 @@ const { showLabels } = Astro.props;
     Whichever button is :hovered claims anchor-name: --social-hovered,
     and the tooltip slides to it via transition. */}
 {!showLabels && (
-  <div id="social-tooltip" class="social-link__tooltip" role="tooltip">Follow us</div>
+  <div id="social-tooltip" class="social-link__tooltip" role="tooltip" aria-hidden="true"></div>
 )}
 
 <script>
@@ -56,6 +56,7 @@ const { showLabels } = Astro.props;
     document.querySelectorAll<HTMLElement>("[data-tooltip]").forEach((btn) => {
       const update = () => {
         tooltip.textContent = btn.dataset.tooltip ?? "";
+        tooltip.removeAttribute("aria-hidden");
         lastHovered?.removeAttribute("data-last-hovered");
         btn.setAttribute("data-last-hovered", "");
         lastHovered = btn;
