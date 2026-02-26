@@ -5,14 +5,25 @@ import Carousel from "../components/Carousel/Carousel.astro";
 import CarouselItem from "../components/Carousel/CarouselItem.astro";
 import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
 
-// Rally auto-hides after 1pm ET on Feb 27, 2026
-const RALLY_CUTOFF = "2026-02-27T18:00:00Z"; // 1pm EST = 6pm UTC
+// Rally times (all ET on Feb 27, 2026)
+const RALLY_START  = "2026-02-27T17:00:00Z"; // noon ET = 5pm UTC
+const RALLY_CUTOFF = "2026-02-27T18:00:00Z"; // 1pm ET  = 6pm UTC
 const showRally = Date.now() < new Date(RALLY_CUTOFF).getTime();
+
+function getBadge(now: number) {
+  const start = new Date(RALLY_START).getTime();
+  const end   = new Date(RALLY_CUTOFF).getTime();
+  if (now >= start && now < end) return "RIGHT NOW";
+  // Midnight ET on rally day = 5am UTC
+  const dayStart = new Date("2026-02-27T05:00:00Z").getTime();
+  if (now >= dayStart && now < start) return "TODAY";
+  return "TOMORROW";
+}
 ---
 
 <BaseLayout title="Home">
   {showRally && (
-    <UrgentBanner badge="TOMORROW" id="rally" data-cutoff={RALLY_CUTOFF} class="mt-[calc(-2rem+2px)]">
+    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="mt-[calc(-2rem+2px)]">
       <h1><span class="highlight">Rally to End Retaliation</span></h1>
       <p>
         On February 11, Kickstarter management terminated bargaining unit members
@@ -45,10 +56,31 @@ const showRally = Date.now() < new Date(RALLY_CUTOFF).getTime();
   <script>
     const rally = document.getElementById("rally");
     if (rally) {
+      const start  = new Date(rally.dataset.start!).getTime();
       const cutoff = new Date(rally.dataset.cutoff!).getTime();
-      const ms = cutoff - Date.now();
-      if (ms <= 0) rally.remove();
-      else setTimeout(() => rally.remove(), ms);
+      const badge  = rally.querySelector(".urgent-banner__badge");
+      const now = Date.now();
+
+      if (now >= cutoff) { rally.remove(); }
+      else {
+        // Midnight ET on rally day
+        const dayStart = new Date("2026-02-27T05:00:00Z").getTime();
+
+        function updateBadge() {
+          if (!badge) return;
+          const t = Date.now();
+          if (t >= start)         badge.textContent = "RIGHT NOW";
+          else if (t >= dayStart) badge.textContent = "TODAY";
+          else                    badge.textContent = "TOMORROW";
+        }
+
+        updateBadge();
+
+        // Schedule transitions
+        if (now < dayStart) setTimeout(() => { updateBadge(); }, dayStart - now);
+        if (now < start)    setTimeout(() => { updateBadge(); }, start - now);
+        setTimeout(() => rally.remove(), cutoff - now);
+      }
     }
   </script>
 
