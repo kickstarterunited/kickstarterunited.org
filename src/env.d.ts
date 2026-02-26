@@ -26,6 +26,14 @@ declare namespace astroHTML.JSX {
     commandfor?: string;
   }
 
+  interface AnchorHTMLAttributes {
+    /**
+     * Specifies the ID of a popover="hint" element to show on
+     * hover/focus. Part of the Interest Invokers API.
+     */
+    interestfor?: string;
+  }
+
   interface SVGAttributes {
     "xmlns:inkscape"?: string;
     "xmlns:rdf"?: string;

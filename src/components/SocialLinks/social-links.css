@@ -18,3 +18,69 @@
 .social-link__btn:active {
   background-color: color-mix(in srgb, currentColor, transparent 80%);
 }
+
+/*
+ * Follow-the-leader: whichever button is hovered/focused claims the
+ * shared anchor name, causing the tooltip to slide over via transition.
+ * [data-last-hovered] is set by JS so the anchor stays on the last
+ * button after the cursor leaves, keeping the tooltip in place as it fades.
+ */
+.social-link__btn:hover,
+.social-link__btn:focus-visible,
+.social-link__btn[data-last-hovered] {
+  anchor-name: --social-hovered;
+}
+
+/*
+ * Tooltip - a regular positioned element (not a popover) so it stays
+ * in the DOM and can transition between anchor positions.
+ */
+.social-link__tooltip {
+  position: fixed;
+  margin: 0;
+  inset: auto;
+  position-anchor: --social-hovered;
+  bottom: anchor(top);
+  left: anchor(center);
+  translate: -50% 0;
+  margin-bottom: 9px; /* 4px gap + 5px arrow */
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: visible;
+  border-radius: 8px;
+  corner-shape: squircle;
+  background: var(--ksru-text-primary, #1a1b1f);
+  color: white;
+
+  /* Hidden by default - delay opacity on hide so cursor can reach next button */
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s 1s,
+    bottom 0.25s ease,
+    left 0.25s ease;
+}
+
+/* Show when any icon button is hovered or focused */
+ul:has(.social-link__btn:hover, .social-link__btn:focus-visible)
+  + .social-link__tooltip {
+  opacity: 1;
+  /* No delay on show */
+  transition:
+    opacity 0.15s,
+    bottom 0.25s ease,
+    left 0.25s ease;
+}
+
+/* Downward-pointing arrow */
+.social-link__tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 0;
+  border: 5px solid transparent;
+  border-top-color: var(--ksru-text-primary, #1a1b1f);
+}

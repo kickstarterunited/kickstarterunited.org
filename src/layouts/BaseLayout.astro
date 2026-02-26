@@ -36,10 +36,17 @@ const { title } = Astro.props;
 
     <link rel="shortcut icon" type="image/svg+xml" href="/images/logo.svg" />
 
+    {/* Popover API polyfill (supports popover="hint") */}
     <script src="../scripts/popover.js"></script>
+    {/* Invoker Commands API: `command`/`commandfor` button attrs (click-triggered) */}
     <script>
       import "invokers-polyfill";
     </script>
+    {/* Interest Invokers API: `interestfor` attr (hover/focus-triggered popovers) */}
+    {/* <script>
+      import "interestfor";
+    </script> */}
+    {/* CSS Anchor Positioning: conditionally polyfilled for browsers without native support */}
     <script>
       if (!("anchorName" in document.documentElement.style)) {
         import("@oddbird/css-anchor-positioning");
