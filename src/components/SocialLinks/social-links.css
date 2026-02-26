@@ -1,0 +1,15 @@
+.social-link__btn {
+  padding: 8px;
+  margin-top: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-link__btn:hover {
+  background-color: color-mix(in srgb, currentColor, transparent 90%);
+}
+
+.social-link__btn:active {
+  background-color: color-mix(in srgb, currentColor, transparent 80%);
+}

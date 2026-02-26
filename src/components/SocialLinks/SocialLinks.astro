@@ -1,36 +1,34 @@
 ---
+import { Icon } from "astro-icon/components";
 import SocialLink from "./SocialLink.astro";
 ---
 
 <ul
-  class="m-0 mb-2 p-0 inline-flex flex-wrap gap-x-4 gap-y-1 list-none justify-evenly"
+  class="m-0 mb-2 p-0 inline-flex flex-wrap gap-1 list-none justify-evenly"
   aria-label="Follow us on social media"
 >
-  <SocialLink emoji="🦋" href="https://bsky.app/profile/kickstarterunited.org">
-    Bluesky
+  <SocialLink label="Bluesky" href="https://bsky.app/profile/kickstarterunited.org">
+    <Icon name="tabler:brand-bluesky" size={24} />
   </SocialLink>
-  <SocialLink emoji="📷" href="https://www.instagram.com/kickstarter_united">
-    Instagram
+  <SocialLink label="Instagram" href="https://www.instagram.com/kickstarter_united">
+    <Icon name="tabler:brand-instagram" size={24} />
   </SocialLink>
-  <SocialLink
-    emoji="💼"
-    href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
-  >
-    LinkedIn
+  <SocialLink label="LinkedIn" href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/">
+    <Icon name="tabler:brand-linkedin" size={24} />
   </SocialLink>
-  <SocialLink emoji="🐘" href="https://union.place/@kickstarterunited">
-    Mastodon
+  <SocialLink label="Mastodon" href="https://union.place/@kickstarterunited">
+    <Icon name="tabler:brand-mastodon" size={24} />
   </SocialLink>
-  <SocialLink emoji="💩" href="https://twitter.com/ksr_united">
-    Twitter
+  <SocialLink label="Twitter" href="https://twitter.com/ksr_united">
+    <Icon name="tabler:brand-x" size={24} />
   </SocialLink>
-  <SocialLink emoji="📺" href="https://www.youtube.com/@KickstarterUnited">
-    YouTube
+  <SocialLink label="YouTube" href="https://www.youtube.com/@KickstarterUnited">
+    <Icon name="tabler:brand-youtube" size={24} />
   </SocialLink>
-  <SocialLink emoji="👾" href="https://www.twitch.tv/kickstarterunited">
-    Twitch
+  <SocialLink label="Twitch" href="https://www.twitch.tv/kickstarterunited">
+    <Icon name="tabler:brand-twitch" size={24} />
   </SocialLink>
-  <SocialLink emoji="♪" href="https://www.tiktok.com/@kickstarter_united">
-    TikTok
+  <SocialLink label="TikTok" href="https://www.tiktok.com/@kickstarter_united">
+    <Icon name="tabler:brand-tiktok" size={24} />
   </SocialLink>
 </ul>

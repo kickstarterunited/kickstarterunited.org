@@ -1,15 +1,15 @@
 ---
+import "./social-links.css";
+
 interface Props {
-  emoji: string;
+  label: string;
   href: string;
-  children: any;
 }
-const { emoji, href } = Astro.props;
+const { label, href } = Astro.props;
 ---
 
-<li class="m-0 flex gap-1">
-  {`${emoji} `}
-  <a href={href} rel="me" target="_blank">
+<li class="m-0">
+  <a href={href} rel="me" target="_blank" class="btn social-link__btn" aria-label={label}>
     <slot />
   </a>
 </li>
