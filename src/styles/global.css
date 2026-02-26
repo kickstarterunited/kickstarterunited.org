@@ -10,7 +10,6 @@ ol {
 @layer components {
   @import "./ksru-web.webflow.css";
   @import "./components/page.css";
-  @import "./components/retro-ribbon.css";
   @import "./components/page-grid.css";
 }
 

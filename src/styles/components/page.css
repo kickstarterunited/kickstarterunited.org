@@ -19,13 +19,6 @@
   align-items: stretch;
 
   background-color: var(--ksru-color-accent);
-
-  --_stop-1: var(--ksru-color-accent-light);
-  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 25%);
-  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 50%);
-  --_stop-4: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 75%);
-  --_stop-5: var(--ksru-color-accent);
-  --_stop-size: 1lh;
 }
 
 .page__footer-social {
@@ -65,13 +58,6 @@
   position: sticky;
   top: 0;
   z-index: 1;
-
-  --_stop-1: var(--ksru-color-accent-light);
-  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 25%);
-  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 50%);
-  --_stop-4: color-mix(in oklch, var(--_stop-1), var(--_stop-5) 75%);
-  --_stop-5: var(--ksru-color-accent);
-  --_stop-size: 1lh;
 }
 
 .page__logo {
