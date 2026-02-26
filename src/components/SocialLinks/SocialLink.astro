@@ -12,7 +12,7 @@ const { label, href, showLabel } = Astro.props;
 <li class="m-0">
   <a
     href={href}
-    rel="me"
+    rel="me noopener noreferrer"
     target="_blank"
     class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
     aria-label={!showLabel ? label : undefined}
