@@ -21,4 +21,13 @@ ol {
 /* this element is inserted by a script so I can't add a tailwind class to it */
 .formkit-form {
   margin: auto;
+  border-radius: 16px !important;
+  overflow: hidden;
+}
+
+@supports (corner-shape: squircle) {
+  .formkit-form {
+    corner-shape: squircle;
+    border-radius: 64px !important;
+  }
 }

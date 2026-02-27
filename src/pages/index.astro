@@ -23,7 +23,7 @@ function getBadge(now: number) {
 
 <BaseLayout title="Home">
   {showRally && (
-    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="mt-[calc(-2rem+2px)]">
+    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="page-grid__bleed page-grid__subgrid -mt-8">
       <h1><span class="highlight">Rally to End Retaliation</span></h1>
       <p>
         On February 11, Kickstarter management terminated bargaining unit members
@@ -245,6 +245,7 @@ function getBadge(now: number) {
     grid-template-columns: 2fr 1fr;
     gap: 32px;
     margin-block: 2rem;
+    padding-inline: 0;
   }
 
   .prevails__photo-wrap {
@@ -279,7 +280,7 @@ function getBadge(now: number) {
   }
 
   .wins {
-    --wins-radius: 5lh;
+    --wins-radius: 32px;
     margin-block: 2rem;
     overflow: hidden;
     padding: 0;
@@ -295,7 +296,6 @@ function getBadge(now: number) {
     background-color: var(--ksru-color-accent);
     border-left: 20px solid transparent;
     border-radius: 0px;
-    corner-shape: squircle;
     transition: background-color 150ms ease, border-color 150ms ease, border-radius 300ms ease;
     display: flex;
     align-items: center;
@@ -325,6 +325,7 @@ function getBadge(now: number) {
     border-left-color: var(--ksru-color-accent-rich);
     background-color: color-mix(in oklch, var(--ksru-color-accent), black 15%);
     border-radius: var(--wins-radius);
+    corner-shape: squircle;
   }
 
   .wins__item + .wins__item {
@@ -332,6 +333,7 @@ function getBadge(now: number) {
     transition: margin-top 300ms ease;
   }
 
+  .wins__item[open] + .wins__item,
   .wins__item + .wins__item[open] {
     margin-top: 8px;
   }
@@ -340,11 +342,13 @@ function getBadge(now: number) {
   .wins__item[open] + .wins__item summary {
     border-top-left-radius: var(--wins-radius);
     border-top-right-radius: var(--wins-radius);
+    corner-shape: squircle;
   }
 
   .wins__item:has(+ .wins__item[open]) summary {
     border-bottom-left-radius: var(--wins-radius);
     border-bottom-right-radius: var(--wins-radius);
+    corner-shape: squircle;
   }
 
   .wins__item[open] summary::after {
@@ -356,7 +360,7 @@ function getBadge(now: number) {
   }
 
   /* Separator between items */
-  * + .wins__item summary {
+  .wins__item + .wins__item summary {
     border-top: 1px solid color-mix(in oklch, var(--ksru-color-accent), white 20%);
   }
 
