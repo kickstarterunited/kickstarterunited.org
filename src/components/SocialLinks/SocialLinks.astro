@@ -10,7 +10,7 @@ const { showLabels } = Astro.props;
 
 <ul
   class:list={[
-    "m-0 mb-2 p-0 flex flex-wrap list-none",
+    "m-0 p-0 flex flex-wrap list-none",
     showLabels ? "gap-2 justify-center" : "gap-1 justify-center",
   ]}
   aria-label="Follow us on social media"
@@ -47,6 +47,7 @@ const { showLabels } = Astro.props;
     and the tooltip slides to it via transition. */}
 {!showLabels && (
   <div id="social-tooltip" class="social-link__tooltip" role="tooltip" aria-hidden="true"></div>
+  <div class="social-link__arrow"></div>
 )}
 
 <script>

@@ -40,10 +40,9 @@
   margin: 0;
   inset: auto;
   position-anchor: --social-hovered;
-  bottom: anchor(top);
-  left: anchor(center);
-  translate: -50% 0;
-  margin-bottom: 9px; /* 4px gap + 5px arrow */
+  position-area: block-start;
+  z-index: 1;
+  margin-bottom: 11px;
   padding: 6px 14px;
   font-size: 1rem;
   line-height: 1.4;
@@ -62,8 +61,7 @@
   pointer-events: none;
   transition:
     opacity 0.15s 1s,
-    bottom 0.25s ease,
-    left 0.25s ease;
+    position-area 0.25s ease allow-discrete;
 }
 
 /* Show when any icon button is hovered or focused */
@@ -73,17 +71,32 @@ ul:has(.social-link__btn:hover, .social-link__btn:focus-visible)
   /* No delay on show */
   transition:
     opacity 0.15s,
-    bottom 0.25s ease,
-    left 0.25s ease;
+    position-area 0.25s ease allow-discrete;
 }
 
-/* Downward-pointing arrow */
-.social-link__tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
+/* Downward-pointing arrow - separate anchor-positioned element */
+.social-link__arrow {
+  position: fixed;
+  margin: 0;
+  inset: auto;
+  position-anchor: --social-hovered;
+  bottom: anchor(top);
+  left: anchor(center);
   translate: -50% 0;
-  border: 5px solid transparent;
-  border-top-color: light-dark(white, var(--ksru-text-primary, #1a1b1f));
+  z-index: 2;
+  margin-bottom: 4px;
+  width: 14px;
+  height: 8px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: light-dark(white, var(--ksru-text-primary, #1a1b1f));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s 1s;
 }
+
+ul:has(.social-link__btn:hover, .social-link__btn:focus-visible)
+  ~ .social-link__arrow {
+  opacity: 1;
+  transition: opacity 0.15s;
+}
+
