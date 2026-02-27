@@ -51,8 +51,11 @@
   overflow: visible;
   border-radius: 12px;
   corner-shape: squircle;
-  background: var(--ksru-text-primary, #1a1b1f);
-  color: white;
+  background: light-dark(rgba(255, 255, 255, 0.8), rgba(26, 27, 31, 0.8));
+  backdrop-filter: blur(12px);
+  color: light-dark(#1a1b1f, white);
+  border: 1px solid light-dark(#ddd, transparent);
+  box-shadow: 0 2px 8px light-dark(rgba(0, 0, 0, 0.12), transparent);
 
   /* Hidden by default - delay opacity on hide so cursor can reach next button */
   opacity: 0;
@@ -82,5 +85,5 @@ ul:has(.social-link__btn:hover, .social-link__btn:focus-visible)
   left: 50%;
   translate: -50% 0;
   border: 5px solid transparent;
-  border-top-color: var(--ksru-text-primary, #1a1b1f);
+  border-top-color: light-dark(white, var(--ksru-text-primary, #1a1b1f));
 }
