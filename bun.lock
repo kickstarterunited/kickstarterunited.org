@@ -12,6 +12,7 @@
         "@tailwindcss/vite": "^4.1.14",
         "astro": "^5.14.5",
         "astro-icon": "^1.1.5",
+        "interestfor": "^1.0.7",
         "invokers-polyfill": "^0.5.7",
       },
     },
@@ -628,6 +629,8 @@
     "iconv-lite": ["iconv-lite@0.6.3", "", { "dependencies": { "safer-buffer": ">= 2.1.2 < 3.0.0" } }, "sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw=="],
 
     "import-meta-resolve": ["import-meta-resolve@4.2.0", "", {}, "sha512-Iqv2fzaTQN28s/FwZAoFq0ZSs/7hMAHJVX+w8PZl3cY19Pxk6jFFalxQoIfW2826i/fDLXv8IiEZRIT0lDuWcg=="],
+
+    "interestfor": ["interestfor@1.0.7", "", {}, "sha512-qJaN6JMrAjiA+aQ6TkQemZhLx5E8kGI9s0yXAJJbQHSKs0iBKrDc5nMNgGqH1V4x0ZveFJjVbmText/zTI7ZBg=="],
 
     "invokers-polyfill": ["invokers-polyfill@0.5.7", "", {}, "sha512-T1MmQ40+ARzC0W3YgyVUyncXIi1G7jnUq1PVdsYNr1ql7etYGHWNr3RKvJABIiFO5Ktk3xK9/A8+1lFASvcrKw=="],
 

@@ -13,6 +13,7 @@
 .page__footer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: auto;
   gap: 0;
   padding: 0;
@@ -22,10 +23,10 @@
 }
 
 .page__footer-social {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   display: flex;
   align-items: center;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
   padding-inline: 1rem;
 }
 
@@ -34,6 +35,8 @@
 }
 
 .page__footer-info {
+  flex: 1 1 auto;
+  --_padding-block: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;

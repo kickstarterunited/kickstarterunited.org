@@ -1,0 +1,60 @@
+/* MARK: .retro-ribbon */
+.retro-ribbon {
+  flex: 1 0 auto;
+  --_padding-block: 1.25rem;
+  --_height: calc(1lh + var(--_padding-block) * 2);
+  padding-block: var(--_padding-block);
+
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  background-color: var(--_stop-3);
+  color: white;
+
+  --_stop-1: var(--ksru-color-accent-light);
+  --_stop-2: color-mix(in oklch, var(--_stop-1), var(--_stop-4) 33%);
+  --_stop-3: color-mix(in oklch, var(--_stop-1), var(--_stop-4) 66%);
+  --_stop-4: var(--ksru-color-accent);
+
+  position: relative;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    corner-shape: inherit;
+  }
+
+  &::after {
+    background-color: var(--_stop-1);
+  }
+
+  &::before {
+    background-color: var(--_stop-2);
+  }
+}
+
+.retro-ribbon--end {
+  --_band-size: 2lh;
+  padding-inline-start: 1rem;
+  padding-inline-end: var(--_height);
+  border-bottom-right-radius: calc(infinity * 1px);
+
+  &::after { inset-inline-end: calc(var(--_band-size) * 2); }
+  &::before { inset-inline-end: var(--_band-size); }
+}
+
+.retro-ribbon--start {
+  --_band-size: 1lh;
+  padding-inline-end: 1rem;
+  padding-inline-start: var(--_height);
+  border-top-left-radius: calc(infinity * 1px);
+  text-align: right;
+
+  &::after { inset-inline-start: calc(var(--_band-size) * 2); }
+  &::before { inset-inline-start: var(--_band-size); }
+}
