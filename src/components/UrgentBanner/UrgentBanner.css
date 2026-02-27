@@ -17,21 +17,17 @@
     radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--_teal), black 10%) 0%, var(--_teal) 100%);
   /* urgent-banner-glow: drifts the gradient glow positions via @property custom properties */
   /* surface-border-rotate: rotates the animated conic-gradient border (defined in global CSS) */
-  animation: urgent-banner-glow 12s ease-in-out infinite alternate, surface-border-rotate 6s linear infinite;
+  animation: urgent-banner-glow 12s ease-in-out infinite alternate;
   color: #fff;
   border: 3px solid var(--_gold);
   border-top: none;
   box-shadow: 0 0 24px color-mix(in oklch, var(--_gold), transparent 60%);
   text-align: center;
+  padding-block: 2rem;
 
-  /* Full-viewport breakout */
-  margin-inline: calc(50% - 50vw);
-  padding-inline: calc(50vw - 50%);
   border-radius: 0;
   border-inline: none;
 
-  /* Animated border via existing keyframes */
-  --surface-border-color: var(--_gold);
 }
 
 /* Bouncy scale-in entrance via @starting-style.
@@ -48,12 +44,6 @@
   }
 }
 
-/* Feed gold/green into the .surface animated conic-gradient border */
-.urgent-banner::before {
-  --_clr-1: var(--_gold);
-  --_clr-2: var(--_green);
-  border-radius: 0;
-}
 
 .urgent-banner h1 {
   font-size: clamp(1.75rem, 5vw, 2.5rem);

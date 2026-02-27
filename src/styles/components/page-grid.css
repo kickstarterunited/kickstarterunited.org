@@ -32,7 +32,37 @@
   @apply col-[CONTENT];
 }
 
-.page-grid > .page-grid__subgrid {
+.page-grid > .page-grid__subgrid,
+.page-grid__subgrid > .page-grid__subgrid {
   @apply col-[BLEED];
   @apply grid grid-cols-[subgrid] gap-[inherit];
+}
+
+/* Subgrid children default to the same CONTENT column as top-level items */
+.page-grid__subgrid > * {
+  @apply col-[CONTENT];
+}
+
+/* Allow explicit column overrides inside subgrids */
+.page-grid__subgrid > .page-grid__bleed {
+  @apply col-[BLEED];
+}
+
+.page-grid__subgrid > .page-grid__full {
+  @apply col-[FULL];
+}
+
+.page-grid__subgrid > .page-grid__wide {
+  @apply col-[FULL];
+}
+
+/* Wide content tier: wider than reading measure, narrower than full.
+   Use for cards, grids, media embeds - not for body text. */
+.page-grid__wide {
+  @apply col-[FULL];
+  max-width: 1100px;
+  justify-self: center;
+  width: 100%;
+  padding-inline: 2rem;
+  box-sizing: border-box;
 }

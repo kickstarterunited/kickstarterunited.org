@@ -1,8 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../images/logo.svg";
-import Carousel from "../components/Carousel/Carousel.astro";
-import CarouselItem from "../components/Carousel/CarouselItem.astro";
+import WeWon from "../images/2025_contract/we-won.png";
 import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
 
 // Rally times (all ET on Feb 27, 2026)
@@ -23,7 +23,7 @@ function getBadge(now: number) {
 
 <BaseLayout title="Home">
   {showRally && (
-    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="mt-[calc(-2rem+2px)]">
+    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="page-grid__bleed page-grid__subgrid -mt-8">
       <h1><span class="highlight">Rally to End Retaliation</span></h1>
       <p>
         On February 11, Kickstarter management terminated bargaining unit members
@@ -88,7 +88,7 @@ function getBadge(now: number) {
 
   <hr />
 
-  <div>
+  <div class="prevails page-grid__wide">
     <div class="surface breaking">
       <h1 class="heading-3">Kickstarter United Prevails!</h1>
 
@@ -121,97 +121,276 @@ function getBadge(now: number) {
         </li>
         <li><strong>Much more!</strong></li>
       </ul>
-
     </div>
-
-    <Carousel class="mt-8 p-2" forceSnap inertItems scrollButtons scrollMarkers>
-      <CarouselItem id="four-day-workweek" itemLabel="Four-Day Workweek">
-        <div class="surface">
-          <h2>Codified Four-Day Workweek!</h2>
-          <p>
-            We have <strong>codified our Four-Day Workweek</strong>, with strong
-            protections if management tries to force us to revert to a five-day
-            workweek.
-          </p>
-          <ul>
-            <li>
-              Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
-              with notice in advance, and a time limit
-            </li>
-            <li>
-              Permanent changes to Five-Day Workweek <strong>must</strong> involve
-              bargaining with the union
-            </li>
-            <li>
-              If management tries to force it anyway, <strong
-                >we can strike</strong
-              >
-            </li>
-          </ul>
-        </div>
-      </CarouselItem>
-
-      <CarouselItem id="minimum-salary-floor" itemLabel="Minimum Salary Floor">
-        <div class="surface">
-          <h2>Raising the minimum salary floor!</h2>
-          <p>
-            The market undervalues some of our most vital workers, and we won
-            strong provisions to <strong
-              >raise their minimum salary floor</strong
-            >
-            considerably!
-          </p>
-          <ul>
-            <li>
-              An <strong>escalating increase</strong> in the pay floor based on cost
-              of living, an <strong>average 6% increase</strong> to our most undervalued
-              workers
-            </li>
-            <li>A one-time $6,000 bonus for the most undervalued workers</li>
-            <li>
-              Yearly national benchmarking to push pay upwards <strong
-                >across the whole unit</strong
-              >
-            </li>
-          </ul>
-        </div>
-      </CarouselItem>
-
-      <CarouselItem id="much-more" itemLabel="Much, much more!">
-        <div class="surface">
-          <h2>Much, much more!</h2>
-
-          <p>
-            We won many improvements to our working conditions with <strong
-              >no regressions</strong
-            > in our worker protections!
-          </p>
-          <ul>
-            <li>
-              Cannot replace a role with AI, and management must work with
-              employees if AI changes a role
-            </li>
-            <li>
-              Strong protections against replacing full time employees with
-              contractors
-            </li>
-            <li>
-              More input from employees with a regular forum for business
-              operations
-            </li>
-          </ul>
-        </div>
-      </CarouselItem>
-    </Carousel>
-
-    <p class="mt-8">
-      <strong>Thank you</strong> to everyone who showed support, wrote emails to
-      leadership, donated to our strike fund, and came to our pickets. <strong>
-        When we fight, we win!
-      </strong>
-    </p>
-    <div class="text-center my-8">
-      <script async data-uid="c936d588a0" src="https://kickstarter-united.kit.com/c936d588a0/index.js"></script>
+    <div class="prevails__photo-wrap">
+      <Image
+        class="prevails__photo"
+        alt="A screenshot of a Zoom meeting where our Bargaining Unit members were celebrating their new contract and the conclusion of their strike"
+        src={WeWon}
+      />
     </div>
   </div>
+
+  <div class="wins surface page-grid__wide">
+    <details class="wins__item" open id="four-day-workweek">
+      <summary>Codified Four-Day Workweek!</summary>
+      <div class="wins__body">
+        <p>
+          We have <strong>codified our Four-Day Workweek</strong>, with strong
+          protections if management tries to force us to revert to a five-day
+          workweek.
+        </p>
+        <ul>
+          <li>
+            Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
+            with notice in advance, and a time limit
+          </li>
+          <li>
+            Permanent changes to Five-Day Workweek <strong>must</strong> involve
+            bargaining with the union
+          </li>
+          <li>
+            If management tries to force it anyway, <strong
+              >we can strike</strong
+            >
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="wins__item" id="minimum-salary-floor">
+      <summary>Raising the minimum salary floor!</summary>
+      <div class="wins__body">
+        <p>
+          The market undervalues some of our most vital workers, and we won
+          strong provisions to <strong
+            >raise their minimum salary floor</strong
+          >
+          considerably!
+        </p>
+        <ul>
+          <li>
+            An <strong>escalating increase</strong> in the pay floor based on cost
+            of living, an <strong>average 6% increase</strong> to our most undervalued
+            workers
+          </li>
+          <li>A one-time $6,000 bonus for the most undervalued workers</li>
+          <li>
+            Yearly national benchmarking to push pay upwards <strong
+              >across the whole unit</strong
+            >
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="wins__item" id="much-more">
+      <summary>Much, much more!</summary>
+      <div class="wins__body">
+        <p>
+          We won many improvements to our working conditions with <strong
+            >no regressions</strong
+          > in our worker protections!
+        </p>
+        <ul>
+          <li>
+            Cannot replace a role with AI, and management must work with
+            employees if AI changes a role
+          </li>
+          <li>
+            Strong protections against replacing full time employees with
+            contractors
+          </li>
+          <li>
+            More input from employees with a regular forum for business
+            operations
+          </li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <p class="mt-8">
+    <strong>Thank you</strong> to everyone who showed support, wrote emails to
+    leadership, donated to our strike fund, and came to our pickets. <strong>
+      When we fight, we win!
+    </strong>
+  </p>
+  <div class="text-center my-8">
+    <script async data-uid="c936d588a0" src="https://kickstarter-united.kit.com/c936d588a0/index.js"></script>
+  </div>
 </BaseLayout>
+
+<script>
+  const wrap = document.querySelector<HTMLElement>(".prevails__photo-wrap");
+  const img = wrap?.querySelector<HTMLImageElement>(".prevails__photo");
+
+  if (wrap && img) {
+    wrap.addEventListener("mousemove", (e) => {
+      const rect = wrap.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      img.style.objectPosition = `${x}% ${y}%`;
+    });
+
+    wrap.addEventListener("mouseleave", () => {
+      img.style.objectPosition = "";
+    });
+  }
+</script>
+
+<style>
+  .prevails {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    margin-block: 2rem;
+    padding-inline: 0;
+  }
+
+  .prevails__photo-wrap {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  @supports (corner-shape: squircle) {
+    .prevails__photo-wrap {
+      corner-shape: squircle;
+      border-radius: 64px;
+    }
+  }
+
+  .prevails__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center;
+    transition: object-position 0.5s ease-out;
+  }
+
+  @media (width < 768px) {
+    .prevails {
+      grid-template-columns: 1fr;
+    }
+
+    .prevails__photo-wrap {
+      max-height: 200px;
+    }
+  }
+
+  .wins {
+    --wins-radius: 32px;
+    margin-block: 2rem;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .wins__item summary {
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    font-family: var(--ksru-font-family-heading);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white;
+    background-color: var(--ksru-color-accent);
+    border-left: 20px solid transparent;
+    border-radius: 0px;
+    transition: background-color 150ms ease, border-color 150ms ease, border-radius 300ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Chevron indicator */
+  .wins__item summary::after {
+    content: "";
+    width: 0.5em;
+    height: 0.5em;
+    border-right: 2.5px solid currentColor;
+    border-bottom: 2.5px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.4s linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  /* Hide default marker */
+  .wins__item summary::marker,
+  .wins__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .wins__item[open] summary {
+    border-left-color: var(--ksru-color-accent-rich);
+    background-color: color-mix(in oklch, var(--ksru-color-accent), black 15%);
+    border-radius: var(--wins-radius);
+    corner-shape: squircle;
+  }
+
+  .wins__item + .wins__item {
+    margin-top: 0;
+    transition: margin-top 300ms ease;
+  }
+
+  .wins__item[open] + .wins__item,
+  .wins__item + .wins__item[open] {
+    margin-top: 8px;
+  }
+
+  /* Neighbors of open item get rounded toward the gap */
+  .wins__item[open] + .wins__item summary {
+    border-top-left-radius: var(--wins-radius);
+    border-top-right-radius: var(--wins-radius);
+    corner-shape: squircle;
+  }
+
+  .wins__item:has(+ .wins__item[open]) summary {
+    border-bottom-left-radius: var(--wins-radius);
+    border-bottom-right-radius: var(--wins-radius);
+    corner-shape: squircle;
+  }
+
+  .wins__item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .wins__item summary:hover {
+    background-color: color-mix(in oklch, var(--ksru-color-accent), white 10%);
+  }
+
+  /* Separator between items */
+  .wins__item + .wins__item summary {
+    border-top: 1px solid color-mix(in oklch, var(--ksru-color-accent), white 20%);
+  }
+
+  /* Content panel */
+  .wins__body {
+    padding: 1.5rem;
+    background-color: white;
+  }
+
+  /* Animated expand/collapse */
+  .wins__item::details-content {
+    interpolate-size: allow-keywords;
+    opacity: 0;
+    block-size: 0;
+    overflow: clip;
+    transition: block-size 300ms ease, opacity 300ms ease, content-visibility 300ms;
+    transition-behavior: allow-discrete;
+  }
+
+  .wins__item[open]::details-content {
+    opacity: 1;
+    block-size: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wins__item summary::after {
+      transition: none;
+    }
+    .wins__item::details-content {
+      transition: none;
+    }
+  }
+</style>
