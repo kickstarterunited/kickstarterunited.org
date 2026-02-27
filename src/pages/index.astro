@@ -4,85 +4,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../images/logo.svg";
 import WeWon from "../images/2025_contract/we-won.png";
 import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
+import { Icon } from "astro-icon/components";
+import "../components/SocialLinks/social-links.css";
 
-// Rally times (all ET on Feb 27, 2026)
-const RALLY_START  = "2026-02-27T17:00:00Z"; // noon ET = 5pm UTC
-const RALLY_CUTOFF = "2026-02-27T18:00:00Z"; // 1pm ET  = 6pm UTC
-const showRally = Date.now() < new Date(RALLY_CUTOFF).getTime();
-
-function getBadge(now: number) {
-  const start = new Date(RALLY_START).getTime();
-  const end   = new Date(RALLY_CUTOFF).getTime();
-  if (now >= start && now < end) return "RIGHT NOW";
-  // Midnight ET on rally day = 5am UTC
-  const dayStart = new Date("2026-02-27T05:00:00Z").getTime();
-  if (now >= dayStart && now < start) return "TODAY";
-  return "TOMORROW";
-}
+const showBanner = true;
 ---
 
 <BaseLayout title="Home">
-  {showRally && (
-    <UrgentBanner badge={getBadge(Date.now())} id="rally" data-start={RALLY_START} data-cutoff={RALLY_CUTOFF} class="page-grid__bleed page-grid__subgrid -mt-8">
-      <h1><span class="highlight">Rally to End Retaliation</span></h1>
-      <p>
-        On February 11, Kickstarter management terminated bargaining unit members
-        and forced others out, <strong>targeting strike leaders and union
-        activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
-        following a 42-day strike!
-      </p>
-      <p>
-        Join us at a <strong>virtual rally</strong> to demand reinstatement and an
-        end to retaliation.
-      </p>
-      <div class="urgent-banner__when">
-        <dl>
-          <dt>When</dt>
-          <dd>Friday, February 27 at noon ET / 9am Pacific</dd>
-          <dt>Where</dt>
-          <dd>Virtual (Zoom)</dd>
-        </dl>
-      </div>
-      <p class="mt-4">
-        <a href="/rally" class="btn btn-success urgent-banner__cta">Register for the Rally</a>
-      </p>
-      <div class="urgent-banner__actions">
-        <a href="/petition" class="btn btn-info">Sign the Petition</a>
-        <a href="mailto:e@kickstarter.com" class="btn btn-info">Email the CEO</a>
-      </div>
-    </UrgentBanner>
-  )}
-
-  <script>
-    const rally = document.getElementById("rally");
-    if (rally) {
-      const start  = new Date(rally.dataset.start!).getTime();
-      const cutoff = new Date(rally.dataset.cutoff!).getTime();
-      const badge  = rally.querySelector(".urgent-banner__badge");
-      const now = Date.now();
-
-      if (now >= cutoff) { rally.remove(); }
-      else {
-        // Midnight ET on rally day
-        const dayStart = new Date("2026-02-27T05:00:00Z").getTime();
-
-        function updateBadge() {
-          if (!badge) return;
-          const t = Date.now();
-          if (t >= start)         badge.textContent = "RIGHT NOW";
-          else if (t >= dayStart) badge.textContent = "TODAY";
-          else                    badge.textContent = "TOMORROW";
-        }
-
-        updateBadge();
-
-        // Schedule transitions
-        if (now < dayStart) setTimeout(() => { updateBadge(); }, dayStart - now);
-        if (now < start)    setTimeout(() => { updateBadge(); }, start - now);
-        setTimeout(() => rally.remove(), cutoff - now);
-      }
-    }
-  </script>
+  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid__bleed page-grid__subgrid -mt-8">
+    <h1><span class="highlight">Stop the Retaliation</span></h1>
+    <p>
+      On February 11, Kickstarter management terminated bargaining unit members
+      and forced others out, <strong>targeting strike leaders and union
+      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
+      following a 42-day strike.
+    </p>
+    <p>
+      Are you also pissed? <strong>Here's what you can do to help:</strong>
+    </p>
+    <p class="mt-4">
+      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
+    </p>
+    <div class="urgent-banner__actions">
+      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
+    </div>
+    <p class="mt-4 mb-0 opacity-85">Follow along:</p>
+    <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
+      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
+      </a>
+      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
+      </a>
+      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
+      </a>
+      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
+      </a>
+    </div>
+  </UrgentBanner>}
 
   <Logo class="mx-auto mt-24" width={256} height={256} />
 
