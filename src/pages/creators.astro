@@ -1,68 +1,199 @@
 ---
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="How Creators Can Help">
-  <h1>How creators can support Kickstarter United</h1>
-  <ul>
-    <li>
-      Please sign the
-      <a href="https://forms.gle/vzao2seP756SLQKF9" target="_blank">
-        Creator Petition In Support of Kickstarter United Workers on Strike.
-      </a>
-      This petition is a collective action led by creators - by adding your name
-      to the petition, you can show Kickstarter management that creators stand with
-      us in our fight for a fair contract. After you've signed it, please share it
-      with other creators in your community!
-    </li>
-    <li>
-      Mention KSRU in your campaign story, and link to our website
-      <a href="/" target="_blank"> kickstarterunited.com</a>. Use
-      <a href="/union-assets"> our assets</a>
-      in your campaign story and/or thumbnail. If you do, we'll be happy to feature
-      your project
-      <a href="/projects-our-workers-love"> here!</a>
-    </li>
-    <li>
-      Share our posts on
-      <a href="/socials"> social media</a>, and help us spread the word about
-      the strike.
-    </li>
-    <li>
-      Add campaign updates to your projects letting backers know about our
-      strike, and link them to
-      <a href="/"> kickstarterunited.com</a>
-    </li>
-    {
-      /* Not sure about this one yet - gonna wait for feedback from more members of the union
-    <li>
-      <a href="https://help.kickstarter.com/hc/en-us/requests/new" target="_blank">
-        Submit legitimate support tickets to our Community Support team.
-      </a>
-      We want Kickstarter management to feel the absence of our labor - as soon as the strike ends,
-      we'll get back to helping you resolve these tickets.
-    </li>
-    */
-    }
-    {
-      /* Not sure about if we can share these email addresses publicly - gonna wait for feedback
-    <li>
-      Send an email directly to Kickstarter’s CEO, Everette Taylor, at
-      <a href="mailto:e@kickstarter.com">
-        e@kickstarter.com
-      </a>
-      and the Kickstarter People Team at
-      <a href="mailto:PeopleTeam@kickstarter.com">
-        PeopleTeam@kickstarter.com
-      </a>
-    </li>
-    */
-    }
-    <li>
-      Speak at our picket line. Our picket lines are from 12pm - 4pm ET Monday -
-      Thursday, we are happy to schedule you anytime in that period unless
-      there’s another speaker scheduled. Even stopping by for a couple of
-      minutes to say you support us would be appreciated.
-    </li>
-  </ul>
+  <div class="creators-hero">
+    <h1>How creators can support Kickstarter United</h1>
+    <p>
+      Kickstarter creators are a <strong>vital</strong> part of the Kickstarter
+      community, and your support helps us build a better workplace for the
+      people <em>behind the platform you rely on</em>.
+    </p>
+  </div>
+
+  <div class="creators-actions page-grid__wide">
+    <div class="action-card">
+      <h2><span class="action-badge"><Icon name="tabler:speakerphone" class="action-icon" /></span>Mention KSRU</h2>
+      <p>
+        Feature us in your campaign story and link to
+        <a href="/">kickstarterunited.org</a>. Use
+        <a href="/union-assets">our assets</a> in your thumbnail.
+        We'll be happy to feature your project
+        <a href="/projects-our-workers-love">here!</a>
+      </p>
+    </div>
+
+    <div class="action-card">
+      <h2><span class="action-badge"><Icon name="tabler:share" class="action-icon" /></span>Share</h2>
+      <p>
+        Spread our posts on <a href="/socials">social media</a> and help us
+        get the word out about our union and the wins we've secured for workers.
+      </p>
+    </div>
+
+    <div class="action-card">
+      <h2><span class="action-badge"><Icon name="tabler:message-circle" class="action-icon" /></span>Talk about us!</h2>
+      <p>
+        Tell other creators, backers, and folks in the tech industry about
+        Kickstarter United and the importance of unions in tech.
+      </p>
+    </div>
+
+    <div class="action-card">
+      <h2><span class="action-badge"><Icon name="tabler:file-text" class="action-icon" /></span>Check out our contract</h2>
+      <p>
+        See what we've won in our
+        <a href="/contracts/2025">2025 contract</a> - and <em>share it</em>
+        with workers at other companies who might be thinking about organizing.
+      </p>
+    </div>
+  </div>
 </BaseLayout>
+
+<style>
+  .creators-hero {
+    text-align: center;
+    margin-block: 2rem 3rem;
+  }
+
+  .creators-hero h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .creators-hero p {
+    max-width: 50ch;
+    margin-inline: auto;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: color-mix(in oklch, currentColor, transparent 20%);
+  }
+
+  .creators-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .action-card {
+    position: relative;
+    padding: 1.25rem 1.25rem 1.25rem 2rem;
+    border-radius: 16px;
+    corner-shape: squircle;
+    background: var(--ksru-color-bg);
+    border: 2px solid color-mix(in oklch, var(--ksru-color-accent), transparent 80%);
+  }
+
+  .action-badge {
+    position: absolute;
+    left: -1.25rem;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    translate: 0 -15%;
+    background: var(--ksru-color-bg);
+    border: 2px solid color-mix(in oklch, var(--ksru-color-accent), transparent 80%);
+    border-radius: 50%;
+  }
+
+  .action-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--ksru-color-accent);
+  }
+
+  .action-card h2 {
+    font-size: 1.25rem;
+    font-family: var(--ksru-font-family-heading);
+    font-weight: 700;
+    color: var(--ksru-color-accent);
+    margin-bottom: 0.5rem;
+    text-wrap: balance;
+  }
+
+  .action-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  @supports (corner-shape: scoop) {
+    @media (width >= 640px) {
+      .action-card {
+        padding: 1.25rem;
+      }
+
+      .action-card:nth-child(1) {
+        padding-bottom: 1.5rem;
+        border-bottom-right-radius: 32px;
+        corner-shape: round round scoop round;
+      }
+
+      .action-card:nth-child(2) {
+        padding-bottom: 1.5rem;
+        border-bottom-left-radius: 32px;
+        corner-shape: round round round scoop;
+      }
+
+      .action-card:nth-child(3) {
+        padding-top: 1.5rem;
+        border-top-right-radius: 32px;
+        corner-shape: round scoop round round;
+      }
+
+      .action-card:nth-child(4) {
+        padding-top: 1.5rem;
+        border-top-left-radius: 32px;
+        corner-shape: scoop round round round;
+      }
+
+      .action-badge {
+        translate: none;
+        width: auto;
+        height: auto;
+        background: none;
+        border: none;
+        border-radius: 0;
+      }
+
+      .action-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      .action-card:nth-child(1) .action-badge {
+        left: auto;
+        right: -0.5rem;
+        top: auto;
+        bottom: -0.5rem;
+      }
+
+      .action-card:nth-child(2) .action-badge {
+        left: -0.5rem;
+        top: auto;
+        bottom: -0.5rem;
+      }
+
+      .action-card:nth-child(3) .action-badge {
+        left: auto;
+        right: -0.5rem;
+        top: -0.5rem;
+      }
+
+      .action-card:nth-child(4) .action-badge {
+        left: -0.5rem;
+        top: -0.5rem;
+      }
+    }
+  }
+
+  @media (width < 640px) {
+    .creators-actions {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
