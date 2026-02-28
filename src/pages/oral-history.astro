@@ -2,156 +2,201 @@
 import { Image } from "astro:assets";
 import KSRUOralHistoryCover from "../images/ksruoralhistory-cover.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+const prologue = [
+  {
+    id: "1b922782-a7f5-43eb-8291-a27650725db1",
+    title: "Introducing an Oral History of the Kickstarter Union",
+  },
+  {
+    id: "27cc8fad-ca0e-4f96-a0b4-fd809be079c5",
+    title: "One on Ones",
+  },
+  {
+    id: "201c8bb5-5379-4cea-bfdf-5aa0c2bcc008",
+    title: "Documentation",
+  },
+  {
+    id: "5b163cb0-099c-40ef-aa78-ad1c283a595d",
+    title: "Unions in Tech",
+  },
+];
+
+const chapters = [
+  {
+    id: "de10aa75-cc7c-4d83-9910-dffc94b55ecc",
+    title: "Chapter 1: Fertile Ground",
+  },
+  {
+    id: "1b2f2abd-68f5-4b0e-b48b-6be2bd41cafd",
+    title: "Chapter 2: Catalyst",
+  },
+  {
+    id: "e9fff6a9-7aba-4683-aa07-f1d0007b2bcc",
+    title: "Chapter 3: Solidarity",
+  },
+  {
+    id: "9683a773-e3eb-417c-a980-14db219dd5ed",
+    title: "Chapter 4: The Leak",
+  },
+  {
+    id: "ea781ce9-4e00-45b5-a876-9de115550c6c",
+    title: "Chapter 5: Captive Audience - Part 1",
+  },
+  {
+    id: "4ddb3e7d-4f32-462b-9310-466d4393bbd1",
+    title: "Chapter 5: Captive Audience - Part 2",
+  },
+  {
+    id: "fed4e9b3-d4a5-426b-b7d6-469e0b895480",
+    title: "Chapter 5: Captive Audience - Part 3",
+  },
+  {
+    id: "80b842a7-e026-446b-8f7d-6393fce55e29",
+    title: "Chapter 6: Retaliation - Part 1",
+  },
+  {
+    id: "ffb20c14-2855-45f6-9872-a63758b0fb4e",
+    title: "Chapter 6: Retaliation - Part 2",
+  },
+  {
+    id: "6842c8bd-62e8-41c1-9c70-9c9c182cba14",
+    title: "Chapter 7: Recognition",
+  },
+  {
+    id: "572e0a43-e14e-4ed1-8d8e-169e42ed851e",
+    title: "Chapter 8: The Vote",
+  },
+  {
+    id: "10b1e403-feee-442a-8677-2a50de28015f",
+    title: "Chapter 9: The Count",
+  },
+  {
+    id: "f0cdb6d8-c2cd-4264-9777-beb8b2546ad9",
+    title: "Chapter 10: The Pandemic",
+  },
+];
+
+function playerUrl(id: string) {
+  return `https://player.simplecast.com/${id}?dark=false`;
+}
 ---
 
 <BaseLayout title="The Kickstarter United Oral History">
-  <div class="w-auto">
-    <div class="mx-auto w-1/2">
-      <Image
-        alt="Kickstarter United Oral History logo"
-        src={KSRUOralHistoryCover}
-      />
-    </div>
+  <div class="oral-history__hero">
+    <Image
+      class="oral-history__cover"
+      alt="Kickstarter United Oral History logo"
+      src={KSRUOralHistoryCover}
+    />
   </div>
+
+  <h1 class="heading-3">The Kickstarter United Oral History</h1>
+  <p>
+    In 2020, one of our former organizers,
+    <a
+      href="https://twitter.com/clarissaredwine"
+      title="Clarissa's Twitter account"
+      target="_blank">Clarissa Redwine</a
+    >, teamed up with
+    <a
+      href="https://www.law.nyu.edu/centers/engelberg"
+      title="NYU's Engelberg Center"
+      target="_blank">NYU's Engelberg Center</a
+    >
+    to compile an oral history of our union from genesis all the way to the vote
+    win. You can also search for "Engelberg Center Live!" in your podcast app of
+    choice to find these episodes and more.
+  </p>
 
   <hr />
 
-  <div>
-    <h1 class="heading-3">The Kickstarter United Oral History</h1>
-    <p>
-      In 2020, one of our former organizers,
-      <a
-        href="https://twitter.com/clarissaredwine"
-        title="Clarissa's Twitter account"
-        target="_blank">Clarissa Redwine</a
-      >, teamed up with
-      <a
-        href="https://www.law.nyu.edu/centers/engelberg"
-        title="NYU's Engelberg Center"
-        target="_blank">NYU's Engelberg Center</a
-      >
-      to compile an oral history of our union from genesis all the way to the vote
-      win. You can also search for "Engelberg Center Live!" in your podcast app of
-      choice to find these episodes and more.
-    </p>
+  <section class="solidarity">
+    <h2>Prologue</h2>
+    <div class="solidarity__list surface" role="list">
+      {
+        prologue.map((ep) => (
+          <details class="solidarity__item" role="listitem">
+            <summary>{ep.title}</summary>
+            <div class="oral-history__player">
+              <iframe
+                data-src={playerUrl(ep.id)}
+                title={ep.title}
+                height="200"
+                width="100%"
+                loading="lazy"
+              />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
 
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/1b922782-a7f5-43eb-8291-a27650725db1?dark=false"
-      title="Introducing an Oral History of the Kickstarter Union"></iframe>
+  <section class="solidarity">
+    <h2>The Story</h2>
+    <div class="solidarity__list surface" role="list">
+      {
+        chapters.map((ep) => (
+          <details class="solidarity__item" role="listitem">
+            <summary>{ep.title}</summary>
+            <div class="oral-history__player">
+              <iframe
+                data-src={playerUrl(ep.id)}
+                title={ep.title}
+                height="200"
+                width="100%"
+                loading="lazy"
+              />
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </section>
 
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/27cc8fad-ca0e-4f96-a0b4-fd809be079c5?dark=false"
-      title="One on Ones"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/201c8bb5-5379-4cea-bfdf-5aa0c2bcc008?dark=false"
-      title="Documentation"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/5b163cb0-099c-40ef-aa78-ad1c283a595d?dark=false"
-      title="Unions in Tech"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/de10aa75-cc7c-4d83-9910-dffc94b55ecc?dark=false"
-      title="Chapter 1: Fertile Ground"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/1b2f2abd-68f5-4b0e-b48b-6be2bd41cafd?dark=false"
-      title="Chapter 2: Catalyst"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/e9fff6a9-7aba-4683-aa07-f1d0007b2bcc?dark=false"
-      title="Chapter 3: Solidarity"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/9683a773-e3eb-417c-a980-14db219dd5ed?dark=false"
-      title="Chapter 4: The Leak"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/ea781ce9-4e00-45b5-a876-9de115550c6c?dark=false"
-      title="Chapter 5: Captive Audience | Part 1"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/4ddb3e7d-4f32-462b-9310-466d4393bbd1?dark=false"
-      title="Chapter 5: Captive Audience | Part 2"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/fed4e9b3-d4a5-426b-b7d6-469e0b895480?dark=false"
-      title="Chapter 5: Captive Audience | Part 3"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/80b842a7-e026-446b-8f7d-6393fce55e29?dark=false"
-      title="Chapter 6: Retaliation | Part 1"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/ffb20c14-2855-45f6-9872-a63758b0fb4e?dark=false"
-      title="Chapter 6: Retaliation | Part 2"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/6842c8bd-62e8-41c1-9c70-9c9c182cba14?dark=false"
-      title="Chapter 7: Recognition"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/572e0a43-e14e-4ed1-8d8e-169e42ed851e?dark=false"
-      title="Chapter 8: The Vote"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/10b1e403-feee-442a-8677-2a50de28015f?dark=false"
-      title="Chapter 9: The Count"></iframe>
-
-    <iframe
-      seamless="true"
-      height="200px"
-      width="100%"
-      src="https://player.simplecast.com/f0cdb6d8-c2cd-4264-9777-beb8b2546ad9?dark=false"
-      title="Chapter 10: The Pandemic"></iframe>
-  </div>
+  <script>
+    document
+      .querySelectorAll<HTMLDetailsElement>(".solidarity__item")
+      .forEach((details) => {
+        details.addEventListener("toggle", () => {
+          if (!details.open) return;
+          const iframe =
+            details.querySelector<HTMLIFrameElement>("iframe[data-src]");
+          if (iframe && !iframe.src) {
+            iframe.src = iframe.dataset.src!;
+          }
+        });
+      });
+  </script>
 </BaseLayout>
+
+<style>
+  .oral-history__hero {
+    justify-self: center;
+    max-width: 50%;
+  }
+
+  .oral-history__cover {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  @supports (corner-shape: squircle) {
+    .oral-history__cover {
+      corner-shape: squircle;
+      border-radius: 64px;
+    }
+  }
+
+  .oral-history__player {
+    padding: 1rem;
+    background-color: white;
+  }
+
+  .oral-history__player iframe {
+    border: none;
+    border-radius: 8px;
+  }
+</style>
