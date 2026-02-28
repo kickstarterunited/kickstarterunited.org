@@ -130,7 +130,11 @@ const socials = [
     gap: 1rem;
     padding: 1rem;
     border-radius: 0.5rem;
-    corner-shape: squircle;
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 2rem;
+    }
     border: 2px solid color-mix(in oklch, currentColor 10%, transparent);
     text-decoration: none;
     transition: border-color 0.2s;
