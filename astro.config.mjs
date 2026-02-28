@@ -10,6 +10,7 @@ export default defineConfig({
   site: 'https://kickstarterunited.org/',
 
   redirects: {
+    "/is-it-over": "/contracts/2025",
     "/events": "/events/calendar",
     "/first-contract": "/contracts/2022",
     "/boston": "https://actionnetwork.org/events/kickstarter-on-strike-rally-boston/",
