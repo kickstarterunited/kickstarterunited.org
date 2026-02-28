@@ -1,17 +1,154 @@
 ---
-import SocialLinks from "../components/SocialLinks/SocialLinks.astro";
+import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../images/logo.svg";
+
+const socials = [
+  // as of Mar 2026: 584 followers, 99 posts, very active, created Jul 2025
+  {
+    name: "Bluesky",
+    icon: "tabler:brand-bluesky",
+    href: "https://bsky.app/profile/kickstarterunited.org",
+    description: "Our most active platform. Union news, solidarity, and updates posted regularly.",
+    color: "#0085ff",
+  },
+  // as of Mar 2026: 441 followers, 95 posts, very active, created Jan 2023
+  {
+    name: "Mastodon",
+    icon: "tabler:brand-mastodon",
+    href: "https://union.place/@kickstarterunited",
+    description: "Same updates as Bluesky, on the fediverse. Hosted on union.place.",
+    color: "#6364ff",
+  },
+  // as of Mar 2026: 596 followers, 84 posts, active
+  {
+    name: "Instagram",
+    icon: "tabler:brand-instagram",
+    href: "https://www.instagram.com/kickstarter_united",
+    description: "Rally photos, graphics, and visual updates from union actions.",
+    color: "#e4405f",
+  },
+  // as of Mar 2026: 262 followers, moderate activity, professional tone
+  {
+    name: "LinkedIn",
+    icon: "tabler:brand-linkedin",
+    href: "https://www.linkedin.com/in/kickstarter-united-4924ba37b/",
+    description: "In-depth posts on labor in tech, with receipts.",
+    color: "#0a66c2",
+  },
+  // as of Mar 2026: 43 followers, 4 videos, minimal activity, created Oct 2025
+  {
+    name: "TikTok",
+    icon: "tabler:brand-tiktok",
+    href: "https://www.tiktok.com/@kickstarter_united",
+    description: "Short video clips from the 2025 strike.",
+    color: "#fe2c55",
+  },
+  // as of Mar 2026: 12 subscribers, 2 videos, dormant, rally recordings only
+  {
+    name: "YouTube",
+    icon: "tabler:brand-youtube",
+    href: "https://www.youtube.com/@KickstarterUnited",
+    description: "Rally recordings from the 2025 strike.",
+    color: "#ff0000",
+  },
+  // as of Mar 2026: 40 followers, dormant since Dec 2025, no saved VODs
+  {
+    name: "Twitch",
+    icon: "tabler:brand-twitch",
+    href: "https://www.twitch.tv/kickstarterunited",
+    description: "Gaming streams and virtual pickets from the 2025 strike.",
+    color: "#9146ff",
+  },
+  // as of Mar 2026: ~4,895 followers, oldest account (Mar 2019)
+  {
+    name: "X / Twitter",
+    icon: "tabler:brand-x",
+    href: "https://twitter.com/ksr_united",
+    description: "Our original account, still active for announcements.",
+    color: "#000000",
+  },
+];
 ---
 
-<BaseLayout title="Our Socials">
-  <div class="w-auto">
-    <Logo class="mx-auto" width="256" height="256" />
+<BaseLayout title="Follow our Socials">
+  <div class="socials-hero">
+    <Logo width="88" height="88" class="mx-auto" />
+    <h1>Follow along</h1>
+    <p class="text-balance">Stay in the loop on contract wins, actions, and what it takes to build a union in tech.</p>
   </div>
-  <hr />
-  <div>
-    <h1>Our Socials</h1>
-    <p class="text-center">Follow us on social media:</p>
-    <SocialLinks showLabels />
-  </div>
+
+  <nav class="social-links" aria-label="Social media links">
+    {socials.map((social) => (
+      <a
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        style={`--brand-color: ${social.color}`}
+      >
+        <Icon name={social.icon} size={32} class="social-link__icon" />
+        <div>
+          <div class="font-semibold">{social.name}</div>
+          <div class="text-sm opacity-70">{social.description}</div>
+        </div>
+      </a>
+    ))}
+  </nav>
 </BaseLayout>
+
+<style>
+  .socials-hero {
+    text-align: center;
+    margin-block: 2rem 3rem;
+  }
+
+  .socials-hero h1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .socials-hero p {
+    max-width: 50ch;
+    margin-inline: auto;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: color-mix(in oklch, currentColor, transparent 20%);
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 28rem;
+    margin-inline: auto;
+    margin-bottom: 4rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    corner-shape: squircle;
+    border: 2px solid color-mix(in oklch, currentColor 10%, transparent);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .social-link:hover,
+  .social-link:focus-visible {
+    border-color: color-mix(in oklch, var(--brand-color) 40%, transparent);
+  }
+
+  .social-link__icon {
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .social-link:hover .social-link__icon,
+  .social-link:focus-visible .social-link__icon {
+    color: var(--brand-color);
+    transform: scale(1.15);
+  }
+</style>
