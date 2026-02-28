@@ -8,9 +8,11 @@ import { Icon } from "astro-icon/components";
 import "../components/SocialLinks/social-links.css";
 
 import { allBlogPosts } from "../blog/getBlogPosts";
+import { redirects } from "../data/redirects";
 
 const showBanner = true;
 const hasBlogPosts = allBlogPosts.length > 0;
+const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
@@ -93,7 +95,7 @@ const hasBlogPosts = allBlogPosts.length > 0;
         <h3 class="paths__title"><span class="action-badge"><Icon name="tabler:hand-love-you" class="action-icon" /></span>I'm a supporter</h3>
         <p>Stand with us - sign our petition, stay updated, read our contract.</p>
         <div class="paths__links">
-          <a href="/petition">Petition</a>
+          {hasPetition && <a href="/petition">Petition</a>}
           <a href="#email-signup">Email Updates</a>
           <a href="/contracts/2025">Contract</a>
         </div>
