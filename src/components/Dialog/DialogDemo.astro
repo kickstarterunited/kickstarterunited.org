@@ -82,7 +82,7 @@ import Button from "../Button/Button.astro";
 
   <section>
     <h3 class="mt-0">Inverse Context</h3>
-    <p class="text-sm">Dialogs opened from an inverse-themed container still render with light surfaces.</p>
+    <p class="text-sm">Dialogs inherit the page's theme by default, but can be overridden with <code>data-theme="light"</code>, <code>"dark"</code>, or <code>"inverse"</code>.</p>
     <div
       class="p-6 rounded-2xl flex gap-4"
       data-theme="inverse"
