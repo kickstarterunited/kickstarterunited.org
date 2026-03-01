@@ -1,0 +1,69 @@
+/*
+ * Tooltip - a popover="hint" element anchored to its trigger via the
+ * Interest Invokers API (`interestfor`). The polyfill auto-generates
+ * anchor-name/position-anchor pairs, so no manual anchor management needed.
+ */
+.tooltip {
+  position: fixed;
+  margin: 0;
+  inset: auto;
+  position-area: block-start;
+  position-try-fallbacks: flip-block;
+  container-type: anchored;
+  z-index: 1;
+  margin-bottom: 11px;
+  padding: 6px 14px;
+  font-size: 1rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: visible;
+  border: 1px solid light-dark(oklch(0.87 0 0), transparent);
+  border-radius: 12px;
+  corner-shape: squircle;
+  background: light-dark(oklch(1 0 0 / 0.8), oklch(0.23 0.01 151 / 0.8));
+  backdrop-filter: blur(12px);
+  color: var(--ksru-color-text);
+  box-shadow: 0 2px 8px light-dark(oklch(0 0 0 / 0.12), transparent);
+
+  /* Entry/exit transitions */
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.tooltip:popover-open {
+  opacity: 1;
+}
+
+@starting-style {
+  .tooltip:popover-open {
+    opacity: 0;
+  }
+}
+
+/*
+ * Arrow - positioned at the anchor-facing edge of the tooltip.
+ * Default: below tooltip, pointing down (tooltip above anchor).
+ * @container anchored(fallback: flip-block) flips it when the tooltip
+ * repositions below the anchor.
+ */
+.tooltip__arrow {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  translate: -50% 0;
+  margin-top: -1px;
+  width: 14px;
+  height: 8px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: light-dark(oklch(1 0 0 / 0.8), oklch(0.23 0.01 151 / 0.8));
+}
+
+@container anchored(fallback: flip-block) {
+  .tooltip__arrow {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: -1px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+}

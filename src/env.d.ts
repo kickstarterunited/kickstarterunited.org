@@ -1,6 +1,11 @@
 declare namespace astroHTML.JSX {
   interface ButtonHTMLAttributes {
     /**
+     * Specifies the ID of a popover="hint" element to show on
+     * hover/focus. Part of the Interest Invokers API.
+     */
+    interestfor?: string;
+    /**
      * Specifies the action to be performed on an element being controlled by a
      * control <button> specified via the commandfor attribute. Part of the
      * Invoker Commands API. [More

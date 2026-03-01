@@ -1,0 +1,20 @@
+---
+import Tooltip from "./Tooltip.astro";
+import TooltipTrigger from "./TooltipTrigger.astro";
+---
+
+<div style="display: flex; gap: 1rem; align-items: center; justify-content: center; padding: 4rem 2rem;">
+  <div>
+    <TooltipTrigger as="button" interestfor="demo-tip-1" class="btn">
+      Hover me
+    </TooltipTrigger>
+    <Tooltip id="demo-tip-1">Hello from a tooltip</Tooltip>
+  </div>
+
+  <div>
+    <TooltipTrigger as="a" href="#" interestfor="demo-tip-2" class="btn">
+      Or hover this link
+    </TooltipTrigger>
+    <Tooltip id="demo-tip-2">Links work too</Tooltip>
+  </div>
+</div>
