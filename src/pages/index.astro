@@ -6,6 +6,7 @@ import WeWon from "../images/2025_contract/we-won.png";
 import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
 import { Icon } from "astro-icon/components";
 import "../components/SocialLinks/social-links.css";
+import Mark from "../components/Mark/Mark.astro";
 
 import { allBlogPosts } from "../blog/getBlogPosts";
 import { redirects } from "../data/redirects";
@@ -16,86 +17,39 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {
-    showBanner && (
-      <UrgentBanner
-        badge="TAKE ACTION"
-        class="page-grid__bleed page-grid__subgrid -mt-8"
-      >
-        <h1>
-          <span class="highlight">Stop the Retaliation</span>
-        </h1>
-        <p>
-          On February 11, Kickstarter management terminated bargaining unit
-          members and forced others out,{" "}
-          <strong>targeting strike leaders and union activists</strong>, just 3
-          months after workers ratified a{" "}
-          <a href="/contracts/2025">historic contract</a>
-          following a 42-day strike.
-        </p>
-        <p>
-          Are you also pissed? <strong>Here's what you can do to help:</strong>
-        </p>
-        <p class="mt-4">
-          <a href="/petition" class="btn btn-success urgent-banner__cta">
-            Sign Our Letter
-          </a>
-        </p>
-        <div class="urgent-banner__actions">
-          <a href="mailto:e@kickstarter.com" class="btn btn-info">
-            Write to the CEO
-          </a>
-        </div>
-        <p class="mt-4 mb-0 opacity-85">Follow along:</p>
-        <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
-          <a
-            href="https://www.instagram.com/kickstarter_united"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-instagram" size={24} />
-              <span>Instagram</span>
-            </>
-          </a>
-          <a
-            href="https://bsky.app/profile/kickstarterunited.org"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-bluesky" size={24} />
-              <span>Bluesky</span>
-            </>
-          </a>
-          <a
-            href="https://www.facebook.com/KickstarterUnited"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-facebook" size={24} />
-              <span>Facebook</span>
-            </>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-linkedin" size={24} />
-              <span>LinkedIn</span>
-            </>
-          </a>
-        </div>
-      </UrgentBanner>
-    )
-  }
+  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid__bleed page-grid__subgrid -mt-8">
+    <h1><Mark>Stop the Retaliation</Mark></h1>
+    <p>
+      On February 11, Kickstarter management terminated bargaining unit members
+      and forced others out, <strong>targeting strike leaders and union
+      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
+      following a 42-day strike.
+    </p>
+    <p>
+      Are you also pissed? <strong>Here's what you can do to help:</strong>
+    </p>
+    <p class="mt-4">
+      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
+    </p>
+    <div class="urgent-banner__actions">
+      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
+    </div>
+    <p class="mt-4 mb-0 opacity-85">Follow along:</p>
+    <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
+      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
+      </a>
+      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
+      </a>
+      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
+      </a>
+      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
+      </a>
+    </div>
+  </UrgentBanner>}
 
   <section class="hero page-grid__wide">
     <Logo class="hero__logo" width={96} height={96} />
