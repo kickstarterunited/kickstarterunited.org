@@ -5,9 +5,8 @@ body {
 /* Default centering for astrobook story previews.
    Selector targets Astrobook's generated class - may need updating on Astrobook upgrades. */
 main.astrobook-dbh5qm {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: grid;
+	place-items: center;
 	padding: 1rem;
 }
 
