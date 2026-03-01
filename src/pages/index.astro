@@ -16,54 +16,109 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid__bleed page-grid__subgrid -mt-8">
-    <h1><span class="highlight">Stop the Retaliation</span></h1>
-    <p>
-      On February 11, Kickstarter management terminated bargaining unit members
-      and forced others out, <strong>targeting strike leaders and union
-      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
-      following a 42-day strike.
-    </p>
-    <p>
-      Are you also pissed? <strong>Here's what you can do to help:</strong>
-    </p>
-    <p class="mt-4">
-      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
-    </p>
-    <div class="urgent-banner__actions">
-      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
-    </div>
-    <p class="mt-4 mb-0 opacity-85">Follow along:</p>
-    <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
-      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
-      </a>
-      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
-      </a>
-      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
-      </a>
-      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
-      </a>
-    </div>
-  </UrgentBanner>}
+  {
+    showBanner && (
+      <UrgentBanner
+        badge="TAKE ACTION"
+        class="page-grid__bleed page-grid__subgrid -mt-8"
+      >
+        <h1>
+          <span class="highlight">Stop the Retaliation</span>
+        </h1>
+        <p>
+          On February 11, Kickstarter management terminated bargaining unit
+          members and forced others out,{" "}
+          <strong>targeting strike leaders and union activists</strong>, just 3
+          months after workers ratified a{" "}
+          <a href="/contracts/2025">historic contract</a>
+          following a 42-day strike.
+        </p>
+        <p>
+          Are you also pissed? <strong>Here's what you can do to help:</strong>
+        </p>
+        <p class="mt-4">
+          <a href="/petition" class="btn btn-success urgent-banner__cta">
+            Sign Our Letter
+          </a>
+        </p>
+        <div class="urgent-banner__actions">
+          <a href="mailto:e@kickstarter.com" class="btn btn-info">
+            Write to the CEO
+          </a>
+        </div>
+        <p class="mt-4 mb-0 opacity-85">Follow along:</p>
+        <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
+          <a
+            href="https://www.instagram.com/kickstarter_united"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-instagram" size={24} />
+              <span>Instagram</span>
+            </>
+          </a>
+          <a
+            href="https://bsky.app/profile/kickstarterunited.org"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-bluesky" size={24} />
+              <span>Bluesky</span>
+            </>
+          </a>
+          <a
+            href="https://www.facebook.com/KickstarterUnited"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-facebook" size={24} />
+              <span>Facebook</span>
+            </>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-linkedin" size={24} />
+              <span>LinkedIn</span>
+            </>
+          </a>
+        </div>
+      </UrgentBanner>
+    )
+  }
 
   <section class="hero page-grid__wide">
     <Logo class="hero__logo" width={96} height={96} />
     <h1 class="hero__headline">We are Kickstarter United</h1>
-    <p class="hero__subtitle">Fair pay. Job protections. A four-day workweek. <strong>We won it all.</strong></p>
+    <p class="hero__subtitle">
+      Fair pay. Job protections. A four-day workweek. <strong
+        >We won it all.</strong>
+    </p>
   </section>
 
   <!-- ═══ AUDIENCE PATHWAY CARDS ═════════════════════════════════════════ -->
   <section class="paths page-grid__wide">
     <h2 class="paths__heading">I'm here because...</h2>
     <div class="paths__grid">
-
       <div class="paths__card paths__card--worker">
-        <h3 class="paths__title"><span class="action-badge"><Icon name="tabler:briefcase" class="action-icon" /></span>I'm a worker</h3>
-        <p>Learn about our union and what we've won for Kickstarter employees.</p>
+        <h3 class="paths__title">
+          <span class="action-badge"
+            ><Icon name="tabler:briefcase" class="action-icon" /></span
+          >I'm a worker
+        </h3>
+        <p>
+          Learn about our union and what we've won for Kickstarter employees.
+        </p>
         <div class="paths__links">
           <a href="/about">About</a>
           <a href="/contracts/2025">2025 Contract</a>
@@ -72,7 +127,11 @@ const hasPetition = "/petition" in redirects;
       </div>
 
       <div class="paths__card paths__card--creator">
-        <h3 class="paths__title"><span class="action-badge"><Icon name="tabler:heart-handshake" class="action-icon" /></span>I'm a creator</h3>
+        <h3 class="paths__title">
+          <span class="action-badge"
+            ><Icon name="tabler:heart-handshake" class="action-icon" /></span
+          >I'm a creator
+        </h3>
         <p>Find out how creators can support the people behind the platform.</p>
         <div class="paths__links">
           <a href="/creators">Creators</a>
@@ -82,7 +141,11 @@ const hasPetition = "/petition" in redirects;
       </div>
 
       <div class="paths__card paths__card--media">
-        <h3 class="paths__title"><span class="action-badge"><Icon name="tabler:broadcast" class="action-icon" /></span>I'm press / media</h3>
+        <h3 class="paths__title">
+          <span class="action-badge"
+            ><Icon name="tabler:broadcast" class="action-icon" /></span
+          >I'm press / media
+        </h3>
         <p>Get the story on one of tech's most prominent labor unions.</p>
         <div class="paths__links">
           <a href="/press">Press</a>
@@ -92,15 +155,20 @@ const hasPetition = "/petition" in redirects;
       </div>
 
       <div class="paths__card paths__card--supporter">
-        <h3 class="paths__title"><span class="action-badge"><Icon name="tabler:hand-love-you" class="action-icon" /></span>I'm a supporter</h3>
-        <p>Stand with us - sign our petition, stay updated, read our contract.</p>
+        <h3 class="paths__title">
+          <span class="action-badge"
+            ><Icon name="tabler:hand-love-you" class="action-icon" /></span
+          >I'm a supporter
+        </h3>
+        <p>
+          Stand with us - sign our petition, stay updated, read our contract.
+        </p>
         <div class="paths__links">
           {hasPetition && <a href="/petition">Petition</a>}
           <a href="#email-signup">Email Updates</a>
           <a href="/contracts/2025">Contract</a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -162,8 +230,8 @@ const hasPetition = "/petition" in redirects;
             with notice in advance, and a time limit
           </li>
           <li>
-            Permanent changes to Five-Day Workweek <strong>must</strong> involve
-            bargaining with the union
+            Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
+            with the union
           </li>
           <li>
             If management tries to force it anyway, <strong
@@ -179,9 +247,7 @@ const hasPetition = "/petition" in redirects;
       <div class="wins__body">
         <p>
           The market undervalues some of our most vital workers, and we won
-          strong provisions to <strong
-            >raise their minimum salary floor</strong
-          >
+          strong provisions to <strong>raise their minimum salary floor</strong>
           considerably!
         </p>
         <ul>
@@ -227,13 +293,16 @@ const hasPetition = "/petition" in redirects;
   </div>
 
   <p class="mt-8">
-    <strong>Thank you</strong> to everyone who showed support, wrote emails to
-    leadership, donated to our strike fund, and came to our pickets. <strong>
+    <strong>Thank you</strong> to everyone who showed support, wrote emails to leadership,
+    donated to our strike fund, and came to our pickets. <strong>
       When we fight, we win!
     </strong>
   </p>
   <div class="text-center my-8" id="email-signup">
-    <script async data-uid="c936d588a0" src="https://kickstarter-united.kit.com/c936d588a0/index.js"></script>
+    <script
+      async
+      data-uid="c936d588a0"
+      src="https://kickstarter-united.kit.com/c936d588a0/index.js"></script>
   </div>
 </BaseLayout>
 
@@ -313,9 +382,12 @@ const hasPetition = "/petition" in redirects;
     padding: 1.25rem 1.25rem 1.25rem 2rem;
     border-radius: 16px;
     background: var(--ksru-color-bg);
-    border: 2px solid color-mix(in oklch, var(--ksru-color-accent), transparent 80%);
+    border: 2px solid
+      color-mix(in oklch, var(--ksru-color-accent), transparent 80%);
     border-left: 4px solid var(--ksru-color-accent);
-    transition: border-color 150ms ease, box-shadow 150ms ease;
+    transition:
+      border-color 150ms ease,
+      box-shadow 150ms ease;
   }
 
   @supports (corner-shape: squircle) {
@@ -413,7 +485,9 @@ const hasPetition = "/petition" in redirects;
     border-radius: 999px;
     background: color-mix(in oklch, var(--ksru-color-accent), transparent 90%);
     color: var(--ksru-color-accent);
-    transition: background 150ms ease, color 150ms ease;
+    transition:
+      background 150ms ease,
+      color 150ms ease;
   }
 
   @supports (corner-shape: squircle) {
@@ -492,7 +566,10 @@ const hasPetition = "/petition" in redirects;
     background-color: var(--ksru-color-accent);
     border-left: 20px solid transparent;
     border-radius: 0px;
-    transition: background-color 150ms ease, border-color 150ms ease, border-radius 300ms ease;
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      border-radius 300ms ease;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -506,7 +583,8 @@ const hasPetition = "/petition" in redirects;
     border-right: 2.5px solid currentColor;
     border-bottom: 2.5px solid currentColor;
     transform: rotate(-45deg);
-    transition: transform 0.4s linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
+    transition: transform 0.4s
+      linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
     flex-shrink: 0;
     margin-left: 1rem;
   }
@@ -557,7 +635,8 @@ const hasPetition = "/petition" in redirects;
 
   /* Separator between items */
   .wins__item + .wins__item summary {
-    border-top: 1px solid color-mix(in oklch, var(--ksru-color-accent), white 20%);
+    border-top: 1px solid
+      color-mix(in oklch, var(--ksru-color-accent), white 20%);
   }
 
   /* Content panel */
@@ -572,7 +651,10 @@ const hasPetition = "/petition" in redirects;
     opacity: 0;
     block-size: 0;
     overflow: clip;
-    transition: block-size 300ms ease, opacity 300ms ease, content-visibility 300ms;
+    transition:
+      block-size 300ms ease,
+      opacity 300ms ease,
+      content-visibility 300ms;
     transition-behavior: allow-discrete;
   }
 
