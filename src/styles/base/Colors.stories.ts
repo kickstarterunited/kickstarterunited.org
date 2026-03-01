@@ -2,7 +2,7 @@ import ColorsComponent from "./Colors.astro";
 import StoryLayout from "../../stories/StoryLayout.astro";
 
 export default {
-	component: ColorsComponent,
+  component: ColorsComponent,
 };
 
 /**
@@ -10,8 +10,8 @@ export default {
  * automatically. Always prefer these for UI elements.
  */
 export const Colors = {
-	args: {},
-	decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
+  args: {},
+  decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
 };
 
 /**
@@ -20,6 +20,6 @@ export const Colors = {
  * usage, wrap in light-dark() combinations.
  */
 export const Palettes = {
-	args: { view: "shades" },
-	decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
+  args: { view: "shades" },
+  decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
 };

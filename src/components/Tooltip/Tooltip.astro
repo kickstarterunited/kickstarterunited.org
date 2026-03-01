@@ -7,7 +7,7 @@ interface Props {
 const { id } = Astro.props;
 ---
 
-<div id={id} popover="hint" class="tooltip">
+<div id={id} popover="hint" role="tooltip" class="tooltip">
   <slot />
   <div class="tooltip__arrow"></div>
 </div>

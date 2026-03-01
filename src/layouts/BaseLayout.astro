@@ -54,6 +54,15 @@ const { title } = Astro.props;
     </script>
   </head>
   <body class="leading-[1.6]" data-theme="light">
+    {/* Global SVG filters (defined once, referenced by CSS) */}
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+      <defs>
+        <filter id="mark-shape">
+          <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+          <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
+        </filter>
+      </defs>
+    </svg>
     <div class="page page-grid">
       <header class="page__header page-grid__bleed" data-theme="dark">
         <p class="page__logo retro-ribbon retro-ribbon--end">

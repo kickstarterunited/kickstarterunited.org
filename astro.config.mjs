@@ -25,7 +25,7 @@ export default defineConfig({
     preact(),
     icon(),
     isDev ? astrobook({ subpath: '/astrobook', directory: 'src', css: ['./src/styles/global.css', './src/styles/astrobook.css'] }) : null,
-  ],
+  ].filter(Boolean),
 
   prefetch: {
     prefetchAll: true

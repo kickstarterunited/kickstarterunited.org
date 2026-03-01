@@ -21,6 +21,7 @@ const tipId = `tip-${label.toLowerCase()}`;
     target="_blank"
     class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
     aria-label={!showLabel ? label : undefined}
+    aria-describedby={!showLabel ? tipId : undefined}
     interestfor={!showLabel ? tipId : undefined}
   >
     <slot />

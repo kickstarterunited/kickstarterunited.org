@@ -1,5 +1,5 @@
 /* MARK: Shade palettes
- * 5 color families × 11 shades (50–950) in oklch.
+ * Each color family has 11 shades (50-950) in oklch.
  * Brand-matched shades use exact brand values and are marked with a comment.
  * Lightness scale: 50=0.97 → 950=0.19, chroma peaks mid-range, hue fixed per family.
  */

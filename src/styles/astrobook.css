@@ -2,7 +2,8 @@ body {
 	color: var(--ksru-color-text);
 }
 
-/* Default centering for astrobook story previews */
+/* Default centering for astrobook story previews.
+   Selector targets Astrobook's generated class - may need updating on Astrobook upgrades. */
 main.astrobook-dbh5qm {
 	display: flex;
 	align-items: center;

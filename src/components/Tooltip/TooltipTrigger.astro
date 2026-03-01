@@ -1,5 +1,6 @@
 ---
 const { as: Tag = "button", ...attrs } = Astro.props;
+const resolvedAttrs = Tag === "button" && attrs.type === undefined ? { type: "button" as const, ...attrs } : attrs;
 ---
 
-<Tag {...attrs}><slot /></Tag>
+<Tag {...resolvedAttrs}><slot /></Tag>

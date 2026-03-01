@@ -5,6 +5,7 @@
 
 .page__header,
 .page__footer {
+  color: var(--ksru-color-text);
   --ksru-outline-color: var(--ksru-color-outline-accent);
 }
 

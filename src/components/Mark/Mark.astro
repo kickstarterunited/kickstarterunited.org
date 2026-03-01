@@ -10,14 +10,6 @@ interface Props {
 const { variant, color, class: cls, ...attrs } = Astro.props;
 ---
 
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
-  <defs>
-    <filter id="mark-shape">
-      <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
-      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
-    </filter>
-  </defs>
-</svg>
 <mark
   class:list={["mark", cls]}
   data-mark={variant}
