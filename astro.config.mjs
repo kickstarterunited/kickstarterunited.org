@@ -4,7 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 
 import preact from "@astrojs/preact";
 import icon from "astro-icon";
+import astrobook from "astrobook";
 import { redirects } from "./src/data/redirects.ts";
+
+const isDev = process.env.NODE_ENV === 'development';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +21,11 @@ export default defineConfig({
     ],
   },
 
-  integrations: [preact(), icon()],
+  integrations: [
+    preact(),
+    icon(),
+    isDev ? astrobook({ subpath: '/astrobook', directory: 'src', css: ['./src/styles/global.css', './src/styles/astrobook.css'] }) : null,
+  ],
 
   prefetch: {
     prefetchAll: true

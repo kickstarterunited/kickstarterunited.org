@@ -1,0 +1,23 @@
+body {
+	color: var(--ksru-color-text);
+}
+
+/* Default centering for astrobook story previews */
+main.astrobook-dbh5qm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+/* Fullscreen: no centering, no padding */
+main.astrobook-dbh5qm:has(.story-layout-fullscreen) {
+	display: block;
+	padding: 0;
+}
+
+/* Padded: no centering, generous padding */
+main.astrobook-dbh5qm:has(.story-layout-padded) {
+	display: block;
+	padding: 2rem;
+}
