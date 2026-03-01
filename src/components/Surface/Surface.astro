@@ -1,0 +1,56 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** Elevation level: 0 = flat, 1 = card, 2 = overlay */
+  elevation?: 0 | 1 | 2;
+}
+
+const { elevation = 0, class: className, ...props } = Astro.props;
+---
+
+<div {...props} class:list={["surface", className]} data-elevation={elevation}>
+  <slot />
+</div>
+
+<style is:global>
+  @layer components {
+    .surface {
+      background: var(--ksru-color-surface);
+      color: var(--ksru-color-text);
+      border: 1px solid var(--ksru-color-border);
+      border-radius: 1rem;
+      padding: clamp(0.75rem, 2vw, 1.5rem);
+
+      @supports (corner-shape: squircle) {
+        corner-shape: squircle;
+        border-radius: 2rem;
+      }
+    }
+
+    .surface[data-elevation="1"] {
+      background: light-dark(
+        var(--ksru-color-surface),
+        var(--ksru-color-surface-secondary)
+      );
+      box-shadow:
+        0 1px 2px -1px var(--ksru-color-shadow),
+        0 2px 6px -2px var(--ksru-color-shadow);
+    }
+
+    .surface[data-elevation="2"] {
+      background: light-dark(
+        var(--ksru-color-surface),
+        color-mix(
+          in oklch,
+          var(--ksru-color-surface-secondary),
+          var(--ksru-color-text) 8%
+        )
+      );
+      box-shadow:
+        0 1px 2px -1px var(--ksru-color-shadow),
+        0 2px 6px -2px var(--ksru-color-shadow),
+        0 12px 24px -4px var(--ksru-color-shadow);
+    }
+  }
+</style>

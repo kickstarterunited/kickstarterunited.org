@@ -1,5 +1,6 @@
 ---
 import Menu from "./Menu.astro";
+import Surface from "../Surface/Surface.astro";
 ---
 
 <div class="grid gap-12 p-8">
@@ -42,7 +43,7 @@ import Menu from "./Menu.astro";
   <section>
     <h3 class="mt-0">Flat Menu (mobile/drawer mode)</h3>
     <p class="text-sm">Renders items inline with section titles, as used inside the drawer.</p>
-    <div class="demo-flat-menu" data-theme="light">
+    <Surface elevation={0} class="demo-flat-menu" data-theme="light">
       <Menu
         id="demo-flat-about"
         label="About"
@@ -63,17 +64,13 @@ import Menu from "./Menu.astro";
           { label: "Press", href: "#" },
         ]}
       />
-    </div>
+    </Surface>
   </section>
 
   <section>
     <h3 class="mt-0">On Dark Background</h3>
     <p class="text-sm">Menu popover stays light-themed even when triggered from a dark context.</p>
-    <div
-      class="p-6 rounded-2xl"
-      data-theme="dark"
-      style="background-color: var(--ksru-color-surface);"
-    >
+    <Surface elevation={1} data-theme="dark">
       <Menu
         id="demo-dark-ctx"
         label="Open Menu"
@@ -83,16 +80,13 @@ import Menu from "./Menu.astro";
           { label: "Item Three", href: "#" },
         ]}
       />
-    </div>
+    </Surface>
   </section>
 </div>
 
 <style>
   .demo-flat-menu {
-    background: var(--ksru-color-surface);
-    color: var(--ksru-color-text);
     border: 1px solid var(--ksru-color-border);
-    border-radius: 1rem;
     padding: 0.5rem 0;
     max-width: 280px;
   }

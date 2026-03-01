@@ -1,0 +1,51 @@
+---
+import Surface from "./Surface.astro";
+---
+
+<div class="grid gap-12 p-8">
+  <section>
+    <h3 class="mt-0">Elevation Levels</h3>
+    <p class="text-sm">Surfaces at elevation 0, 1, and 2. Higher elevations add shadow in light mode and shift to a secondary background in dark mode.</p>
+    <div class="demo-row">
+      <Surface elevation={0}>
+        <p class="mt-0 mb-0"><strong>Elevation 0</strong></p>
+        <p class="text-sm mb-0">Flat surface, no shadow.</p>
+      </Surface>
+      <Surface elevation={1}>
+        <p class="mt-0 mb-0"><strong>Elevation 1</strong></p>
+        <p class="text-sm mb-0">Card-level shadow.</p>
+      </Surface>
+      <Surface elevation={2}>
+        <p class="mt-0 mb-0"><strong>Elevation 2</strong></p>
+        <p class="text-sm mb-0">Overlay-level shadow.</p>
+      </Surface>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="mt-0">Inverse Context</h3>
+    <p class="text-sm">Same elevations rendered inside <code>data-theme="inverse"</code>. In dark mode, elevated surfaces use <code>surface-secondary</code> and shadows disappear.</p>
+    <Surface elevation={1} data-theme="inverse">
+      <div class="demo-row">
+        <Surface elevation={0}>
+          <p class="mt-0 mb-0"><strong>Elevation 0</strong></p>
+        </Surface>
+        <Surface elevation={1}>
+          <p class="mt-0 mb-0"><strong>Elevation 1</strong></p>
+        </Surface>
+        <Surface elevation={2}>
+          <p class="mt-0 mb-0"><strong>Elevation 2</strong></p>
+        </Surface>
+      </div>
+    </Surface>
+  </section>
+</div>
+
+<style>
+  .demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: start;
+  }
+</style>

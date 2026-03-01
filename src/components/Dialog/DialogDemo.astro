@@ -3,6 +3,7 @@ import Dialog from "./Dialog.astro";
 import DrawerDialog from "./DrawerDialog.astro";
 import DrawerMenu from "../Menu/DrawerMenu.astro";
 import Button from "../Button/Button.astro";
+import Surface from "../Surface/Surface.astro";
 ---
 
 <div class="grid gap-12 p-8">
@@ -83,18 +84,14 @@ import Button from "../Button/Button.astro";
   <section>
     <h3 class="mt-0">Inverse Context</h3>
     <p class="text-sm">Dialogs inherit the page's theme by default, but can be overridden with <code>data-theme="light"</code>, <code>"dark"</code>, or <code>"inverse"</code>.</p>
-    <div
-      class="p-6 rounded-2xl flex gap-4"
-      data-theme="inverse"
-      style="background-color: var(--ksru-color-surface);"
-    >
+    <Surface elevation={1} class="flex gap-4" data-theme="inverse">
       <Button variant="ghost" command="show-modal" commandfor="demo-dark-dialog">
         Open Dialog
       </Button>
       <Button variant="ghost" command="show-modal" commandfor="demo-dark-drawer">
         Open Drawer
       </Button>
-    </div>
+    </Surface>
     <Dialog id="demo-dark-dialog" data-theme="inverse">
       <div class="p-6 grid gap-4" style="max-width: 28rem;">
         <h2 class="mt-0">Inverse Dialog</h2>
