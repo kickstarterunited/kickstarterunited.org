@@ -1,5 +1,7 @@
 ---
 import "./social-links.css";
+import Tooltip from "../Tooltip/Tooltip.astro";
+import TooltipTrigger from "../Tooltip/TooltipTrigger.astro";
 
 interface Props {
   label: string;
@@ -8,23 +10,21 @@ interface Props {
 }
 const { label, href, showLabel } = Astro.props;
 
-// Tooltip for icon-only social links using CSS anchor positioning
-// (follow-the-leader pattern). All icon-only links share a single
-// tooltip element (in SocialLinks.astro). JS updates text on hover/focus;
-// positioning slides via anchor() + transitions. See social-links.css.
+const tipId = `tip-${label.toLowerCase()}`;
 ---
 
 <li class="m-0">
-  <a
+  <TooltipTrigger
+    as="a"
     href={href}
     rel="me noopener noreferrer"
     target="_blank"
     class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
     aria-label={!showLabel ? label : undefined}
-    aria-describedby={!showLabel ? "social-tooltip" : undefined}
-    data-tooltip={!showLabel ? `Follow us on ${label}` : undefined}
+    interestfor={!showLabel ? tipId : undefined}
   >
     <slot />
     {showLabel && <span>{label}</span>}
-  </a>
+  </TooltipTrigger>
+  {!showLabel && <Tooltip id={tipId}>Follow us on {label}</Tooltip>}
 </li>
