@@ -69,3 +69,23 @@ declare namespace globalThis {
     commandfor?: string;
   }
 }
+
+interface SnapEvent extends Event {
+  snapTargetInline: Element | null;
+  snapTargetBlock: Element | null;
+}
+
+interface ElementEventMap {
+  scrollsnapchanging: SnapEvent;
+  scrollsnapchange: SnapEvent;
+}
+
+interface HTMLElementEventMap {
+  scrollsnapchanging: SnapEvent;
+  scrollsnapchange: SnapEvent;
+}
+
+interface GlobalEventHandlersEventMap {
+  scrollsnapchanging: SnapEvent;
+  scrollsnapchange: SnapEvent;
+}

@@ -385,7 +385,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    const first = carousel.querySelector(".ewnu-card") as HTMLElement | null;
+    const first = carousel.querySelector<HTMLElement>(".ewnu-card");
     if (first) {
       activeBg = first.style.getPropertyValue("--bg").trim();
       first.setAttribute("data-snapped", "");
@@ -399,7 +399,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         !reducedMotion && visible ? activeBg : "";
     }
 
-    carousel.addEventListener("scrollsnapchanging", (e: any) => {
+    carousel.addEventListener("scrollsnapchanging", (e) => {
       const card = e.snapTargetInline;
       if (card instanceof HTMLElement) {
         activeBg = card.style.getPropertyValue("--bg").trim();
