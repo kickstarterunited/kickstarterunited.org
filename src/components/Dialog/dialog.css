@@ -28,5 +28,6 @@
 
   .dialog [command="close"] {
     align-self: flex-end;
+    text-decoration: none;
   }
 }

@@ -4,6 +4,16 @@ import Mark from "./Mark.astro";
 const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as const;
 ---
 
+{/* SVG filter for hand-drawn effect (normally in BaseLayout, duplicated here for Astrobook) */}
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <filter id="mark-shape">
+      <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
+    </filter>
+  </defs>
+</svg>
+
 <div class="grid gap-12 p-8">
   <section>
     <h3 class="mt-0">Variants</h3>
