@@ -97,8 +97,8 @@ import Button from "../Button/Button.astro";
     </div>
     <Dialog id="demo-dark-dialog" data-theme="inverse">
       <div class="p-6 grid gap-4" style="max-width: 28rem;">
-        <h2 class="mt-0">Light Dialog</h2>
-        <p>Even though triggered from a dark context, this dialog is readable.</p>
+        <h2 class="mt-0">Inverse Dialog</h2>
+        <p>This dialog uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
         <Button variant="primary" command="close" commandfor="demo-dark-dialog">
           Close
         </Button>
@@ -106,8 +106,8 @@ import Button from "../Button/Button.astro";
     </Dialog>
     <DrawerDialog id="demo-dark-drawer" data-theme="inverse">
       <div class="p-6 grid gap-4" style="min-width: 280px;">
-        <h2 class="mt-0">Light Drawer</h2>
-        <p>The drawer's <code>data-theme="light"</code> ensures readable text.</p>
+        <h2 class="mt-0">Inverse Drawer</h2>
+        <p>This drawer uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
       </div>
     </DrawerDialog>
   </section>
