@@ -1,0 +1,125 @@
+/* MARK: Button component */
+@layer components {
+
+/* Base */
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 500;
+  box-sizing: border-box;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 20px;
+  align-content: center;
+  border-radius: 16px;
+  corner-shape: squircle;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+/* MARK: Variants */
+
+.btn--primary {
+  background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-500));
+  color: white;
+}
+
+.btn--primary:hover {
+  background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-400));
+}
+
+.btn--primary:active {
+  background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-600));
+}
+
+.btn--accent {
+  background: light-dark(var(--ksru-cyan-800), var(--ksru-cyan-600));
+  color: white;
+}
+
+.btn--accent:hover {
+  background: light-dark(var(--ksru-cyan-700), var(--ksru-cyan-500));
+}
+
+.btn--accent:active {
+  background: light-dark(var(--ksru-cyan-900), var(--ksru-cyan-700));
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ksru-color-text);
+}
+
+.btn--ghost:hover {
+  background: var(--ksru-color-border);
+}
+
+.btn--ghost:active {
+  background: var(--ksru-color-border-hover);
+}
+
+.btn--unstyled {
+  display: inline;
+  padding: 0;
+  min-width: unset;
+  min-height: unset;
+  border-radius: 0;
+  corner-shape: unset;
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 2px;
+  font-weight: inherit;
+  text-align: inherit;
+}
+
+/* MARK: Sizes */
+
+.btn--sm {
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 0.875em;
+  border-radius: 12px;
+}
+
+/* MARK: Focus */
+
+.btn:focus-visible {
+  --_color: var(--ksru-outline-color, var(--ksru-color-outline));
+  --_offset: var(--ksru-outline-offset, 3px);
+  outline: 3px solid var(--_color);
+  outline-offset: var(--_offset);
+}
+
+/* MARK: Legacy aliases (temporary, for unmigrated pages) */
+
+.btn-success {
+  background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-500));
+  color: white;
+}
+
+.btn-success:hover {
+  background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-400));
+}
+
+.btn-success:active {
+  background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-600));
+}
+
+.btn-info {
+  background: light-dark(var(--ksru-cyan-800), var(--ksru-cyan-600));
+  color: white;
+}
+
+.btn-info:hover {
+  background: light-dark(var(--ksru-cyan-700), var(--ksru-cyan-500));
+}
+
+.btn-info:active {
+  background: light-dark(var(--ksru-cyan-900), var(--ksru-cyan-700));
+}
+
+} /* @layer components */
