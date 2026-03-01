@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import "./base/colors.css";
+@import "./base/palettes.css";
 @import "./base/legacy.css";
 
 ol {
