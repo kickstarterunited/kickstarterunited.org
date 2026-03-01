@@ -1,0 +1,22 @@
+---
+import Type from "./Type.astro";
+
+interface Props {
+  as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  size?: "xl" | "lg" | "md" | "sm";
+  maxLineLength?: boolean | number;
+  [key: string]: any;
+}
+
+const { as: Tag, size = "lg", maxLineLength = true, class: cls, style: userStyle, ...attrs } = Astro.props;
+
+const lineLengthValue =
+  maxLineLength === false ? "none" : maxLineLength === true ? "25ch" : `${maxLineLength}ch`;
+
+const styleStr = [
+  `--type-max-line-length:${lineLengthValue}`,
+  userStyle,
+].filter(Boolean).join(";");
+---
+
+<Type as={Tag} variant={`heading-${size}`} class={cls} style={styleStr} {...attrs}><slot /></Type>

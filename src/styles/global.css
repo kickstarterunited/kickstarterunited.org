@@ -2,6 +2,7 @@
 
 @import "./base/colors.css";
 @import "./base/palettes.css";
+@import "./base/type.css";
 @import "./base/legacy.css";
 
 ol {

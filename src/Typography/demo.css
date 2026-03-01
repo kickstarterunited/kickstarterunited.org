@@ -1,0 +1,49 @@
+.demo-intro {
+  margin: 0;
+  color: var(--ksru-color-text-secondary);
+}
+
+.demo-intro code {
+  font-size: 0.8125em;
+  background: color-mix(in oklch, var(--ksru-color-text) 8%, transparent);
+  padding: 0.1em 0.35em;
+  border-radius: 0.25em;
+}
+
+.demo-section-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ksru-color-text-secondary);
+}
+
+.demo-section-desc {
+  margin: -0.25rem 0 0.75rem;
+  color: var(--ksru-color-text-secondary);
+}
+
+.demo-specimen {
+  display: grid;
+  gap: 0.125rem;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--ksru-color-border);
+}
+
+.demo-specimen > * {
+  margin: 0;
+}
+
+.demo-specimen:last-child {
+  padding-bottom: 0;
+}
+
+.demo-label {
+  color: var(--ksru-color-text-secondary);
+}
+
+.demo-specs {
+  margin-top: 0.125rem;
+  color: var(--ksru-color-text-secondary);
+}

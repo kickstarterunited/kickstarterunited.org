@@ -1,0 +1,92 @@
+---
+import Heading from "./Heading.astro";
+import Text from "./Text.astro";
+import Prose from "./Prose.astro";
+import "./demo.css";
+---
+
+<div class="grid gap-14 p-8">
+  <p class="demo-intro type-text-sm">
+    Shows how <code>Heading</code>, <code>Text</code>, and <code>Prose</code> work together
+    in realistic layouts. These compositions demonstrate visual hierarchy, spacing relationships,
+    and the interplay between component props.
+  </p>
+
+  <section>
+    <h3 class="demo-section-label">Hero + Body</h3>
+    <div class="demo-specimen" style="border: none; padding: 0;">
+      <div class="grid gap-4">
+        <Heading as="h1" size="xl">Tech Workers Deserve a Union</Heading>
+        <Text as="p" size="lg" class="text-[var(--ksru-color-text-secondary)]">How Kickstarter United organized the first major tech union and changed the industry forever.</Text>
+        <Text as="p" size="md">In February 2020, a supermajority of Kickstarter employees voted to form Kickstarter United with OPEIU Local 153. The campaign took months of quiet organizing, card signing, and difficult conversations. But when the votes were counted, the workers had won.</Text>
+        <Text as="p" size="md">Their victory sent a message across the tech industry: white-collar workers can organize, and they can win.</Text>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Article Header</h3>
+    <div class="demo-specimen" style="border: none; padding: 0;">
+      <header class="grid gap-3">
+        <Text as="span" size="sm" maxLineLength={false} class="font-semibold uppercase tracking-widest text-[var(--ksru-color-text-secondary)]">Bargaining Update</Text>
+        <Heading as="h1" size="xl" maxLineLength={false}>First Contract Ratified by Overwhelming Majority</Heading>
+        <Text as="p" size="lg" class="text-[var(--ksru-color-text-secondary)]">After months of negotiation, KSRU members voted to ratify their first collective bargaining agreement with Kickstarter management.</Text>
+        <Text as="span" size="sm" class="text-[var(--ksru-color-text-secondary)]">Published March 2021</Text>
+      </header>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Card Layout</h3>
+    <div class="demo-specimen" style="border: none; padding: 0;">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-6">
+        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+          <Heading as="h3" size="sm" maxLineLength={false}>Know Your Rights</Heading>
+          <Text as="p" size="sm" maxLineLength={false}>Every worker has the legal right to organize. Learn what protections the NLRA provides and how to exercise them.</Text>
+        </div>
+        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+          <Heading as="h3" size="sm" maxLineLength={false}>Grievance Process</Heading>
+          <Text as="p" size="sm" maxLineLength={false}>If management violates your contract, the union has your back. Here's how the grievance and arbitration process works.</Text>
+        </div>
+        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+          <Heading as="h3" size="sm" maxLineLength={false}>Get Involved</Heading>
+          <Text as="p" size="sm" maxLineLength={false}>Attend meetings, join a committee, or talk to a steward. The union is only as strong as its most active members.</Text>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Prose in Context</h3>
+    <div class="demo-specimen" style="border: none; padding: 0;">
+      <article class="grid gap-6">
+        <header class="grid gap-3">
+          <Heading as="h1" size="xl">Building Power on the Job</Heading>
+          <Text as="p" size="lg" class="text-[var(--ksru-color-text-secondary)]">A practical guide to workplace organizing for tech workers.</Text>
+        </header>
+        <Prose>
+          <h2>Start With Conversations</h2>
+          <p>
+            The foundation of any organizing campaign is one-on-one conversations with your
+            coworkers. Ask about their concerns, listen carefully, and find common ground. You
+            don't need to convince everyone at once &mdash; start with the people you trust.
+          </p>
+          <h3>Mapping Your Workplace</h3>
+          <p>
+            Create a list of every worker in your unit. Track who you've talked to, where they
+            stand, and what issues matter most to them. This <strong>structure test</strong>
+            helps you understand your support and plan your next moves.
+          </p>
+          <ul>
+            <li>Identify natural leaders in each team or department</li>
+            <li>Note shared concerns that cross team boundaries</li>
+            <li>Build relationships before asking anyone to sign a card</li>
+          </ul>
+          <blockquote>
+            <p>Organizing is not a sprint. It's the slow, steady work of building trust and solidarity one conversation at a time.</p>
+          </blockquote>
+        </Prose>
+      </article>
+    </div>
+  </section>
+</div>

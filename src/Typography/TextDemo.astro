@@ -1,0 +1,86 @@
+---
+import Text from "./Text.astro";
+import "./demo.css";
+---
+
+<div class="grid gap-14 p-8">
+  <p class="demo-intro type-text-sm">
+    A wrapper around <code>Type</code> for body text. The <code>as</code> prop sets the
+    HTML element (p, span, blockquote, etc.), while <code>size</code> controls the visual size.
+    Defaults to <code>size="md"</code>. The <code>maxLineLength</code> prop caps line length
+    for readability (defaults to <code>true</code> = 65ch).
+  </p>
+
+  <section>
+    <h3 class="demo-section-label">All Sizes</h3>
+    <div class="grid">
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">size="lg"</code>
+        <Text as="p" size="lg">Kickstarter United made history as the first union at a major tech company, proving that workers in every industry deserve a voice.</Text>
+        <span class="demo-specs type-text-sm type-specs" data-variant="text-lg"></span>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">size="md" (default)</code>
+        <Text as="p" size="md">A union contract is a legally binding agreement between workers and management that covers wages, benefits, working conditions, and more. It gives every worker a say in their workplace.</Text>
+        <span class="demo-specs type-text-sm type-specs" data-variant="text-md"></span>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">size="sm"</code>
+        <Text as="p" size="sm">OPEIU Local 153 represents workers throughout New York, New Jersey, Pennsylvania, and Connecticut in fields from legal aid to higher education.</Text>
+        <span class="demo-specs type-text-sm type-specs" data-variant="text-sm"></span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Max Line Length</h3>
+    <div class="grid">
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">maxLineLength (default: true = 65ch)</code>
+        <Text as="p" size="md">This paragraph is capped at 65 characters per line. Long runs of body text are more comfortable to read when lines don't stretch across the full width of a wide viewport. The default keeps prose in a readable measure.</Text>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">maxLineLength={45}</code>
+        <Text as="p" size="md" maxLineLength={45}>A narrower measure works well for sidebars, pull quotes, and annotations where a shorter line aids scannability.</Text>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">maxLineLength={false}</code>
+        <Text as="p" size="md" maxLineLength={false}>With line length uncapped, this text will fill the entire available width. This is useful for UI labels, nav items, or contexts where the layout already constrains the width and an additional cap would fight the grid.</Text>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Various HTML Elements</h3>
+    <div class="grid">
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">&lt;p&gt;</code>
+        <Text as="p" size="md">Together we bargain, alone we beg.</Text>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">&lt;span&gt;</code>
+        <Text as="span" size="sm">Filed with the NLRB on March 5, 2020.</Text>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">&lt;blockquote&gt;</code>
+        <Text as="blockquote" size="lg" class="border-l-4 border-current pl-4 italic">An injury to one is an injury to all. We stand together in solidarity.</Text>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label type-text-sm">&lt;figcaption&gt;</code>
+        <Text as="figcaption" size="sm">KSRU members rally outside Kickstarter HQ, February 2020.</Text>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const root = getComputedStyle(document.documentElement);
+  document.querySelectorAll<HTMLElement>(".type-specs").forEach((el) => {
+    const v = el.dataset.variant!;
+    const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
+    const specimen = el.previousElementSibling as HTMLElement;
+    const weight = specimen ? getComputedStyle(specimen).fontWeight : "";
+    const family = v.startsWith("heading") ? "Jost" : "Libre Franklin";
+    el.textContent = [size, weight, family].filter(Boolean).join(" \u00b7 ");
+  });
+</script>
