@@ -1,7 +1,7 @@
 ---
-import type { Polymorphic } from "astro/types";
+import type { HTMLTag, Polymorphic } from "astro/types";
 
-type Props<Tag extends "h1" | "h2" | "h3" | "h4" | "h5" | "h6"> = Polymorphic<{ as: Tag }> & {
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
   size?: "xl" | "lg" | "md" | "sm";
   maxLineLength?: boolean | number;
 };
