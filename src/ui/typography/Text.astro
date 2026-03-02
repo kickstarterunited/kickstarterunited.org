@@ -1,10 +1,10 @@
 ---
-interface Props {
-  as: any;
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
   size?: "lg" | "md" | "sm";
   maxLineLength?: boolean | number;
-  [key: string]: any;
-}
+};
 
 const { as: Tag, size = "md", maxLineLength = true, class: cls, style: userStyle, ...attrs } = Astro.props;
 

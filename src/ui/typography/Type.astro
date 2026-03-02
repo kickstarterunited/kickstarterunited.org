@@ -1,6 +1,7 @@
 ---
-interface Props {
-  as?: any;
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag = "span"> = Polymorphic<{ as: Tag }> & {
   variant:
     | "heading-xl"
     | "heading-lg"
@@ -9,8 +10,7 @@ interface Props {
     | "text-lg"
     | "text-md"
     | "text-sm";
-  [key: string]: any;
-}
+};
 
 const { as: Tag = "span", variant, class: cls, ...attrs } = Astro.props;
 ---

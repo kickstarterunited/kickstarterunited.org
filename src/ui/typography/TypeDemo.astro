@@ -72,8 +72,8 @@ const bodySample = "When workers stand together, they have the power to win fair
   document.querySelectorAll<HTMLElement>(".demo-specs").forEach((el) => {
     const v = el.dataset.variant!;
     const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
-    const specimen = el.previousElementSibling as HTMLElement;
-    const weight = specimen ? getComputedStyle(specimen).fontWeight : "";
+    const specimen = el.previousElementSibling;
+    const weight = specimen instanceof HTMLElement ? getComputedStyle(specimen).fontWeight : "";
     const family = v.startsWith("heading") ? "Jost" : "Libre Franklin";
     el.textContent = [size, weight, family].filter(Boolean).join(" \u00b7 ");
   });
