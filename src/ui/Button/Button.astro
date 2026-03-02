@@ -1,12 +1,11 @@
 ---
 import "./button.css";
+import type { HTMLTag, Polymorphic } from "astro/types";
 
-interface Props {
-  as?: any;
+type Props<Tag extends HTMLTag = "button"> = Polymorphic<{ as: Tag }> & {
   variant?: "primary" | "accent" | "ghost" | "unstyled";
   size?: "sm" | "md";
-  [key: string]: any;
-}
+};
 
 const {
   as: Tag = "button",
