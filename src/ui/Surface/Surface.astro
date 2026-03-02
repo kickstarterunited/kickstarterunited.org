@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** Elevation level: 0 = flat, 1 = card, 2 = overlay */
+  elevation?: 0 | 1 | 2;
+}
+
+const { elevation = 0, class: className, ...props } = Astro.props;
+---
+
+<div {...props} class:list={["surface", className]} data-elevation={elevation}>
+  <slot />
+</div>

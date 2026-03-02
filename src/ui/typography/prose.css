@@ -1,0 +1,122 @@
+@layer components {
+  .prose {
+    & > * + * {
+      margin-block-start: 1.25em;
+    }
+
+    /* Heading spacing */
+
+    & * + :is(h1, h2, h3, h4, h5, h6) {
+      margin-block-start: 2em;
+    }
+
+    & :is(h1, h2, h3, h4, h5, h6) + * {
+      margin-block-start: 0.5em;
+    }
+
+    /* Lists */
+
+    & :is(ul, ol) {
+      padding-inline-start: 1.5em;
+    }
+
+    & li + li {
+      margin-block-start: 0.25em;
+    }
+
+    & li > :is(ul, ol) {
+      margin-block-start: 0.25em;
+    }
+
+    /* Blockquote decoration */
+
+    & blockquote {
+      font-style: italic;
+      border-inline-start: 3px solid currentColor;
+      padding-inline-start: 1em;
+    }
+
+    & blockquote > * + * {
+      margin-block-start: 0.75em;
+    }
+
+    /* Inline code */
+
+    & :not(pre) > code {
+      font-size: 0.875em;
+      background: color-mix(in oklch, var(--ksru-color-text) 8%, transparent);
+      padding: 0.15em 0.35em;
+      border-radius: 0.25em;
+    }
+
+    /* Code blocks */
+
+    & pre {
+      font-size: var(--ksru-text-text-sm);
+      line-height: 1.5;
+      background: color-mix(in oklch, var(--ksru-color-text) 5%, transparent);
+      padding: 1em 1.25em;
+      border-radius: 0.5em;
+      overflow-x: auto;
+    }
+
+    & pre code {
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      font-size: inherit;
+    }
+
+    /* Links */
+
+    & a {
+      color: currentColor;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
+    & a:hover {
+      text-decoration-thickness: 3px;
+    }
+
+    /* Images */
+
+    & img {
+      max-inline-size: 100%;
+      block-size: auto;
+      border-radius: 0.25em;
+    }
+
+    /* Horizontal rule */
+
+    & hr {
+      border: none;
+      block-size: 1px;
+      background: var(--ksru-color-border);
+      margin-block: 2em;
+    }
+
+    /* Tables */
+
+    & table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--ksru-text-text-sm);
+    }
+
+    & :is(th, td) {
+      padding: 0.5em 0.75em;
+      border-block-end: 1px solid var(--ksru-color-border);
+      text-align: start;
+    }
+
+    & th {
+      font-weight: 600;
+    }
+
+    & strong {
+      font-weight: 600;
+    }
+  }
+}

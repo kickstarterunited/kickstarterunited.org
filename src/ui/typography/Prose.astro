@@ -1,0 +1,19 @@
+---
+interface Props {
+  as?: any;
+  maxLineLength?: boolean | number;
+  [key: string]: any;
+}
+
+const { as: Tag = "div", maxLineLength = true, class: cls, style: userStyle, ...attrs } = Astro.props;
+
+const lineLengthValue =
+  maxLineLength === false ? "none" : maxLineLength === true ? "65ch" : `${maxLineLength}ch`;
+
+const styleStr = [
+  `--type-max-line-length:${lineLengthValue}`,
+  userStyle,
+].filter(Boolean).join(";");
+---
+
+<Tag class:list={["prose", cls]} style={styleStr} {...attrs}><slot /></Tag>

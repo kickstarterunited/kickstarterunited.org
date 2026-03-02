@@ -1,5 +1,5 @@
 import type { ComponentProps } from "astro/types";
-import type MenuItem from "../Menu/MenuItem.astro";
+import type MenuItem from "../../ui/Menu/MenuItem.astro";
 import { allBlogPosts } from "../../blog/getBlogPosts";
 
 export const nav: ComponentProps<typeof MenuItem>[] = [
