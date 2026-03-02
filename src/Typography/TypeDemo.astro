@@ -20,10 +20,10 @@ const bodySample = "When workers stand together, they have the power to win fair
 ---
 
 <div class="grid gap-14 p-8">
-  <p class="demo-intro type-text-sm">
+  <p class="demo-intro text-sm">
     The base typography component. Renders any HTML element via <code>as</code> and applies
     one of 7 type variants via <code>variant</code>. Variants are also available as
-    standalone <code>.type-*</code> CSS classes and Tailwind <code>text-*</code> utilities.
+    standalone CSS classes and Tailwind <code>text-*</code> utilities.
   </p>
 
   <section>
@@ -31,9 +31,9 @@ const bodySample = "When workers stand together, they have the power to win fair
     <div class="grid">
       {headingVariants.map((variant) => (
         <div class="demo-specimen">
-          <code class="demo-label type-text-sm">{variant}</code>
+          <code class="demo-label text-sm">{variant}</code>
           <Type as="div" variant={variant}>{sample}</Type>
-          <span class="demo-specs type-text-sm type-specs" data-variant={variant}></span>
+          <span class="demo-specs text-sm" data-variant={variant}></span>
         </div>
       ))}
     </div>
@@ -44,9 +44,9 @@ const bodySample = "When workers stand together, they have the power to win fair
     <div class="grid">
       {textVariants.map((variant) => (
         <div class="demo-specimen">
-          <code class="demo-label type-text-sm">{variant}</code>
+          <code class="demo-label text-sm">{variant}</code>
           <Type as="p" variant={variant}>{bodySample}</Type>
-          <span class="demo-specs type-text-sm type-specs" data-variant={variant}></span>
+          <span class="demo-specs text-sm" data-variant={variant}></span>
         </div>
       ))}
     </div>
@@ -56,12 +56,12 @@ const bodySample = "When workers stand together, they have the power to win fair
     <h3 class="demo-section-label">CSS Classes (no component)</h3>
     <div class="grid">
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">.type-heading-md</code>
-        <p class="type-heading-md">Our union, our voice</p>
+        <code class="demo-label text-sm">.heading-md</code>
+        <p class="heading-md">Our union, our voice</p>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">.type-text-lg</code>
-        <p class="type-text-lg">Every worker deserves a seat at the table.</p>
+        <code class="demo-label text-sm">.text-lg</code>
+        <p class="text-lg">Every worker deserves a seat at the table.</p>
       </div>
     </div>
   </section>
@@ -69,7 +69,7 @@ const bodySample = "When workers stand together, they have the power to win fair
 
 <script>
   const root = getComputedStyle(document.documentElement);
-  document.querySelectorAll<HTMLElement>(".type-specs").forEach((el) => {
+  document.querySelectorAll<HTMLElement>(".demo-specs").forEach((el) => {
     const v = el.dataset.variant!;
     const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
     const specimen = el.previousElementSibling as HTMLElement;

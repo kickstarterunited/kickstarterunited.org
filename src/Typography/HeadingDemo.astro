@@ -4,53 +4,53 @@ import "./demo.css";
 ---
 
 <div class="grid gap-14 p-8">
-  <p class="demo-intro type-text-sm">
-    A wrapper around <code>Type</code> for heading elements. The <code>as</code> prop sets
-    the semantic HTML level (h1-h6), while <code>size</code> controls the visual size independently.
-    Defaults to <code>size="lg"</code>. The <code>maxLineLength</code> prop caps line
-    length (defaults to 25ch).
+  <p class="demo-intro text-sm">
+    A component for heading elements. The <code>as</code> prop sets the semantic HTML level
+    (h1-h6), while <code>size</code> controls the visual size independently. Defaults to
+    <code>size="lg"</code>. The <code>maxLineLength</code> prop caps line length (defaults
+    to 25ch).
   </p>
 
   <section>
     <h3 class="demo-section-label">All Sizes</h3>
     <div class="grid">
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">size="xl"</code>
+        <code class="demo-label text-sm">size="xl"</code>
         <Heading as="h1" size="xl">Workers of the World, Unite</Heading>
-        <span class="demo-specs type-text-sm type-specs" data-variant="heading-xl"></span>
+        <span class="demo-specs text-sm" data-variant="heading-xl"></span>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">size="lg" (default)</code>
+        <code class="demo-label text-sm">size="lg" (default)</code>
         <Heading as="h2" size="lg">Solidarity Forever</Heading>
-        <span class="demo-specs type-text-sm type-specs" data-variant="heading-lg"></span>
+        <span class="demo-specs text-sm" data-variant="heading-lg"></span>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">size="md"</code>
+        <code class="demo-label text-sm">size="md"</code>
         <Heading as="h3" size="md">Collective Bargaining</Heading>
-        <span class="demo-specs type-text-sm type-specs" data-variant="heading-md"></span>
+        <span class="demo-specs text-sm" data-variant="heading-md"></span>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">size="sm"</code>
+        <code class="demo-label text-sm">size="sm"</code>
         <Heading as="h4" size="sm">Know Your Rights</Heading>
-        <span class="demo-specs type-text-sm type-specs" data-variant="heading-sm"></span>
+        <span class="demo-specs text-sm" data-variant="heading-sm"></span>
       </div>
     </div>
   </section>
 
   <section>
     <h3 class="demo-section-label">Semantic Level Independence</h3>
-    <p class="demo-section-desc type-text-sm">Three different HTML elements, same visual size</p>
+    <p class="demo-section-desc text-sm">Three different HTML elements, same visual size</p>
     <div class="grid">
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">&lt;h1&gt;</code>
+        <code class="demo-label text-sm">&lt;h1&gt;</code>
         <Heading as="h1" size="md">Our union, our power</Heading>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">&lt;h2&gt;</code>
+        <code class="demo-label text-sm">&lt;h2&gt;</code>
         <Heading as="h2" size="md">Our union, our power</Heading>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">&lt;h3&gt;</code>
+        <code class="demo-label text-sm">&lt;h3&gt;</code>
         <Heading as="h3" size="md">Our union, our power</Heading>
       </div>
     </div>
@@ -60,11 +60,11 @@ import "./demo.css";
     <h3 class="demo-section-label">With Tailwind Classes</h3>
     <div class="grid">
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">class="text-red-500"</code>
+        <code class="demo-label text-sm">class="text-red-500"</code>
         <Heading as="h2" size="lg" class="text-red-500">Strike action approved</Heading>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">class="uppercase"</code>
+        <code class="demo-label text-sm">class="uppercase"</code>
         <Heading as="h2" size="lg" class="uppercase">Union strong</Heading>
       </div>
     </div>
@@ -73,7 +73,7 @@ import "./demo.css";
 
 <script>
   const root = getComputedStyle(document.documentElement);
-  document.querySelectorAll<HTMLElement>(".type-specs").forEach((el) => {
+  document.querySelectorAll<HTMLElement>(".demo-specs").forEach((el) => {
     const v = el.dataset.variant!;
     const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
     const specimen = el.previousElementSibling as HTMLElement;

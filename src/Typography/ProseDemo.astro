@@ -4,7 +4,7 @@ import "./demo.css";
 ---
 
 <div class="grid gap-14 p-8">
-  <p class="demo-intro type-text-sm">
+  <p class="demo-intro text-sm">
     Wraps rendered markdown or rich HTML content and applies the type scale to child
     elements. Use around <code>&lt;Content /&gt;</code> from Astro content collections
     or any block of semantic HTML. Also available as a standalone <code>.prose</code> class.
@@ -122,7 +122,7 @@ import "./demo.css";
     <h3 class="demo-section-label">Max Line Length</h3>
     <div class="grid gap-8">
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">maxLineLength (default: true = 65ch)</code>
+        <code class="demo-label text-sm">maxLineLength (default: true = 65ch)</code>
         <Prose>
           <p>
             This prose block is capped at 65 characters per line. Long-form content is easier
@@ -132,7 +132,7 @@ import "./demo.css";
         </Prose>
       </div>
       <div class="demo-specimen">
-        <code class="demo-label type-text-sm">maxLineLength={false}</code>
+        <code class="demo-label text-sm">maxLineLength={false}</code>
         <Prose maxLineLength={false}>
           <p>
             With line length uncapped, prose fills the entire available width. This is useful
