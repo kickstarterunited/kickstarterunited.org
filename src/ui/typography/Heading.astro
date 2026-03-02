@@ -1,0 +1,21 @@
+---
+import type { Polymorphic } from "astro/types";
+
+type HeadingTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+type Props<Tag extends HeadingTag> = Polymorphic<{ as: Tag }> & {
+  size?: "xl" | "lg" | "md" | "sm";
+  maxLineLength?: boolean | number;
+};
+
+const { as: Tag, size = "lg", maxLineLength = true, class: cls, style: userStyle, ...attrs } = Astro.props;
+
+const lineLengthValue =
+  maxLineLength === false ? "none" : maxLineLength === true ? "25ch" : `${maxLineLength}ch`;
+
+const styleStr = [
+  `--type-max-line-length:${lineLengthValue}`,
+  userStyle,
+].filter(Boolean).join(";");
+---
+
+<Tag class:list={[`heading-${size}`, cls]} style={styleStr} {...attrs}><slot /></Tag>

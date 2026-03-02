@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Button from "../../ui/Button/Button.astro";
 interface Props {
   image: ImageMetadata;
   locationId: string;
@@ -20,9 +21,9 @@ const imageId = `${locationId}-rally-flyer`;
       <div>
         <Image src={image} alt={alt} />
         <div class="rally__cta-group">
-          <button command="show-modal" commandfor={imageId} type="button">
+          <Button variant="ghost" command="show-modal" commandfor={imageId}>
             Details
-          </button>
+          </Button>
           <a class="btn" href={image.src} download={imageId} type="image/png">
             Download
           </a>

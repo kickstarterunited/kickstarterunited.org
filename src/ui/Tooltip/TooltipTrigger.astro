@@ -1,4 +1,8 @@
 ---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag = "button"> = Polymorphic<{ as: Tag }>;
+
 const { as: Tag = "button", ...attrs } = Astro.props;
 const resolvedAttrs = Tag === "button" && attrs.type === undefined ? { type: "button" as const, ...attrs } : attrs;
 ---

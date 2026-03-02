@@ -1,0 +1,80 @@
+---
+import Type from "./Type.astro";
+import "./demo.css";
+
+const headingVariants = [
+  "heading-xl" as const,
+  "heading-lg" as const,
+  "heading-md" as const,
+  "heading-sm" as const,
+];
+
+const textVariants = [
+  "text-lg" as const,
+  "text-md" as const,
+  "text-sm" as const,
+];
+
+const sample = "Solidarity forever, for the union makes us strong";
+const bodySample = "When workers stand together, they have the power to win fair wages, safe workplaces, and a real voice on the job. Collective bargaining is the foundation of workplace democracy.";
+---
+
+<div class="grid gap-14 p-8">
+  <p class="demo-intro text-sm">
+    The base typography component. Renders any HTML element via <code>as</code> and applies
+    one of 7 type variants via <code>variant</code>. Variants are also available as
+    standalone CSS classes and Tailwind <code>text-*</code> utilities.
+  </p>
+
+  <section>
+    <h3 class="demo-section-label">Heading Variants</h3>
+    <div class="grid">
+      {headingVariants.map((variant) => (
+        <div class="demo-specimen">
+          <code class="demo-label text-sm">{variant}</code>
+          <Type as="div" variant={variant}>{sample}</Type>
+          <span class="demo-specs text-sm" data-variant={variant}></span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">Text Variants</h3>
+    <div class="grid">
+      {textVariants.map((variant) => (
+        <div class="demo-specimen">
+          <code class="demo-label text-sm">{variant}</code>
+          <Type as="p" variant={variant}>{bodySample}</Type>
+          <span class="demo-specs text-sm" data-variant={variant}></span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h3 class="demo-section-label">CSS Classes (no component)</h3>
+    <div class="grid">
+      <div class="demo-specimen">
+        <code class="demo-label text-sm">.heading-md</code>
+        <p class="heading-md">Our union, our voice</p>
+      </div>
+      <div class="demo-specimen">
+        <code class="demo-label text-sm">.text-lg</code>
+        <p class="text-lg">Every worker deserves a seat at the table.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  const root = getComputedStyle(document.documentElement);
+  document.querySelectorAll<HTMLElement>(".demo-specs").forEach((el) => {
+    const v = el.dataset.variant!;
+    const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
+    const specimen = el.previousElementSibling;
+    const weight = specimen instanceof HTMLElement ? getComputedStyle(specimen).fontWeight : "";
+    const family = v.startsWith("heading") ? "Jost" : "Libre Franklin";
+    el.textContent = [size, weight, family].filter(Boolean).join(" \u00b7 ");
+  });
+</script>

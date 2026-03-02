@@ -1,0 +1,13 @@
+/* Design system entry point */
+
+/* Tokens */
+@import "./tokens/colors.css";
+@import "./tokens/palettes.css";
+@import "./tokens/type.css";
+
+/* Components (globally loaded) */
+@import "./Button/button.css";
+@import "./Surface/surface.css";
+@import "./Dialog/dialog.css";
+@import "./Menu/menu.css";
+@import "./typography/prose.css";

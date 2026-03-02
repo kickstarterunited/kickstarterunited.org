@@ -1,0 +1,18 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag = "span"> = Polymorphic<{ as: Tag }> & {
+  variant:
+    | "heading-xl"
+    | "heading-lg"
+    | "heading-md"
+    | "heading-sm"
+    | "text-lg"
+    | "text-md"
+    | "text-sm";
+};
+
+const { as: Tag = "span", variant, class: cls, ...attrs } = Astro.props;
+---
+
+<Tag class:list={[variant, cls]} {...attrs}><slot /></Tag>

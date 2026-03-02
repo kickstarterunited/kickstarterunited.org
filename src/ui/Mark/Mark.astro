@@ -1,10 +1,10 @@
 ---
 import "./mark.css";
+import type { HTMLAttributes } from "astro/types";
 
-interface Props {
+interface Props extends HTMLAttributes<"mark"> {
   variant?: "amber" | "emerald" | "cyan" | "brown" | "neutral" | "red";
   color?: string;
-  [key: string]: any;
 }
 
 const { variant, color, class: cls, ...attrs } = Astro.props;

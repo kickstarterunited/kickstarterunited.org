@@ -1,0 +1,101 @@
+/* MARK: Typography design tokens */
+@layer base {
+  :root {
+    --ksru-text-heading-xl: clamp(1.75rem, 4vw, 2.5rem);
+    --ksru-text-heading-lg: clamp(1.375rem, 2.5vw, 1.75rem);
+    --ksru-text-heading-md: 1.25rem;
+    --ksru-text-heading-sm: 1.125rem;
+    --ksru-text-text-lg: 1.125rem;
+    --ksru-text-text-md: 1rem;
+    --ksru-text-text-sm: 0.875rem;
+  }
+}
+
+/* MARK: Tailwind integration */
+@theme {
+  --font-heading: var(--ksru-font-family-heading);
+  --font-body: var(--ksru-font-family-body);
+
+  /* Disable Tailwind's built-in text-sm/text-lg to avoid
+     colliding with our component classes of the same name. */
+  --text-sm: initial;
+  --text-lg: initial;
+}
+
+/* MARK: Heading classes */
+@layer components {
+  .heading-xl,
+  .prose h1 {
+    font-family: var(--ksru-font-family-heading);
+    font-size: var(--ksru-text-heading-xl);
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    text-wrap: pretty;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+
+  .heading-lg,
+  .prose h2 {
+    font-family: var(--ksru-font-family-heading);
+    font-size: var(--ksru-text-heading-lg);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    text-wrap: pretty;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+
+  .heading-md,
+  .prose h3 {
+    font-family: var(--ksru-font-family-heading);
+    font-size: var(--ksru-text-heading-md);
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    text-wrap: pretty;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+
+  .heading-sm,
+  .prose :is(h4, h5, h6) {
+    font-family: var(--ksru-font-family-heading);
+    font-size: var(--ksru-text-heading-sm);
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+    font-weight: 600;
+    text-wrap: pretty;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+}
+
+/* MARK: Text classes */
+@layer components {
+  .text-lg,
+  .prose blockquote {
+    font-family: var(--ksru-font-family-body);
+    font-size: var(--ksru-text-text-lg);
+    line-height: 1.6;
+    font-weight: 400;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+
+  .text-md,
+  .prose {
+    font-family: var(--ksru-font-family-body);
+    font-size: var(--ksru-text-text-md);
+    line-height: 1.6;
+    font-weight: 400;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+
+  .text-sm,
+  .prose small {
+    font-family: var(--ksru-font-family-body);
+    font-size: var(--ksru-text-text-sm);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    max-inline-size: var(--type-max-line-length, none);
+  }
+}

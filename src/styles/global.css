@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
-@import "./base/colors.css";
-@import "./base/palettes.css";
+@import "../ui/index.css";
 @import "./base/legacy.css";
 
 ol {
@@ -11,7 +10,6 @@ ol {
 /* TODO: extract the rest of ksru-web.webflow.css to component files */
 @layer components {
   @import "./ksru-web.webflow.css";
-  @import "../components/Button/button.css";
   @import "./components/page.css";
   @import "./components/page-grid.css";
   @import "./components/retro-ribbon.css";
