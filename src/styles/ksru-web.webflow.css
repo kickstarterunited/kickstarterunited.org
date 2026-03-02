@@ -234,21 +234,21 @@
 
 
 @layer components {
-  /* MARK: .surface */
+  /* MARK: .card-surface */
   @property --surface-border-angle {
     syntax: "<angle>";
     initial-value: 0deg;
     inherits: false;
   }
 
-  .surface {
+  .card-surface {
     border-radius: 16px;
     padding: 1.5rem;
     position: relative;
     background: var(--ksru-color-bg);
   }
 
-  .surface::before {
+  .card-surface::before {
     --_clr-1: var(--surface-border-color, var(--ksru-color-accent));
     --_clr-2: color-mix(
       in oklch,
@@ -276,17 +276,17 @@
     );
   }
 
-  .surface.breaking::before {
+  .card-surface.breaking::before {
     rotate: 2deg;
   }
 
   @media (width > 600px) {
-    .surface.breaking::before {
+    .card-surface.breaking::before {
       inset: calc(var(--_inset) * 6);
     }
   }
 
-  .surface.breaking {
+  .card-surface.breaking {
     --_border-color: color-mix(
       in oklch,
       var(--ksru-color-accent-light),
@@ -316,12 +316,9 @@
       color-mix(in oklch, var(--ksru-color-accent), transparent 50%);
   }
 
-  * + .surface {
-    margin-top: 2rem;
-  }
 
   @supports (corner-shape: squircle) {
-    .surface {
+    .card-surface {
       corner-shape: squircle;
       border-radius: 64px;
     }

@@ -1,8 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-import "./dialog.css";
-
 interface Props extends HTMLAttributes<"dialog"> {
   /** Unique ID for the dialog */
   id: string;
@@ -16,3 +14,42 @@ const { class: className, ...props } = Astro.props;
 
   <slot />
 </dialog>
+
+<style is:global>
+  @layer components {
+    .dialog {
+      /* gotta manually override dialog user styles */
+      width: auto;
+      height: auto;
+      max-height: none;
+      overflow: auto;
+
+      background: var(--ksru-color-surface);
+      color: var(--ksru-color-text);
+
+      flex-direction: column;
+      align-items: stretch;
+      box-shadow: 0 8px 24px var(--ksru-color-shadow);
+    }
+
+    .dialog--drawer {
+      /* Attach to the right of the viewport */
+      inset-block: 0;
+      inset-inline: auto 0;
+    }
+
+    .dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3.5px);
+    }
+
+    dialog.dialog[open] {
+      display: flex;
+    }
+
+    .dialog [command="close"] {
+      align-self: flex-end;
+      text-decoration: none;
+    }
+  }
+</style>

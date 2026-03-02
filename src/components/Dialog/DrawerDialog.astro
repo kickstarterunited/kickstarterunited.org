@@ -5,6 +5,6 @@ import Dialog from "./Dialog.astro";
 type Props = ComponentProps<typeof Dialog>;
 ---
 
-<Dialog {...Astro.props} class:list="dialog--drawer">
+<Dialog data-theme="light" {...Astro.props} class:list="dialog--drawer">
   <slot />
 </Dialog>

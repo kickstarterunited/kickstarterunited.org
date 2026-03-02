@@ -1,0 +1,93 @@
+---
+import Menu from "./Menu.astro";
+import Surface from "../Surface/Surface.astro";
+---
+
+<div class="grid gap-12 p-8">
+  <section>
+    <h3 class="mt-0">Popover Menu</h3>
+    <p class="text-sm">Click a button to open its dropdown menu.</p>
+    <div class="flex flex-wrap items-start gap-4">
+      <Menu
+        id="demo-about"
+        label="About"
+        items={[
+          { label: "About Us", href: "#" },
+          { label: "Oral History", href: "#" },
+          { label: "Contact Us", href: "#" },
+        ]}
+      />
+      <Menu
+        id="demo-resources"
+        label="Resources"
+        items={[
+          { label: "FAQ", href: "#" },
+          { label: "Logo Generator", href: "#" },
+          { label: "Press", href: "#" },
+          { label: "Socials", href: "#" },
+        ]}
+      />
+      <Menu
+        id="demo-contracts"
+        label="Contracts"
+        title="Contracts & Agreements"
+        items={[
+          { label: "2025 Contract", href: "#" },
+          { label: "2022 Contract", href: "#" },
+          { label: "May Day Severance", href: "#" },
+        ]}
+      />
+    </div>
+  </section>
+
+  <section>
+    <h3 class="mt-0">Flat Menu (mobile/drawer mode)</h3>
+    <p class="text-sm">Renders items inline with section titles, as used inside the drawer.</p>
+    <Surface elevation={0} class="demo-flat-menu" data-theme="light">
+      <Menu
+        id="demo-flat-about"
+        label="About"
+        isFlat
+        items={[
+          { label: "About Us", href: "#" },
+          { label: "Oral History", href: "#" },
+          { label: "Contact Us", href: "#" },
+        ]}
+      />
+      <Menu
+        id="demo-flat-resources"
+        label="Resources"
+        isFlat
+        items={[
+          { label: "FAQ", href: "#" },
+          { label: "Logo Generator", href: "#" },
+          { label: "Press", href: "#" },
+        ]}
+      />
+    </Surface>
+  </section>
+
+  <section>
+    <h3 class="mt-0">On Dark Background</h3>
+    <p class="text-sm">Menu popover stays light-themed even when triggered from a dark context.</p>
+    <Surface elevation={1} data-theme="dark">
+      <Menu
+        id="demo-dark-ctx"
+        label="Open Menu"
+        items={[
+          { label: "Item One", href: "#" },
+          { label: "Item Two", href: "#" },
+          { label: "Item Three", href: "#" },
+        ]}
+      />
+    </Surface>
+  </section>
+</div>
+
+<style>
+  .demo-flat-menu {
+    display: grid;
+    padding: 0.5rem 0;
+    max-width: 280px;
+  }
+</style>

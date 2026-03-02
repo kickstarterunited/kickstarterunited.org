@@ -2,8 +2,6 @@
 import MenuItem, { type MenuButtonProps } from "./MenuItem.astro";
 import Button from "../Button/Button.astro";
 
-import "./menu.css";
-
 type Props = MenuButtonProps;
 
 const { id, isFlat, label, items, title, ...divProps } = Astro.props;
@@ -33,6 +31,7 @@ const { id, isFlat, label, items, title, ...divProps } = Astro.props;
         class="menu"
         style={`position-anchor: --${id}-trigger`}
         popover
+        data-theme="light"
         aria-labelledby={`${id}-trigger`}
       >
         {items.map((item) => (
@@ -46,3 +45,68 @@ const { id, isFlat, label, items, title, ...divProps } = Astro.props;
     </div>
   )
 }
+
+<style is:global>
+  @layer components {
+    .menu {
+      flex-direction: column;
+      corner-shape: squircle;
+    }
+
+    .menu:popover-open,
+    dialog.menu[open] {
+      display: flex;
+    }
+
+    .menu:popover-open {
+      /* gotta undo the Popover user styles and apply anchor positioning */
+      inset: auto;
+      overflow: auto;
+      position-area: end span-end;
+      position-try-fallbacks: flip-inline;
+
+      background: var(--ksru-color-surface);
+      color: var(--ksru-color-text);
+      border: 1px solid var(--ksru-color-border);
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px var(--ksru-color-shadow), 0 4px 6px -4px var(--ksru-color-shadow);
+      corner-shape: squircle;
+    }
+
+    .menu > * {
+      padding: 0.5rem 1rem;
+    }
+
+    .menu__item,
+    .menu__title {
+      padding: 0.5rem 1rem;
+    }
+
+    .menu__title {
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      color: var(--ksru-color-accent);
+      text-transform: uppercase;
+      border-bottom: 1px solid currentColor;
+      padding-top: 1rem;
+    }
+
+    .menu__item {
+      text-decoration: none;
+      min-width: 44px;
+      min-height: 44px;
+      align-content: center;
+      outline-offset: -4px;
+    }
+
+    .menu__item:hover,
+    .menu__item:focus:focus-visible {
+      background-color: var(--ksru-color-surface-hover);
+    }
+
+    .menu__item:active {
+      background-color: var(--ksru-color-surface-active);
+    }
+  }
+</style>
