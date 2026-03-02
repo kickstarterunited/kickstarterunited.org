@@ -2,6 +2,7 @@
 import "./nav.css";
 import { nav } from "./nav";
 
+import Button from "../Button/Button.astro";
 import MenuIcon from "../../images/icons/MenuIcon.svg";
 import DrawerMenu from "../Menu/DrawerMenu.astro";
 import Menu from "../Menu/Menu.astro";
@@ -15,14 +16,15 @@ import Menu from "../Menu/Menu.astro";
   <a class="btn link sr-only" href="#content">Skip to main content</a>
 
   {/* Render the mobile menu. */}
-  <button
+  <Button
+    variant="ghost"
     id="menu-trigger"
     class="flex gap-1 items-center sm:hidden"
     command="show-modal"
     commandfor="mobile-nav"
   >
     <MenuIcon /> Menu
-  </button>
+  </Button>
   <DrawerMenu
     id="mobile-nav"
     aria-labelledby="menu-trigger"
@@ -35,9 +37,9 @@ import Menu from "../Menu/Menu.astro";
     {
       nav.map(({ label, ...props }) =>
         "href" in props ? (
-          <a {...props} class:list={[props.class, "btn"]}>
+          <Button as="a" variant="ghost" {...props}>
             {label}
-          </a>
+          </Button>
         ) : (
           <Menu {...props} label={label} />
         )

@@ -40,30 +40,3 @@ const { showLabels } = Astro.props;
     <Icon name="tabler:brand-tiktok" size={24} />
   </SocialLink>
 </ul>
-
-{/* Shared tooltip for icon-only social links.
-    Positioned via CSS anchor positioning (follow-the-leader pattern).
-    Whichever button is :hovered claims anchor-name: --social-hovered,
-    and the tooltip slides to it via transition. */}
-{!showLabels && (
-  <div id="social-tooltip" class="social-link__tooltip" role="tooltip" aria-hidden="true"></div>
-  <div class="social-link__arrow"></div>
-)}
-
-<script>
-  const tooltip = document.getElementById("social-tooltip");
-  if (tooltip) {
-    let lastHovered: HTMLElement | null = null;
-    document.querySelectorAll<HTMLElement>("[data-tooltip]").forEach((btn) => {
-      const update = () => {
-        tooltip.textContent = btn.dataset.tooltip ?? "";
-        tooltip.removeAttribute("aria-hidden");
-        lastHovered?.removeAttribute("data-last-hovered");
-        btn.setAttribute("data-last-hovered", "");
-        lastHovered = btn;
-      };
-      btn.addEventListener("mouseover", update);
-      btn.addEventListener("focusin", update);
-    });
-  }
-</script>

@@ -66,8 +66,7 @@
       hr,
       embed,
       figure,
-      figcaption,
-      button
+      figcaption
     ) {
     margin-top: 0.75rem;
   }
@@ -233,56 +232,6 @@
   }
 }
 
-@layer components {
-  button,
-  .btn {
-    display: inline-block;
-    font: inherit;
-    font-weight: 500;
-    box-sizing: border-box;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px 20px;
-    align-content: center;
-    border-radius: 16px;
-    corner-shape: squircle;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-  }
-
-  * + :is(button, .btn) {
-    margin-top: 1rem;
-  }
-
-  .btn-primary {
-    background: #222222;
-  }
-
-  .btn-primary:hover {
-    background: #555555;
-  }
-
-  .btn-success {
-    background: var(--ksru-color-accent-light);
-    color: var(--ksru-text-accent);
-  }
-
-  .btn-success:hover {
-    background: color-mix(in oklch, var(--ksru-color-accent-light), white 20%);
-    color: var(--ksru-text-accent);
-  }
-
-  .btn-info {
-    background: var(--color-teal-600);
-    color: var(--ksru-text-accent);
-  }
-
-  .btn-info:hover {
-    background: var(--color-teal-500);
-    color: var(--ksru-text-accent);
-  }
-}
 
 @layer components {
   /* MARK: .surface */
@@ -596,37 +545,6 @@
   .deck-card:nth-of-type(5) {
     --r: calc(-1 * var(--scalar) * -2deg);
     z-index: -4;
-  }
-}
-
-@layer components {
-  /* MARK: .highlight */
-  .highlight {
-    --_color: var(--highlight-color, var(--ksru-color-accent-rich));
-    --_lighter-pressure: color-mix(in oklch, var(--_color), transparent 40%);
-    --_tail: color-mix(in oklch, var(--_lighter-pressure), transparent 60%);
-    padding: 0 0.2em;
-
-    @supports (corner-shape: squircle) {
-      corner-shape: squircle bevel;
-      border-radius: 50% / 0.2lh 0.4lh 0rem 0.25lh;
-    }
-
-    background-color: transparent;
-    background-image: linear-gradient(
-      to right,
-      var(--_color),
-      var(--_lighter-pressure),
-      calc(100% - 2ch),
-      var(--_tail)
-    );
-
-    /* Prevents background-break when wrapping */
-    box-decoration-break: clone;
-    font-weight: bold;
-
-    position: relative;
-    isolation: isolate;
   }
 }
 

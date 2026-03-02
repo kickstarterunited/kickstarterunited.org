@@ -1,0 +1,248 @@
+---
+interface Props {
+	view?: 'tokens' | 'shades';
+}
+const { view = 'tokens' } = Astro.props;
+
+const groups = [
+	{
+		name: 'Text',
+		colors: [
+			{ token: '--ksru-color-text', label: 'Text', description: 'Primary text' },
+			{ token: '--ksru-color-text-secondary', label: 'Text Secondary', description: 'De-emphasized text' },
+			{ token: '--ksru-color-text-inverse', label: 'Text Inverse', description: 'Text on inverted surfaces' },
+		],
+	},
+	{
+		name: 'Surface',
+		colors: [
+			{ token: '--ksru-color-surface', label: 'Surface', description: 'Primary background' },
+			{ token: '--ksru-color-surface-secondary', label: 'Surface Secondary', description: 'Cards, sidebars' },
+			{ token: '--ksru-color-surface-inverse', label: 'Surface Inverse', description: 'Inverted background' },
+		],
+	},
+	{
+		name: 'Border',
+		colors: [
+			{ token: '--ksru-color-border', label: 'Border', description: 'Default borders' },
+			{ token: '--ksru-color-border-hover', label: 'Border Hover', description: 'Hovered borders' },
+			{ token: '--ksru-color-border-active', label: 'Border Active', description: 'Active/focused borders' },
+		],
+	},
+	{
+		name: 'Other',
+		colors: [
+			{ token: '--ksru-color-icon', label: 'Icon', description: 'Icon fill color' },
+		],
+	},
+];
+
+const shades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950'];
+
+const families = [
+	{ name: 'Neutral', prefix: '--ksru-neutral', brand: '950' },
+	{ name: 'Emerald', prefix: '--ksru-emerald', brand: '500' },
+	{ name: 'Cyan', prefix: '--ksru-cyan', brand: '800' },
+	{ name: 'Amber', prefix: '--ksru-amber', brand: '300' },
+	{ name: 'Brown', prefix: '--ksru-brown', brand: '500' },
+	{ name: 'Red', prefix: '--ksru-red', brand: '500' },
+];
+---
+
+{view === 'tokens' && (
+	<div class="palette">
+		<p class="view-description">Semantic tokens that adapt to light and dark mode automatically. Prefer these for all UI elements.</p>
+		{groups.map(({ name, colors }) => (
+			<section class="group">
+				<h3 class="group-heading">{name}</h3>
+				<div class="swatches">
+					{colors.map(({ token, label, description }) => (
+						<div class="swatch-card">
+							<div class="swatch" style={`background: var(${token})`} />
+							<div class="swatch-info">
+								<strong>{label}</strong>
+								<code>{token}</code>
+								<span class="description">{description}</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
+		))}
+	</div>
+)}
+
+{view === 'shades' && (
+	<div class="shade-palette">
+		<p class="view-description">Raw palette shades are static and do not adapt to light and dark modes. Use sparingly for decorative styles. For mode-safe usage, wrap in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark" target="_blank" rel="noopener noreferrer"><code>light-dark()</code></a> combinations.</p>
+		{families.map(({ name, prefix, brand }) => (
+			<section class="shade-family">
+				<h3 class="group-heading">{name}</h3>
+				<div class="shade-ramp">
+					{shades.map((shade) => (
+						<div class="shade-stop">
+							<div
+								class="shade-cell"
+								style={`background: var(${prefix}-${shade})`}
+							/>
+							<span class:list={['shade-label', { 'shade-brand': shade === brand }]}>
+								{shade}
+							</span>
+						</div>
+					))}
+				</div>
+			</section>
+		))}
+	</div>
+)}
+
+<style>
+	/* ── Token view ── */
+	.palette {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		width: 100%;
+		max-width: 800px;
+		font-family: system-ui, sans-serif;
+	}
+
+	.view-description {
+		font-size: 0.875rem;
+		color: var(--ksru-color-text-secondary);
+		margin: 0 0 1rem;
+	}
+
+	.view-description code {
+		font-size: 0.8125rem;
+		background: color-mix(in oklch, currentColor, transparent 90%);
+		padding: 0.1em 0.4em;
+		border-radius: 4px;
+	}
+
+	.group-heading {
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--ksru-color-text-secondary);
+		margin-bottom: 0.75rem;
+	}
+
+	.swatches {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.swatch-card {
+		border: 1px solid var(--ksru-color-border);
+		border-radius: 8px;
+		overflow: hidden;
+		background: var(--ksru-color-surface);
+	}
+
+	@supports (corner-shape: squircle) {
+		.swatch-card,
+		.swatch-info {
+			corner-shape: squircle;
+			border-radius: 32px;
+		}
+	}
+
+	.swatch {
+		box-sizing: content-box;
+		height: 80px;
+		padding-bottom: 32px;
+		margin-bottom: -32px;
+	}
+
+	.swatch-info {
+		border-top: 1px solid var(--ksru-color-border);
+		background: inherit;
+		padding: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.swatch-info strong {
+		font-size: 0.875rem;
+		color: var(--ksru-color-text);
+	}
+
+	.swatch-info code {
+		font-size: 0.7rem;
+		color: var(--ksru-color-text-secondary);
+		word-break: break-all;
+	}
+
+	.description {
+		font-size: 0.75rem;
+		color: var(--ksru-color-text-secondary);
+	}
+
+	/* ── Shade view ── */
+	.shade-palette {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		width: 100%;
+		max-width: 800px;
+		font-family: system-ui, sans-serif;
+	}
+
+	.shade-ramp {
+		display: flex;
+		gap: 0;
+	}
+
+	.shade-stop {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.375rem;
+	}
+
+	.shade-cell {
+		width: 100%;
+		height: 64px;
+		border: 1px solid var(--ksru-color-border);
+	}
+
+	.shade-stop:first-child .shade-cell {
+		border-radius: 6px 0 0 6px;
+	}
+
+	.shade-stop:last-child .shade-cell {
+		border-radius: 0 6px 6px 0;
+	}
+
+	@supports (corner-shape: squircle) {
+		.shade-stop:first-child .shade-cell {
+			corner-shape: squircle;
+			border-radius: 32px 0 0 32px;
+		}
+
+		.shade-stop:last-child .shade-cell {
+			corner-shape: squircle;
+			border-radius: 0 32px 32px 0;
+		}
+	}
+
+	.shade-stop:not(:first-child) .shade-cell {
+		border-left: none;
+	}
+
+	.shade-label {
+		font-size: 0.625rem;
+		font-variant-numeric: tabular-nums;
+		color: var(--ksru-color-text-secondary);
+	}
+
+	.shade-brand {
+		font-weight: 700;
+		color: var(--ksru-color-text);
+	}
+</style>

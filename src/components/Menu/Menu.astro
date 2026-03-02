@@ -1,5 +1,6 @@
 ---
 import MenuItem, { type MenuButtonProps } from "./MenuItem.astro";
+import Button from "../Button/Button.astro";
 
 import "./menu.css";
 
@@ -19,13 +20,14 @@ const { id, isFlat, label, items, title, ...divProps } = Astro.props;
     </>
   ) : (
     <div {...divProps}>
-      <button
+      <Button
+        variant="ghost"
         id={`${id}-trigger`}
         style={`anchor-name: --${id}-trigger`}
         popovertarget={`${id}-links`}
       >
         {label}
-      </button>
+      </Button>
       <div
         id={`${id}-links`}
         class="menu"

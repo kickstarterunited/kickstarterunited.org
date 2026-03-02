@@ -1,0 +1,66 @@
+@layer components {
+  .mark {
+    --_color: var(--mark-color, var(--ksru-amber-200));
+    --_lighter-pressure: color-mix(in oklch, var(--_color), transparent 40%);
+    --_tail: color-mix(in oklch, var(--_lighter-pressure), transparent 60%);
+    rotate: -0.75deg;
+    transform: skewX(-1.5deg);
+
+    background-color: unset;
+    color: inherit;
+    font-weight: bold;
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% + 1.5ch);
+      height: 1lh;
+      left: -0.25em;
+      padding: 0 0.25em;
+      border-radius: 0.8em 0.2em 1.8em 0.15em / 0.3em 0.8em 0.6em 0.7em;
+      background-image: linear-gradient(
+        to right,
+        var(--_color),
+        var(--_lighter-pressure),
+        calc(100% - 2ch),
+        var(--_tail)
+      );
+      filter: url(#mark-shape);
+      z-index: -1;
+    }
+
+    /* ── Palette variants ── */
+
+    &[data-mark="amber"] {
+      --mark-color: light-dark(var(--ksru-amber-200), var(--ksru-amber-700));
+    }
+
+    &[data-mark="emerald"] {
+      --mark-color: light-dark(
+        var(--ksru-emerald-200),
+        var(--ksru-emerald-500)
+      );
+    }
+
+    &[data-mark="cyan"] {
+      --mark-color: light-dark(var(--ksru-cyan-200), var(--ksru-cyan-500));
+    }
+
+    &[data-mark="brown"] {
+      --mark-color: light-dark(var(--ksru-brown-200), var(--ksru-brown-500));
+    }
+
+    &[data-mark="neutral"] {
+      --mark-color: light-dark(
+        var(--ksru-neutral-200),
+        var(--ksru-neutral-500)
+      );
+    }
+
+    &[data-mark="red"] {
+      --mark-color: light-dark(var(--ksru-red-200), var(--ksru-red-500));
+    }
+  }
+}

@@ -5,8 +5,7 @@
 
 .page__header,
 .page__footer {
-  color: #ffffff;
-
+  color: var(--ksru-color-text);
   --ksru-outline-color: var(--ksru-color-outline-accent);
 }
 
@@ -56,7 +55,6 @@
   align-items: stretch;
 
   background-color: var(--ksru-color-accent);
-  color: var(--color-white);
 
   position: sticky;
   top: 0;

@@ -1,0 +1,72 @@
+---
+import Mark from "./Mark.astro";
+
+const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as const;
+---
+
+{/* SVG filter for hand-drawn effect (normally in BaseLayout, duplicated here for Astrobook) */}
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <filter id="mark-shape">
+      <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
+    </filter>
+  </defs>
+</svg>
+
+<div class="grid gap-12 p-8">
+  <section>
+    <h3 class="mt-0">Variants</h3>
+    <div class="grid gap-3">
+      {variants.map((v) => (
+        <p class="my-0">
+          This text has a <Mark variant={v}>{v}</Mark> highlight applied to it.
+        </p>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h3 class="mt-0">Default (no variant)</h3>
+    <p>
+      When no variant is specified, the <Mark>default amber color</Mark> is used.
+    </p>
+  </section>
+
+  <section>
+    <h3 class="mt-0">Custom Color</h3>
+    <p>
+      You can pass any CSS color: <Mark color="oklch(0.80 0.15 330)">custom pink</Mark> using
+      the <code>color</code> prop.
+    </p>
+  </section>
+
+  <section>
+    <h3 class="mt-0">Light / Dark Comparison</h3>
+    <div class="grid gap-4" style="grid-template-columns: 1fr 1fr;">
+      <div class="theme-panel p-4 rounded-2xl" data-theme="light">
+        <strong>Light mode</strong>
+        {variants.map((v) => (
+          <p class="my-1">
+            <Mark variant={v}>{v}</Mark>
+          </p>
+        ))}
+      </div>
+      <div class="theme-panel p-4 rounded-2xl" data-theme="dark">
+        <strong>Dark mode</strong>
+        {variants.map((v) => (
+          <p class="my-1">
+            <Mark variant={v}>{v}</Mark>
+          </p>
+        ))}
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .theme-panel {
+    background: var(--ksru-color-surface);
+    color: var(--ksru-color-text);
+  }
+</style>

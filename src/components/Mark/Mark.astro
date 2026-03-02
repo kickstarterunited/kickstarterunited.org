@@ -1,0 +1,18 @@
+---
+import "./mark.css";
+
+interface Props {
+  variant?: "amber" | "emerald" | "cyan" | "brown" | "neutral" | "red";
+  color?: string;
+  [key: string]: any;
+}
+
+const { variant, color, class: cls, ...attrs } = Astro.props;
+---
+
+<mark
+  class:list={["mark", cls]}
+  data-mark={variant}
+  style={color ? `--mark-color: ${color}` : undefined}
+  {...attrs}
+><slot /></mark>

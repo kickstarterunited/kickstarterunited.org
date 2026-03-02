@@ -1,0 +1,29 @@
+---
+import "./button.css";
+
+interface Props {
+  as?: any;
+  variant?: "primary" | "accent" | "ghost" | "unstyled";
+  size?: "sm" | "md";
+  [key: string]: any;
+}
+
+const {
+  as: Tag = "button",
+  variant = "primary",
+  size = "md",
+  class: cls,
+  ...attrs
+} = Astro.props;
+const resolvedAttrs = Tag === "button" && attrs.type === undefined ? { type: "button" as const, ...attrs } : attrs;
+---
+
+<Tag
+  class:list={[
+    "btn",
+    variant !== "unstyled" && `btn--${variant}`,
+    size !== "md" && `btn--${size}`,
+    cls,
+  ]}
+  {...resolvedAttrs}
+><slot /></Tag>
