@@ -16,13 +16,10 @@
   --font-heading: var(--ksru-font-family-heading);
   --font-body: var(--ksru-font-family-body);
 
-  --text-heading-xl: var(--ksru-text-heading-xl);
-  --text-heading-lg: var(--ksru-text-heading-lg);
-  --text-heading-md: var(--ksru-text-heading-md);
-  --text-heading-sm: var(--ksru-text-heading-sm);
-  --text-text-lg: var(--ksru-text-text-lg);
-  --text-text-md: var(--ksru-text-text-md);
-  --text-text-sm: var(--ksru-text-text-sm);
+  /* Disable Tailwind's built-in text-sm/text-lg to avoid
+     colliding with our component classes of the same name. */
+  --text-sm: initial;
+  --text-lg: initial;
 }
 
 /* MARK: Heading classes */
