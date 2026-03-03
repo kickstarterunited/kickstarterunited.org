@@ -1,0 +1,44 @@
+@layer components {
+  /* -- Layer 1: Base (all browsers) -- */
+
+  .carousel__scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+  }
+
+  .carousel__scroller > * {
+    scroll-snap-align: var(--carousel-snap-align, center);
+  }
+
+  .carousel__btn {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .carousel__btn:disabled {
+    cursor: not-allowed;
+  }
+
+  /* -- Layer 2: CSS Scroll-Buttons (Chrome 135+) -- */
+
+  @supports selector(::scroll-button(*)) {
+    .carousel--buttons .carousel__btn {
+      display: none;
+    }
+
+    .carousel--buttons .carousel__scroller {
+      scrollbar-width: none;
+    }
+
+    .carousel--buttons .carousel__scroller::scroll-button(left) {
+      content: var(--carousel-prev-content, "\2039" / "Previous");
+    }
+
+    .carousel--buttons .carousel__scroller::scroll-button(right) {
+      content: var(--carousel-next-content, "\203A" / "Next");
+    }
+  }
+}
