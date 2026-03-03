@@ -1,0 +1,448 @@
+---
+import Carousel from "./Carousel.astro";
+import CarouselItem from "./CarouselItem.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="grid gap-12 p-8">
+  <!-- ============================================
+       Demo 1: Basic with scroll buttons
+       Shows: consumer applies grid layout, gap, button
+       positioning, and card styling. The component
+       only provides scroll/snap and button wiring.
+       ============================================ -->
+  <section>
+    <h3 class="mt-0">Basic with Buttons</h3>
+    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+      The component handles scroll-snap and button behavior.
+      All layout, sizing, colors, and button positioning come from consumer CSS.
+    </p>
+
+    <div class="demo-basic">
+      <Carousel scrollButtons>
+        <CarouselItem itemLabel="Emerald card">
+          <div class="card card--emerald">
+            <span class="card__number">01</span>
+            <p class="card__title">Organize</p>
+            <p class="card__body">Build power in your workplace by talking with your coworkers.</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Cyan card">
+          <div class="card card--cyan">
+            <span class="card__number">02</span>
+            <p class="card__title">Educate</p>
+            <p class="card__body">Learn your rights and share knowledge across your team.</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Amber card">
+          <div class="card card--amber">
+            <span class="card__number">03</span>
+            <p class="card__title">Agitate</p>
+            <p class="card__body">Identify shared issues and build collective urgency.</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Red card">
+          <div class="card card--red">
+            <span class="card__number">04</span>
+            <p class="card__title">Unionize</p>
+            <p class="card__body">File for recognition and win your union election.</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Brown card">
+          <div class="card card--brown">
+            <span class="card__number">05</span>
+            <p class="card__title">Negotiate</p>
+            <p class="card__body">Bargain your first contract and codify your gains.</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Neutral card">
+          <div class="card card--neutral">
+            <span class="card__number">06</span>
+            <p class="card__title">Sustain</p>
+            <p class="card__body">Keep organizing. A union is only as strong as its members.</p>
+          </div>
+        </CarouselItem>
+      </Carousel>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Demo 2: Custom button content via named slots
+       Shows: Icon components in button slots,
+       CSS custom properties for ::scroll-button()
+       pseudo-element content, different visual style.
+       ============================================ -->
+  <section>
+    <h3 class="mt-0">Custom Button Content</h3>
+    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+      Named slots customize the HTML fallback buttons.
+      CSS custom properties style the native <code>::scroll-button()</code> pseudo-elements.
+    </p>
+
+    <div class="demo-custom">
+      <Carousel scrollButtons>
+        <Icon name="tabler:chevron-left" size={28} slot="prev-button" />
+        <Icon name="tabler:chevron-right" size={28} slot="next-button" />
+
+        <CarouselItem itemLabel="Solidarity">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-emerald-100); color: var(--ksru-emerald-700);">&#x270A;</div>
+            <p class="tile__label">Solidarity</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Equity">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-cyan-100); color: var(--ksru-cyan-700);">&#x2696;</div>
+            <p class="tile__label">Equity</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Dignity">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-amber-100); color: var(--ksru-amber-700);">&#x2B50;</div>
+            <p class="tile__label">Dignity</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Democracy">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-red-100); color: var(--ksru-red-700);">&#x2611;</div>
+            <p class="tile__label">Democracy</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Safety">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-brown-100); color: var(--ksru-brown-700);">&#x1F6E1;</div>
+            <p class="tile__label">Safety</p>
+          </div>
+        </CarouselItem>
+        <CarouselItem itemLabel="Power">
+          <div class="tile">
+            <div class="tile__icon" style="background: var(--ksru-neutral-100); color: var(--ksru-neutral-700);">&#x26A1;</div>
+            <p class="tile__label">Power</p>
+          </div>
+        </CarouselItem>
+      </Carousel>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Demo 3: Minimal (no buttons)
+       Shows: The component works as a plain snap
+       scroller without scroll buttons. Consumer
+       adds grid + gap on the scroller.
+       ============================================ -->
+  <section>
+    <h3 class="mt-0">Minimal (No Buttons)</h3>
+    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+      Without <code>scrollButtons</code>, the carousel is a pure snap scroller.
+      Swipe or use a trackpad to navigate.
+    </p>
+
+    <div class="demo-minimal">
+      <Carousel>
+        {
+          [
+            { label: "Jan 2020", text: "Campaign launch" },
+            { label: "Feb 2020", text: "Card signing" },
+            { label: "Mar 2020", text: "Election filed" },
+            { label: "Apr 2020", text: "Pandemic hits" },
+            { label: "Jun 2020", text: "Remote organizing" },
+            { label: "Feb 2021", text: "Election won" },
+            { label: "Mar 2022", text: "Bargaining begins" },
+            { label: "Mar 2024", text: "Contract ratified" },
+          ].map((item) => (
+            <CarouselItem itemLabel={item.label}>
+              <div class="chip">
+                <span class="chip__date">{item.label}</span>
+                <span class="chip__text">{item.text}</span>
+              </div>
+            </CarouselItem>
+          ))
+        }
+      </Carousel>
+    </div>
+  </section>
+</div>
+
+<!-- Scoped styles for demo layout and cards -->
+<style>
+  /* ── Demo 1: Basic with buttons ── */
+
+  .demo-basic {
+    position: relative;
+  }
+
+  .demo-basic :global(.carousel__scroller) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(280px, 75vw);
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .demo-basic :global(.carousel__btn) {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--ksru-color-border);
+    background: var(--ksru-color-surface);
+    color: var(--ksru-color-icon);
+    font-size: 1.25rem;
+    box-shadow: 0 2px 8px var(--ksru-color-shadow);
+    transition: border-color 0.15s, opacity 0.15s;
+  }
+
+  .demo-basic :global(.carousel__btn:hover:not(:disabled)) {
+    border-color: var(--ksru-color-border-hover);
+  }
+
+  .demo-basic :global(.carousel__btn:disabled) {
+    opacity: 0.3;
+  }
+
+  .demo-basic :global(.carousel__btn[data-dir="prev"]) {
+    left: -0.5rem;
+  }
+
+  .demo-basic :global(.carousel__btn[data-dir="next"]) {
+    right: -0.5rem;
+  }
+
+  /* Cards */
+  .card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card__number {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .card__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .card__body {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .card--emerald {
+    background: var(--ksru-emerald-100);
+    color: var(--ksru-emerald-900);
+  }
+  .card--cyan {
+    background: var(--ksru-cyan-100);
+    color: var(--ksru-cyan-900);
+  }
+  .card--amber {
+    background: var(--ksru-amber-100);
+    color: var(--ksru-amber-900);
+  }
+  .card--red {
+    background: var(--ksru-red-100);
+    color: var(--ksru-red-900);
+  }
+  .card--brown {
+    background: var(--ksru-brown-100);
+    color: var(--ksru-brown-900);
+  }
+  .card--neutral {
+    background: var(--ksru-neutral-100);
+    color: var(--ksru-neutral-900);
+  }
+
+  /* ── Demo 2: Custom button content ── */
+
+  .demo-custom {
+    position: relative;
+  }
+
+  .demo-custom :global(.carousel__scroller) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 160px;
+    gap: 1.25rem;
+    padding: 1rem 2.5rem;
+  }
+
+  .demo-custom :global(.carousel__btn) {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background: var(--ksru-emerald-500);
+    color: white;
+    transition: background 0.15s, opacity 0.15s;
+  }
+
+  .demo-custom :global(.carousel__btn:hover:not(:disabled)) {
+    background: var(--ksru-emerald-600);
+  }
+
+  .demo-custom :global(.carousel__btn:disabled) {
+    opacity: 0.25;
+  }
+
+  .demo-custom :global(.carousel__btn[data-dir="prev"]) {
+    left: 0;
+  }
+
+  .demo-custom :global(.carousel__btn[data-dir="next"]) {
+    right: 0;
+  }
+
+  /* Tiles */
+  .tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--ksru-color-border);
+    background: var(--ksru-color-surface);
+    text-align: center;
+    transition: border-color 0.15s;
+  }
+
+  .tile:hover {
+    border-color: var(--ksru-color-border-hover);
+  }
+
+  .tile__icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+  }
+
+  .tile__label {
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--ksru-color-text);
+  }
+
+  /* ── Demo 3: Minimal (no buttons) ── */
+
+  .demo-minimal :global(.carousel__scroller) {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 0.75rem;
+    padding: 0.25rem 0;
+  }
+
+  .chip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    background: var(--ksru-color-surface-secondary);
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .chip:hover {
+    background: var(--ksru-color-surface-hover);
+  }
+
+  .chip__date {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ksru-color-text-secondary);
+  }
+
+  .chip__text {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ksru-color-text);
+  }
+</style>
+
+<!-- CSS scroll-button styling (inline because Astro scoped styles can't
+     target pseudo-elements on child component elements) -->
+<style is:inline>
+  @supports selector(::scroll-button(*)) {
+    /* Demo 1: round buttons anchored to scroller edges */
+    .demo-basic .carousel__scroller::scroll-button(*) {
+      position: absolute;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--ksru-color-border);
+      background: var(--ksru-color-surface);
+      color: var(--ksru-color-icon);
+      font-size: 1.25rem;
+      box-shadow: 0 2px 8px var(--ksru-color-shadow);
+      cursor: pointer;
+      transition: border-color 0.15s, opacity 0.15s;
+    }
+    .demo-basic .carousel__scroller::scroll-button(*):hover {
+      border-color: var(--ksru-color-border-hover);
+    }
+    .demo-basic .carousel__scroller::scroll-button(*):disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* Demo 2: emerald pill buttons with icon custom properties */
+    .demo-custom .carousel {
+      --carousel-prev-content: "\2039" / "Previous";
+      --carousel-next-content: "\203A" / "Next";
+    }
+    .demo-custom .carousel__scroller::scroll-button(*) {
+      position: absolute;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.5rem;
+      background: var(--ksru-emerald-500);
+      color: white;
+      font-size: 1.25rem;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+    }
+    .demo-custom .carousel__scroller::scroll-button(*):hover {
+      background: var(--ksru-emerald-600);
+    }
+    .demo-custom .carousel__scroller::scroll-button(*):disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+    }
+  }
+</style>
