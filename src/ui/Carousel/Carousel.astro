@@ -1,0 +1,92 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+import "./carousel.css";
+
+/**
+ * Progressive-enhancement carousel with CSS `::scroll-button()` and JS fallback.
+ *
+ * Layout-agnostic: the component handles scroll-snap and button wiring.
+ * Apply your own CSS to `.carousel`, `.carousel__btn`, and `.carousel__scroller`
+ * for layout, sizing, and visual styling.
+ *
+ * @see CarouselDemo.astro and Carousel.stories.ts for usage examples.
+ */
+interface Props extends HTMLAttributes<"div"> {
+  /**
+   * Render prev/next scroll buttons.
+   *
+   * When CSS `::scroll-button()` is supported, native pseudo-elements handle
+   * scrolling and the HTML buttons are hidden. Otherwise, an inline script
+   * wires the HTML buttons with click-to-scroll and boundary detection.
+   *
+   * Customize button content with the `prev-button` and `next-button` named slots.
+   * Customize CSS pseudo-element content with `--carousel-prev-content` and
+   * `--carousel-next-content` custom properties.
+   */
+  scrollButtons?: boolean;
+}
+
+const { scrollButtons = false, class: cls, ...props } = Astro.props;
+---
+
+<div
+  {...props}
+  class:list={["carousel", { "carousel--buttons": scrollButtons }, cls]}
+  data-carousel
+>
+  {
+    scrollButtons && (
+      <>
+        <button class="carousel__btn" data-dir="prev" aria-label="Previous">
+          <slot name="prev-button">&lsaquo;</slot>
+        </button>
+        <button class="carousel__btn" data-dir="next" aria-label="Next">
+          <slot name="next-button">&rsaquo;</slot>
+        </button>
+      </>
+    )
+  }
+  <div class="carousel__scroller">
+    <slot />
+  </div>
+</div>
+
+<script>
+  if (!CSS.supports("selector(::scroll-button(*))")) {
+    for (const root of document.querySelectorAll<HTMLElement>(
+      "[data-carousel].carousel--buttons",
+    )) {
+      const scroller = root.querySelector<HTMLElement>(".carousel__scroller");
+      const prevBtn = root.querySelector<HTMLButtonElement>(
+        '[data-dir="prev"]',
+      );
+      const nextBtn = root.querySelector<HTMLButtonElement>(
+        '[data-dir="next"]',
+      );
+
+      if (!scroller || !prevBtn || !nextBtn) continue;
+
+      const updateButtons = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = scroller;
+        prevBtn.disabled = scrollLeft <= 2;
+        nextBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 2;
+      };
+
+      const scrollByItem = (dir: number) => {
+        const firstChild = scroller.firstElementChild as HTMLElement | null;
+        if (!firstChild) return;
+        const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
+        scroller.scrollBy({
+          left: (firstChild.offsetWidth + gap) * dir,
+          behavior: "smooth",
+        });
+      };
+
+      prevBtn.addEventListener("click", () => scrollByItem(-1));
+      nextBtn.addEventListener("click", () => scrollByItem(1));
+      scroller.addEventListener("scroll", updateButtons, { passive: true });
+      updateButtons();
+    }
+  }
+</script>
