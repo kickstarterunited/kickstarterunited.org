@@ -26,7 +26,11 @@
 
   @supports selector(::scroll-button(*)) {
     .carousel--buttons .carousel__btn {
-      display: none;
+      /* !important needed: unlayered consumer styles (which set display on
+         buttons for the JS fallback) would otherwise beat this layered rule.
+         Layered !important is still lower priority than unlayered !important,
+         so consumers can override if truly needed. */
+      display: none !important;
     }
 
     .carousel--buttons .carousel__scroller {
