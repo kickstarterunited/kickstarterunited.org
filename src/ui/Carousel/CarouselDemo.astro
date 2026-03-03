@@ -169,6 +169,13 @@ import { Icon } from "astro-icon/components";
 
   .demo-basic {
     position: relative;
+    --_btn-size: 2.5rem;
+    --_btn-radius: 9999px;
+    --_btn-border: 1px solid var(--ksru-color-border);
+    --_btn-bg: var(--ksru-color-surface);
+    --_btn-color: var(--ksru-color-icon);
+    --_btn-shadow: 0 2px 8px var(--ksru-color-shadow);
+    --_btn-disabled-opacity: 0.3;
   }
 
   .demo-basic :global(.carousel__scroller) {
@@ -186,14 +193,14 @@ import { Icon } from "astro-icon/components";
     z-index: 1;
     display: grid;
     place-items: center;
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    border: 1px solid var(--ksru-color-border);
-    background: var(--ksru-color-surface);
-    color: var(--ksru-color-icon);
+    width: var(--_btn-size);
+    height: var(--_btn-size);
+    border-radius: var(--_btn-radius);
+    border: var(--_btn-border);
+    background: var(--_btn-bg);
+    color: var(--_btn-color);
     font-size: 1.25rem;
-    box-shadow: 0 2px 8px var(--ksru-color-shadow);
+    box-shadow: var(--_btn-shadow);
     transition: border-color 0.15s, opacity 0.15s;
   }
 
@@ -202,7 +209,7 @@ import { Icon } from "astro-icon/components";
   }
 
   .demo-basic :global(.carousel__btn:disabled) {
-    opacity: 0.3;
+    opacity: var(--_btn-disabled-opacity);
   }
 
   .demo-basic :global(.carousel__btn[data-dir="prev"]) {
@@ -274,6 +281,12 @@ import { Icon } from "astro-icon/components";
 
   .demo-custom {
     position: relative;
+    --_btn-size: 2.25rem;
+    --_btn-radius: 0.5rem;
+    --_btn-bg: var(--ksru-emerald-500);
+    --_btn-bg-hover: var(--ksru-emerald-600);
+    --_btn-color: white;
+    --_btn-disabled-opacity: 0.25;
   }
 
   .demo-custom :global(.carousel__scroller) {
@@ -281,7 +294,7 @@ import { Icon } from "astro-icon/components";
     grid-auto-flow: column;
     grid-auto-columns: 160px;
     gap: 1.25rem;
-    padding: 1rem 2.5rem;
+    padding: 1rem 2.5rem; /* horizontal padding clears the button width */
   }
 
   .demo-custom :global(.carousel__btn) {
@@ -291,20 +304,20 @@ import { Icon } from "astro-icon/components";
     z-index: 1;
     display: grid;
     place-items: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: 0.5rem;
-    background: var(--ksru-emerald-500);
-    color: white;
+    width: var(--_btn-size);
+    height: var(--_btn-size);
+    border-radius: var(--_btn-radius);
+    background: var(--_btn-bg);
+    color: var(--_btn-color);
     transition: background 0.15s, opacity 0.15s;
   }
 
   .demo-custom :global(.carousel__btn:hover:not(:disabled)) {
-    background: var(--ksru-emerald-600);
+    background: var(--_btn-bg-hover);
   }
 
   .demo-custom :global(.carousel__btn:disabled) {
-    opacity: 0.25;
+    opacity: var(--_btn-disabled-opacity);
   }
 
   .demo-custom :global(.carousel__btn[data-dir="prev"]) {
@@ -393,20 +406,20 @@ import { Icon } from "astro-icon/components";
      target pseudo-elements on child component elements) -->
 <style is:inline>
   @supports selector(::scroll-button(*)) {
-    /* Demo 1: round buttons anchored to scroller edges */
+    /* Demo 1: round buttons - consumes --_btn-* vars from .demo-basic */
     .demo-basic .carousel__scroller::scroll-button(*) {
       position: absolute;
       z-index: 1;
       display: grid;
       place-items: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 9999px;
-      border: 1px solid var(--ksru-color-border);
-      background: var(--ksru-color-surface);
-      color: var(--ksru-color-icon);
+      width: var(--_btn-size);
+      height: var(--_btn-size);
+      border-radius: var(--_btn-radius);
+      border: var(--_btn-border);
+      background: var(--_btn-bg);
+      color: var(--_btn-color);
       font-size: 1.25rem;
-      box-shadow: 0 2px 8px var(--ksru-color-shadow);
+      box-shadow: var(--_btn-shadow);
       cursor: pointer;
       transition: border-color 0.15s, opacity 0.15s;
     }
@@ -414,34 +427,36 @@ import { Icon } from "astro-icon/components";
       border-color: var(--ksru-color-border-hover);
     }
     .demo-basic .carousel__scroller::scroll-button(*):disabled {
-      opacity: 0.3;
+      opacity: var(--_btn-disabled-opacity);
       cursor: not-allowed;
     }
 
-    /* Demo 2: emerald pill buttons with icon custom properties */
+    /* Demo 2: emerald pill buttons - consumes --_btn-* vars from .demo-custom.
+       Overrides ::scroll-button content to use chevron arrows (the HTML fallback
+       buttons use Icon components via named slots instead). */
     .demo-custom .carousel {
-      --carousel-prev-content: "\2039" / "Previous";
-      --carousel-next-content: "\203A" / "Next";
+      --carousel-prev-content: "\2329" / "Previous";
+      --carousel-next-content: "\232A" / "Next";
     }
     .demo-custom .carousel__scroller::scroll-button(*) {
       position: absolute;
       z-index: 1;
       display: grid;
       place-items: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: 0.5rem;
-      background: var(--ksru-emerald-500);
-      color: white;
+      width: var(--_btn-size);
+      height: var(--_btn-size);
+      border-radius: var(--_btn-radius);
+      background: var(--_btn-bg);
+      color: var(--_btn-color);
       font-size: 1.25rem;
       cursor: pointer;
       transition: background 0.15s, opacity 0.15s;
     }
     .demo-custom .carousel__scroller::scroll-button(*):hover {
-      background: var(--ksru-emerald-600);
+      background: var(--_btn-bg-hover);
     }
     .demo-custom .carousel__scroller::scroll-button(*):disabled {
-      opacity: 0.25;
+      opacity: var(--_btn-disabled-opacity);
       cursor: not-allowed;
     }
   }
