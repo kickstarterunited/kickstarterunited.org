@@ -1,6 +1,10 @@
 ---
 import Carousel from "./Carousel.astro";
 import CarouselItem from "./CarouselItem.astro";
+import Surface from "../Surface/Surface.astro";
+import Heading from "../typography/Heading.astro";
+import Text from "../typography/Text.astro";
+import Type from "../typography/Type.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -12,54 +16,54 @@ import { Icon } from "astro-icon/components";
        only provides scroll/snap and button wiring.
        ============================================ -->
   <section>
-    <h3 class="mt-0">Basic with Buttons</h3>
-    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+    <Heading as="h3" size="md" class="mt-0">Basic with Buttons</Heading>
+    <Text as="p" size="sm" style="color: var(--ksru-color-text-secondary);">
       The component handles scroll-snap and button behavior.
       All layout, sizing, colors, and button positioning come from consumer CSS.
-    </p>
+    </Text>
 
     <div class="demo-basic">
       <Carousel scrollButtons>
         <CarouselItem itemLabel="Emerald card">
           <div class="card card--emerald">
-            <span class="card__number">01</span>
-            <p class="card__title">Organize</p>
-            <p class="card__body">Build power in your workplace by talking with your coworkers.</p>
+            <Type variant="text-sm" class="card__number">01</Type>
+            <Heading as="p" size="sm">Organize</Heading>
+            <Text as="p" size="sm" class="card__body">Build power in your workplace by talking with your coworkers.</Text>
           </div>
         </CarouselItem>
         <CarouselItem itemLabel="Cyan card">
           <div class="card card--cyan">
-            <span class="card__number">02</span>
-            <p class="card__title">Educate</p>
-            <p class="card__body">Learn your rights and share knowledge across your team.</p>
+            <Type variant="text-sm" class="card__number">02</Type>
+            <Heading as="p" size="sm">Educate</Heading>
+            <Text as="p" size="sm" class="card__body">Learn your rights and share knowledge across your team.</Text>
           </div>
         </CarouselItem>
         <CarouselItem itemLabel="Amber card">
           <div class="card card--amber">
-            <span class="card__number">03</span>
-            <p class="card__title">Agitate</p>
-            <p class="card__body">Identify shared issues and build collective urgency.</p>
+            <Type variant="text-sm" class="card__number">03</Type>
+            <Heading as="p" size="sm">Agitate</Heading>
+            <Text as="p" size="sm" class="card__body">Identify shared issues and build collective urgency.</Text>
           </div>
         </CarouselItem>
         <CarouselItem itemLabel="Red card">
           <div class="card card--red">
-            <span class="card__number">04</span>
-            <p class="card__title">Unionize</p>
-            <p class="card__body">File for recognition and win your union election.</p>
+            <Type variant="text-sm" class="card__number">04</Type>
+            <Heading as="p" size="sm">Unionize</Heading>
+            <Text as="p" size="sm" class="card__body">File for recognition and win your union election.</Text>
           </div>
         </CarouselItem>
         <CarouselItem itemLabel="Brown card">
           <div class="card card--brown">
-            <span class="card__number">05</span>
-            <p class="card__title">Negotiate</p>
-            <p class="card__body">Bargain your first contract and codify your gains.</p>
+            <Type variant="text-sm" class="card__number">05</Type>
+            <Heading as="p" size="sm">Negotiate</Heading>
+            <Text as="p" size="sm" class="card__body">Bargain your first contract and codify your gains.</Text>
           </div>
         </CarouselItem>
         <CarouselItem itemLabel="Neutral card">
           <div class="card card--neutral">
-            <span class="card__number">06</span>
-            <p class="card__title">Sustain</p>
-            <p class="card__body">Keep organizing. A union is only as strong as its members.</p>
+            <Type variant="text-sm" class="card__number">06</Type>
+            <Heading as="p" size="sm">Sustain</Heading>
+            <Text as="p" size="sm" class="card__body">Keep organizing. A union is only as strong as its members.</Text>
           </div>
         </CarouselItem>
       </Carousel>
@@ -73,52 +77,64 @@ import { Icon } from "astro-icon/components";
        pseudo-element content, different visual style.
        ============================================ -->
   <section>
-    <h3 class="mt-0">Custom Button Content</h3>
-    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+    <Heading as="h3" size="md" class="mt-0">Custom Button Content</Heading>
+    <Text as="p" size="sm" style="color: var(--ksru-color-text-secondary);">
       Named slots customize the HTML fallback buttons.
       CSS custom properties style the native <code>::scroll-button()</code> pseudo-elements.
-    </p>
+    </Text>
 
     <div class="demo-custom">
       <Carousel scrollButtons>
-        <Icon name="tabler:chevron-left" size={28} slot="prev-button" />
-        <Icon name="tabler:chevron-right" size={28} slot="next-button" />
+        <Icon name="tabler:arrow-left" size={20} slot="prev-button" />
+        <Icon name="tabler:arrow-right" size={20} slot="next-button" />
 
         <CarouselItem itemLabel="Solidarity">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-emerald-100); color: var(--ksru-emerald-700);">&#x270A;</div>
-            <p class="tile__label">Solidarity</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-emerald-100); color: var(--ksru-emerald-700);">
+              <Icon name="tabler:hand-grab" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Solidarity</Type>
+          </Surface>
         </CarouselItem>
         <CarouselItem itemLabel="Equity">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-cyan-100); color: var(--ksru-cyan-700);">&#x2696;</div>
-            <p class="tile__label">Equity</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-cyan-100); color: var(--ksru-cyan-700);">
+              <Icon name="tabler:scale" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Equity</Type>
+          </Surface>
         </CarouselItem>
         <CarouselItem itemLabel="Dignity">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-amber-100); color: var(--ksru-amber-700);">&#x2B50;</div>
-            <p class="tile__label">Dignity</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-amber-100); color: var(--ksru-amber-700);">
+              <Icon name="tabler:star" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Dignity</Type>
+          </Surface>
         </CarouselItem>
         <CarouselItem itemLabel="Democracy">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-red-100); color: var(--ksru-red-700);">&#x2611;</div>
-            <p class="tile__label">Democracy</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-red-100); color: var(--ksru-red-700);">
+              <Icon name="tabler:checkbox" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Democracy</Type>
+          </Surface>
         </CarouselItem>
         <CarouselItem itemLabel="Safety">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-brown-100); color: var(--ksru-brown-700);">&#x1F6E1;</div>
-            <p class="tile__label">Safety</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-brown-100); color: var(--ksru-brown-700);">
+              <Icon name="tabler:shield" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Safety</Type>
+          </Surface>
         </CarouselItem>
         <CarouselItem itemLabel="Power">
-          <div class="tile">
-            <div class="tile__icon" style="background: var(--ksru-neutral-100); color: var(--ksru-neutral-700);">&#x26A1;</div>
-            <p class="tile__label">Power</p>
-          </div>
+          <Surface class="tile">
+            <div class="tile__icon" style="background: var(--ksru-neutral-100); color: var(--ksru-neutral-700);">
+              <Icon name="tabler:bolt" size={28} />
+            </div>
+            <Type as="p" variant="text-sm" class="tile__label">Power</Type>
+          </Surface>
         </CarouselItem>
       </Carousel>
     </div>
@@ -131,11 +147,11 @@ import { Icon } from "astro-icon/components";
        adds grid + gap on the scroller.
        ============================================ -->
   <section>
-    <h3 class="mt-0">Minimal (No Buttons)</h3>
-    <p class="text-sm" style="color: var(--ksru-color-text-secondary);">
+    <Heading as="h3" size="md" class="mt-0">Minimal (No Buttons)</Heading>
+    <Text as="p" size="sm" style="color: var(--ksru-color-text-secondary);">
       Without <code>scrollButtons</code>, the carousel is a pure snap scroller.
       Swipe or use a trackpad to navigate.
-    </p>
+    </Text>
 
     <div class="demo-minimal">
       <Carousel>
@@ -152,8 +168,8 @@ import { Icon } from "astro-icon/components";
           ].map((item) => (
             <CarouselItem itemLabel={item.label}>
               <div class="chip">
-                <span class="chip__date">{item.label}</span>
-                <span class="chip__text">{item.text}</span>
+                <Type variant="text-sm" class="chip__date">{item.label}</Type>
+                <Type variant="text-sm" class="chip__text">{item.text}</Type>
               </div>
             </CarouselItem>
           ))
@@ -231,24 +247,12 @@ import { Icon } from "astro-icon/components";
   }
 
   .card__number {
-    font-size: 0.75rem;
-    font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     opacity: 0.6;
   }
 
-  .card__title {
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
   .card__body {
-    margin: 0;
-    font-size: 0.875rem;
-    line-height: 1.5;
     opacity: 0.85;
   }
 
@@ -292,9 +296,9 @@ import { Icon } from "astro-icon/components";
   .demo-custom :global(.carousel__scroller) {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 160px;
+    grid-auto-columns: 180px;
     gap: 1.25rem;
-    padding: 1rem 2.5rem; /* horizontal padding clears the button width */
+    padding: 0.5rem 2.75rem; /* horizontal padding clears the button width */
   }
 
   .demo-custom :global(.carousel__btn) {
@@ -328,16 +332,12 @@ import { Icon } from "astro-icon/components";
     right: 0;
   }
 
-  /* Tiles */
+  /* Tiles - Surface provides border, background, border-radius, padding */
   .tile {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.75rem;
-    padding: 1.25rem 1rem;
-    border-radius: 0.75rem;
-    border: 1px solid var(--ksru-color-border);
-    background: var(--ksru-color-surface);
     text-align: center;
     transition: border-color 0.15s;
   }
@@ -357,9 +357,7 @@ import { Icon } from "astro-icon/components";
 
   .tile__label {
     margin: 0;
-    font-size: 0.875rem;
     font-weight: 600;
-    color: var(--ksru-color-text);
   }
 
   /* ── Demo 3: Minimal (no buttons) ── */
@@ -388,7 +386,6 @@ import { Icon } from "astro-icon/components";
   }
 
   .chip__date {
-    font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -396,9 +393,7 @@ import { Icon } from "astro-icon/components";
   }
 
   .chip__text {
-    font-size: 0.8125rem;
     font-weight: 500;
-    color: var(--ksru-color-text);
   }
 </style>
 
@@ -443,8 +438,8 @@ import { Icon } from "astro-icon/components";
        Overrides ::scroll-button content to use chevron arrows (the HTML fallback
        buttons use Icon components via named slots instead). */
     .demo-custom .carousel {
-      --carousel-prev-content: "\2329" / "Previous";
-      --carousel-next-content: "\232A" / "Next";
+      --carousel-prev-content: "\2190" / "Previous";
+      --carousel-next-content: "\2192" / "Next";
     }
     .demo-custom .carousel__scroller::scroll-button(*) {
       position: absolute;
