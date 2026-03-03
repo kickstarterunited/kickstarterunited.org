@@ -1,11 +1,20 @@
 @layer components {
   /* -- Layer 1: Base (all browsers) -- */
 
+  .carousel {
+    /* Allow shrinking in grid/flex contexts so the scroller
+       can actually constrain and produce overflow */
+    min-width: 0;
+  }
+
   .carousel__scroller {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     overscroll-behavior-x: contain;
+    /* Size from container, not content - without this, grid/flex
+       content pushes the scroller wider and overflow-x never triggers */
+    contain: inline-size;
   }
 
   .carousel__scroller > * {

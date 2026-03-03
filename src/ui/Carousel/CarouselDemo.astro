@@ -409,6 +409,8 @@ import { Icon } from "astro-icon/components";
     /* Demo 1: round buttons - consumes --_btn-* vars from .demo-basic */
     .demo-basic .carousel__scroller::scroll-button(*) {
       position: absolute;
+      top: 50%;
+      translate: 0 -50%;
       z-index: 1;
       display: grid;
       place-items: center;
@@ -422,6 +424,12 @@ import { Icon } from "astro-icon/components";
       box-shadow: var(--_btn-shadow);
       cursor: pointer;
       transition: border-color 0.15s, opacity 0.15s;
+    }
+    .demo-basic .carousel__scroller::scroll-button(left) {
+      left: -0.5rem;
+    }
+    .demo-basic .carousel__scroller::scroll-button(right) {
+      right: -0.5rem;
     }
     .demo-basic .carousel__scroller::scroll-button(*):hover {
       border-color: var(--ksru-color-border-hover);
@@ -440,6 +448,8 @@ import { Icon } from "astro-icon/components";
     }
     .demo-custom .carousel__scroller::scroll-button(*) {
       position: absolute;
+      top: 50%;
+      translate: 0 -50%;
       z-index: 1;
       display: grid;
       place-items: center;
@@ -451,6 +461,12 @@ import { Icon } from "astro-icon/components";
       font-size: 1.25rem;
       cursor: pointer;
       transition: background 0.15s, opacity 0.15s;
+    }
+    .demo-custom .carousel__scroller::scroll-button(left) {
+      left: 0;
+    }
+    .demo-custom .carousel__scroller::scroll-button(right) {
+      right: 0;
     }
     .demo-custom .carousel__scroller::scroll-button(*):hover {
       background: var(--_btn-bg-hover);
