@@ -38,10 +38,10 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
   {
     scrollButtons && (
       <>
-        <button class="carousel__btn" data-dir="prev" aria-label="Previous">
+        <button type="button" class="carousel__btn" data-dir="prev" aria-label="Previous">
           <slot name="prev-button">&lsaquo;</slot>
         </button>
-        <button class="carousel__btn" data-dir="next" aria-label="Next">
+        <button type="button" class="carousel__btn" data-dir="next" aria-label="Next">
           <slot name="next-button">&rsaquo;</slot>
         </button>
       </>
@@ -69,7 +69,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
 
       const updateButtons = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scroller;
-        prevBtn.disabled = scrollLeft <= 2;
+        prevBtn.disabled = scrollLeft <= 2; // tolerance for sub-pixel rounding
         nextBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 2;
       };
 
