@@ -1,58 +1,127 @@
 ---
-import Logo from "../images/logo.svg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
+import Mark from "../ui/Mark/Mark.astro";
+import Surface from "../ui/Surface/Surface.astro";
+import Button from "../ui/Button/Button.astro";
 ---
 
 <BaseLayout title="About Us">
-  <div class="w-auto">
-    <Logo class="mx-auto" width="256" height="256" />
-  </div>
+  <!-- ═══ HERO ═══════════════════════════════════════════════════════════ -->
+  <section class="about-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>About Us</Heading>
+    <Text as="p" size="lg" class="about-hero__subtitle">
+      The workers of Kickstarter, organized.
+    </Text>
+  </section>
 
-  <hr />
+  <!-- ═══ ORIGIN STORY ═══════════════════════════════════════════════════ -->
+  <section class="about-story">
+    <Text as="p">
+      On February 18th, 2020, Kickstarter
+      employees voted to form a union, becoming the
+      <Mark variant="emerald">first major tech company</Mark> in the United
+      States to do so. We took this step in order to invest deeply in our
+      collective future at the company we love, to create a workplace that is
+      safer and more equitable for all, and to support organizing efforts across
+      the tech industry and the many creative communities our work touches. We
+      are proud to call ourselves members of OPEIU Local 153.
+    </Text>
 
-  <div id="about">
-    <h1>About Us</h1>
+    <Heading as="blockquote" size="md" class="pullquote text-balance" maxLineLength={false}>
+      We took this step to invest deeply in our collective future at the company
+      we love.
+    </Heading>
 
-    <p>
-      On February 18th, 2020, Kickstarter employees voted to form a union,
-      becoming the first major tech company in the United States to do so. We
-      took this step in order to invest deeply in our collective future at the
-      company we love, to create a workplace that is safer and more equitable
-      for all, and to support organizing efforts across the tech industry and
-      the many creative communities our work touches. We are proud to call
-      ourselves members of OPEIU Local 153.
-    </p>
-    <p>
+    <Text as="p">
       There is nowhere better-suited than Kickstarter to understand the elation
       of completing a successful campaign while knowing that the real work is
       still ahead. As we continue to build on the victories of our first and
       second contracts, we remain true to the values that informed our
-      organizing: transparency, inclusion, solidarity, accountability, and joy.
-    </p>
-    <p>The pillars around which we organized include:</p>
-    <ul>
-      <li>
-        Equitable compensation across positions, creating equal pay for equal
-        work.
-      </li>
-      <li>Diversity and inclusion in every aspect of the company.</li>
-      <li>
-        Fair, transparent, and consistently implemented processes around hiring,
-        firing, professional growth, and disciplinary action.
-      </li>
-      <li>
-        Policies that prioritize employee wellness, safety, and mental health.
-      </li>
-      <li>
-        The preservation of a company culture that fosters a sense of community
-        and collaboration throughout the workplace.
-      </li>
-      <li>
-        The proactive inclusion of employees in company-wide decisions that
-        affect us all.
-      </li>
-    </ul>
-    <p>
+      organizing: <Mark variant="cyan">transparency, inclusion, solidarity,
+      accountability, and joy</Mark>.
+    </Text>
+  </section>
+
+  <!-- ═══ ORGANIZING PILLARS ═════════════════════════════════════════════ -->
+  <section class="pillars col-[wide]">
+    <Heading as="h2" size="lg" class="pillars__heading">
+      What We Organize Around
+    </Heading>
+
+    <div class="pillars__grid">
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:scale" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Equitable Pay</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          Equitable compensation across positions, creating equal pay for equal
+          work.
+        </Text>
+      </Surface>
+
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:users-group" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Diversity & Inclusion</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          Diversity and inclusion in every aspect of the company.
+        </Text>
+      </Surface>
+
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:clipboard-check" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Fair Processes</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          Fair, transparent, and consistently implemented processes around
+          hiring, firing, professional growth, and disciplinary action.
+        </Text>
+      </Surface>
+
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:heart-rate-monitor" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Employee Wellness</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          Policies that prioritize employee wellness, safety, and mental health.
+        </Text>
+      </Surface>
+
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:building-community" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Community & Culture</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          The preservation of a company culture that fosters a sense of community
+          and collaboration throughout the workplace.
+        </Text>
+      </Surface>
+
+      <Surface elevation={1} class="pillars__card">
+        <span class="pillars__icon-badge">
+          <Icon name="tabler:messages" />
+        </span>
+        <Heading as="h3" size="sm" class="pillars__title">Worker Voice</Heading>
+        <Text as="p" size="sm" class="pillars__desc">
+          The proactive inclusion of employees in company-wide decisions that
+          affect us all.
+        </Text>
+      </Surface>
+    </div>
+  </section>
+
+  <!-- ═══ MISSION ════════════════════════════════════════════════════════ -->
+  <section class="about-mission">
+    <Heading as="h2" size="lg">Our Mission</Heading>
+    <Text as="p">
       Since its founding, Kickstarter has been a progressive, forward-thinking
       corporate player. In 2015, the company was reincorporated as a Public
       Benefit Corporation. This framework recognizes that our responsibility
@@ -64,20 +133,201 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       workplace is a natural extension of Kickstarter&rsquo;s mission,
       encouraging every employee to safeguard and enrich our charter commitments
       to creativity, equity, and a positive impact on society.
-    </p>
-  </div>
+    </Text>
+  </section>
 
-  <hr />
+  <!-- ═══ CONTRACT VARIANT A: SURFACE CARD ═══════════════════════════════ -->
+  <Surface elevation={1} class="contracts-card">
+    <Heading as="h2" size="lg" maxLineLength={false}>Our Contracts</Heading>
+    <Text as="p">
+      On June 17th, 2022, our bargaining unit overwhelmingly voted YES to
+      ratify our first collective bargaining agreement. In December 2025, after
+      a <Mark variant="amber">historic 42-day strike</Mark>, 98% of our union
+      voted to ratify a second contract with even stronger protections.
+    </Text>
+    <Text as="p" size="sm" class="contracts-card__thanks">
+      Thank you for all of your support through both contract campaigns &mdash;
+      it has meant the world to us.
+    </Text>
+    <div class="contracts-card__actions">
+      <Button as="a" href="/contracts/2025" variant="primary">2025 Contract</Button>
+      <Button as="a" href="/contracts/2022" variant="ghost">2022 Contract</Button>
+    </div>
+  </Surface>
 
-  <div id="contract">
-    <p>
-      On June 17th, 2022, our bargaining unit overwhelmingly voted YES to ratify
-      our
-      <a href="/contracts/2022">first collective bargaining agreement</a>. In
-      December 2025, after a historic 42-day strike, 98% of our union voted to
-      ratify a <a href="/contracts/2025">second contract</a> with even stronger
-      protections. Thank you for all of your support through both contract
-      campaigns - it has meant the world to us.
-    </p>
-  </div>
 </BaseLayout>
+
+<style>
+  /* ═══ HERO ═══════════════════════════════════════════════════════════ */
+
+  .about-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    margin-block: 2.5rem 2rem;
+  }
+
+  .about-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  /* ═══ ORIGIN STORY ═══════════════════════════════════════════════════ */
+
+  .about-story {
+    margin-block: 1rem 2rem;
+  }
+
+  .pullquote {
+    font-style: italic;
+    line-height: 1.4;
+    border-inline-start: 4px solid var(--ksru-emerald-400);
+    padding-inline-start: 1.25em;
+    padding-block: 0.4em;
+    margin-block: 0.75rem 0.5rem;
+    margin-inline: 1rem clamp(-3rem, 5rem - 10vw, 0rem);
+    color: color-mix(in oklch, currentColor, transparent 15%);
+    float: inline-end;
+    max-width: 50%;
+  }
+
+  @supports (corner-shape: squircle) {
+    .pullquote {
+      border-radius: 32px;
+      corner-shape: squircle;
+    }
+  }
+
+  @media (width < 640px) {
+    .pullquote {
+      float: none;
+      max-width: none;
+      margin-inline: 0;
+      margin-block: 1.5rem;
+    }
+  }
+
+  /* ═══ ORGANIZING PILLARS ═════════════════════════════════════════════ */
+
+  .pillars {
+    margin-block: 2rem 2.5rem;
+  }
+
+  .pillars__heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .pillars__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .pillars__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .pillars__icon-badge {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--ksru-emerald-500);
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .pillars__icon-badge :global(svg) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .pillars__title {
+    margin-bottom: 0.25rem;
+  }
+
+  .pillars__desc {
+    text-wrap: pretty;
+    margin-top: 0;
+  }
+
+  /* Scroll-driven reveal (progressive enhancement) */
+  @supports (animation-timeline: view()) {
+    .pillars__card {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 30%;
+    }
+
+    .pillars__icon-badge {
+      animation: spin-pop linear both;
+      animation-timeline: view();
+      animation-range: entry 100% cover 35%;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; translate: 0 2rem; }
+      to   { opacity: 1; translate: 0 0; }
+    }
+
+    @keyframes spin-pop {
+      from { opacity: 0; scale: 0; rotate: -180deg; }
+      to   { opacity: 1; scale: 1; rotate: 0deg; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pillars__card,
+    .pillars__icon-badge {
+      animation: none !important;
+    }
+  }
+
+  @media (width < 768px) {
+    .pillars__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width < 480px) {
+    .pillars__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ═══ MISSION ════════════════════════════════════════════════════════ */
+
+  .about-mission {
+    margin-block: 2rem;
+  }
+
+  /* ═══ CONTRACT VARIANT A: SURFACE CARD ═══════════════════════════════ */
+
+  .contracts-card {
+    text-align: center;
+    padding: 2rem;
+    margin-block: 2rem;
+  }
+
+  .contracts-card__thanks {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    font-style: italic;
+  }
+
+  .contracts-card__actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+</style>
