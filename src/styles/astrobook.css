@@ -12,12 +12,12 @@ main.astrobook-dbh5qm {
 
 /* Fullscreen: no centering, no padding */
 main.astrobook-dbh5qm:has(.story-layout-fullscreen) {
-	display: block;
+	place-items: normal;
 	padding: 0;
 }
 
 /* Padded: no centering, generous padding */
 main.astrobook-dbh5qm:has(.story-layout-padded) {
-	display: block;
+	place-items: normal;
 	padding: 2rem;
 }

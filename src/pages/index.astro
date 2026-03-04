@@ -17,7 +17,7 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid__bleed page-grid__subgrid -mt-8">
+  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-8">
     <h1><Mark>Stop the Retaliation</Mark></h1>
     <p>
       On February 11, Kickstarter management terminated bargaining unit members
@@ -51,7 +51,7 @@ const hasPetition = "/petition" in redirects;
     </div>
   </UrgentBanner>}
 
-  <section class="hero page-grid__wide">
+  <section class="hero col-[wide]">
     <Logo class="hero__logo" width={96} height={96} />
     <h1 class="hero__headline">We are Kickstarter United</h1>
     <p class="hero__subtitle">
@@ -61,7 +61,7 @@ const hasPetition = "/petition" in redirects;
   </section>
 
   <!-- ═══ AUDIENCE PATHWAY CARDS ═════════════════════════════════════════ -->
-  <section class="paths page-grid__wide">
+  <section class="paths">
     <h2 class="paths__heading">I'm here because...</h2>
     <div class="paths__grid">
       <div class="paths__card paths__card--worker">
@@ -126,7 +126,7 @@ const hasPetition = "/petition" in redirects;
     </div>
   </section>
 
-  <div class="prevails page-grid__wide">
+  <div class="prevails col-[wide]">
     <div class="card-surface breaking">
       <h1 class="heading-3">Kickstarter United Prevails!</h1>
 
@@ -169,9 +169,9 @@ const hasPetition = "/petition" in redirects;
     </div>
   </div>
 
-  <div class="wins card-surface page-grid__wide mt-8">
+  <div class="wins card-surface mt-8 text-pretty">
     <details class="wins__item" open id="four-day-workweek">
-      <summary>Codified Four-Day Workweek!</summary>
+      <summary><Icon name="tabler:calendar-check" class="wins__icon" />Codified Four-Day Workweek!</summary>
       <div class="wins__body">
         <p>
           We have <strong>codified our Four-Day Workweek</strong>, with strong
@@ -180,24 +180,25 @@ const hasPetition = "/petition" in redirects;
         </p>
         <ul>
           <li>
-            Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
-            with notice in advance, and a time limit
+            <Icon name="tabler:clock-shield" class="wins__bullet-icon" />
+            <span>Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
+            with notice in advance, and a time limit</span>
           </li>
           <li>
-            Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
-            with the union
+            <Icon name="tabler:scale" class="wins__bullet-icon" />
+            <span>Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
+            with the union</span>
           </li>
           <li>
-            If management tries to force it anyway, <strong
-              >we can strike</strong
-            >
+            <Icon name="tabler:gavel" class="wins__bullet-icon" />
+            <span>If management tries to force it anyway, <strong>we can strike</strong></span>
           </li>
         </ul>
       </div>
     </details>
 
     <details class="wins__item" id="minimum-salary-floor">
-      <summary>Raising the minimum salary floor!</summary>
+      <summary><Icon name="tabler:trending-up" class="wins__icon" />Raising the minimum salary floor!</summary>
       <div class="wins__body">
         <p>
           The market undervalues some of our most vital workers, and we won
@@ -206,22 +207,25 @@ const hasPetition = "/petition" in redirects;
         </p>
         <ul>
           <li>
-            An <strong>escalating increase</strong> in the pay floor based on cost
+            <Icon name="tabler:chart-arrows-vertical" class="wins__bullet-icon" />
+            <span>An <strong>escalating increase</strong> in the pay floor based on cost
             of living, an <strong>average 6% increase</strong> to our most undervalued
-            workers
+            workers</span>
           </li>
-          <li>A one-time $6,000 bonus for the most undervalued workers</li>
           <li>
-            Yearly national benchmarking to push pay upwards <strong
-              >across the whole unit</strong
-            >
+            <Icon name="tabler:coin" class="wins__bullet-icon" />
+            <span>A one-time $6,000 bonus for the most undervalued workers</span>
+          </li>
+          <li>
+            <Icon name="tabler:chart-bar" class="wins__bullet-icon" />
+            <span>Yearly national benchmarking to push pay upwards <strong>across the whole unit</strong></span>
           </li>
         </ul>
       </div>
     </details>
 
     <details class="wins__item" id="much-more">
-      <summary>Much, much more!</summary>
+      <summary><Icon name="tabler:sparkles" class="wins__icon" />Much, much more!</summary>
       <div class="wins__body">
         <p>
           We won many improvements to our working conditions with <strong
@@ -230,16 +234,19 @@ const hasPetition = "/petition" in redirects;
         </p>
         <ul>
           <li>
-            Cannot replace a role with AI, and management must work with
-            employees if AI changes a role
+            <Icon name="tabler:robot" class="wins__bullet-icon" />
+            <span>Cannot replace a role with AI, and management must work with
+            employees if AI changes a role</span>
           </li>
           <li>
-            Strong protections against replacing full time employees with
-            contractors
+            <Icon name="tabler:shield-check" class="wins__bullet-icon" />
+            <span>Strong protections against replacing full time employees with
+            contractors</span>
           </li>
           <li>
-            More input from employees with a regular forum for business
-            operations
+            <Icon name="tabler:messages" class="wins__bullet-icon" />
+            <span>More input from employees with a regular forum for business
+            operations</span>
           </li>
         </ul>
       </div>
@@ -466,10 +473,15 @@ const hasPetition = "/petition" in redirects;
 
   .prevails {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: auto 1fr;
     gap: 32px;
     margin-block: 2rem;
-    padding-inline: 0;
+  }
+
+  @media (width >= 768px) {
+    .prevails .breaking {
+      max-width: 50ch;
+    }
   }
 
   .prevails__photo-wrap {
@@ -512,13 +524,14 @@ const hasPetition = "/petition" in redirects;
 
   .wins__item summary {
     cursor: pointer;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem 1rem 0.75rem;
     font-family: var(--ksru-font-family-heading);
     font-weight: 700;
     font-size: 1.25rem;
     color: white;
     background-color: var(--ksru-color-accent);
     border-left: 20px solid transparent;
+    background-clip: border-box;
     border-radius: 0px;
     transition:
       background-color 150ms ease,
@@ -526,7 +539,7 @@ const hasPetition = "/petition" in redirects;
       border-radius 300ms ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.75rem;
   }
 
   /* Chevron indicator */
@@ -540,7 +553,7 @@ const hasPetition = "/petition" in redirects;
     transition: transform 0.4s
       linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
     flex-shrink: 0;
-    margin-left: 1rem;
+    margin-left: auto;
   }
 
   /* Hide default marker */
@@ -597,6 +610,44 @@ const hasPetition = "/petition" in redirects;
   .wins__body {
     padding: 1.5rem;
     background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .wins__body > p {
+    flex: 1 1 20ch;
+  }
+
+  .wins__body > ul {
+    flex: 2 1 30ch;
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .wins__body > ul > li {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+
+  .wins__body > ul > li + li {
+    margin-top: 0.5rem;
+  }
+
+  .wins__icon {
+    width: 1.25em;
+    height: 1.25em;
+    flex-shrink: 0;
+  }
+
+  .wins__bullet-icon {
+    width: 1.125em;
+    height: 1.125em;
+    flex-shrink: 0;
+    opacity: 0.7;
   }
 
   /* Animated expand/collapse */
