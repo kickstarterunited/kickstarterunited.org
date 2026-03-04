@@ -17,83 +17,39 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {
-    showBanner && (
-      <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
-        <h1>
-          <Mark>Stop the Retaliation</Mark>
-        </h1>
-        <p>
-          On February 11, Kickstarter management terminated bargaining unit
-          members and forced others out,{" "}
-          <strong>targeting strike leaders and union activists</strong>, just 3
-          months after workers ratified a{" "}
-          <a href="/contracts/2025">historic contract</a>
-          following a 42-day strike.
-        </p>
-        <p>
-          Are you also pissed? <strong>Here's what you can do to help:</strong>
-        </p>
-        <p class="mt-md">
-          <a href="/petition" class="btn btn-success urgent-banner__cta">
-            Sign Our Letter
-          </a>
-        </p>
-        <div class="urgent-banner__actions">
-          <a href="mailto:e@kickstarter.com" class="btn btn-info">
-            Write to the CEO
-          </a>
-        </div>
-        <p class="mt-md mb-0 opacity-85">Follow along:</p>
-        <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
-          <a
-            href="https://www.instagram.com/kickstarter_united"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-instagram" size={24} />
-              <span>Instagram</span>
-            </>
-          </a>
-          <a
-            href="https://bsky.app/profile/kickstarterunited.org"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-bluesky" size={24} />
-              <span>Bluesky</span>
-            </>
-          </a>
-          <a
-            href="https://www.facebook.com/KickstarterUnited"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-facebook" size={24} />
-              <span>Facebook</span>
-            </>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-linkedin" size={24} />
-              <span>LinkedIn</span>
-            </>
-          </a>
-        </div>
-      </UrgentBanner>
-    )
-  }
+  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
+    <h1><Mark>Stop the Retaliation</Mark></h1>
+    <p>
+      On February 11, Kickstarter management terminated bargaining unit members
+      and forced others out, <strong>targeting strike leaders and union
+      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
+      following a 42-day strike.
+    </p>
+    <p>
+      Are you also pissed? <strong>Here's what you can do to help:</strong>
+    </p>
+    <p class="mt-md">
+      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
+    </p>
+    <div class="urgent-banner__actions">
+      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
+    </div>
+    <p class="mt-md mb-0 opacity-85">Follow along:</p>
+    <div class="urgent-banner__actions" style="margin-top: var(--ksru-space-xs);">
+      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
+      </a>
+      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
+      </a>
+      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
+      </a>
+      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
+        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
+      </a>
+    </div>
+  </UrgentBanner>}
 
   <section class="hero col-[wide]">
     <Logo class="hero__logo" width={96} height={96} />
@@ -330,13 +286,13 @@ const hasPetition = "/petition" in redirects;
     </details>
   </div>
 
-  <p class="mt-xl">
+  <p class="mt-2xl">
     <strong>Thank you</strong> to everyone who showed support, wrote emails to leadership,
     donated to our strike fund, and came to our pickets. <strong>
       When we fight, we win!
     </strong>
   </p>
-  <div class="text-center my-xl" id="email-signup">
+  <div class="text-center my-2xl" id="email-signup">
     <script
       is:inline
       async
@@ -371,8 +327,8 @@ const hasPetition = "/petition" in redirects;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.75rem;
-    margin-block: 2.5rem 2rem;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-3xl);
   }
 
   .hero__logo {
@@ -401,24 +357,24 @@ const hasPetition = "/petition" in redirects;
   /* ═══ PATHWAY CARDS ══════════════════════════════════════════════════ */
 
   .paths {
-    margin-block: 2rem 2.5rem;
+    margin-block: var(--ksru-space-3xl);
   }
 
   .paths__heading {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--ksru-space-lg);
     font-size: clamp(1.25rem, 3vw, 1.75rem);
   }
 
   .paths__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: var(--ksru-space-lg);
   }
 
   .paths__card {
     position: relative;
-    padding: 1.25rem 1.25rem 1.25rem 2rem;
+    padding: var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-xl);
     border-radius: 16px;
     background: var(--ksru-color-bg);
     border: 2px solid
@@ -465,7 +421,7 @@ const hasPetition = "/petition" in redirects;
     font-family: var(--ksru-font-family-heading);
     font-weight: 700;
     color: var(--ksru-color-accent);
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--ksru-space-xs);
   }
 
   .paths__card--creator .paths__title {
@@ -483,7 +439,7 @@ const hasPetition = "/petition" in redirects;
   .paths__card p {
     font-size: 0.9375rem;
     line-height: 1.5;
-    margin: 0.25rem 0 0;
+    margin: var(--ksru-space-xs) 0 0;
     text-wrap: pretty;
   }
 
@@ -494,7 +450,7 @@ const hasPetition = "/petition" in redirects;
     place-items: center;
     width: 2.5rem;
     height: 2.5rem;
-    top: 1.25rem;
+    top: var(--ksru-space-lg);
     translate: 0 0;
     background: var(--_accent);
     border: none;
@@ -511,8 +467,8 @@ const hasPetition = "/petition" in redirects;
   .paths__links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.75rem;
+    gap: var(--ksru-space-sm);
+    margin-top: var(--ksru-space-md);
   }
 
   .paths__links a {
@@ -552,8 +508,8 @@ const hasPetition = "/petition" in redirects;
   .prevails {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 32px;
-    margin-block: 2rem;
+    gap: var(--ksru-space-xl);
+    margin-block: var(--ksru-space-3xl);
   }
 
   @media (width >= 768px) {
@@ -595,14 +551,14 @@ const hasPetition = "/petition" in redirects;
 
   .wins {
     --wins-radius: 32px;
-    margin-block: 2rem;
+    margin-block: var(--ksru-space-2xl);
     overflow: hidden;
     padding: 0;
   }
 
   .wins__item summary {
     cursor: pointer;
-    padding: 1rem 1.5rem 1rem 0.75rem;
+    padding: var(--ksru-space-md) var(--ksru-space-lg) var(--ksru-space-md) 0.75rem;
     font-family: var(--ksru-font-family-heading);
     font-weight: 700;
     font-size: 1.25rem;
@@ -654,7 +610,7 @@ const hasPetition = "/petition" in redirects;
 
   .wins__item[open] + .wins__item,
   .wins__item + .wins__item[open] {
-    margin-top: 8px;
+    margin-top: var(--ksru-space-sm);
   }
 
   /* Neighbors of open item get rounded toward the gap */
@@ -686,12 +642,12 @@ const hasPetition = "/petition" in redirects;
 
   /* Content panel */
   .wins__body {
-    padding: 1.5rem;
+    padding: var(--ksru-space-lg);
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     align-items: start;
-    gap: 1rem;
+    gap: var(--ksru-space-md);
   }
 
   .wins__body > p {
@@ -707,12 +663,12 @@ const hasPetition = "/petition" in redirects;
 
   .wins__body > ul > li {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--ksru-space-sm);
     align-items: baseline;
   }
 
   .wins__body > ul > li + li {
-    margin-top: 0.5rem;
+    margin-top: var(--ksru-space-sm);
   }
 
   .wins__icon {
