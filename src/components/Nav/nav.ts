@@ -36,7 +36,7 @@ export const nav: ComponentProps<typeof MenuItem>[] = [
       {
         label: "Projects our Workers Love",
         href: "/projects-our-workers-love",
-      }
+      },
     ],
   },
   {

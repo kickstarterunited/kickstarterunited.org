@@ -1,23 +1,23 @@
 body {
-	color: var(--ksru-color-text);
+  color: var(--ksru-color-text);
 }
 
 /* Default centering for astrobook story previews.
    Selector targets Astrobook's generated class - may need updating on Astrobook upgrades. */
 main.astrobook-dbh5qm {
-	display: grid;
-	place-items: center;
-	padding: 1rem;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
 }
 
 /* Fullscreen: no centering, no padding */
 main.astrobook-dbh5qm:has(.story-layout-fullscreen) {
-	place-items: normal;
-	padding: 0;
+  place-items: normal;
+  padding: 0;
 }
 
 /* Padded: no centering, generous padding */
 main.astrobook-dbh5qm:has(.story-layout-padded) {
-	place-items: normal;
-	padding: 2rem;
+  place-items: normal;
+  padding: 2rem;
 }

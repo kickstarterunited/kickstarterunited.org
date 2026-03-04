@@ -38,15 +38,21 @@ const { title } = Astro.props;
 
     {/* Popover API polyfill (supports popover="hint") */}
     <script src="../scripts/popover.js"></script>
-    {/* Invoker Commands API: `command`/`commandfor` button attrs (click-triggered) */}
+    {
+      /* Invoker Commands API: `command`/`commandfor` button attrs (click-triggered) */
+    }
     <script>
       import "invokers-polyfill";
     </script>
-    {/* Interest Invokers API: `interestfor` attr (hover/focus-triggered popovers) */}
+    {
+      /* Interest Invokers API: `interestfor` attr (hover/focus-triggered popovers) */
+    }
     <script>
       import "interestfor";
     </script>
-    {/* CSS Anchor Positioning: conditionally polyfilled for browsers without native support */}
+    {
+      /* CSS Anchor Positioning: conditionally polyfilled for browsers without native support */
+    }
     <script>
       if (!("anchorName" in document.documentElement.style)) {
         import("@oddbird/css-anchor-positioning");
@@ -55,11 +61,26 @@ const { title } = Astro.props;
   </head>
   <body class="leading-[1.6]" data-theme="light">
     {/* Global SVG filters (defined once, referenced by CSS) */}
-    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0"
+      height="0"
+      aria-hidden="true"
+      style="position:absolute"
+    >
       <defs>
         <filter id="mark-shape">
-          <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
-          <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0 0.15"
+            numOctaves="1"
+            result="warp"></feTurbulence>
+          <feDisplacementMap
+            xChannelSelector="R"
+            yChannelSelector="G"
+            scale="8"
+            in="SourceGraphic"
+            in2="warp"></feDisplacementMap>
         </filter>
       </defs>
     </svg>
@@ -87,4 +108,3 @@ const { title } = Astro.props;
     </div>
   </body>
 </html>
-

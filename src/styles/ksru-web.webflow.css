@@ -1,13 +1,14 @@
 @layer base {
   html {
     /* Fallback fonts */
-    --ksru-font-stack-system: system-ui, "Segoe UI", Roboto, Helvetica, Arial,
-      sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --ksru-font-stack-system:
+      system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     /* Font families */
     --ksru-font-family-jost: "Jost", var(--ksru-font-stack-system, sans-serif);
-    --ksru-font-family-libre-franklin: "Libre Franklin",
-      var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-libre-franklin:
+      "Libre Franklin", var(--ksru-font-stack-system, sans-serif);
 
     /* Content types */
     --ksru-font-family-heading: var(--ksru-font-family-jost, monospace);
@@ -32,22 +33,22 @@
   }
 
   :is(
-      p,
-      ul,
-      ol,
-      dl,
-      dt,
-      dd,
-      li,
-      blockquote,
-      pre,
-      table,
-      hr,
-      embed,
-      figure,
-      figcaption,
-      button
-    ) {
+    p,
+    ul,
+    ol,
+    dl,
+    dt,
+    dd,
+    li,
+    blockquote,
+    pre,
+    table,
+    hr,
+    embed,
+    figure,
+    figcaption,
+    button
+  ) {
     margin: 0;
   }
 
@@ -199,7 +200,10 @@
   details::details-content {
     opacity: 1;
     block-size: 0;
-    transition: block-size 300ms, content-visibility 300ms, opacity 300ms;
+    transition:
+      block-size 300ms,
+      content-visibility 300ms,
+      opacity 300ms;
     transition-behavior: allow-discrete;
     overflow: clip;
   }
@@ -231,7 +235,6 @@
     text-decoration-thickness: 2px;
   }
 }
-
 
 @layer components {
   /* MARK: .card-surface */
@@ -316,7 +319,6 @@
       color-mix(in oklch, var(--ksru-color-accent), transparent 50%);
   }
 
-
   @supports (corner-shape: squircle) {
     .card-surface {
       corner-shape: squircle;
@@ -384,7 +386,9 @@
     outline: none;
     pointer-events: none;
 
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out,
+    transition:
+      opacity 0.5s ease-in-out,
+      transform 0.5s ease-in-out,
       overlay 0.5s ease-in-out allow-discrete,
       display 0.5s ease-in-out allow-discrete;
 
@@ -398,7 +402,9 @@
   }
 
   .rally__dialog::backdrop {
-    transition: display 0.5s allow-discrete, overlay 0.5s allow-discrete,
+    transition:
+      display 0.5s allow-discrete,
+      overlay 0.5s allow-discrete,
       background-color 0.5s;
     background-color: transparent;
   }
@@ -505,7 +511,8 @@
     aspect-ratio: 2.5 / 3.5;
     transform-origin: bottom center;
     transform: rotate(var(--r, 0deg)) translateY(var(--t, 0px));
-    transition: transform-origin 0.5s var(--ease-squish-4),
+    transition:
+      transform-origin 0.5s var(--ease-squish-4),
       transform 0.25s var(--ease-in-out-3);
 
     background-color: white;
@@ -694,7 +701,9 @@
     padding: var(--_padding);
     font-weight: 600;
 
-    transition: background-color 100ms ease, color 100ms ease;
+    transition:
+      background-color 100ms ease,
+      color 100ms ease;
     background-color: white;
     color: var(--ksru-color-accent);
   }

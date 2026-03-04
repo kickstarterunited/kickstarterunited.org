@@ -6,78 +6,78 @@
 @layer base {
   :root {
     /* ── Neutral (H: 151) ── */
-    --ksru-neutral-50:  oklch(0.97 0.003 151);
+    --ksru-neutral-50: oklch(0.97 0.003 151);
     --ksru-neutral-100: oklch(0.93 0.004 151);
     --ksru-neutral-200: oklch(0.87 0.005 151);
     --ksru-neutral-300: oklch(0.79 0.006 151);
-    --ksru-neutral-400: oklch(0.70 0.008 151);
-    --ksru-neutral-500: oklch(0.60 0.01 151);
-    --ksru-neutral-600: oklch(0.50 0.01 151);
+    --ksru-neutral-400: oklch(0.7 0.008 151);
+    --ksru-neutral-500: oklch(0.6 0.01 151);
+    --ksru-neutral-600: oklch(0.5 0.01 151);
     --ksru-neutral-700: oklch(0.42 0.01 151);
     --ksru-neutral-800: oklch(0.34 0.01 151);
     --ksru-neutral-900: oklch(0.27 0.01 151);
     --ksru-neutral-950: oklch(0.23 0.01 151); /* brand #1a1f1b */
 
     /* ── Emerald (H: 156) ── */
-    --ksru-emerald-50:  oklch(0.97 0.02 156);
+    --ksru-emerald-50: oklch(0.97 0.02 156);
     --ksru-emerald-100: oklch(0.93 0.04 156);
     --ksru-emerald-200: oklch(0.87 0.07 156);
-    --ksru-emerald-300: oklch(0.79 0.10 156);
-    --ksru-emerald-400: oklch(0.70 0.14 156);
+    --ksru-emerald-300: oklch(0.79 0.1 156);
+    --ksru-emerald-400: oklch(0.7 0.14 156);
     --ksru-emerald-500: oklch(0.64 0.16 156); /* brand #04a862 */
-    --ksru-emerald-600: oklch(0.50 0.14 156);
+    --ksru-emerald-600: oklch(0.5 0.14 156);
     --ksru-emerald-700: oklch(0.42 0.12 156);
     --ksru-emerald-800: oklch(0.34 0.09 156);
     --ksru-emerald-900: oklch(0.27 0.06 156);
     --ksru-emerald-950: oklch(0.19 0.04 156);
 
     /* ── Cyan (H: 212) ── */
-    --ksru-cyan-50:  oklch(0.97 0.01 212);
+    --ksru-cyan-50: oklch(0.97 0.01 212);
     --ksru-cyan-100: oklch(0.93 0.02 212);
     --ksru-cyan-200: oklch(0.87 0.04 212);
     --ksru-cyan-300: oklch(0.79 0.07 212);
-    --ksru-cyan-400: oklch(0.70 0.10 212);
-    --ksru-cyan-500: oklch(0.60 0.12 212);
-    --ksru-cyan-600: oklch(0.50 0.10 212);
+    --ksru-cyan-400: oklch(0.7 0.1 212);
+    --ksru-cyan-500: oklch(0.6 0.12 212);
+    --ksru-cyan-600: oklch(0.5 0.1 212);
     --ksru-cyan-700: oklch(0.42 0.08 212);
     --ksru-cyan-800: oklch(0.37 0.06 212); /* brand #034752 */
     --ksru-cyan-900: oklch(0.27 0.04 212);
     --ksru-cyan-950: oklch(0.19 0.03 212);
 
     /* ── Amber (H: 87) ── */
-    --ksru-amber-50:  oklch(0.97 0.02 87);
+    --ksru-amber-50: oklch(0.97 0.02 87);
     --ksru-amber-100: oklch(0.93 0.04 87);
     --ksru-amber-200: oklch(0.87 0.08 87);
     --ksru-amber-300: oklch(0.79 0.14 87); /* brand #e0b440 */
-    --ksru-amber-400: oklch(0.70 0.15 87);
-    --ksru-amber-500: oklch(0.60 0.13 87);
-    --ksru-amber-600: oklch(0.50 0.11 87);
+    --ksru-amber-400: oklch(0.7 0.15 87);
+    --ksru-amber-500: oklch(0.6 0.13 87);
+    --ksru-amber-600: oklch(0.5 0.11 87);
     --ksru-amber-700: oklch(0.42 0.09 87);
     --ksru-amber-800: oklch(0.34 0.07 87);
     --ksru-amber-900: oklch(0.27 0.05 87);
     --ksru-amber-950: oklch(0.19 0.03 87);
 
     /* ── Brown (H: 55) ── */
-    --ksru-brown-50:  oklch(0.97 0.01 55);
+    --ksru-brown-50: oklch(0.97 0.01 55);
     --ksru-brown-100: oklch(0.93 0.02 55);
     --ksru-brown-200: oklch(0.87 0.04 55);
     --ksru-brown-300: oklch(0.79 0.06 55);
-    --ksru-brown-400: oklch(0.70 0.08 55);
+    --ksru-brown-400: oklch(0.7 0.08 55);
     --ksru-brown-500: oklch(0.58 0.05 55); /* brand (oklch, no hex source) */
-    --ksru-brown-600: oklch(0.50 0.06 55);
+    --ksru-brown-600: oklch(0.5 0.06 55);
     --ksru-brown-700: oklch(0.42 0.05 55);
     --ksru-brown-800: oklch(0.34 0.04 55);
     --ksru-brown-900: oklch(0.27 0.03 55);
     --ksru-brown-950: oklch(0.19 0.02 55);
 
     /* ── Red (H: 25) ── */
-    --ksru-red-50:  oklch(0.97 0.01 25);
+    --ksru-red-50: oklch(0.97 0.01 25);
     --ksru-red-100: oklch(0.93 0.03 25);
     --ksru-red-200: oklch(0.87 0.06 25);
-    --ksru-red-300: oklch(0.79 0.10 25);
-    --ksru-red-400: oklch(0.70 0.14 25);
-    --ksru-red-500: oklch(0.60 0.16 25);
-    --ksru-red-600: oklch(0.50 0.14 25);
+    --ksru-red-300: oklch(0.79 0.1 25);
+    --ksru-red-400: oklch(0.7 0.14 25);
+    --ksru-red-500: oklch(0.6 0.16 25);
+    --ksru-red-600: oklch(0.5 0.14 25);
     --ksru-red-700: oklch(0.42 0.12 25);
     --ksru-red-800: oklch(0.34 0.09 25);
     --ksru-red-900: oklch(0.27 0.06 25);

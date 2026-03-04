@@ -5,7 +5,10 @@ import Surface from "./Surface.astro";
 <div class="grid gap-2xl p-xl">
   <section>
     <h3 class="mt-0">Elevation Levels</h3>
-    <p class="text-sm">Surfaces at elevation 0, 1, and 2. Higher elevations add shadow in light mode and shift to a secondary background in dark mode.</p>
+    <p class="text-sm">
+      Surfaces at elevation 0, 1, and 2. Higher elevations add shadow in light
+      mode and shift to a secondary background in dark mode.
+    </p>
     <div class="demo-row">
       <Surface elevation={0}>
         <p class="mt-0 mb-0"><strong>Elevation 0</strong></p>
@@ -24,7 +27,10 @@ import Surface from "./Surface.astro";
 
   <section>
     <h3 class="mt-0">Inverse Context</h3>
-    <p class="text-sm">Same elevations rendered inside <code>data-theme="inverse"</code>. In dark mode, elevated surfaces use <code>surface-secondary</code> and shadows disappear.</p>
+    <p class="text-sm">
+      Same elevations rendered inside <code>data-theme="inverse"</code>. In dark
+      mode, elevated surfaces use <code>surface-secondary</code> and shadows disappear.
+    </p>
     <Surface elevation={1} data-theme="inverse">
       <div class="demo-row">
         <Surface elevation={0}>

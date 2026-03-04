@@ -20,17 +20,22 @@ import Button from "../ui/Button/Button.astro";
   <!-- ═══ ORIGIN STORY ═══════════════════════════════════════════════════ -->
   <section class="about-story">
     <Text as="p">
-      On February 18th, 2020, Kickstarter
-      employees voted to form a union, becoming the
-      <Mark variant="emerald">first major tech company</Mark> in the United
-      States to do so. We took this step in order to invest deeply in our
-      collective future at the company we love, to create a workplace that is
-      safer and more equitable for all, and to support organizing efforts across
-      the tech industry and the many creative communities our work touches. We
-      are proud to call ourselves members of OPEIU Local 153.
+      On February 18th, 2020, Kickstarter employees voted to form a union,
+      becoming the
+      <Mark variant="emerald">first major tech company</Mark> in the United States
+      to do so. We took this step in order to invest deeply in our collective future
+      at the company we love, to create a workplace that is safer and more equitable
+      for all, and to support organizing efforts across the tech industry and the
+      many creative communities our work touches. We are proud to call ourselves members
+      of OPEIU Local 153.
     </Text>
 
-    <Heading as="blockquote" size="md" class="pullquote text-balance" maxLineLength={false}>
+    <Heading
+      as="blockquote"
+      size="md"
+      class="pullquote text-balance"
+      maxLineLength={false}
+    >
       We took this step to invest deeply in our collective future at the company
       we love.
     </Heading>
@@ -40,8 +45,9 @@ import Button from "../ui/Button/Button.astro";
       of completing a successful campaign while knowing that the real work is
       still ahead. As we continue to build on the victories of our first and
       second contracts, we remain true to the values that informed our
-      organizing: <Mark variant="cyan">transparency, inclusion, solidarity,
-      accountability, and joy</Mark>.
+      organizing: <Mark variant="cyan"
+        >transparency, inclusion, solidarity, accountability, and joy</Mark
+      >.
     </Text>
   </section>
 
@@ -56,7 +62,8 @@ import Button from "../ui/Button/Button.astro";
         <span class="pillars__icon-badge">
           <Icon name="tabler:scale" />
         </span>
-        <Heading as="h3" size="sm" class="pillars__title">Equitable Pay</Heading>
+        <Heading as="h3" size="sm" class="pillars__title">Equitable Pay</Heading
+        >
         <Text as="p" size="sm" class="pillars__desc">
           Equitable compensation across positions, creating equal pay for equal
           work.
@@ -67,7 +74,9 @@ import Button from "../ui/Button/Button.astro";
         <span class="pillars__icon-badge">
           <Icon name="tabler:users-group" />
         </span>
-        <Heading as="h3" size="sm" class="pillars__title">Diversity & Inclusion</Heading>
+        <Heading as="h3" size="sm" class="pillars__title"
+          >Diversity & Inclusion</Heading
+        >
         <Text as="p" size="sm" class="pillars__desc">
           Diversity and inclusion in every aspect of the company.
         </Text>
@@ -77,7 +86,9 @@ import Button from "../ui/Button/Button.astro";
         <span class="pillars__icon-badge">
           <Icon name="tabler:clipboard-check" />
         </span>
-        <Heading as="h3" size="sm" class="pillars__title">Fair Processes</Heading>
+        <Heading as="h3" size="sm" class="pillars__title"
+          >Fair Processes</Heading
+        >
         <Text as="p" size="sm" class="pillars__desc">
           Fair, transparent, and consistently implemented processes around
           hiring, firing, professional growth, and disciplinary action.
@@ -88,7 +99,9 @@ import Button from "../ui/Button/Button.astro";
         <span class="pillars__icon-badge">
           <Icon name="tabler:heart-rate-monitor" />
         </span>
-        <Heading as="h3" size="sm" class="pillars__title">Employee Wellness</Heading>
+        <Heading as="h3" size="sm" class="pillars__title"
+          >Employee Wellness</Heading
+        >
         <Text as="p" size="sm" class="pillars__desc">
           Policies that prioritize employee wellness, safety, and mental health.
         </Text>
@@ -98,10 +111,12 @@ import Button from "../ui/Button/Button.astro";
         <span class="pillars__icon-badge">
           <Icon name="tabler:building-community" />
         </span>
-        <Heading as="h3" size="sm" class="pillars__title">Community & Culture</Heading>
+        <Heading as="h3" size="sm" class="pillars__title"
+          >Community & Culture</Heading
+        >
         <Text as="p" size="sm" class="pillars__desc">
-          The preservation of a company culture that fosters a sense of community
-          and collaboration throughout the workplace.
+          The preservation of a company culture that fosters a sense of
+          community and collaboration throughout the workplace.
         </Text>
       </Surface>
 
@@ -140,39 +155,45 @@ import Button from "../ui/Button/Button.astro";
   <Surface elevation={1} class="contracts-card">
     <Heading as="h2" size="lg" maxLineLength={false}>Our Contracts</Heading>
     <Text as="p">
-      On June 17th, 2022, our bargaining unit overwhelmingly voted YES to
-      ratify our first collective bargaining agreement. In December 2025, after
-      a <Mark variant="amber">historic 42-day strike</Mark>, 98% of our union
-      voted to ratify a second contract with even stronger protections.
+      On June 17th, 2022, our bargaining unit overwhelmingly voted YES to ratify
+      our first collective bargaining agreement. In December 2025, after a <Mark
+        variant="amber">historic 42-day strike</Mark
+      >, 98% of our union voted to ratify a second contract with even stronger
+      protections.
     </Text>
     <Text as="p" size="sm" class="contracts-card__thanks">
       Thank you for all of your support through both contract campaigns &mdash;
       it has meant the world to us.
     </Text>
     <div class="contracts-card__actions">
-      <Button as="a" href="/contracts/2025" variant="primary">2025 Contract</Button>
-      <Button as="a" href="/contracts/2022" variant="ghost">2022 Contract</Button>
+      <Button as="a" href="/contracts/2025" variant="primary"
+        >2025 Contract</Button
+      >
+      <Button as="a" href="/contracts/2022" variant="ghost"
+        >2022 Contract</Button
+      >
     </div>
   </Surface>
-
 </BaseLayout>
 
 <script>
-  const grid = document.querySelector('.pillars__grid');
+  const grid = document.querySelector(".pillars__grid");
   if (grid) {
-    grid.classList.add('has-reveal');
+    grid.classList.add("has-reveal");
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-revealed');
+            entry.target.classList.add("is-revealed");
             observer.unobserve(entry.target);
           }
         }
       },
       { threshold: 0.8 },
     );
-    grid.querySelectorAll('.pillars__card').forEach((card) => observer.observe(card));
+    grid
+      .querySelectorAll(".pillars__card")
+      .forEach((card) => observer.observe(card));
   }
 </script>
 
@@ -287,7 +308,9 @@ import Button from "../ui/Button/Button.astro";
   .pillars__grid.has-reveal .pillars__card {
     opacity: 0;
     translate: 0 2rem;
-    transition: opacity 0.6s ease-out var(--_delay), translate 0.6s ease-out var(--_delay);
+    transition:
+      opacity 0.6s ease-out var(--_delay),
+      translate 0.6s ease-out var(--_delay);
   }
 
   .pillars__grid.has-reveal .pillars__card.is-revealed {
@@ -298,8 +321,9 @@ import Button from "../ui/Button/Button.astro";
   .pillars__grid.has-reveal .pillars__icon-badge {
     scale: 0;
     rotate: -180deg;
-    transition: scale 0.4s ease-out calc(var(--_delay) + 0.2s),
-                rotate 0.4s ease-out calc(var(--_delay) + 0.2s);
+    transition:
+      scale 0.4s ease-out calc(var(--_delay) + 0.2s),
+      rotate 0.4s ease-out calc(var(--_delay) + 0.2s);
   }
 
   .pillars__grid.has-reveal .pillars__card.is-revealed .pillars__icon-badge {
@@ -356,5 +380,4 @@ import Button from "../ui/Button/Button.astro";
     margin-top: var(--ksru-space-lg);
     flex-wrap: wrap;
   }
-
 </style>

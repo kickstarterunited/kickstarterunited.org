@@ -15,19 +15,19 @@ async function fetchFromSheets() {
       .filter((cell) => cell && !/ /.test(cell))
       .map((cell) => {
         const match = cell.match(
-          /kickstarter\.com\/projects\/([^/ ]+)\/([^/?# ]+)/
+          /kickstarter\.com\/projects\/([^/ ]+)\/([^/?# ]+)/,
         );
         return match && match.length === 3 ? `${match[1]}/${match[2]}` : null;
       })
-      .filter((link) => link !== null)
+      .filter((link) => link !== null),
   );
 }
 
-function shuffle<T>(array: T[]): void {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+function shuffle<T>(array: readonly T[]): T[] {
+  return array
+    .map((value) => ({ value, order: Math.random() }))
+    .sort((a, b) => a.order - b.order)
+    .map(({ value }) => value);
 }
 
 export default function ProjectList() {
@@ -39,11 +39,11 @@ export default function ProjectList() {
 
   if (slugs === null) return <LoadingSpinner />;
 
-  shuffle(slugs);
+  const shuffledSlugs = shuffle(slugs);
 
   return (
     <>
-      {slugs.map((slug) => (
+      {shuffledSlugs.map((slug) => (
         <li class="m-1" key={slug}>
           <iframe
             class="sm:w-[248px] sm:h-[397px] w-[170px] h-[360px]"

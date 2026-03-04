@@ -22,25 +22,25 @@ Progressive enhancement carousel using CSS Overflow Module Level 5 primitives wi
 
 ### Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
+| Prop            | Type      | Default | Description                     |
+| --------------- | --------- | ------- | ------------------------------- |
 | `scrollButtons` | `boolean` | `false` | Render prev/next scroll buttons |
 
 ### Slots
 
-| Slot | Default | Description |
-|------|---------|-------------|
-| (default) | - | Carousel items |
-| `prev-button` | `‹` | Content for the previous button |
-| `next-button` | `›` | Content for the next button |
+| Slot          | Default | Description                     |
+| ------------- | ------- | ------------------------------- |
+| (default)     | -       | Carousel items                  |
+| `prev-button` | `‹`     | Content for the previous button |
+| `next-button` | `›`     | Content for the next button     |
 
 ### CSS Custom Properties
 
-| Property | Default | Description |
-|----------|---------|-------------|
-| `--carousel-snap-align` | `center` | Snap alignment for items |
-| `--carousel-prev-content` | `"\2039" / "Previous"` | CSS scroll-button content (left) |
-| `--carousel-next-content` | `"\203A" / "Next"` | CSS scroll-button content (right) |
+| Property                  | Default                | Description                       |
+| ------------------------- | ---------------------- | --------------------------------- |
+| `--carousel-snap-align`   | `center`               | Snap alignment for items          |
+| `--carousel-prev-content` | `"\2039" / "Previous"` | CSS scroll-button content (left)  |
+| `--carousel-next-content` | `"\203A" / "Next"`     | CSS scroll-button content (right) |
 
 ## DOM Structure
 
@@ -73,12 +73,14 @@ Matches the CSS pseudo-element placement order from the spec:
 
 ```css
 @supports selector(::scroll-button(*)) {
-  .carousel--buttons .carousel__btn { display: none; }
+  .carousel--buttons .carousel__btn {
+    display: none;
+  }
   .carousel--buttons .carousel__scroller::scroll-button(left) {
-    content: var(--carousel-prev-content, "\2039" / "Previous");
+    content: var(--carousel-prev-content, "\2039"/ "Previous");
   }
   .carousel--buttons .carousel__scroller::scroll-button(right) {
-    content: var(--carousel-next-content, "\203A" / "Next");
+    content: var(--carousel-next-content, "\203A"/ "Next");
   }
 }
 ```
@@ -109,12 +111,15 @@ Old Carousel.astro and carousel.css are deleted (unused).
 ## Demo Plan
 
 ### Demo 1: Basic with buttons
+
 Horizontal card carousel. Consumer CSS sets grid layout, gap, item sizing, and positions buttons at carousel edges.
 
 ### Demo 2: Custom button content
+
 Named slots with Icon components. CSS custom properties for pseudo-element equivalents.
 
 ### Demo 3: Minimal (no buttons)
+
 Just the snap scroller. Shows the component works standalone.
 
 Each demo includes inline consumer CSS to make the boundary between component and consumer explicit.
@@ -134,6 +139,7 @@ Each demo includes inline consumer CSS to make the boundary between component an
 ### Task 1: Delete old Carousel component
 
 **Files:**
+
 - Delete: `src/ui/Carousel/Carousel.astro`
 - Delete: `src/ui/Carousel/carousel.css`
 
@@ -171,6 +177,7 @@ git commit -m "chore: remove unused CSS-only Carousel component"
 ### Task 2: Create carousel.css (Layer 1 + Layer 2)
 
 **Files:**
+
 - Create: `src/ui/Carousel/carousel.css`
 
 **Step 1: Write the CSS file**
@@ -212,11 +219,11 @@ git commit -m "chore: remove unused CSS-only Carousel component"
     }
 
     .carousel--buttons .carousel__scroller::scroll-button(left) {
-      content: var(--carousel-prev-content, "\2039" / "Previous");
+      content: var(--carousel-prev-content, "\2039"/ "Previous");
     }
 
     .carousel--buttons .carousel__scroller::scroll-button(right) {
-      content: var(--carousel-next-content, "\203A" / "Next");
+      content: var(--carousel-next-content, "\203A"/ "Next");
     }
   }
 }
@@ -242,6 +249,7 @@ git commit -m "feat(Carousel): add base + CSS scroll-button styles"
 ### Task 3: Create Carousel.astro (template + JS fallback)
 
 **Files:**
+
 - Create: `src/ui/Carousel/Carousel.astro`
 
 **Step 1: Write the component**
@@ -284,14 +292,18 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
   class:list={["carousel", { "carousel--buttons": scrollButtons }, cls]}
   data-carousel
 >
-  {scrollButtons && (
-    <button class="carousel__btn" data-dir="prev" aria-label="Previous">
-      <slot name="prev-button">&lsaquo;</slot>
-    </button>
-    <button class="carousel__btn" data-dir="next" aria-label="Next">
-      <slot name="next-button">&rsaquo;</slot>
-    </button>
-  )}
+  {
+    scrollButtons && (
+      <>
+        <button class="carousel__btn" data-dir="prev" aria-label="Previous">
+          <slot name="prev-button">&lsaquo;</slot>
+        </button>
+        <button class="carousel__btn" data-dir="next" aria-label="Next">
+          <slot name="next-button">&rsaquo;</slot>
+        </button>
+      </>
+    )
+  }
   <div class="carousel__scroller">
     <slot />
   </div>
@@ -300,15 +312,13 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
 <script>
   if (!CSS.supports("selector(::scroll-button(*))")) {
     for (const root of document.querySelectorAll<HTMLElement>(
-      "[data-carousel].carousel--buttons"
+      "[data-carousel].carousel--buttons",
     )) {
       const scroller = root.querySelector<HTMLElement>(".carousel__scroller");
-      const prevBtn = root.querySelector<HTMLButtonElement>(
-        '[data-dir="prev"]'
-      );
-      const nextBtn = root.querySelector<HTMLButtonElement>(
-        '[data-dir="next"]'
-      );
+      const prevBtn =
+        root.querySelector<HTMLButtonElement>('[data-dir="prev"]');
+      const nextBtn =
+        root.querySelector<HTMLButtonElement>('[data-dir="next"]');
 
       if (!scroller || !prevBtn || !nextBtn) continue;
 
@@ -319,7 +329,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
       };
 
       const scrollByItem = (dir: number) => {
-        const firstChild = scroller.firstElementChild as HTMLElement | null;
+        const firstChild = scroller.firstElementChild;
         if (!firstChild) return;
         const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
         scroller.scrollBy({
@@ -365,6 +375,7 @@ git commit -m "feat(Carousel): add component with JS scroll-button fallback"
 ### Task 4: Create CarouselDemo.astro and Carousel.stories.ts
 
 **Files:**
+
 - Create: `src/ui/Carousel/CarouselDemo.astro`
 - Create: `src/ui/Carousel/Carousel.stories.ts`
 
@@ -409,6 +420,7 @@ bun dev
 ```
 
 Open Astrobook and verify the Carousel story renders all three demo sections. Check:
+
 - Basic: buttons visible, clicking scrolls one item, disabled at boundaries
 - Custom: icon content in buttons
 - Minimal: smooth snap scrolling without buttons

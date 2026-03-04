@@ -2,7 +2,7 @@ import SpacingComponent from "./Spacing.astro";
 import StoryLayout from "../../stories/StoryLayout.astro";
 
 export default {
-	component: SpacingComponent,
+  component: SpacingComponent,
 };
 
 /**
@@ -11,6 +11,6 @@ export default {
  * intent for values used in component stylesheets.
  */
 export const Spacing = {
-	args: {},
-	decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
+  args: {},
+  decorators: [{ component: StoryLayout, props: { layout: "padded" } }],
 };

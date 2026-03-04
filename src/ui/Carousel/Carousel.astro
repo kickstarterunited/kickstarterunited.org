@@ -38,10 +38,20 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
   {
     scrollButtons && (
       <>
-        <button type="button" class="carousel__btn" data-dir="prev" aria-label="Previous">
+        <button
+          type="button"
+          class="carousel__btn"
+          data-dir="prev"
+          aria-label="Previous"
+        >
           <slot name="prev-button">&lsaquo;</slot>
         </button>
-        <button type="button" class="carousel__btn" data-dir="next" aria-label="Next">
+        <button
+          type="button"
+          class="carousel__btn"
+          data-dir="next"
+          aria-label="Next"
+        >
           <slot name="next-button">&rsaquo;</slot>
         </button>
       </>
@@ -58,12 +68,10 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
       "[data-carousel].carousel--buttons",
     )) {
       const scroller = root.querySelector<HTMLElement>(".carousel__scroller");
-      const prevBtn = root.querySelector<HTMLButtonElement>(
-        '[data-dir="prev"]',
-      );
-      const nextBtn = root.querySelector<HTMLButtonElement>(
-        '[data-dir="next"]',
-      );
+      const prevBtn =
+        root.querySelector<HTMLButtonElement>('[data-dir="prev"]');
+      const nextBtn =
+        root.querySelector<HTMLButtonElement>('[data-dir="next"]');
 
       if (!scroller || !prevBtn || !nextBtn) continue;
 
@@ -74,9 +82,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
       };
 
       const scrollByItem = (dir: number) => {
-        const items = Array.from(
-          scroller.children,
-        ) as HTMLElement[];
+        const items = Array.from(scroller.children) as HTMLElement[];
         if (!items.length) return;
 
         // Find the item whose center is closest to the scroller's visible center
@@ -85,7 +91,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
         let currentIdx = 0;
         let minDist = Infinity;
         for (let i = 0; i < items.length; i++) {
-          const rect = items[i].getBoundingClientRect();
+          const rect = items[i]!.getBoundingClientRect();
           const dist = Math.abs(rect.left + rect.width / 2 - scrollerCenter);
           if (dist < minDist) {
             minDist = dist;
@@ -100,8 +106,10 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
 
         // scrollIntoView avoids a Firefox bug where scrollBy + mandatory
         // scroll-snap can silently fail for certain items.
-        const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-        items[targetIdx].scrollIntoView({
+        const reducedMotion = matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        items[targetIdx]!.scrollIntoView({
           behavior: reducedMotion ? "auto" : "smooth",
           block: "nearest",
           inline: "center",

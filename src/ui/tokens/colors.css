@@ -34,18 +34,63 @@
 /* MARK: Design system color tokens */
 @layer base {
   :root {
-    --ksru-color-text: light-dark(oklch(0.23 0.01 151), oklch(1 0 0)); /* #1a1f1b / #fff */
-    --ksru-color-surface: light-dark(oklch(1 0 0), oklch(0.23 0.01 151)); /* #fff / #1a1f1b */
-    --ksru-color-text-secondary: light-dark(oklch(0.45 0.01 151), oklch(0.75 0.01 151)); /* muted gray */
-    --ksru-color-surface-secondary: light-dark(oklch(0.95 0.005 151), oklch(0.28 0.01 151)); /* subtle tinted gray */
-    --ksru-color-text-inverse: light-dark(oklch(1 0 0), oklch(0.23 0.01 151)); /* #fff / #1a1f1b */
-    --ksru-color-surface-inverse: light-dark(oklch(0.23 0.01 151), oklch(1 0 0)); /* #1a1f1b / #fff */
-    --ksru-color-border: color-mix(in oklch, var(--ksru-color-text) 25%, transparent);
-    --ksru-color-border-hover: color-mix(in oklch, var(--ksru-color-text) 40%, transparent);
-    --ksru-color-border-active: color-mix(in oklch, var(--ksru-color-text) 60%, transparent);
-    --ksru-color-icon: color-mix(in oklch, var(--ksru-color-text) 92%, transparent); /* ~8% lighter */
-    --ksru-color-surface-hover: color-mix(in oklch, var(--ksru-color-text) 8%, transparent);
-    --ksru-color-surface-active: color-mix(in oklch, var(--ksru-color-text) 14%, transparent);
-    --ksru-color-shadow: light-dark(oklch(0.23 0.01 151 / 0.1), oklch(0 0 0 / 0));
+    --ksru-color-text: light-dark(
+      oklch(0.23 0.01 151),
+      oklch(1 0 0)
+    ); /* #1a1f1b / #fff */
+    --ksru-color-surface: light-dark(
+      oklch(1 0 0),
+      oklch(0.23 0.01 151)
+    ); /* #fff / #1a1f1b */
+    --ksru-color-text-secondary: light-dark(
+      oklch(0.45 0.01 151),
+      oklch(0.75 0.01 151)
+    ); /* muted gray */
+    --ksru-color-surface-secondary: light-dark(
+      oklch(0.95 0.005 151),
+      oklch(0.28 0.01 151)
+    ); /* subtle tinted gray */
+    --ksru-color-text-inverse: light-dark(
+      oklch(1 0 0),
+      oklch(0.23 0.01 151)
+    ); /* #fff / #1a1f1b */
+    --ksru-color-surface-inverse: light-dark(
+      oklch(0.23 0.01 151),
+      oklch(1 0 0)
+    ); /* #1a1f1b / #fff */
+    --ksru-color-border: color-mix(
+      in oklch,
+      var(--ksru-color-text) 25%,
+      transparent
+    );
+    --ksru-color-border-hover: color-mix(
+      in oklch,
+      var(--ksru-color-text) 40%,
+      transparent
+    );
+    --ksru-color-border-active: color-mix(
+      in oklch,
+      var(--ksru-color-text) 60%,
+      transparent
+    );
+    --ksru-color-icon: color-mix(
+      in oklch,
+      var(--ksru-color-text) 92%,
+      transparent
+    ); /* ~8% lighter */
+    --ksru-color-surface-hover: color-mix(
+      in oklch,
+      var(--ksru-color-text) 8%,
+      transparent
+    );
+    --ksru-color-surface-active: color-mix(
+      in oklch,
+      var(--ksru-color-text) 14%,
+      transparent
+    );
+    --ksru-color-shadow: light-dark(
+      oklch(0.23 0.01 151 / 0.1),
+      oklch(0 0 0 / 0)
+    );
   }
 }

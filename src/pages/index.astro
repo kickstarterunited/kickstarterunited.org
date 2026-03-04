@@ -17,46 +17,91 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
-    <h1><Mark>Stop the Retaliation</Mark></h1>
-    <p>
-      On February 11, Kickstarter management terminated bargaining unit members
-      and forced others out, <strong>targeting strike leaders and union
-      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
-      following a 42-day strike.
-    </p>
-    <p>
-      Are you also pissed? <strong>Here's what you can do to help:</strong>
-    </p>
-    <p class="mt-md">
-      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
-    </p>
-    <div class="urgent-banner__actions">
-      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
-    </div>
-    <p class="mt-md mb-0 opacity-85">Follow along:</p>
-    <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
-      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
-      </a>
-      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
-      </a>
-      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
-      </a>
-      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
-      </a>
-    </div>
-  </UrgentBanner>}
+  {
+    showBanner && (
+      <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
+        <h1>
+          <Mark>Stop the Retaliation</Mark>
+        </h1>
+        <p>
+          On February 11, Kickstarter management terminated bargaining unit
+          members and forced others out,{" "}
+          <strong>targeting strike leaders and union activists</strong>, just 3
+          months after workers ratified a{" "}
+          <a href="/contracts/2025">historic contract</a>
+          following a 42-day strike.
+        </p>
+        <p>
+          Are you also pissed? <strong>Here's what you can do to help:</strong>
+        </p>
+        <p class="mt-md">
+          <a href="/petition" class="btn btn-success urgent-banner__cta">
+            Sign Our Letter
+          </a>
+        </p>
+        <div class="urgent-banner__actions">
+          <a href="mailto:e@kickstarter.com" class="btn btn-info">
+            Write to the CEO
+          </a>
+        </div>
+        <p class="mt-md mb-0 opacity-85">Follow along:</p>
+        <div class="urgent-banner__actions" style="margin-top: 0.25rem;">
+          <a
+            href="https://www.instagram.com/kickstarter_united"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-instagram" size={24} />
+              <span>Instagram</span>
+            </>
+          </a>
+          <a
+            href="https://bsky.app/profile/kickstarterunited.org"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-bluesky" size={24} />
+              <span>Bluesky</span>
+            </>
+          </a>
+          <a
+            href="https://www.facebook.com/KickstarterUnited"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-facebook" size={24} />
+              <span>Facebook</span>
+            </>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-linkedin" size={24} />
+              <span>LinkedIn</span>
+            </>
+          </a>
+        </div>
+      </UrgentBanner>
+    )
+  }
 
   <section class="hero col-[wide]">
     <Logo class="hero__logo" width={96} height={96} />
     <h1 class="hero__headline">We are Kickstarter United</h1>
     <p class="hero__subtitle">
       Fair pay. Job protections. A four-day workweek. <strong
-        >We won it all.</strong>
+        >We won it all.</strong
+      >
     </p>
   </section>
 
@@ -171,7 +216,10 @@ const hasPetition = "/petition" in redirects;
 
   <div class="wins card-surface mt-xl text-pretty">
     <details class="wins__item" open id="four-day-workweek">
-      <summary><Icon name="tabler:calendar-check" class="wins__icon" />Codified Four-Day Workweek!</summary>
+      <summary
+        ><Icon name="tabler:calendar-check" class="wins__icon" />Codified
+        Four-Day Workweek!</summary
+      >
       <div class="wins__body">
         <p>
           We have <strong>codified our Four-Day Workweek</strong>, with strong
@@ -181,24 +229,35 @@ const hasPetition = "/petition" in redirects;
         <ul>
           <li>
             <Icon name="tabler:clock-shield" class="wins__bullet-icon" />
-            <span>Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
-            with notice in advance, and a time limit</span>
+            <span
+              >Temporary changes to Five-Day Workweek <strong>must</strong> be justified,
+              with notice in advance, and a time limit</span
+            >
           </li>
           <li>
             <Icon name="tabler:scale" class="wins__bullet-icon" />
-            <span>Permanent changes to Five-Day Workweek <strong>must</strong> involve bargaining
-            with the union</span>
+            <span
+              >Permanent changes to Five-Day Workweek <strong>must</strong> involve
+              bargaining with the union</span
+            >
           </li>
           <li>
             <Icon name="tabler:gavel" class="wins__bullet-icon" />
-            <span>If management tries to force it anyway, <strong>we can strike</strong></span>
+            <span
+              >If management tries to force it anyway, <strong
+                >we can strike</strong
+              ></span
+            >
           </li>
         </ul>
       </div>
     </details>
 
     <details class="wins__item" id="minimum-salary-floor">
-      <summary><Icon name="tabler:trending-up" class="wins__icon" />Raising the minimum salary floor!</summary>
+      <summary
+        ><Icon name="tabler:trending-up" class="wins__icon" />Raising the
+        minimum salary floor!</summary
+      >
       <div class="wins__body">
         <p>
           The market undervalues some of our most vital workers, and we won
@@ -207,25 +266,37 @@ const hasPetition = "/petition" in redirects;
         </p>
         <ul>
           <li>
-            <Icon name="tabler:chart-arrows-vertical" class="wins__bullet-icon" />
-            <span>An <strong>escalating increase</strong> in the pay floor based on cost
-            of living, an <strong>average 6% increase</strong> to our most undervalued
-            workers</span>
+            <Icon
+              name="tabler:chart-arrows-vertical"
+              class="wins__bullet-icon"
+            />
+            <span
+              >An <strong>escalating increase</strong> in the pay floor based on cost
+              of living, an <strong>average 6% increase</strong> to our most undervalued
+              workers</span
+            >
           </li>
           <li>
             <Icon name="tabler:coin" class="wins__bullet-icon" />
-            <span>A one-time $6,000 bonus for the most undervalued workers</span>
+            <span>A one-time $6,000 bonus for the most undervalued workers</span
+            >
           </li>
           <li>
             <Icon name="tabler:chart-bar" class="wins__bullet-icon" />
-            <span>Yearly national benchmarking to push pay upwards <strong>across the whole unit</strong></span>
+            <span
+              >Yearly national benchmarking to push pay upwards <strong
+                >across the whole unit</strong
+              ></span
+            >
           </li>
         </ul>
       </div>
     </details>
 
     <details class="wins__item" id="much-more">
-      <summary><Icon name="tabler:sparkles" class="wins__icon" />Much, much more!</summary>
+      <summary
+        ><Icon name="tabler:sparkles" class="wins__icon" />Much, much more!</summary
+      >
       <div class="wins__body">
         <p>
           We won many improvements to our working conditions with <strong
@@ -235,18 +306,24 @@ const hasPetition = "/petition" in redirects;
         <ul>
           <li>
             <Icon name="tabler:robot" class="wins__bullet-icon" />
-            <span>Cannot replace a role with AI, and management must work with
-            employees if AI changes a role</span>
+            <span
+              >Cannot replace a role with AI, and management must work with
+              employees if AI changes a role</span
+            >
           </li>
           <li>
             <Icon name="tabler:shield-check" class="wins__bullet-icon" />
-            <span>Strong protections against replacing full time employees with
-            contractors</span>
+            <span
+              >Strong protections against replacing full time employees with
+              contractors</span
+            >
           </li>
           <li>
             <Icon name="tabler:messages" class="wins__bullet-icon" />
-            <span>More input from employees with a regular forum for business
-            operations</span>
+            <span
+              >More input from employees with a regular forum for business
+              operations</span
+            >
           </li>
         </ul>
       </div>
@@ -261,6 +338,7 @@ const hasPetition = "/petition" in redirects;
   </p>
   <div class="text-center my-xl" id="email-signup">
     <script
+      is:inline
       async
       data-uid="c936d588a0"
       src="https://kickstarter-united.kit.com/c936d588a0/index.js"></script>

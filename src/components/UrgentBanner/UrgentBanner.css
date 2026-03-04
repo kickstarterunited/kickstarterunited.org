@@ -12,9 +12,21 @@
    * 3. Dark teal base
    */
   background:
-    radial-gradient(ellipse at var(--_glow1-x, 20%) var(--_glow1-y, 0%), color-mix(in oklch, var(--_green), transparent 70%) 0%, transparent 60%),
-    radial-gradient(ellipse at var(--_glow2-x, 80%) var(--_glow2-y, 100%), color-mix(in oklch, var(--_gold), transparent 80%) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, color-mix(in oklch, var(--_teal), black 10%) 0%, var(--_teal) 100%);
+    radial-gradient(
+      ellipse at var(--_glow1-x, 20%) var(--_glow1-y, 0%),
+      color-mix(in oklch, var(--_green), transparent 70%) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at var(--_glow2-x, 80%) var(--_glow2-y, 100%),
+      color-mix(in oklch, var(--_gold), transparent 80%) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      color-mix(in oklch, var(--_teal), black 10%) 0%,
+      var(--_teal) 100%
+    );
   /* urgent-banner-glow: drifts the gradient glow positions via @property custom properties */
   /* surface-border-rotate: rotates the animated conic-gradient border (defined in global CSS) */
   animation: urgent-banner-glow 12s ease-in-out infinite alternate;
@@ -27,14 +39,15 @@
 
   border-radius: 0;
   border-inline: none;
-
 }
 
 /* Bouncy scale-in entrance via @starting-style.
  * linear() defines a spring-like curve: overshoots to 122%, settles with a small bounce.
  * Opacity fades in faster (0.3s) so content is visible before the bounce finishes. */
 .urgent-banner__inner {
-  transition: opacity 0.3s ease-out, scale 0.5s linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
+  transition:
+    opacity 0.3s ease-out,
+    scale 0.5s linear(0, 0.28, 0.74, 1.04, 1.22, 1.1, 0.97, 1.04, 1);
   opacity: 1;
   scale: 1;
 
@@ -43,7 +56,6 @@
     scale: 0.5;
   }
 }
-
 
 .urgent-banner h1 {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
@@ -127,20 +139,56 @@
 
 /* @property registrations allow the gradient glow positions to be animated.
  * Without these, the browser can't interpolate custom properties in gradients. */
-@property --_glow1-x { syntax: "<percentage>"; initial-value: 20%; inherits: false; }
-@property --_glow1-y { syntax: "<percentage>"; initial-value: 0%; inherits: false; }
-@property --_glow2-x { syntax: "<percentage>"; initial-value: 80%; inherits: false; }
-@property --_glow2-y { syntax: "<percentage>"; initial-value: 100%; inherits: false; }
+@property --_glow1-x {
+  syntax: "<percentage>";
+  initial-value: 20%;
+  inherits: false;
+}
+@property --_glow1-y {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+@property --_glow2-x {
+  syntax: "<percentage>";
+  initial-value: 80%;
+  inherits: false;
+}
+@property --_glow2-y {
+  syntax: "<percentage>";
+  initial-value: 100%;
+  inherits: false;
+}
 
 @keyframes urgent-banner-glow {
-  0% { --_glow1-x: 20%; --_glow1-y: 0%; --_glow2-x: 80%; --_glow2-y: 100%; }
-  50% { --_glow1-x: 70%; --_glow1-y: 30%; --_glow2-x: 30%; --_glow2-y: 70%; }
-  100% { --_glow1-x: 40%; --_glow1-y: 10%; --_glow2-x: 60%; --_glow2-y: 90%; }
+  0% {
+    --_glow1-x: 20%;
+    --_glow1-y: 0%;
+    --_glow2-x: 80%;
+    --_glow2-y: 100%;
+  }
+  50% {
+    --_glow1-x: 70%;
+    --_glow1-y: 30%;
+    --_glow2-x: 30%;
+    --_glow2-y: 70%;
+  }
+  100% {
+    --_glow1-x: 40%;
+    --_glow1-y: 10%;
+    --_glow2-x: 60%;
+    --_glow2-y: 90%;
+  }
 }
 
 @keyframes urgent-banner-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
