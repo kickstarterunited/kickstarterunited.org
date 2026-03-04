@@ -1,166 +1,295 @@
 ---
 import { Image } from "astro:assets";
 import BargainingUnit from "../../images/first_contract/BU.png";
-import Quote1 from "../../images/first_contract/quote1.png";
-import Quote2 from "../../images/first_contract/quote2.png";
-import Quote3 from "../../images/first_contract/quote3.png";
-import Quote4 from "../../images/first_contract/quote4.png";
-import Quote5 from "../../images/first_contract/quote5.png";
-import Quote6 from "../../images/first_contract/quote6.png";
-import Quote7 from "../../images/first_contract/quote7.png";
-import Quote8 from "../../images/first_contract/quote8.png";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "../../ui/typography/Heading.astro";
+import Text from "../../ui/typography/Text.astro";
+import Mark from "../../ui/Mark/Mark.astro";
+import Surface from "../../ui/Surface/Surface.astro";
+import Button from "../../ui/Button/Button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="2022 Contract">
-  <div class="w-auto">
+  <section class="contract-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>Our First Contract</Heading>
+    <Text as="p" size="lg" class="contract-hero__subtitle">
+      Ratified June 17, 2022 - <Mark variant="emerald">97.6% voted YES</Mark>.
+    </Text>
+  </section>
+
+  <div class="contract-photo col-[wide]">
     <Image
-      class="mx-auto"
       alt="A screenshot of a Zoom meeting where our Bargaining Unit members were celebrating their first contract"
       src={BargainingUnit}
     />
   </div>
-  <hr />
 
-  <div>
-    <h1 class="heading-3">Our first contract</h1>
-    <p>
-      It’s official! On June 17th, 2022, 97.6% of our union voted YES to ratify
-      our first collective bargaining agreement. This contract will improve our
-      members' lives, make Kickstarter a more equitable workplace, and help
+  <section class="contract-body">
+    <Text as="p">
+      It's official! On June 17th, 2022, 97.6% of our union voted YES to ratify
+      our first collective bargaining agreement. This contract improved our
+      members' lives, made Kickstarter a more equitable workplace, and helped
       raise standards across the tech industry. We fought hard for a contract
       that prioritizes security and wellness amidst rising inflation,
-      uncertainty, and burnout. With this contract, we were able to secure the
-      following:
-    </p>
+      uncertainty, and burnout.
+    </Text>
+  </section>
 
-    <p></p>
-    <ul>
-      <li>💰 A guaranteed minimum 3% annual cost of living raise.</li>
-      <li>
-        🌎 Salary benchmarking based on a national average — no geographic pay
-        bands.
-      </li>
-      <li>
-        📈 A profit-sharing bonus pool so that when Kickstarter thrives, we all
-        benefit.
-      </li>
-      <li>
-        ⚖️ An annual pay equity review to guard against any potential
-        discriminatory pay practices.
-      </li>
-      <li>
-        📚 Guaranteed development frameworks for every role so that we know how
-        to advance in our careers.
-      </li>
-      <li>
-        🧑‍⚖️
-        <a
-          href="https://en.wikipedia.org/wiki/Just_cause_(employment_law)"
-          target="_blank">"Just cause"</a
-        >
-        provisions so that no one is disciplined or fired without clear, documented
-        reason.
-      </li>
-      <li>
-        🔍 Clear process for
-        <a
-          href="https://en.wikipedia.org/wiki/Progressive_discipline"
-          target="_blank">progressive discipline</a
-        >.
-      </li>
-      <li>
-        🤝 Criteria for performance improvement that prioritizes support instead
-        of punishment for those who are struggling in their role.
-      </li>
-      <li>
-        ♿️ Clear process to support anyone who needs workplace accomodations.
-      </li>
-      <li>
-        🎨 Increased leaves of absence to 90 days for creative pursuits or for
-        personal reasons with continued health coverage.
-      </li>
-      <li>
-        🏝 Protected existing PTO, volunteer time, sick time, and parental
-        leave.
-      </li>
-      <li>
-        💳 $3,000 per year stipend for wellness, education, and remote work
-        expenses.
-      </li>
-      <li>
-        💪 Anti-discrimination clause that goes <strong>far</strong> above the legal
-        minimum.
-      </li>
-      <li>🕵️ No intrusive monitoring on our work computers and devices.</li>
-      <li>⏰ Time in lieu for any hours worked beyond a full work week.</li>
-      <li>
-        🤏🏼 Limits on the use of subcontractors so that no bargaining unit role
-        is replaced by a subcontractor.
-      </li>
-    </ul>
-    <p></p>
-  </div>
-
-  <div>
-    <p>
-      You can read a
-      <a href="/ratified_CBA_KSRU.pdf" target="_blank" rel="noopener noreferrer"
-        >full copy of our contract (with the signatures omitted) here</a
-      >. We're happy to share it for others to help build their contracts in the
-      tech industry. This contract expired on July 13th, 2025, and was succeeded
-      by our <a href="/contracts/2025">2025 contract</a>. If you have any
-      questions about our contracts, please feel free to use our contact form.
-      We'll try to answer at our earliest convenience.
-    </p>
-  </div>
-
-  <div class="mt-4">
-    <h2>Statements from our members</h2>
-
-    <center>
-      <div class="w-3/4">
-        <Image
-          class="mt-4"
-          alt={`"The tech industry is an unpredictable and rapidly changing one, and having certain guarantees about pay, fair treatment, and even potentially severance makes me feel a lot more stable. Knowing what to expect with your pay over the next few years, what you're guaranteed in case of layoffs, and even knowing what your bonus scheme will be or how much time off you'll receive give me that many fewer things to worry about. On top of all that, the addition of fairness clauses like not paying some people less because of where they live and having regular pay equity reviews lessen my worry that some people will be mistreated." Chris Cerami, Senior Software Engineer @ Kickstarter since July 2021`}
-          src={Quote1}
-        />
-        <Image
-          class="mt-4"
-          alt={`“Democracy doesn't go away when you go to work. It's easy to think so in tech. We're habituated to the idea that contractors might replace you as soon as the winds change, or that a years-long lawsuit is your only recourse for an unjust firing. But if you and your coworkers speak with a unified voice you will be heard. We did, and we won things like limits on contracting and a transparent process geared toward early intervention to counteract retaliation.” Luke Thomas, Bargaining Committee & Senior Software Engineer @ Kickstarter since December 2019`}
-          src={Quote2}
-        />
-        <Image
-          class="mt-4"
-          alt={`"When I made the career change to enter tech, I never would have expected the opportunity to be a part of something like Kickstarter United. For me, the contract is a reminder that fair labor practices are vital across all industries—not everyone in tech is an engineer, and not every engineer is paid equally. It's a relief to feel like there is a mutual effort from Kickstarter's workers and leadership to be transparent, and to treat one another with respect and fairness. This has been an inspiring process." Liishi Durbin, Software Engineer @ Kickstarter since January 2022`}
-          src={Quote3}
-        />
-        <Image
-          class="mt-4"
-          alt={`"The contract is a leap forward, together, toward the enduring change the tech industry needs. Our contract is a blueprint for the transparency, safety, and financial certainty that every single worker deserves." Arleigh Atkinson, Senior Software Engineer @ Kickstarter since March 2021`}
-          src={Quote4}
-        />
-        <Image
-          class="mt-4"
-          alt={`“What this contract means to us is that it enshrines a lot of the positives of our already good workplace, protecting it against destructive changes in senior leadership. It provides accountability for a lot of processes that previously lacked any sense of progress or accountability. What I hope it means for the industry-at-large is that you don't have to wait until something bad happens to organize, that you can use a collective bargaining agreement to lock in the already excellent but sometimes ephemeral benefits of your workplace. And finally, that there's space to think differently about retention over longer periods of time, hopefully giving employees a reason to stay and build seniority and institutional knowledge.” Dannel Jurado, Bargaining Committee & Senior Software Engineer @ Kickstarter since March 2019`}
-          src={Quote5}
-        />
-        <Image
-          class="mt-4"
-          alt={`"When I joined Kickstarter, the bargaining committee had already been negotiating the contract for over a year, advocating for safeguards, transparency, and an inclusive culture that I would benefit from. It is really powerful to have colleagues and a company work together for your experience to be a positive one for years to come, to have a right at the individual contributor level to have a voice in that - an experience that so few workers expect. I genuinely think that the contract will attract people to Kickstarter and make them stay longer" Brooke McDaniel, Marketing Automation Manager @ Kickstarter since August 2021`}
-          src={Quote6}
-        />
-        <Image
-          class="mt-4"
-          alt={`"I'm proud of what we've accomplished with this contract, especially around pay equity and no intrusive monitoring. I hope it inspires others elsewhere to work together to better their workplaces." Brittany Fowler, Bargaining Committee & Senior Recruiter @ Kickstarter since June 2018`}
-          src={Quote7}
-        />
-        <Image
-          class="mt-4"
-          alt={`“Every worker in every workplace deserves solidarity, compassion, and protection — in short, every worker deserves a union. It's been one of my proudest professional accomplishments to contribute to the formation of this industry-leading union, and to watch our incredible bargaining committee collaborate with Kickstarter's management to negotiate this boundary-pushing contract. I hope it will reverberate throughout the tech industry and beyond, showing everyone what's possible when workers come together to prioritize mutual aid and support.” Oriana Leckert, Director of Publishing @ Kickstarter since November 2018`}
-          src={Quote8}
-        />
+  <Surface elevation={1} class="contract-wins col-[wide]">
+    <Heading as="h2" size="md">What We Won</Heading>
+    <div class="contract-wins__grid">
+      <div class="contract-wins__group">
+        <Heading as="h3" size="sm">Pay &amp; Compensation</Heading>
+        <ul class="contract-wins__list">
+          <li><Icon name="tabler:coin" size={20} class="contract-wins__icon" /> A guaranteed minimum 3% annual cost of living raise</li>
+          <li><Icon name="tabler:world" size={20} class="contract-wins__icon" /> Salary benchmarking based on a national average - no geographic pay bands</li>
+          <li><Icon name="tabler:chart-bar" size={20} class="contract-wins__icon" /> A profit-sharing bonus pool so that when Kickstarter thrives, we all benefit</li>
+          <li><Icon name="tabler:scale" size={20} class="contract-wins__icon" /> An annual pay equity review to guard against discriminatory pay practices</li>
+        </ul>
       </div>
-    </center>
-  </div>
+
+      <div class="contract-wins__group">
+        <Heading as="h3" size="sm">Protections</Heading>
+        <ul class="contract-wins__list">
+          <li><Icon name="tabler:gavel" size={20} class="contract-wins__icon" /> <span><a href="https://en.wikipedia.org/wiki/Just_cause_(employment_law)" target="_blank">"Just cause"</a> provisions - no one is disciplined or fired without clear, documented reason</span></li>
+          <li><Icon name="tabler:list-check" size={20} class="contract-wins__icon" /> <span>Clear process for <a href="https://en.wikipedia.org/wiki/Progressive_discipline" target="_blank">progressive discipline</a></span></li>
+          <li><Icon name="tabler:shield-check" size={20} class="contract-wins__icon" /> Anti-discrimination clause that goes far above the legal minimum</li>
+          <li><Icon name="tabler:eye-off" size={20} class="contract-wins__icon" /> No intrusive monitoring on our work computers and devices</li>
+          <li><Icon name="tabler:users" size={20} class="contract-wins__icon" /> Limits on subcontractors so that no bargaining unit role is replaced</li>
+        </ul>
+      </div>
+
+      <div class="contract-wins__group">
+        <Heading as="h3" size="sm">Benefits &amp; Leave</Heading>
+        <ul class="contract-wins__list">
+          <li><Icon name="tabler:palette" size={20} class="contract-wins__icon" /> Increased leaves of absence to 90 days for creative pursuits or personal reasons with continued health coverage</li>
+          <li><Icon name="tabler:beach" size={20} class="contract-wins__icon" /> Protected existing PTO, volunteer time, sick time, and parental leave</li>
+          <li><Icon name="tabler:credit-card" size={20} class="contract-wins__icon" /> $3,000 per year stipend for wellness, education, and remote work expenses</li>
+          <li><Icon name="tabler:accessible" size={20} class="contract-wins__icon" /> Clear process to support anyone who needs workplace accommodations</li>
+        </ul>
+      </div>
+
+      <div class="contract-wins__group">
+        <Heading as="h3" size="sm">Growth &amp; Fairness</Heading>
+        <ul class="contract-wins__list">
+          <li><Icon name="tabler:book" size={20} class="contract-wins__icon" /> Guaranteed development frameworks for every role so that we know how to advance</li>
+          <li><Icon name="tabler:heart-handshake" size={20} class="contract-wins__icon" /> Performance improvement criteria that prioritize support instead of punishment</li>
+          <li><Icon name="tabler:clock" size={20} class="contract-wins__icon" /> Time in lieu for any hours worked beyond a full work week</li>
+        </ul>
+      </div>
+    </div>
+  </Surface>
+
+  <section class="contract-cta">
+    <Text as="p">
+      You can read a full copy of our contract (with the signatures omitted) here.
+      We're happy to share it for others to help build their contracts in the
+      tech industry. This contract expired on July 13th, 2025, and was succeeded
+      by our 2025 contract. If you have any questions about our contracts,
+      please feel free to use our contact form.
+    </Text>
+    <div class="contract-cta__actions">
+      <Button as="a" href="/ratified_CBA_KSRU.pdf" target="_blank" rel="noopener noreferrer" variant="primary">
+        Read the Full Contract
+      </Button>
+      <Button as="a" href="/contracts/2025" variant="ghost">
+        2025 Contract
+      </Button>
+    </div>
+  </section>
+
+  <section class="member-voices page-grid--subgrid">
+    <Heading as="h2" size="md" maxLineLength={false} class="member-voices__heading col-[wide]">What Our Members Said</Heading>
+    <div class="member-voices__grid col-[wide]">
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>The contract is a leap forward, together, toward the enduring change the tech industry needs. Our contract is a blueprint for the transparency, safety, and financial certainty that every single worker deserves.</Text>
+        <footer><Text as="strong">Arleigh Atkinson</Text><Text as="span" size="sm">Senior Software Engineer, since March 2021</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>The tech industry is an unpredictable and rapidly changing one, and having certain guarantees about pay, fair treatment, and even potentially severance makes me feel a lot more stable. Knowing what to expect with your pay over the next few years, what you're guaranteed in case of layoffs, and even knowing what your bonus scheme will be or how much time off you'll receive give me that many fewer things to worry about. On top of all that, the addition of fairness clauses like not paying some people less because of where they live and having regular pay equity reviews lessen my worry that some people will be mistreated.</Text>
+        <footer><Text as="strong">Chris Cerami</Text><Text as="span" size="sm">Senior Software Engineer, since July 2021</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>When I made the career change to enter tech, I never would have expected the opportunity to be a part of something like Kickstarter United. For me, the contract is a reminder that fair labor practices are vital across all industries - not everyone in tech is an engineer, and not every engineer is paid equally. It's a relief to feel like there is a mutual effort from Kickstarter's workers and leadership to be transparent, and to treat one another with respect and fairness. This has been an inspiring process.</Text>
+        <footer><Text as="strong">Liishi Durbin</Text><Text as="span" size="sm">Software Engineer, since January 2022</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>I'm proud of what we've accomplished with this contract, especially around pay equity and no intrusive monitoring. I hope it inspires others elsewhere to work together to better their workplaces.</Text>
+        <footer><Text as="strong">Brittany Fowler</Text><Text as="span" size="sm">Bargaining Committee &amp; Senior Recruiter, since June 2018</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>What this contract means to us is that it enshrines a lot of the positives of our already good workplace, protecting it against destructive changes in senior leadership. It provides accountability for a lot of processes that previously lacked any sense of progress or accountability. What I hope it means for the industry-at-large is that you don't have to wait until something bad happens to organize, that you can use a collective bargaining agreement to lock in the already excellent but sometimes ephemeral benefits of your workplace. And finally, that there's space to think differently about retention over longer periods of time, hopefully giving employees a reason to stay and build seniority and institutional knowledge.</Text>
+        <footer><Text as="strong">Dannel Jurado</Text><Text as="span" size="sm">Bargaining Committee &amp; Senior Software Engineer, since March 2019</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>Every worker in every workplace deserves solidarity, compassion, and protection - in short, every worker deserves a union. It's been one of my proudest professional accomplishments to contribute to the formation of this industry-leading union, and to watch our incredible bargaining committee collaborate with Kickstarter's management to negotiate this boundary-pushing contract. I hope it will reverberate throughout the tech industry and beyond, showing everyone what's possible when workers come together to prioritize mutual aid and support.</Text>
+        <footer><Text as="strong">Oriana Leckert</Text><Text as="span" size="sm">Director of Publishing, since November 2018</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>When I joined Kickstarter, the bargaining committee had already been negotiating the contract for over a year, advocating for safeguards, transparency, and an inclusive culture that I would benefit from. It is really powerful to have colleagues and a company work together for your experience to be a positive one for years to come, to have a right at the individual contributor level to have a voice in that - an experience that so few workers expect. I genuinely think that the contract will attract people to Kickstarter and make them stay longer.</Text>
+        <footer><Text as="strong">Brooke McDaniel</Text><Text as="span" size="sm">Marketing Automation Manager, since August 2021</Text></footer>
+      </blockquote>
+
+      <blockquote class="member-voices__quote">
+        <Text as="p" class="member-voices__quote-text" maxLineLength={false}>Democracy doesn't go away when you go to work. It's easy to think so in tech. We're habituated to the idea that contractors might replace you as soon as the winds change, or that a years-long lawsuit is your only recourse for an unjust firing. But if you and your coworkers speak with a unified voice you will be heard. We did, and we won things like limits on contracting and a transparent process geared toward early intervention to counteract retaliation.</Text>
+        <footer><Text as="strong">Luke Thomas</Text><Text as="span" size="sm">Bargaining Committee &amp; Senior Software Engineer, since December 2019</Text></footer>
+      </blockquote>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  :global([class^="heading-"]) {
+    text-wrap: balance;
+  }
+
+  :global([class^="text-"]) {
+    text-wrap: pretty;
+  }
+
+  .contract-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
+  }
+
+  .contract-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  .contract-photo {
+    margin-bottom: var(--ksru-space-2xl);
+    border-radius: 12px;
+    overflow: hidden;
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 32px;
+    }
+  }
+
+  .contract-photo :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .contract-body {
+    margin-bottom: var(--ksru-space-xl);
+  }
+
+  .contract-wins {
+    padding: var(--ksru-space-xl);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .contract-wins__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    gap: var(--ksru-space-xl);
+    margin-top: var(--ksru-space-lg);
+  }
+
+  .contract-wins__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-sm);
+    margin: var(--ksru-space-sm) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contract-wins__list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--ksru-space-sm);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contract-wins__icon {
+    flex-shrink: 0;
+    color: var(--ksru-emerald-500);
+    translate: 0 3px;
+  }
+
+  .contract-cta {
+    text-align: center;
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .contract-cta__actions {
+    display: flex;
+    gap: var(--ksru-space-sm);
+    justify-content: center;
+    margin-top: var(--ksru-space-lg);
+    flex-wrap: wrap;
+  }
+
+  /* Member Voices - subgrid section so heading stays at content width */
+  .member-voices {
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .member-voices__heading {
+    text-align: center;
+    margin-bottom: var(--ksru-space-xl);
+  }
+
+  .member-voices__grid {
+    column-gap: var(--ksru-space-lg);
+    columns: auto 35ch;
+  }
+
+  @supports (display: grid-lanes) {
+    .member-voices__grid {
+      display: grid-lanes;
+      grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+      gap: var(--ksru-space-lg);
+      columns: initial;
+    }
+  }
+
+  .member-voices__quote {
+    break-inside: avoid;
+    margin: 0 0 var(--ksru-space-lg);
+    padding: var(--ksru-space-lg);
+    border-left: 3px solid var(--ksru-emerald-500);
+    border-radius: var(--ksru-space-sm);
+    background: color-mix(in oklch, var(--ksru-color-surface), transparent 50%);
+  }
+
+  .member-voices__quote-text {
+    margin: 0;
+    font-style: italic;
+    color: color-mix(in oklch, currentColor, transparent 15%);
+  }
+
+  .member-voices__quote footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--ksru-space-sm);
+  }
+
+  .member-voices__quote footer :global(.text-md) {
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .member-voices__quote :global(.text-sm) {
+    font-weight: 500;
+    color: color-mix(in oklch, currentColor, transparent 40%);
+  }
+</style>
