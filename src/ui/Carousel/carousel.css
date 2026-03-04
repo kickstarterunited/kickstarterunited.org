@@ -1,145 +1,61 @@
-@reference "../../styles/global.css";
-/* Based on Carousel Configurator: https://chrome.dev/carousel-configurator/ */
+@layer components {
+  /* -- Layer 1: Base (all browsers) -- */
 
-.carousel {
-  /* Horizontal cards */
-  display: grid;
-  align-items: stretch;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--carousel-item-width, min(100%, 80%));
-  gap: var(--carousel-gap, calc(var(--spacing) * 4));
-
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
-
-  /* ::scroll-button:disabled state needs to know when we're at the edges */
-  container-type: inline-size scroll-state;
-  /* Gotta make sure the value is rounded to pixels */
-  inline-size: round(nearest, 70ch, 1px);
-
-  /* TODO: Undo this once we can go full bleed */
-  max-inline-size: calc(100vw - 2 * var(--spacing) * 8);
-
-  anchor-name: --carousel;
-
-  @apply my-16;
-}
-
-.carousel > * {
-  scroll-snap-align: var(--carousel-snap-align, center);
-}
-@supports selector(::scroll-button(*)) {
-  .carousel--scroll-buttons {
-    scrollbar-width: none;
+  .carousel {
+    /* Allow shrinking in grid/flex contexts so the scroller
+       can actually constrain and produce overflow */
+    min-width: 0;
   }
-}
-.carousel--scroll-buttons {
-  &::scroll-button(*) {
-    position: fixed;
-    position-anchor: --carousel;
-    position-visibility: always;
-    position-area: var(--_outer);
 
+  .carousel__scroller {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    /* Size from container, not content - without this, grid/flex
+       content pushes the scroller wider and overflow-x never triggers */
+    contain: inline-size;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__scroller {
+      scroll-behavior: auto;
+    }
+  }
+
+  .carousel__scroller > * {
+    scroll-snap-align: var(--carousel-snap-align, center);
+  }
+
+  .carousel__btn {
     cursor: pointer;
-    aspect-ratio: 1;
-    min-block-size: 44px;
-    min-inline-size: 44px;
-
-    @apply rounded-full;
-    @apply border border-teal-800 bg-teal-700 text-white;
-    @apply m-4;
   }
 
-  &::scroll-button(*):disabled {
-    @apply opacity-10 cursor-not-allowed transition-opacity;
+  .carousel__btn:disabled {
+    cursor: not-allowed;
   }
 
-  &::scroll-button(right) {
-    --_inner: center span-inline-start;
-    --_outer: inline-end center;
+  /* -- Layer 2: CSS Scroll-Buttons (Chrome 135+) -- */
 
-    position-area: inline-end center;
-    content: ">" / "Next";
-  }
-
-  &::scroll-button(left) {
-    --_inner: center span-inline-end;
-    --_outer: inline-start center;
-
-    content: "<" / "Previous";
-  }
-}
-
-/* When the screen is small, move the buttons inside the carousel */
-@media (width < 1024px) {
-  .carousel--scroll-buttons {
-    &::scroll-button(*) {
-      position-area: var(--_inner);
-    }
-  }
-}
-
-@supports (scroll-marker-group: after) {
-  .carousel--scroll-markers {
-    scroll-marker-group: after;
-
-    &::scroll-marker-group {
-      position: fixed;
-      position-anchor: --carousel;
-      position-area: block-end;
-      position-visibility: always;
-      margin: 10px;
-
-      display: grid;
-      grid-auto-columns: calc(var(--spacing) * 4);
-      grid-auto-flow: column;
-      gap: calc(var(--spacing) * 4);
+  @supports selector(::scroll-button(*)) {
+    .carousel--buttons .carousel__btn {
+      /* !important needed: unlayered consumer styles (which set display on
+         buttons for the JS fallback) would otherwise beat this layered rule.
+         Layered !important is still lower priority than unlayered !important,
+         so consumers can override if truly needed. */
+      display: none !important;
     }
 
-    > * {
-      &::scroll-marker {
-        content: "" / attr(data-label);
-        cursor: pointer;
-        aspect-ratio: 1;
-        @apply border border-teal-800 rounded-full;
-        @apply transition-colors;
-      }
-
-      &::scroll-marker:hover {
-        @apply bg-teal-800/35;
-      }
-
-      &::scroll-marker:target-current {
-        @apply bg-teal-800;
-      }
+    .carousel--buttons .carousel__scroller {
+      scrollbar-width: none;
     }
-  }
-}
 
-.carousel--inert > * {
-  container-type: scroll-state;
-}
+    .carousel--buttons .carousel__scroller::scroll-button(left) {
+      content: var(--carousel-prev-content, "\2039" / "Previous");
+    }
 
-.carousel--inert > * > * {
-  transition: opacity 0.3s ease-in-out;
-}
-@container not scroll-state(snapped) {
-  .carousel--inert > * > * {
-    interactivity: inert;
-    opacity: 0.125;
-  }
-}
-
-.carousel--force-snap > * {
-  scroll-snap-stop: always;
-}
-
-.carousel__item {
-  &,
-  & > * {
-    display: grid;
-    align-items: stretch;
+    .carousel--buttons .carousel__scroller::scroll-button(right) {
+      content: var(--carousel-next-content, "\203A" / "Next");
+    }
   }
 }

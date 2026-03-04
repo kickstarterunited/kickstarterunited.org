@@ -3,40 +3,115 @@ import type { HTMLAttributes } from "astro/types";
 
 import "./carousel.css";
 
+/**
+ * Progressive-enhancement carousel with CSS `::scroll-button()` and JS fallback.
+ *
+ * Layout-agnostic: the component handles scroll-snap and button wiring.
+ * Apply your own CSS to `.carousel`, `.carousel__btn`, and `.carousel__scroller`
+ * for layout, sizing, and visual styling.
+ *
+ * @see CarouselDemo.astro and Carousel.stories.ts for usage examples.
+ */
 interface Props extends HTMLAttributes<"div"> {
-  /** Include prev/next buttons? */
+  /**
+   * Render prev/next scroll buttons.
+   *
+   * When CSS `::scroll-button()` is supported, native pseudo-elements handle
+   * scrolling and the HTML buttons are hidden. Otherwise, an inline script
+   * wires the HTML buttons with click-to-scroll and boundary detection.
+   *
+   * Customize button content with the `prev-button` and `next-button` named slots.
+   * Customize CSS pseudo-element content with `--carousel-prev-content` and
+   * `--carousel-next-content` custom properties.
+   */
   scrollButtons?: boolean;
-  /** Include scroll markers (pagination)? */
-  scrollMarkers?: boolean;
-  /** Force stopping at each item? */
-  forceSnap?: boolean;
-  /** Fade inactive items? */
-  inertItems?: boolean;
 }
 
-const {
-  forceSnap = false,
-  inertItems = false,
-  scrollButtons = false,
-  scrollMarkers = false,
-
-  class: cls,
-  ...props
-} = Astro.props;
+const { scrollButtons = false, class: cls, ...props } = Astro.props;
 ---
 
 <div
   {...props}
-  class:list={[
-    "carousel",
-    {
-      "carousel--scroll-buttons": scrollButtons,
-      "carousel--scroll-markers": scrollMarkers,
-      "carousel--force-snap": forceSnap,
-      "carousel--inert": inertItems,
-    },
-    cls,
-  ]}
+  class:list={["carousel", { "carousel--buttons": scrollButtons }, cls]}
+  data-carousel
 >
-  <slot />
+  {
+    scrollButtons && (
+      <>
+        <button type="button" class="carousel__btn" data-dir="prev" aria-label="Previous">
+          <slot name="prev-button">&lsaquo;</slot>
+        </button>
+        <button type="button" class="carousel__btn" data-dir="next" aria-label="Next">
+          <slot name="next-button">&rsaquo;</slot>
+        </button>
+      </>
+    )
+  }
+  <div class="carousel__scroller">
+    <slot />
+  </div>
 </div>
+
+<script>
+  if (!CSS.supports("selector(::scroll-button(*))")) {
+    for (const root of document.querySelectorAll<HTMLElement>(
+      "[data-carousel].carousel--buttons",
+    )) {
+      const scroller = root.querySelector<HTMLElement>(".carousel__scroller");
+      const prevBtn = root.querySelector<HTMLButtonElement>(
+        '[data-dir="prev"]',
+      );
+      const nextBtn = root.querySelector<HTMLButtonElement>(
+        '[data-dir="next"]',
+      );
+
+      if (!scroller || !prevBtn || !nextBtn) continue;
+
+      const updateButtons = () => {
+        const { scrollLeft, scrollWidth, clientWidth } = scroller;
+        prevBtn.disabled = scrollLeft <= 2; // tolerance for sub-pixel rounding
+        nextBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 2;
+      };
+
+      const scrollByItem = (dir: number) => {
+        const items = Array.from(
+          scroller.children,
+        ) as HTMLElement[];
+        if (!items.length) return;
+
+        // Find the item whose center is closest to the scroller's visible center
+        const scrollerRect = scroller.getBoundingClientRect();
+        const scrollerCenter = scrollerRect.left + scrollerRect.width / 2;
+        let currentIdx = 0;
+        let minDist = Infinity;
+        for (let i = 0; i < items.length; i++) {
+          const rect = items[i].getBoundingClientRect();
+          const dist = Math.abs(rect.left + rect.width / 2 - scrollerCenter);
+          if (dist < minDist) {
+            minDist = dist;
+            currentIdx = i;
+          }
+        }
+
+        const targetIdx = Math.max(
+          0,
+          Math.min(items.length - 1, currentIdx + dir),
+        );
+
+        // scrollIntoView avoids a Firefox bug where scrollBy + mandatory
+        // scroll-snap can silently fail for certain items.
+        const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        items[targetIdx].scrollIntoView({
+          behavior: reducedMotion ? "auto" : "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      };
+
+      prevBtn.addEventListener("click", () => scrollByItem(-1));
+      nextBtn.addEventListener("click", () => scrollByItem(1));
+      scroller.addEventListener("scroll", updateButtons, { passive: true });
+      updateButtons();
+    }
+  }
+</script>
