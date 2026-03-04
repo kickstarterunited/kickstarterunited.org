@@ -250,13 +250,13 @@ import { Icon } from "astro-icon/components";
 
   .member-voices__grid {
     column-gap: var(--ksru-space-lg);
-    columns: auto 35ch;
+    columns: 2;
   }
 
   @supports (display: grid-lanes) {
     .member-voices__grid {
       display: grid-lanes;
-      grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: var(--ksru-space-lg);
       columns: initial;
     }
