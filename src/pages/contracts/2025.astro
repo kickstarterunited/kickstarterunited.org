@@ -2,69 +2,151 @@
 import { Image } from "astro:assets";
 import BargainingUnit from "../../images/2025_contract/we-won.png";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Heading from "../../ui/typography/Heading.astro";
+import Text from "../../ui/typography/Text.astro";
+import Mark from "../../ui/Mark/Mark.astro";
+import Surface from "../../ui/Surface/Surface.astro";
+import Button from "../../ui/Button/Button.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="2025 Contract">
-  <div class="w-auto">
+  <section class="contract-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>Our New Contract</Heading>
+    <Text as="p" size="lg" class="contract-hero__subtitle">
+      Ratified December 5, 2025 - after a <Mark variant="amber">historic 42-day strike</Mark>.
+    </Text>
+  </section>
+
+  <div class="contract-photo col-[wide]">
     <Image
-      class="mx-auto"
       alt="A screenshot of a Zoom meeting where our Bargaining Unit members were celebrating their new contract and the conclusion of their strike"
       src={BargainingUnit}
     />
   </div>
-  <hr />
 
-  <div>
-    <h1 class="heading-3">Our new contract</h1>
-    <p>
-      On December 5, 2025, 98% of our union voted YES to ratify a new collective
-      bargaining agreement. Kickstarter United bargained for over 7 months and
-      undertook a historic 42 day long strike in order to secure vital new
-      protections and benefits that we hope will not only improve the lives of
-      our members, but will also serve as an inspiration to working people
-      everywhere. All of these wins also come in addition to the benefits from
-      our first contract, with no major concessions from the union. Some of the
-      improvements we won in this new contract include:
-    </p>
+  <section class="contract-body">
+    <Text as="p">
+      On December 5, 2025, 98% of our union voted YES to ratify
+      a new collective bargaining agreement. Kickstarter United bargained
+      for over 7 months and undertook a historic 42 day long strike in order to
+      secure vital new protections and benefits that we hope will not only
+      improve the lives of our members, but will also serve as an inspiration to
+      working people everywhere. All of these wins also come in addition to
+      the benefits from our first contract, with no major concessions from the union.
 
-    <p></p>
-    <ul>
-      <li>
-        📅 Strong protections for the 4-day work week that Kickstarter and our
-        workers have thrived under
-      </li>
-      <li>💰 A minimum salary based on an Annual Living Wage Review</li>
-      <li>
-        🧮 Salary benchmarking annually to ensure pay is keeping up with the
-        market
-      </li>
-      <li>🤖 New protections against uses of AI which would replace workers</li>
-      <li>📈 Even better terms for our profit-sharing bonus pool</li>
-      <li>🏥 Up to a week of paid leave in case of a miscarriage</li>
-      <li>
-        🌴 The ability to roll over a week's worth of PTO into the new year
-      </li>
-      <li>
-        👷‍♂️ Strengthened protections against the use of subcontractors to replace
-        union workers
-      </li>
-      <li>➕ Plus plenty of other small but meaningful improvements</li>
+      Some of the improvements we won in this new contract include:
+    </Text>
+  </section>
+
+  <Surface elevation={1} class="contract-wins">
+    <Heading as="h2" size="md">What We Won</Heading>
+    <ul class="contract-wins__list">
+      <li><Icon name="tabler:calendar-check" size={20} class="contract-wins__icon" /> Strong protections for the 4-day work week that Kickstarter and our workers have thrived under</li>
+      <li><Icon name="tabler:coin" size={20} class="contract-wins__icon" /> A minimum salary based on an Annual Living Wage Review</li>
+      <li><Icon name="tabler:chart-bar" size={20} class="contract-wins__icon" /> Salary benchmarking annually to ensure pay is keeping up with the market</li>
+      <li><Icon name="tabler:robot" size={20} class="contract-wins__icon" /> New protections against uses of AI which would replace workers</li>
+      <li><Icon name="tabler:trending-up" size={20} class="contract-wins__icon" /> Even better terms for our profit-sharing bonus pool</li>
+      <li><Icon name="tabler:heart-rate-monitor" size={20} class="contract-wins__icon" /> Up to a week of paid leave in case of a miscarriage</li>
+      <li><Icon name="tabler:beach" size={20} class="contract-wins__icon" /> The ability to roll over a week's worth of PTO into the new year</li>
+      <li><Icon name="tabler:shield-check" size={20} class="contract-wins__icon" /> Strengthened protections against the use of subcontractors to replace union workers</li>
+      <li><Icon name="tabler:plus" size={20} class="contract-wins__icon" /> Plus plenty of other small but meaningful improvements</li>
     </ul>
-    <p></p>
-  </div>
+  </Surface>
 
-  <div>
-    <p>
-      You can read a
-      <a
-        href="/Ratified_2025_CBA_KSRU.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        >full copy of our contract (with the signatures omitted) here</a
-      >. We're happy to share it for others to help build their contracts in the
-      tech industry. If you have any questions about our contract, please feel
-      free to use our contact form. We'll try to answer at our earliest
-      convenience.
-    </p>
-  </div>
+  <section class="contract-cta">
+    <Text as="p">
+      You can read a full copy of our contract (with the signatures omitted) below.
+      We're happy to share it for others to help build their contracts in the
+      tech industry. If you have any questions about our contract, please feel free to use our contact
+      form. We'll try to answer at our earliest convenience.
+    </Text>
+    <div class="contract-cta__actions">
+      <Button as="a" href="/Ratified_2025_CBA_KSRU.pdf" target="_blank" rel="noopener noreferrer" variant="primary">
+        Read the Full Contract
+      </Button>
+      <Button as="a" href="/contracts/2022" variant="ghost">
+        2022 Contract
+      </Button>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .contract-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
+  }
+
+  .contract-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  .contract-photo {
+    margin-bottom: var(--ksru-space-2xl);
+    border-radius: 12px;
+    overflow: hidden;
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 32px;
+    }
+  }
+
+  .contract-photo :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .contract-body {
+    margin-bottom: var(--ksru-space-xl);
+  }
+
+  .contract-wins {
+    padding: var(--ksru-space-xl);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .contract-wins__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-sm);
+    margin: var(--ksru-space-md) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .contract-wins__list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--ksru-space-sm);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contract-wins__icon {
+    flex-shrink: 0;
+    color: var(--ksru-emerald-500);
+    translate: 0 3px;
+  }
+
+  .contract-cta {
+    text-align: center;
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .contract-cta__actions {
+    display: flex;
+    gap: var(--ksru-space-sm);
+    justify-content: center;
+    margin-top: var(--ksru-space-lg);
+    flex-wrap: wrap;
+  }
+</style>
