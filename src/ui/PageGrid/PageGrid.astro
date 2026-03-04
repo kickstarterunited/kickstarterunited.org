@@ -1,0 +1,43 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
+  /**
+   * Which grid column tier to place this element in.
+   * - `content` (default) - reading-width column (60ch)
+   * - `wide` - wider tier for cards/grids (up to 1100px)
+   * - `margins` - fills remaining space between wide and bleed
+   * - `bleed` - edge-to-edge, spans viewport
+   *
+   * Ignored when `subgrid` is true.
+   */
+  area?: "content" | "wide" | "margins" | "bleed";
+  /**
+   * When true, spans the full bleed column and sets up a CSS subgrid
+   * so children inherit the parent grid's column lines. Children
+   * default to the `content` column. Use this for sections that
+   * contain mixed-width children.
+   */
+  subgrid?: boolean;
+};
+
+const { as: Tag = "div", area = "content", subgrid, class: cls, ...rest } = Astro.props;
+
+/** Literal strings so Tailwind's scanner can detect them */
+const areaClasses = {
+  content: "col-[content]",
+  wide: "col-[wide]",
+  margins: "col-[margins]",
+  bleed: "col-[bleed]",
+} as const;
+---
+
+<Tag
+  class:list={[
+    subgrid ? "page-grid--subgrid" : areaClasses[area],
+    cls,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>
