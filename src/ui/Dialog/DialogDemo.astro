@@ -16,7 +16,10 @@ import Surface from "../Surface/Surface.astro";
     <Dialog id="demo-dialog">
       <div class="p-lg grid gap-md" style="max-width: 28rem;">
         <h2 class="mt-0">Dialog Title</h2>
-        <p>This is a basic dialog using design system surface and text tokens. It stays readable in both light and dark contexts.</p>
+        <p>
+          This is a basic dialog using design system surface and text tokens. It
+          stays readable in both light and dark contexts.
+        </p>
         <Button variant="primary" command="close" commandfor="demo-dialog">
           Got it
         </Button>
@@ -33,15 +36,24 @@ import Surface from "../Surface/Surface.astro";
     <DrawerDialog id="demo-drawer">
       <div class="p-lg grid gap-md" style="min-width: 280px;">
         <h2 class="mt-0">Drawer Content</h2>
-        <p>The drawer uses <code>data-theme="light"</code> to establish its own color context.</p>
+        <p>
+          The drawer uses <code>data-theme="light"</code> to establish its own color
+          context.
+        </p>
       </div>
     </DrawerDialog>
   </section>
 
   <section>
     <h3 class="mt-0">Drawer Menu (as used in nav)</h3>
-    <p class="text-sm">The full mobile navigation experience with flat menu items.</p>
-    <Button variant="primary" command="show-modal" commandfor="demo-drawer-menu">
+    <p class="text-sm">
+      The full mobile navigation experience with flat menu items.
+    </p>
+    <Button
+      variant="primary"
+      command="show-modal"
+      commandfor="demo-drawer-menu"
+    >
       Open Mobile Nav
     </Button>
     <DrawerMenu
@@ -83,19 +95,34 @@ import Surface from "../Surface/Surface.astro";
 
   <section>
     <h3 class="mt-0">Inverse Context</h3>
-    <p class="text-sm">Dialogs inherit the page's theme by default, but can be overridden with <code>data-theme="light"</code>, <code>"dark"</code>, or <code>"inverse"</code>.</p>
+    <p class="text-sm">
+      Dialogs inherit the page's theme by default, but can be overridden with <code
+        >data-theme="light"</code
+      >, <code>"dark"</code>, or <code>"inverse"</code>.
+    </p>
     <Surface elevation={1} class="flex gap-md" data-theme="inverse">
-      <Button variant="ghost" command="show-modal" commandfor="demo-dark-dialog">
+      <Button
+        variant="ghost"
+        command="show-modal"
+        commandfor="demo-dark-dialog"
+      >
         Open Dialog
       </Button>
-      <Button variant="ghost" command="show-modal" commandfor="demo-dark-drawer">
+      <Button
+        variant="ghost"
+        command="show-modal"
+        commandfor="demo-dark-drawer"
+      >
         Open Drawer
       </Button>
     </Surface>
     <Dialog id="demo-dark-dialog" data-theme="inverse">
       <div class="p-lg grid gap-md" style="max-width: 28rem;">
         <h2 class="mt-0">Inverse Dialog</h2>
-        <p>This dialog uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
+        <p>
+          This dialog uses <code>data-theme="inverse"</code> to always render opposite
+          to the page theme.
+        </p>
         <Button variant="primary" command="close" commandfor="demo-dark-dialog">
           Close
         </Button>
@@ -104,7 +131,10 @@ import Surface from "../Surface/Surface.astro";
     <DrawerDialog id="demo-dark-drawer" data-theme="inverse">
       <div class="p-lg grid gap-md" style="min-width: 280px;">
         <h2 class="mt-0">Inverse Drawer</h2>
-        <p>This drawer uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
+        <p>
+          This drawer uses <code>data-theme="inverse"</code> to always render opposite
+          to the page theme.
+        </p>
       </div>
     </DrawerDialog>
   </section>

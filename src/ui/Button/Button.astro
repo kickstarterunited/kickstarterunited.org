@@ -14,7 +14,10 @@ const {
   class: cls,
   ...attrs
 } = Astro.props;
-const resolvedAttrs = Tag === "button" && attrs.type === undefined ? { type: "button" as const, ...attrs } : attrs;
+const resolvedAttrs =
+  Tag === "button" && attrs.type === undefined
+    ? { type: "button" as const, ...attrs }
+    : attrs;
 ---
 
 <Tag
@@ -24,5 +27,5 @@ const resolvedAttrs = Tag === "button" && attrs.type === undefined ? { type: "bu
     size !== "md" && `btn--${size}`,
     cls,
   ]}
-  {...resolvedAttrs}
-><slot /></Tag>
+  {...resolvedAttrs}><slot /></Tag
+>

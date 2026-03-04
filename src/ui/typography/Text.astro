@@ -6,15 +6,27 @@ type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
   maxLineLength?: boolean | number;
 };
 
-const { as: Tag, size = "md", maxLineLength = true, class: cls, style: userStyle, ...attrs } = Astro.props;
+const {
+  as: Tag,
+  size = "md",
+  maxLineLength = true,
+  class: cls,
+  style: userStyle,
+  ...attrs
+} = Astro.props;
 
 const lineLengthValue =
-  maxLineLength === false ? "none" : maxLineLength === true ? "65ch" : `${maxLineLength}ch`;
+  maxLineLength === false
+    ? "none"
+    : maxLineLength === true
+      ? "65ch"
+      : `${maxLineLength}ch`;
 
-const styleStr = [
-  `--type-max-line-length:${lineLengthValue}`,
-  userStyle,
-].filter(Boolean).join(";");
+const styleStr = [`--type-max-line-length:${lineLengthValue}`, userStyle]
+  .filter(Boolean)
+  .join(";");
 ---
 
-<Tag class:list={[`text-${size}`, cls]} style={styleStr} {...attrs}><slot /></Tag>
+<Tag class:list={[`text-${size}`, cls]} style={styleStr} {...attrs}
+  ><slot /></Tag
+>

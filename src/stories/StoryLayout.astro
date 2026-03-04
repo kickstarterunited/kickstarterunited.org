@@ -1,12 +1,12 @@
 ---
 interface Props {
-	layout?: 'centered' | 'fullscreen' | 'padded';
+  layout?: "centered" | "fullscreen" | "padded";
 }
 
-const { layout = 'centered' } = Astro.props;
-const className = layout !== 'centered' ? `story-layout-${layout}` : undefined;
+const { layout = "centered" } = Astro.props;
+const className = layout !== "centered" ? `story-layout-${layout}` : undefined;
 ---
 
 <div class={className}>
-	<slot />
+  <slot />
 </div>

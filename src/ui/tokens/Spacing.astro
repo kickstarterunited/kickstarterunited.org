@@ -1,116 +1,122 @@
 ---
 const steps = [
-	{ token: '--ksru-space-xs',  label: 'xs',  px: '4',  rem: '0.25' },
-	{ token: '--ksru-space-sm',  label: 'sm',  px: '8',  rem: '0.5' },
-	{ token: '--ksru-space-md',  label: 'md',  px: '16', rem: '1' },
-	{ token: '--ksru-space-lg',  label: 'lg',  px: '24', rem: '1.5' },
-	{ token: '--ksru-space-xl',  label: 'xl',  px: '32', rem: '2' },
-	{ token: '--ksru-space-2xl', label: '2xl', px: '48', rem: '3' },
-	{ token: '--ksru-space-3xl', label: '3xl', px: '64', rem: '4' },
-	{ token: '--ksru-space-4xl', label: '4xl', px: '96', rem: '6' },
+  { token: "--ksru-space-xs", label: "xs", px: "4", rem: "0.25" },
+  { token: "--ksru-space-sm", label: "sm", px: "8", rem: "0.5" },
+  { token: "--ksru-space-md", label: "md", px: "16", rem: "1" },
+  { token: "--ksru-space-lg", label: "lg", px: "24", rem: "1.5" },
+  { token: "--ksru-space-xl", label: "xl", px: "32", rem: "2" },
+  { token: "--ksru-space-2xl", label: "2xl", px: "48", rem: "3" },
+  { token: "--ksru-space-3xl", label: "3xl", px: "64", rem: "4" },
+  { token: "--ksru-space-4xl", label: "4xl", px: "96", rem: "6" },
 ];
 ---
 
 <div class="spacing-demo">
-	<p class="description">
-		Semantic spacing tokens for component CSS. Tailwind's default linear scale is
-		unchanged - use utilities (<code>p-4</code>, <code>gap-6</code>) as normal. These
-		tokens add named intent for component stylesheets: <code>var(--ksru-space-md)</code>.
-	</p>
+  <p class="description">
+    Semantic spacing tokens for component CSS. Tailwind's default linear scale
+    is unchanged - use utilities (<code>p-4</code>, <code>gap-6</code>) as
+    normal. These tokens add named intent for component stylesheets: <code
+      >var(--ksru-space-md)</code
+    >.
+  </p>
 
-	<div class="scale">
-		{steps.map(({ token, label, px, rem }) => (
-			<div class="step">
-				<div class="step__bar" style={`width: var(${token})`} />
-				<div class="step__info">
-					<div class="step__header">
-						<strong class="step__name">{label}</strong>
-						<code class="step__token">{token}</code>
-					</div>
-					<span class="step__values">{px}px / {rem}rem</span>
-				</div>
-			</div>
-		))}
-	</div>
+  <div class="scale">
+    {
+      steps.map(({ token, label, px, rem }) => (
+        <div class="step">
+          <div class="step__bar" style={`width: var(${token})`} />
+          <div class="step__info">
+            <div class="step__header">
+              <strong class="step__name">{label}</strong>
+              <code class="step__token">{token}</code>
+            </div>
+            <span class="step__values">
+              {px}px / {rem}rem
+            </span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
 
 <style>
-	.spacing-demo {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		width: 100%;
-		max-width: 800px;
-		font-family: system-ui, sans-serif;
-	}
+  .spacing-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+    font-family: system-ui, sans-serif;
+  }
 
-	.description {
-		font-size: 0.875rem;
-		color: var(--ksru-color-text-secondary);
-		margin: 0;
-	}
+  .description {
+    font-size: 0.875rem;
+    color: var(--ksru-color-text-secondary);
+    margin: 0;
+  }
 
-	.description code {
-		font-size: 0.8125rem;
-		background: color-mix(in oklch, currentColor, transparent 90%);
-		padding: 0.1em 0.4em;
-		border-radius: 4px;
-	}
+  .description code {
+    font-size: 0.8125rem;
+    background: color-mix(in oklch, currentColor, transparent 90%);
+    padding: 0.1em 0.4em;
+    border-radius: 4px;
+  }
 
-	/* ── Scale visualization ── */
-	.scale {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-	}
+  /* ── Scale visualization ── */
+  .scale {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
-	.step {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-	}
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 
-	.step__bar {
-		flex-shrink: 0;
-		height: 2rem;
-		min-width: 4px;
-		background: var(--ksru-color-accent);
-		border-radius: 4px;
-	}
+  .step__bar {
+    flex-shrink: 0;
+    height: 2rem;
+    min-width: 4px;
+    background: var(--ksru-color-accent);
+    border-radius: 4px;
+  }
 
-	@supports (corner-shape: squircle) {
-		.step__bar {
-			corner-shape: squircle;
-			border-radius: 16px;
-		}
-	}
+  @supports (corner-shape: squircle) {
+    .step__bar {
+      corner-shape: squircle;
+      border-radius: 16px;
+    }
+  }
 
-	.step__info {
-		display: flex;
-		flex-direction: column;
-		gap: 0.125rem;
-		min-width: 0;
-	}
+  .step__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    min-width: 0;
+  }
 
-	.step__header {
-		display: flex;
-		align-items: baseline;
-		gap: 0.5rem;
-	}
+  .step__header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
 
-	.step__name {
-		font-size: 1rem;
-		color: var(--ksru-color-text);
-	}
+  .step__name {
+    font-size: 1rem;
+    color: var(--ksru-color-text);
+  }
 
-	.step__token {
-		font-size: 0.7rem;
-		color: var(--ksru-color-text-secondary);
-	}
+  .step__token {
+    font-size: 0.7rem;
+    color: var(--ksru-color-text-secondary);
+  }
 
-	.step__values {
-		font-size: 0.75rem;
-		font-variant-numeric: tabular-nums;
-		color: var(--ksru-color-text-secondary);
-	}
+  .step__values {
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--ksru-color-text-secondary);
+  }
 </style>

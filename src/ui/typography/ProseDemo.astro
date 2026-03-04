@@ -5,9 +5,11 @@ import "./demo.css";
 
 <div class="grid gap-14 p-xl">
   <p class="demo-intro text-sm">
-    Wraps rendered markdown or rich HTML content and applies the type scale to child
-    elements. Use around <code>&lt;Content /&gt;</code> from Astro content collections
-    or any block of semantic HTML. Also available as a standalone <code>.prose</code> class.
+    Wraps rendered markdown or rich HTML content and applies the type scale to
+    child elements. Use around <code>&lt;Content /&gt;</code> from Astro content collections
+    or any block of semantic HTML. Also available as a standalone <code
+      >.prose</code
+    > class.
   </p>
 
   <section>
@@ -16,18 +18,19 @@ import "./demo.css";
       <Prose>
         <h1>Solidarity in the Digital Age</h1>
         <p>
-          When Kickstarter United filed for a union election with the NLRB in early 2020, it
-          became one of the first recognized unions at a major tech company. The effort proved
-          that white-collar tech workers could organize just like any other workforce &mdash;
-          and win.
+          When Kickstarter United filed for a union election with the NLRB in
+          early 2020, it became one of the first recognized unions at a major
+          tech company. The effort proved that white-collar tech workers could
+          organize just like any other workforce &mdash; and win.
         </p>
 
         <h2>Why Workers Organize</h2>
         <p>
-          Unions exist because individual workers have little leverage against large employers.
-          Through <strong>collective bargaining</strong>, workers negotiate as equals. A union
-          contract covers wages, benefits, working conditions, and establishes a grievance
-          process so no one has to face management alone.
+          Unions exist because individual workers have little leverage against
+          large employers. Through <strong>collective bargaining</strong>,
+          workers negotiate as equals. A union contract covers wages, benefits,
+          working conditions, and establishes a grievance process so no one has
+          to face management alone.
         </p>
         <p>
           As the saying goes: <em>together we bargain, alone we beg.</em>
@@ -52,27 +55,29 @@ import "./demo.css";
 
         <blockquote>
           <p>
-            An injury to one is an injury to all. The labor movement is built on the
-            principle that when we stand together, every worker is stronger.
+            An injury to one is an injury to all. The labor movement is built on
+            the principle that when we stand together, every worker is stronger.
           </p>
         </blockquote>
 
         <h4>Understanding Your Rights</h4>
         <p>
-          Under the <a href="#">National Labor Relations Act</a>, all workers have the right
-          to organize, join a union, and bargain collectively. It is illegal for employers to
-          retaliate against workers for union activity. If you believe your rights have been
-          violated, you can file a charge with the NLRB.
+          Under the <a href="#">National Labor Relations Act</a>, all workers
+          have the right to organize, join a union, and bargain collectively. It
+          is illegal for employers to retaliate against workers for union
+          activity. If you believe your rights have been violated, you can file
+          a charge with the NLRB.
         </p>
 
         <hr />
 
         <h2>OPEIU Local 153</h2>
         <p>
-          OPEIU Local 153 represents workers throughout New York, New Jersey, Pennsylvania,
-          and Connecticut in fields ranging from social services and legal aid to higher
-          education and healthcare. The local is part of the Office and Professional Employees
-          International Union, which has represented white-collar workers since 1945.
+          OPEIU Local 153 represents workers throughout New York, New Jersey,
+          Pennsylvania, and Connecticut in fields ranging from social services
+          and legal aid to higher education and healthcare. The local is part of
+          the Office and Professional Employees International Union, which has
+          represented white-collar workers since 1945.
         </p>
 
         <p>
@@ -113,7 +118,12 @@ import "./demo.css";
           </tbody>
         </table>
 
-        <p><small>Data reflects OPEIU Local 153 membership sectors. Figures are approximate.</small></p>
+        <p>
+          <small
+            >Data reflects OPEIU Local 153 membership sectors. Figures are
+            approximate.</small
+          >
+        </p>
       </Prose>
     </div>
   </section>
@@ -122,12 +132,14 @@ import "./demo.css";
     <h3 class="demo-section-label">Max Line Length</h3>
     <div class="grid gap-xl">
       <div class="demo-specimen">
-        <code class="demo-label text-sm">maxLineLength (default: true = 65ch)</code>
+        <code class="demo-label text-sm"
+          >maxLineLength (default: true = 65ch)</code
+        >
         <Prose>
           <p>
-            This prose block is capped at 65 characters per line. Long-form content is easier
-            to read when lines are kept to a comfortable measure. The default works well for
-            articles and blog posts.
+            This prose block is capped at 65 characters per line. Long-form
+            content is easier to read when lines are kept to a comfortable
+            measure. The default works well for articles and blog posts.
           </p>
         </Prose>
       </div>
@@ -135,9 +147,9 @@ import "./demo.css";
         <code class="demo-label text-sm">maxLineLength={false}</code>
         <Prose maxLineLength={false}>
           <p>
-            With line length uncapped, prose fills the entire available width. This is useful
-            when the layout container already constrains the width, such as inside the page grid's
-            CONTENT column.
+            With line length uncapped, prose fills the entire available width.
+            This is useful when the layout container already constrains the
+            width, such as inside the page grid's CONTENT column.
           </p>
         </Prose>
       </div>

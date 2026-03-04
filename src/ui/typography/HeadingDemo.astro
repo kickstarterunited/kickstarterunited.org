@@ -5,8 +5,9 @@ import "./demo.css";
 
 <div class="grid gap-14 p-xl">
   <p class="demo-intro text-sm">
-    A component for heading elements. The <code>as</code> prop sets the semantic HTML level
-    (h1-h6), while <code>size</code> controls the visual size independently. Defaults to
+    A component for heading elements. The <code>as</code> prop sets the semantic HTML
+    level (h1-h6), while <code>size</code> controls the visual size independently.
+    Defaults to
     <code>size="lg"</code>. The <code>maxLineLength</code> prop caps line length (defaults
     to 25ch).
   </p>
@@ -39,7 +40,9 @@ import "./demo.css";
 
   <section>
     <h3 class="demo-section-label">Semantic Level Independence</h3>
-    <p class="demo-section-desc text-sm">Three different HTML elements, same visual size</p>
+    <p class="demo-section-desc text-sm">
+      Three different HTML elements, same visual size
+    </p>
     <div class="grid">
       <div class="demo-specimen">
         <code class="demo-label text-sm">&lt;h1&gt;</code>
@@ -61,7 +64,9 @@ import "./demo.css";
     <div class="grid">
       <div class="demo-specimen">
         <code class="demo-label text-sm">class="text-red-500"</code>
-        <Heading as="h2" size="lg" class="text-red-500">Strike action approved</Heading>
+        <Heading as="h2" size="lg" class="text-red-500"
+          >Strike action approved</Heading
+        >
       </div>
       <div class="demo-specimen">
         <code class="demo-label text-sm">class="uppercase"</code>
@@ -77,7 +82,10 @@ import "./demo.css";
     const v = el.dataset.variant!;
     const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
     const specimen = el.previousElementSibling;
-    const weight = specimen instanceof HTMLElement ? getComputedStyle(specimen).fontWeight : "";
+    const weight =
+      specimen instanceof HTMLElement
+        ? getComputedStyle(specimen).fontWeight
+        : "";
     const family = v.startsWith("heading") ? "Jost" : "Libre Franklin";
     el.textContent = [size, weight, family].filter(Boolean).join(" \u00b7 ");
   });

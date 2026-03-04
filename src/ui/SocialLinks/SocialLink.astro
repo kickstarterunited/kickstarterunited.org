@@ -19,10 +19,17 @@ const tipId = `tip-${label.toLowerCase()}`;
     href={href}
     rel="me noopener noreferrer"
     target="_blank"
-    class:list={["btn social-link__btn", { "social-link__btn--labeled": showLabel }]}
-    aria-label={!showLabel ? label : undefined}
-    aria-describedby={!showLabel ? tipId : undefined}
-    interestfor={!showLabel ? tipId : undefined}
+    class:list={[
+      "btn social-link__btn",
+      { "social-link__btn--labeled": showLabel },
+    ]}
+    {...!showLabel
+      ? {
+          "aria-label": label,
+          "aria-describedby": tipId,
+          interestfor: tipId,
+        }
+      : {}}
   >
     <slot />
     {showLabel && <span>{label}</span>}

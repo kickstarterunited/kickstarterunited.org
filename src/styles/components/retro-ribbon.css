@@ -44,8 +44,12 @@
   padding-inline-end: var(--_height);
   border-bottom-right-radius: calc(infinity * 1px);
 
-  &::after { inset-inline-end: calc(var(--_band-size) * 2); }
-  &::before { inset-inline-end: var(--_band-size); }
+  &::after {
+    inset-inline-end: calc(var(--_band-size) * 2);
+  }
+  &::before {
+    inset-inline-end: var(--_band-size);
+  }
 }
 
 .retro-ribbon--start {
@@ -55,6 +59,10 @@
   border-top-left-radius: calc(infinity * 1px);
   text-align: right;
 
-  &::after { inset-inline-start: calc(var(--_band-size) * 2); }
-  &::before { inset-inline-start: var(--_band-size); }
+  &::after {
+    inset-inline-start: calc(var(--_band-size) * 2);
+  }
+  &::before {
+    inset-inline-start: var(--_band-size);
+  }
 }

@@ -5,7 +5,7 @@ import SocialLink from "./SocialLink.astro";
 interface Props {
   showLabels?: boolean;
 }
-const { showLabels } = Astro.props;
+const { showLabels = false } = Astro.props;
 ---
 
 <ul
@@ -15,28 +15,60 @@ const { showLabels } = Astro.props;
   ]}
   aria-label="Follow us on social media"
 >
-  <SocialLink label="Bluesky" href="https://bsky.app/profile/kickstarterunited.org" showLabel={showLabels}>
+  <SocialLink
+    label="Bluesky"
+    href="https://bsky.app/profile/kickstarterunited.org"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-bluesky" size={24} />
   </SocialLink>
-  <SocialLink label="Instagram" href="https://www.instagram.com/kickstarter_united" showLabel={showLabels}>
+  <SocialLink
+    label="Instagram"
+    href="https://www.instagram.com/kickstarter_united"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-instagram" size={24} />
   </SocialLink>
-  <SocialLink label="LinkedIn" href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" showLabel={showLabels}>
+  <SocialLink
+    label="LinkedIn"
+    href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-linkedin" size={24} />
   </SocialLink>
-  <SocialLink label="Mastodon" href="https://union.place/@kickstarterunited" showLabel={showLabels}>
+  <SocialLink
+    label="Mastodon"
+    href="https://union.place/@kickstarterunited"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-mastodon" size={24} />
   </SocialLink>
-  <SocialLink label="Twitter" href="https://twitter.com/ksr_united" showLabel={showLabels}>
+  <SocialLink
+    label="Twitter"
+    href="https://twitter.com/ksr_united"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-x" size={24} />
   </SocialLink>
-  <SocialLink label="YouTube" href="https://www.youtube.com/@KickstarterUnited" showLabel={showLabels}>
+  <SocialLink
+    label="YouTube"
+    href="https://www.youtube.com/@KickstarterUnited"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-youtube" size={24} />
   </SocialLink>
-  <SocialLink label="Twitch" href="https://www.twitch.tv/kickstarterunited" showLabel={showLabels}>
+  <SocialLink
+    label="Twitch"
+    href="https://www.twitch.tv/kickstarterunited"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-twitch" size={24} />
   </SocialLink>
-  <SocialLink label="TikTok" href="https://www.tiktok.com/@kickstarter_united" showLabel={showLabels}>
+  <SocialLink
+    label="TikTok"
+    href="https://www.tiktok.com/@kickstarter_united"
+    showLabel={showLabels}
+  >
     <Icon name="tabler:brand-tiktok" size={24} />
   </SocialLink>
 </ul>

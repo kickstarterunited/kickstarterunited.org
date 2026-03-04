@@ -10,10 +10,12 @@ import Prose from "../typography/Prose.astro";
   <div class="page-grid demo">
     <Heading as="h2" size="lg">Layout Breakouts</Heading>
     <Text as="p" size="md">
-      A 7-column symmetric CSS grid with 4 named tiers. Children default to
-      the reading-width <code>content</code> column and can "break out" to
-      wider tiers just by changing <code>grid-column</code>. Based on
-      <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Ryan Mulligan's technique</a>.
+      A 7-column symmetric CSS grid with 4 named tiers. Children default to the
+      reading-width <code>content</code> column and can "break out" to wider tiers
+      just by changing <code>grid-column</code>. Based on
+      <a href="https://ryanmulligan.dev/blog/layout-breakouts/"
+        >Ryan Mulligan's technique</a
+      >.
     </Text>
 
     <PageGrid subgrid as="section" class="demo__example">
@@ -34,7 +36,9 @@ import Prose from "../typography/Prose.astro";
           </PageGrid>
 
           <PageGrid subgrid as="section" class="demo__subgrid">
-            <p class="demo__item demo__item--content"><code>subgrid</code> child (defaults to content)</p>
+            <p class="demo__item demo__item--content">
+              <code>subgrid</code> child (defaults to content)
+            </p>
             <PageGrid area="wide" class="demo__item demo__item--wide">
               <code>wide</code> inside subgrid
             </PageGrid>
@@ -52,23 +56,40 @@ import Prose from "../typography/Prose.astro";
       <p>
         The grid defines 7 column tracks arranged symmetrically around a center
         <code>content</code> column. Named grid lines (<code>bleed-start</code>,
-        <code>margins-start</code>, <code>wide-start</code>, etc.) let children span
-        to any tier with a single declaration like <code>grid-column: wide</code>.
+        <code>margins-start</code>, <code>wide-start</code>, etc.) let children
+        span to any tier with a single declaration like <code
+          >grid-column: wide</code
+        >.
       </p>
 
       <h4>The 4 tiers (inside-out)</h4>
       <dl class="demo__tiers">
         <dt><code>content</code></dt>
-        <dd>Reading-width column, capped at <code>--ksru-line-length</code> (60ch). All grid children land here by default.</dd>
+        <dd>
+          Reading-width column, capped at <code>--ksru-line-length</code> (60ch).
+          All grid children land here by default.
+        </dd>
 
         <dt><code>wide</code></dt>
-        <dd>Extra space for cards, grids, and media. Total width up to 1100px. Collapses to content width on narrow viewports.</dd>
+        <dd>
+          Extra space for cards, grids, and media. Total width up to 1100px.
+          Collapses to content width on narrow viewports.
+        </dd>
 
         <dt><code>margins</code></dt>
-        <dd>Fills remaining <code>1fr</code> space between wide and the edge gutters. Named "margins" instead of "full" to avoid colliding with Tailwind's <code>col-full</code>.</dd>
+        <dd>
+          Fills remaining <code>1fr</code> space between wide and the edge gutters.
+          Named "margins" instead of "full" to avoid colliding with Tailwind's <code
+            >col-full</code
+          >.
+        </dd>
 
         <dt><code>bleed</code></dt>
-        <dd>Edge-to-edge, spanning through the responsive gap gutters (<code>clamp(1rem, 3vw, 2rem)</code>).</dd>
+        <dd>
+          Edge-to-edge, spanning through the responsive gap gutters (<code
+            >clamp(1rem, 3vw, 2rem)</code
+          >).
+        </dd>
       </dl>
 
       <h4>Usage</h4>
@@ -86,16 +107,21 @@ import Prose from "../typography/Prose.astro";
 
       <h4>Subgrid</h4>
       <p>
-        Sections that need children at different widths use <code>page-grid--subgrid</code>.
-        This spans the full <code>bleed</code> column and inherits the parent's column
-        lines via CSS <code>subgrid</code>, so children can independently choose their tier.
+        Sections that need children at different widths use <code
+          >page-grid--subgrid</code
+        >. This spans the full <code>bleed</code> column and inherits the parent's
+        column lines via CSS <code>subgrid</code>, so children can independently
+        choose their tier.
       </p>
 
       <h4>Responsive behavior</h4>
       <p>
-        On narrow viewports, <code>wide</code> and <code>margins</code> collapse to 0,
-        making all tiers except <code>bleed</code> the same width. The <code>--gap</code>
-        gutters (<code>clamp(1rem, 3vw, 2rem)</code>) provide minimum edge padding. Only
+        On narrow viewports, <code>wide</code> and <code>margins</code> collapse to
+        0, making all tiers except <code>bleed</code> the same width. The <code
+          >--gap</code
+        >
+        gutters (<code>clamp(1rem, 3vw, 2rem)</code>) provide minimum edge
+        padding. Only
         <code>bleed</code> elements truly touch the viewport edges.
       </p>
     </Prose>
@@ -105,8 +131,7 @@ import Prose from "../typography/Prose.astro";
         src="https://www.youtube-nocookie.com/embed/c13gpBrnGEw"
         title="Kevin Powell explains Layout Breakouts"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+        allowfullscreen></iframe>
       <Text as="p" size="sm" maxLineLength={false} class="demo__video-caption">
         Kevin Powell's walkthrough of the Layout Breakouts technique
       </Text>
@@ -153,17 +178,29 @@ import Prose from "../typography/Prose.astro";
   }
 
   .demo__item--margins {
-    background: color-mix(in oklch, var(--ksru-color-accent-light) 15%, transparent);
+    background: color-mix(
+      in oklch,
+      var(--ksru-color-accent-light) 15%,
+      transparent
+    );
     border: 1px dashed var(--ksru-color-accent-light);
   }
 
   .demo__item--wide {
-    background: color-mix(in oklch, var(--ksru-color-accent-warm) 15%, transparent);
+    background: color-mix(
+      in oklch,
+      var(--ksru-color-accent-warm) 15%,
+      transparent
+    );
     border: 1px dashed var(--ksru-color-accent-warm);
   }
 
   .demo__item--content {
-    background: color-mix(in oklch, var(--ksru-color-accent-rich) 15%, transparent);
+    background: color-mix(
+      in oklch,
+      var(--ksru-color-accent-rich) 15%,
+      transparent
+    );
     border: 1px dashed var(--ksru-color-accent-rich);
   }
 

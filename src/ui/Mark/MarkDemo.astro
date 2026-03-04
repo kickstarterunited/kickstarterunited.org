@@ -1,15 +1,39 @@
 ---
 import Mark from "./Mark.astro";
 
-const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as const;
+const variants = [
+  "amber",
+  "emerald",
+  "cyan",
+  "brown",
+  "neutral",
+  "red",
+] as const;
 ---
 
-{/* SVG filter for hand-drawn effect (normally in BaseLayout, duplicated here for Astrobook) */}
-<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="position:absolute">
+{
+  /* SVG filter for hand-drawn effect (normally in BaseLayout, duplicated here for Astrobook) */
+}
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="0"
+  height="0"
+  aria-hidden="true"
+  style="position:absolute"
+>
   <defs>
     <filter id="mark-shape">
-      <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
-      <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="8" in="SourceGraphic" in2="warp" />
+      <feTurbulence
+        type="fractalNoise"
+        baseFrequency="0 0.15"
+        numOctaves="1"
+        result="warp"></feTurbulence>
+      <feDisplacementMap
+        xChannelSelector="R"
+        yChannelSelector="G"
+        scale="8"
+        in="SourceGraphic"
+        in2="warp"></feDisplacementMap>
     </filter>
   </defs>
 </svg>
@@ -18,11 +42,14 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
   <section>
     <h3 class="mt-0">Variants</h3>
     <div class="grid gap-3">
-      {variants.map((v) => (
-        <p class="my-0">
-          This text has a <Mark variant={v}>{v}</Mark> highlight applied to it.
-        </p>
-      ))}
+      {
+        variants.map((v) => (
+          <p class="my-0">
+            This text has a <Mark variant={v}>{v}</Mark> highlight applied to
+            it.
+          </p>
+        ))
+      }
     </div>
   </section>
 
@@ -36,8 +63,9 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
   <section>
     <h3 class="mt-0">Custom Color</h3>
     <p>
-      You can pass any CSS color: <Mark color="oklch(0.80 0.15 330)">custom pink</Mark> using
-      the <code>color</code> prop.
+      You can pass any CSS color: <Mark color="oklch(0.80 0.15 330)"
+        >custom pink</Mark
+      > using the <code>color</code> prop.
     </p>
   </section>
 
@@ -46,19 +74,23 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
     <div class="grid gap-md" style="grid-template-columns: 1fr 1fr;">
       <div class="theme-panel p-md rounded-2xl" data-theme="light">
         <strong>Light mode</strong>
-        {variants.map((v) => (
-          <p class="my-1">
-            <Mark variant={v}>{v}</Mark>
-          </p>
-        ))}
+        {
+          variants.map((v) => (
+            <p class="my-1">
+              <Mark variant={v}>{v}</Mark>
+            </p>
+          ))
+        }
       </div>
       <div class="theme-panel p-md rounded-2xl" data-theme="dark">
         <strong>Dark mode</strong>
-        {variants.map((v) => (
-          <p class="my-1">
-            <Mark variant={v}>{v}</Mark>
-          </p>
-        ))}
+        {
+          variants.map((v) => (
+            <p class="my-1">
+              <Mark variant={v}>{v}</Mark>
+            </p>
+          ))
+        }
       </div>
     </div>
   </section>

@@ -9,8 +9,10 @@ interface MenuLinkProps extends Omit<HTMLAttributes<"a">, "children"> {
   href: string;
 }
 
-export interface MenuButtonProps
-  extends Omit<HTMLAttributes<"button">, "children"> {
+export interface MenuButtonProps extends Omit<
+  HTMLAttributes<"button">,
+  "children"
+> {
   /** Required unique ID for the menu */
   id: string;
   /** If `true`, renders the menu flat without a surrounding div */
@@ -41,6 +43,10 @@ const { label, isFlat, ...restProps } = Astro.props;
       {label}
     </a>
   ) : (
-    <Menu label={label} {...restProps} isFlat={isFlat} />
+    <Menu
+      label={label}
+      {...restProps}
+      {...(isFlat !== undefined ? { isFlat } : {})}
+    />
   )
 }

@@ -9,7 +9,7 @@ const tagCounts = Object.entries(
       acc[tag] = (acc[tag] || 0) + 1;
     });
     return acc;
-  }, {})
+  }, {}),
 );
 
 tagCounts.sort(([, countA], [, countB]) => countB - countA);
@@ -20,34 +20,39 @@ const tagsPresent = tagCounts.length > 0;
   <h1>Blog</h1>
   <p>
     Here you can find all our blog posts!
-    {tagsPresent && (<span>You can also click the tag buttons to sort by tag.</span>)}
+    {
+      tagsPresent && (
+        <span>You can also click the tag buttons to sort by tag.</span>
+      )
+    }
   </p>
-  {tagsPresent && (
-    <h3 class="mt-lg">Tags:</h3>
-    <ul class="list-none flex">
-      {
-        tagCounts.map(([tag, count]) => (
-          <li class="m-sm">
-            <a class="border-4 p-sm no-underline" href={`/blog/tags/${tag}`}>
-              <b>{tag}</b> ({count} posts)
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  )}
+  {
+    tagsPresent && (
+      <>
+        <h3 class="mt-lg">Tags:</h3>
+        <ul class="list-none flex">
+          {tagCounts.map(([tag, count]) => (
+            <li class="m-sm">
+              <a class="border-4 p-sm no-underline" href={`/blog/tags/${tag}`}>
+                <b>{tag}</b> ({count} posts)
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
 
   <h3 class="mt-lg">Posts:</h3>
-  {allBlogPosts.length > 0 ? (
-    <ul>
-      {
-        allBlogPosts.map((post) => (
+  {
+    allBlogPosts.length > 0 ? (
+      <ul>
+        {allBlogPosts.map((post) => (
           <BlogPost slug={post.id} frontmatter={post.data} />
-        ))
-      }
-    </ul>
-  ) : (
-    <p> No posts yet!  Check back later. </p>
-  )}
-
+        ))}
+      </ul>
+    ) : (
+      <p> No posts yet! Check back later. </p>
+    )
+  }
 </BaseLayout>

@@ -1,3 +1,13 @@
+/// <reference types="astro/client" />
+
+declare module "*.astro" {
+  type AstroComponent<
+    Props extends Record<string, unknown> = Record<string, unknown>,
+  > = (props: Props) => unknown;
+  const Component: AstroComponent;
+  export default Component;
+}
+
 declare namespace astroHTML.JSX {
   interface ButtonHTMLAttributes {
     /**

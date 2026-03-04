@@ -13,7 +13,7 @@ const pubDate = frontmatter.pubDate;
   <i>
     ({
       new Date(
-        pubDate.getTime() + pubDate.getTimezoneOffset() * 60000
+        pubDate.getTime() + pubDate.getTimezoneOffset() * 60000,
       ).toLocaleDateString()
     })
   </i>

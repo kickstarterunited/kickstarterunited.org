@@ -21,7 +21,13 @@ type Props<Tag extends HTMLTag = "div"> = Polymorphic<{ as: Tag }> & {
   subgrid?: boolean;
 };
 
-const { as: Tag = "div", area = "content", subgrid, class: cls, ...rest } = Astro.props;
+const {
+  as: Tag = "div",
+  area = "content",
+  subgrid,
+  class: cls,
+  ...rest
+} = Astro.props;
 
 /** Literal strings so Tailwind's scanner can detect them */
 const areaClasses = {
@@ -33,10 +39,7 @@ const areaClasses = {
 ---
 
 <Tag
-  class:list={[
-    subgrid ? "page-grid--subgrid" : areaClasses[area],
-    cls,
-  ]}
+  class:list={[subgrid ? "page-grid--subgrid" : areaClasses[area], cls]}
   {...rest}
 >
   <slot />

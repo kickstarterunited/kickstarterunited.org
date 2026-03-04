@@ -14,6 +14,7 @@ Components use a folder structure: `.astro` file + colocated `.css` + optional `
 ## Modern Web APIs
 
 These components use modern web platform APIs:
+
 - Popover API
 - Invoker Commands API (`command`/`commandfor` attributes)
 - Interest Invokers (`interestfor`)

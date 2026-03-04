@@ -366,7 +366,11 @@ import { Icon } from "astro-icon/components";
 
   /* Layer 1: HTML buttons (mobile default - centered below carousel via flex-wrap) */
   .ewnu-carousel :global(.carousel__btn) {
-    --_btn-bg: color-mix(in oklch, var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%, var(--ksru-color-surface));
+    --_btn-bg: color-mix(
+      in oklch,
+      var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%,
+      var(--ksru-color-surface)
+    );
     display: grid;
     place-items: center;
     width: 44px;
@@ -377,7 +381,9 @@ import { Icon } from "astro-icon/components";
     background: var(--_btn-bg);
     color: var(--ksru-color-icon);
     cursor: pointer;
-    transition: background-color 0.4s ease, border-color 0.15s;
+    transition:
+      background-color 0.4s ease,
+      border-color 0.15s;
   }
 
   .ewnu-carousel :global(.carousel__btn:hover) {
@@ -493,7 +499,10 @@ import { Icon } from "astro-icon/components";
       const card = e.snapTargetInline;
       if (card instanceof HTMLElement) {
         activeBg = card.style.getPropertyValue("--bg").trim();
-        document.documentElement.style.setProperty("--_ewnu-active-bg", activeBg);
+        document.documentElement.style.setProperty(
+          "--_ewnu-active-bg",
+          activeBg,
+        );
         apply();
         if (activeCard) activeCard.removeAttribute("data-snapped");
         card.setAttribute("data-snapped", "");
@@ -502,7 +511,8 @@ import { Icon } from "astro-icon/components";
     });
 
     new IntersectionObserver(
-      ([entry]) => {
+      (entries) => {
+        const entry = entries[0]!;
         visible = entry.isIntersecting;
         apply();
       },
@@ -531,7 +541,11 @@ import { Icon } from "astro-icon/components";
     }
 
     .ewnu-carousel .carousel__scroller::scroll-button(*) {
-      --_btn-bg: color-mix(in oklch, var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%, var(--ksru-color-surface));
+      --_btn-bg: color-mix(
+        in oklch,
+        var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%,
+        var(--ksru-color-surface)
+      );
       width: 44px;
       height: 44px;
       border: 1px solid var(--ksru-color-border);
@@ -541,7 +555,9 @@ import { Icon } from "astro-icon/components";
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
-      transition: background-color 0.4s ease, border-color 0.15s;
+      transition:
+        background-color 0.4s ease,
+        border-color 0.15s;
       /* Mobile: centered below carousel */
       position: fixed;
       position-anchor: --ewnu-carousel;
@@ -552,7 +568,11 @@ import { Icon } from "astro-icon/components";
     }
 
     .ewnu-carousel .carousel__scroller::scroll-button(*):hover {
-      background-color: color-mix(in oklch, var(--_btn-bg) 92%, var(--ksru-color-text));
+      background-color: color-mix(
+        in oklch,
+        var(--_btn-bg) 92%,
+        var(--ksru-color-text)
+      );
       border-color: var(--ksru-color-border-hover);
     }
 

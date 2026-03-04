@@ -16,39 +16,48 @@ const textVariants = [
 ];
 
 const sample = "Solidarity forever, for the union makes us strong";
-const bodySample = "When workers stand together, they have the power to win fair wages, safe workplaces, and a real voice on the job. Collective bargaining is the foundation of workplace democracy.";
+const bodySample =
+  "When workers stand together, they have the power to win fair wages, safe workplaces, and a real voice on the job. Collective bargaining is the foundation of workplace democracy.";
 ---
 
 <div class="grid gap-14 p-xl">
   <p class="demo-intro text-sm">
-    The base typography component. Renders any HTML element via <code>as</code> and applies
-    one of 7 type variants via <code>variant</code>. Variants are also available as
-    standalone CSS classes and Tailwind <code>text-*</code> utilities.
+    The base typography component. Renders any HTML element via <code>as</code> and
+    applies one of 7 type variants via <code>variant</code>. Variants are also
+    available as standalone CSS classes and Tailwind <code>text-*</code> utilities.
   </p>
 
   <section>
     <h3 class="demo-section-label">Heading Variants</h3>
     <div class="grid">
-      {headingVariants.map((variant) => (
-        <div class="demo-specimen">
-          <code class="demo-label text-sm">{variant}</code>
-          <Type as="div" variant={variant}>{sample}</Type>
-          <span class="demo-specs text-sm" data-variant={variant}></span>
-        </div>
-      ))}
+      {
+        headingVariants.map((variant) => (
+          <div class="demo-specimen">
+            <code class="demo-label text-sm">{variant}</code>
+            <Type as="div" variant={variant}>
+              {sample}
+            </Type>
+            <span class="demo-specs text-sm" data-variant={variant} />
+          </div>
+        ))
+      }
     </div>
   </section>
 
   <section>
     <h3 class="demo-section-label">Text Variants</h3>
     <div class="grid">
-      {textVariants.map((variant) => (
-        <div class="demo-specimen">
-          <code class="demo-label text-sm">{variant}</code>
-          <Type as="p" variant={variant}>{bodySample}</Type>
-          <span class="demo-specs text-sm" data-variant={variant}></span>
-        </div>
-      ))}
+      {
+        textVariants.map((variant) => (
+          <div class="demo-specimen">
+            <code class="demo-label text-sm">{variant}</code>
+            <Type as="p" variant={variant}>
+              {bodySample}
+            </Type>
+            <span class="demo-specs text-sm" data-variant={variant} />
+          </div>
+        ))
+      }
     </div>
   </section>
 
@@ -73,7 +82,10 @@ const bodySample = "When workers stand together, they have the power to win fair
     const v = el.dataset.variant!;
     const size = root.getPropertyValue(`--ksru-text-${v}`).trim();
     const specimen = el.previousElementSibling;
-    const weight = specimen instanceof HTMLElement ? getComputedStyle(specimen).fontWeight : "";
+    const weight =
+      specimen instanceof HTMLElement
+        ? getComputedStyle(specimen).fontWeight
+        : "";
     const family = v.startsWith("heading") ? "Jost" : "Libre Franklin";
     el.textContent = [size, weight, family].filter(Boolean).join(" \u00b7 ");
   });

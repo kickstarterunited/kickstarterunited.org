@@ -18,18 +18,16 @@ function queuePopoverToggleEventTask(element, oldState, newState) {
         new ToggleEvent("toggle", {
           cancelable: false,
           oldState,
-          newState
-        })
+          newState,
+        }),
       );
-    }, 0)
+    }, 0),
   );
 }
 
 // src/popover-helpers.ts
-var ShadowRoot = globalThis.ShadowRoot || function() {
-};
-var HTMLDialogElement = globalThis.HTMLDialogElement || function() {
-};
+var ShadowRoot = globalThis.ShadowRoot || function () {};
+var HTMLDialogElement = globalThis.HTMLDialogElement || function () {};
 var topLayerElements = /* @__PURE__ */ new WeakMap();
 var autoPopoverList = /* @__PURE__ */ new WeakMap();
 var hintPopoverList = /* @__PURE__ */ new WeakMap();
@@ -59,7 +57,11 @@ function popoverTargetAttributeActivationBehavior(element) {
   }
 }
 function checkPopoverValidity(element, expectedToBeShowing) {
-  if (element.popover !== "auto" && element.popover !== "manual" && element.popover !== "hint") {
+  if (
+    element.popover !== "auto" &&
+    element.popover !== "manual" &&
+    element.popover !== "hint"
+  ) {
     return false;
   }
   if (!element.isConnected) return false;
@@ -77,8 +79,10 @@ function checkPopoverValidity(element, expectedToBeShowing) {
 }
 function getStackPosition(popover) {
   if (!popover) return 0;
-  const autoPopovers = autoPopoverList.get(document) || /* @__PURE__ */ new Set();
-  const hintPopovers = hintPopoverList.get(document) || /* @__PURE__ */ new Set();
+  const autoPopovers =
+    autoPopoverList.get(document) || /* @__PURE__ */ new Set();
+  const hintPopovers =
+    hintPopoverList.get(document) || /* @__PURE__ */ new Set();
   if (hintPopovers.has(popover)) {
     return [...hintPopovers].indexOf(popover) + autoPopovers.size + 1;
   }
@@ -97,9 +101,16 @@ function topMostClickedPopover(target) {
 }
 function topmostAutoOrHintPopover(document2) {
   let topmostPopover;
-  const hintPopovers = hintPopoverList.get(document2) || /* @__PURE__ */ new Set();
-  const autoPopovers = autoPopoverList.get(document2) || /* @__PURE__ */ new Set();
-  const usedStack = hintPopovers.size > 0 ? hintPopovers : autoPopovers.size > 0 ? autoPopovers : null;
+  const hintPopovers =
+    hintPopoverList.get(document2) || /* @__PURE__ */ new Set();
+  const autoPopovers =
+    autoPopoverList.get(document2) || /* @__PURE__ */ new Set();
+  const usedStack =
+    hintPopovers.size > 0
+      ? hintPopovers
+      : autoPopovers.size > 0
+        ? autoPopovers
+        : null;
   if (usedStack) {
     topmostPopover = lastSetElement(usedStack);
     if (!topmostPopover.isConnected) {
@@ -129,10 +140,17 @@ function getRootNode(node) {
 }
 function nearestInclusiveOpenPopover(node) {
   while (node) {
-    if (node instanceof HTMLElement && node.popover === "auto" && visibilityState.get(node) === "showing") {
+    if (
+      node instanceof HTMLElement &&
+      node.popover === "auto" &&
+      visibilityState.get(node) === "showing"
+    ) {
       return node;
     }
-    node = node instanceof Element && node.assignedSlot || node.parentElement || getRootNode(node);
+    node =
+      (node instanceof Element && node.assignedSlot) ||
+      node.parentElement ||
+      getRootNode(node);
     if (node instanceof ShadowRoot) node = node.host;
     if (node instanceof Document) return;
   }
@@ -165,7 +183,10 @@ function topMostPopoverAncestor(newPopover, list) {
       candidateAncestor = nearestInclusiveOpenPopover(candidate) || null;
       if (candidateAncestor === null) return;
       if (!popoverPositions.has(candidateAncestor)) return;
-      if (newPopover.popover === "hint" || candidateAncestor.popover === "auto") {
+      if (
+        newPopover.popover === "hint" ||
+        candidateAncestor.popover === "auto"
+      ) {
         okNesting = true;
       }
       if (!okNesting) {
@@ -173,7 +194,10 @@ function topMostPopoverAncestor(newPopover, list) {
       }
     }
     candidatePosition = popoverPositions.get(candidateAncestor);
-    if (topMostPopoverAncestor2 === null || popoverPositions.get(topMostPopoverAncestor2) < candidatePosition) {
+    if (
+      topMostPopoverAncestor2 === null ||
+      popoverPositions.get(topMostPopoverAncestor2) < candidatePosition
+    ) {
       topMostPopoverAncestor2 = candidateAncestor;
     }
   }
@@ -182,19 +206,35 @@ function topMostPopoverAncestor(newPopover, list) {
 }
 function isFocusable(focusTarget) {
   if (focusTarget.hidden || focusTarget instanceof ShadowRoot) return false;
-  if (focusTarget instanceof HTMLButtonElement || focusTarget instanceof HTMLInputElement || focusTarget instanceof HTMLSelectElement || focusTarget instanceof HTMLTextAreaElement || focusTarget instanceof HTMLOptGroupElement || focusTarget instanceof HTMLOptionElement || focusTarget instanceof HTMLFieldSetElement) {
+  if (
+    focusTarget instanceof HTMLButtonElement ||
+    focusTarget instanceof HTMLInputElement ||
+    focusTarget instanceof HTMLSelectElement ||
+    focusTarget instanceof HTMLTextAreaElement ||
+    focusTarget instanceof HTMLOptGroupElement ||
+    focusTarget instanceof HTMLOptionElement ||
+    focusTarget instanceof HTMLFieldSetElement
+  ) {
     if (focusTarget.disabled) return false;
   }
-  if (focusTarget instanceof HTMLInputElement && focusTarget.type === "hidden") {
+  if (
+    focusTarget instanceof HTMLInputElement &&
+    focusTarget.type === "hidden"
+  ) {
     return false;
   }
   if (focusTarget instanceof HTMLAnchorElement && focusTarget.href === "") {
     return false;
   }
-  return typeof focusTarget.tabIndex === "number" && focusTarget.tabIndex !== -1;
+  return (
+    typeof focusTarget.tabIndex === "number" && focusTarget.tabIndex !== -1
+  );
 }
 function focusDelegate(focusTarget) {
-  if (focusTarget.shadowRoot && focusTarget.shadowRoot.delegatesFocus !== true) {
+  if (
+    focusTarget.shadowRoot &&
+    focusTarget.shadowRoot.delegatesFocus !== true
+  ) {
     return null;
   }
   let whereToLook = focusTarget;
@@ -222,7 +262,7 @@ function focusDelegate(focusTarget) {
   }
   const walker = focusTarget.ownerDocument.createTreeWalker(
     whereToLook,
-    NodeFilter.SHOW_ELEMENT
+    NodeFilter.SHOW_ELEMENT,
   );
   let descendant = walker.currentNode;
   while (descendant) {
@@ -242,13 +282,15 @@ function showPopover(element) {
     return;
   }
   const document2 = element.ownerDocument;
-  if (!element.dispatchEvent(
-    new ToggleEvent("beforetoggle", {
-      cancelable: true,
-      oldState: "closed",
-      newState: "open"
-    })
-  )) {
+  if (
+    !element.dispatchEvent(
+      new ToggleEvent("beforetoggle", {
+        cancelable: true,
+        oldState: "closed",
+        newState: "open",
+      }),
+    )
+  ) {
     return;
   }
   if (!checkPopoverValidity(element, false)) {
@@ -259,17 +301,17 @@ function showPopover(element) {
   let stackToAppendTo = null;
   const autoAncestor = topMostPopoverAncestor(
     element,
-    autoPopoverList.get(document2) || /* @__PURE__ */ new Set()
+    autoPopoverList.get(document2) || /* @__PURE__ */ new Set(),
   );
   const hintAncestor = topMostPopoverAncestor(
     element,
-    hintPopoverList.get(document2) || /* @__PURE__ */ new Set()
+    hintPopoverList.get(document2) || /* @__PURE__ */ new Set(),
   );
   if (originalType === "auto") {
     closeAllOpenPopoversInList(
       hintPopoverList.get(document2) || /* @__PURE__ */ new Set(),
       shouldRestoreFocus,
-      true
+      true,
     );
     const ancestor = autoAncestor || document2;
     hideAllPopoversUntil(ancestor, shouldRestoreFocus, true);
@@ -283,7 +325,7 @@ function showPopover(element) {
       closeAllOpenPopoversInList(
         hintPopoverList.get(document2) || /* @__PURE__ */ new Set(),
         shouldRestoreFocus,
-        true
+        true,
       );
       if (autoAncestor) {
         hideAllPopoversUntil(autoAncestor, shouldRestoreFocus, true);
@@ -294,7 +336,10 @@ function showPopover(element) {
     }
   }
   if (originalType === "auto" || originalType === "hint") {
-    if (originalType !== element.popover || !checkPopoverValidity(element, false)) {
+    if (
+      originalType !== element.popover ||
+      !checkPopoverValidity(element, false)
+    ) {
       return;
     }
     if (!topmostAutoOrHintPopover(document2)) {
@@ -322,12 +367,20 @@ function showPopover(element) {
   topLayerElements.get(document2).add(element);
   setInvokerAriaExpanded(popoverInvoker.get(element), true);
   popoverFocusingSteps(element);
-  if (shouldRestoreFocus && originallyFocusedElement && element.popover === "auto") {
+  if (
+    shouldRestoreFocus &&
+    originallyFocusedElement &&
+    element.popover === "auto"
+  ) {
     previouslyFocusedElements.set(element, originallyFocusedElement);
   }
   queuePopoverToggleEventTask(element, "closed", "open");
 }
-function hidePopover(element, focusPreviousElement = false, fireEvents = false) {
+function hidePopover(
+  element,
+  focusPreviousElement = false,
+  fireEvents = false,
+) {
   var _a, _b;
   if (!checkPopoverValidity(element, true)) {
     return;
@@ -340,17 +393,21 @@ function hidePopover(element, focusPreviousElement = false, fireEvents = false) 
     }
   }
   const autoList = autoPopoverList.get(document2) || /* @__PURE__ */ new Set();
-  const autoPopoverListContainsElement = autoList.has(element) && lastSetElement(autoList) === element;
+  const autoPopoverListContainsElement =
+    autoList.has(element) && lastSetElement(autoList) === element;
   setInvokerAriaExpanded(popoverInvoker.get(element), false);
   popoverInvoker.delete(element);
   if (fireEvents) {
     element.dispatchEvent(
       new ToggleEvent("beforetoggle", {
         oldState: "open",
-        newState: "closed"
-      })
+        newState: "closed",
+      }),
     );
-    if (autoPopoverListContainsElement && lastSetElement(autoList) !== element) {
+    if (
+      autoPopoverListContainsElement &&
+      lastSetElement(autoList) !== element
+    ) {
       hideAllPopoversUntil(element, focusPreviousElement, fireEvents);
     }
     if (!checkPopoverValidity(element, true)) {
@@ -373,21 +430,34 @@ function hidePopover(element, focusPreviousElement = false, fireEvents = false) 
     }
   }
 }
-function closeAllOpenPopovers(document2, focusPreviousElement = false, fireEvents = false) {
+function closeAllOpenPopovers(
+  document2,
+  focusPreviousElement = false,
+  fireEvents = false,
+) {
   let popover = topmostAutoOrHintPopover(document2);
   while (popover) {
     hidePopover(popover, focusPreviousElement, fireEvents);
     popover = topmostAutoOrHintPopover(document2);
   }
 }
-function closeAllOpenPopoversInList(list, focusPreviousElement = false, fireEvents = false) {
+function closeAllOpenPopoversInList(
+  list,
+  focusPreviousElement = false,
+  fireEvents = false,
+) {
   let popover = topMostPopoverInList(list);
   while (popover) {
     hidePopover(popover, focusPreviousElement, fireEvents);
     popover = topMostPopoverInList(list);
   }
 }
-function hidePopoverStackUntil(endpoint, set, focusPreviousElement, fireEvents) {
+function hidePopoverStackUntil(
+  endpoint,
+  set,
+  focusPreviousElement,
+  fireEvents,
+) {
   let repeatingHide = false;
   let hasRunOnce = false;
   while (repeatingHide || !hasRunOnce) {
@@ -420,28 +490,32 @@ function hideAllPopoversUntil(endpoint, focusPreviousElement, fireEvents) {
   if (endpoint instanceof Document) {
     return closeAllOpenPopovers(document2, focusPreviousElement, fireEvents);
   }
-  if ((_a = hintPopoverList.get(document2)) == null ? void 0 : _a.has(endpoint)) {
+  if (
+    (_a = hintPopoverList.get(document2)) == null ? void 0 : _a.has(endpoint)
+  ) {
     hidePopoverStackUntil(
       endpoint,
       hintPopoverList.get(document2),
       focusPreviousElement,
-      fireEvents
+      fireEvents,
     );
     return;
   }
   closeAllOpenPopoversInList(
     hintPopoverList.get(document2) || /* @__PURE__ */ new Set(),
     focusPreviousElement,
-    fireEvents
+    fireEvents,
   );
-  if (!((_b = autoPopoverList.get(document2)) == null ? void 0 : _b.has(endpoint))) {
+  if (
+    !((_b = autoPopoverList.get(document2)) == null ? void 0 : _b.has(endpoint))
+  ) {
     return;
   }
   hidePopoverStackUntil(
     endpoint,
     autoPopoverList.get(document2),
     focusPreviousElement,
-    fireEvents
+    fireEvents,
   );
 }
 var popoverPointerDownTargets = /* @__PURE__ */ new WeakMap();
@@ -483,17 +557,20 @@ function setInvokerAriaExpanded(el, force = false) {
 }
 
 // src/popover.ts
-var ShadowRoot2 = globalThis.ShadowRoot || function() {
-};
+var ShadowRoot2 = globalThis.ShadowRoot || function () {};
 function isSupported() {
-  return typeof HTMLElement !== "undefined" && typeof HTMLElement.prototype === "object" && "popover" in HTMLElement.prototype;
+  return (
+    typeof HTMLElement !== "undefined" &&
+    typeof HTMLElement.prototype === "object" &&
+    "popover" in HTMLElement.prototype
+  );
 }
 function patchSelectorFn(object, name, mapper) {
   const original = object[name];
   Object.defineProperty(object, name, {
     value(selector) {
       return original.call(this, mapper(selector));
-    }
+    },
   });
 }
 var nonEscapedPopoverSelector = /(^|[^\\]):popover-open\b/g;
@@ -596,7 +673,7 @@ function apply() {
     if (selector == null ? void 0 : selector.includes(":popover-open")) {
       selector = selector.replace(
         nonEscapedPopoverSelector,
-        "$1.\\:popover-open"
+        "$1.\\:popover-open",
       );
     }
     return selector;
@@ -610,7 +687,7 @@ function apply() {
   patchSelectorFn(
     DocumentFragment.prototype,
     "querySelectorAll",
-    rewriteSelector
+    rewriteSelector,
   );
   Object.defineProperties(HTMLElement.prototype, {
     popover: {
@@ -629,7 +706,7 @@ function apply() {
         } else {
           this.setAttribute("popover", value);
         }
-      }
+      },
     },
     showPopover: {
       enumerable: true,
@@ -637,14 +714,14 @@ function apply() {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       value(options = {}) {
         showPopover(this);
-      }
+      },
     },
     hidePopover: {
       enumerable: true,
       configurable: true,
       value() {
         hidePopover(this, true, true);
-      }
+      },
     },
     togglePopover: {
       enumerable: true,
@@ -653,14 +730,18 @@ function apply() {
         if (typeof options === "boolean") {
           options = { force: options };
         }
-        if (visibilityState.get(this) === "showing" && options.force === void 0 || options.force === false) {
+        if (
+          (visibilityState.get(this) === "showing" &&
+            options.force === void 0) ||
+          options.force === false
+        ) {
           hidePopover(this, true, true);
         } else if (options.force === void 0 || options.force === true) {
           showPopover(this);
         }
         return visibilityState.get(this) === "showing";
-      }
-    }
+      },
+    },
   });
   const originalAttachShadow = Element.prototype.attachShadow;
   if (originalAttachShadow) {
@@ -673,8 +754,8 @@ function apply() {
           const shadowRoot = originalAttachShadow.call(this, options);
           injectStyles(shadowRoot);
           return shadowRoot;
-        }
-      }
+        },
+      },
     });
   }
   const originalAttachInternals = HTMLElement.prototype.attachInternals;
@@ -690,8 +771,8 @@ function apply() {
             injectStyles(internals.shadowRoot);
           }
           return internals;
-        }
-      }
+        },
+      },
     });
   }
   const popoverTargetAssociatedElements = /* @__PURE__ */ new WeakMap();
@@ -706,7 +787,7 @@ function apply() {
             popoverTargetAssociatedElements.delete(this);
           } else if (!(targetElement instanceof Element)) {
             throw new TypeError(
-              `popoverTargetElement must be an element or null`
+              `popoverTargetElement must be an element or null`,
             );
           } else {
             this.setAttribute("popovertarget", "");
@@ -717,7 +798,12 @@ function apply() {
           if (this.localName !== "button" && this.localName !== "input") {
             return null;
           }
-          if (this.localName === "input" && this.type !== "reset" && this.type !== "image" && this.type !== "button") {
+          if (
+            this.localName === "input" &&
+            this.type !== "reset" &&
+            this.type !== "image" &&
+            this.type !== "button"
+          ) {
             return null;
           }
           if (this.disabled) {
@@ -735,24 +821,29 @@ function apply() {
           }
           const root = getRootNode(this);
           const idref = this.getAttribute("popovertarget");
-          if ((root instanceof Document || root instanceof ShadowRoot2) && idref) {
+          if (
+            (root instanceof Document || root instanceof ShadowRoot2) &&
+            idref
+          ) {
             return root.getElementById(idref) || null;
           }
           return null;
-        }
+        },
       },
       popoverTargetAction: {
         enumerable: true,
         configurable: true,
         get() {
-          const value = (this.getAttribute("popovertargetaction") || "").toLowerCase();
+          const value = (
+            this.getAttribute("popovertargetaction") || ""
+          ).toLowerCase();
           if (value === "show" || value === "hide") return value;
           return "toggle";
         },
         set(value) {
           this.setAttribute("popovertargetaction", value);
-        }
-      }
+        },
+      },
     });
   }
   applyPopoverInvokerElementMixin(HTMLButtonElement);
@@ -763,19 +854,22 @@ function apply() {
     }
     const composedPath = event.composedPath();
     const target = composedPath[0];
-    if (!(target instanceof Element) || (target == null ? void 0 : target.shadowRoot)) {
+    if (
+      !(target instanceof Element) ||
+      (target == null ? void 0 : target.shadowRoot)
+    ) {
       return;
     }
     const root = getRootNode(target);
     if (!(root instanceof ShadowRoot2 || root instanceof Document)) {
       return;
     }
-    const invoker = composedPath.find(
-      (el) => {
-        var _a;
-        return (_a = el.matches) == null ? void 0 : _a.call(el, "[popovertargetaction],[popovertarget]");
-      }
-    );
+    const invoker = composedPath.find((el) => {
+      var _a;
+      return (_a = el.matches) == null
+        ? void 0
+        : _a.call(el, "[popovertargetaction],[popovertarget]");
+    });
     if (invoker) {
       popoverTargetAttributeActivationBehavior(invoker);
       event.preventDefault();
@@ -785,7 +879,11 @@ function apply() {
   const onKeydown = (event) => {
     const key = event.key;
     const target = event.target;
-    if (!event.defaultPrevented && target && (key === "Escape" || key === "Esc")) {
+    if (
+      !event.defaultPrevented &&
+      target &&
+      (key === "Escape" || key === "Esc")
+    ) {
       hideAllPopoversUntil(target.ownerDocument, true, true);
     }
   };
