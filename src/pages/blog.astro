@@ -23,7 +23,7 @@ const tagsPresent = tagCounts.length > 0;
     {tagsPresent && (<span>You can also click the tag buttons to sort by tag.</span>)}
   </p>
   {tagsPresent && (
-    <h3 class="mt-6">Tags:</h3>
+    <h3 class="mt-5">Tags:</h3>
     <ul class="list-none flex">
       {
         tagCounts.map(([tag, count]) => (
@@ -37,7 +37,7 @@ const tagsPresent = tagCounts.length > 0;
     </ul>
   )}
 
-  <h3 class="mt-6">Posts:</h3>
+  <h3 class="mt-5">Posts:</h3>
   {allBlogPosts.length > 0 ? (
     <ul>
       {

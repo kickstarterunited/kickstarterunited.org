@@ -1,0 +1,30 @@
+/* MARK: Spacing design tokens */
+@layer base {
+  :root {
+    --ksru-space-1: 0.25rem;  /*  4px - micro */
+    --ksru-space-2: 0.5rem;   /*  8px - small */
+    --ksru-space-3: 0.75rem;  /* 12px - medium */
+    --ksru-space-4: 1rem;     /* 16px - base */
+    --ksru-space-5: 1.5rem;   /* 24px - generous */
+    --ksru-space-6: 2rem;     /* 32px - section */
+    --ksru-space-7: 3rem;     /* 48px - large */
+    --ksru-space-8: 4rem;     /* 64px - xl */
+    --ksru-space-9: 6rem;     /* 96px - hero */
+  }
+}
+
+/* MARK: Tailwind integration */
+@theme {
+  --spacing-*: initial; /* reset default scale */
+  --spacing-0: 0px;
+  --spacing-px: 1px;
+  --spacing-1: var(--ksru-space-1);
+  --spacing-2: var(--ksru-space-2);
+  --spacing-3: var(--ksru-space-3);
+  --spacing-4: var(--ksru-space-4);
+  --spacing-5: var(--ksru-space-5);
+  --spacing-6: var(--ksru-space-6);
+  --spacing-7: var(--ksru-space-7);
+  --spacing-8: var(--ksru-space-8);
+  --spacing-9: var(--ksru-space-9);
+}

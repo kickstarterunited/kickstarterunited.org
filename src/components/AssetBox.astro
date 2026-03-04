@@ -14,9 +14,9 @@ const { image, button_text, alt_button, alt } = Astro.props;
 
 <div class="border-4 p-4 mt-4 bg-gray-200">
   <Image class="mx-auto" src={image} alt={alt || button_text} loading="lazy" />
-  <div class="mt-6 mb-1 flex">
+  <div class="mt-5 mb-1 flex">
     <a
-      class="no-underline text-black border-4 w-auto bg-white px-6 py-3"
+      class="no-underline text-black border-4 w-auto bg-white px-5 py-3"
       href={image.src}
       download
       type="image/png"
@@ -26,7 +26,7 @@ const { image, button_text, alt_button, alt } = Astro.props;
     {
       alt_button && (
         <a
-          class="no-underline text-black border-4 w-auto bg-white px-6 py-3 ml-4"
+          class="no-underline text-black border-4 w-auto bg-white px-5 py-3 ml-4"
           href={alt_button.image.src}
           download
           type="image/png"

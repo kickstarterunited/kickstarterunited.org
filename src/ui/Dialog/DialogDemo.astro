@@ -6,7 +6,7 @@ import Button from "../Button/Button.astro";
 import Surface from "../Surface/Surface.astro";
 ---
 
-<div class="grid gap-12 p-8">
+<div class="grid gap-7 p-6">
   <section>
     <h3 class="mt-0">Base Dialog</h3>
     <p class="text-sm">A centered modal dialog with backdrop blur.</p>
@@ -14,7 +14,7 @@ import Surface from "../Surface/Surface.astro";
       Open Dialog
     </Button>
     <Dialog id="demo-dialog">
-      <div class="p-6 grid gap-4" style="max-width: 28rem;">
+      <div class="p-5 grid gap-4" style="max-width: 28rem;">
         <h2 class="mt-0">Dialog Title</h2>
         <p>This is a basic dialog using design system surface and text tokens. It stays readable in both light and dark contexts.</p>
         <Button variant="primary" command="close" commandfor="demo-dialog">
@@ -31,7 +31,7 @@ import Surface from "../Surface/Surface.astro";
       Open Drawer
     </Button>
     <DrawerDialog id="demo-drawer">
-      <div class="p-6 grid gap-4" style="min-width: 280px;">
+      <div class="p-5 grid gap-4" style="min-width: 280px;">
         <h2 class="mt-0">Drawer Content</h2>
         <p>The drawer uses <code>data-theme="light"</code> to establish its own color context.</p>
       </div>
@@ -93,7 +93,7 @@ import Surface from "../Surface/Surface.astro";
       </Button>
     </Surface>
     <Dialog id="demo-dark-dialog" data-theme="inverse">
-      <div class="p-6 grid gap-4" style="max-width: 28rem;">
+      <div class="p-5 grid gap-4" style="max-width: 28rem;">
         <h2 class="mt-0">Inverse Dialog</h2>
         <p>This dialog uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
         <Button variant="primary" command="close" commandfor="demo-dark-dialog">
@@ -102,7 +102,7 @@ import Surface from "../Surface/Surface.astro";
       </div>
     </Dialog>
     <DrawerDialog id="demo-dark-drawer" data-theme="inverse">
-      <div class="p-6 grid gap-4" style="min-width: 280px;">
+      <div class="p-5 grid gap-4" style="min-width: 280px;">
         <h2 class="mt-0">Inverse Drawer</h2>
         <p>This drawer uses <code>data-theme="inverse"</code> to always render opposite to the page theme.</p>
       </div>

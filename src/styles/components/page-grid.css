@@ -46,7 +46,7 @@
  */
 
 .page-grid {
-  --gap: clamp(1rem, 3vw, 2rem);
+  --gap: clamp(var(--ksru-space-4), 3vw, var(--ksru-space-6));
   --content: min(var(--ksru-line-length), 100% - var(--gap) * 2);
   --wide: minmax(0, calc((1100px - var(--ksru-line-length)) / 2));
   --margins: minmax(0, 1fr);
