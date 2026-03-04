@@ -14,7 +14,7 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
   </defs>
 </svg>
 
-<div class="grid gap-7 p-6">
+<div class="grid gap-2xl p-xl">
   <section>
     <h3 class="mt-0">Variants</h3>
     <div class="grid gap-3">
@@ -43,8 +43,8 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
 
   <section>
     <h3 class="mt-0">Light / Dark Comparison</h3>
-    <div class="grid gap-4" style="grid-template-columns: 1fr 1fr;">
-      <div class="theme-panel p-4 rounded-2xl" data-theme="light">
+    <div class="grid gap-md" style="grid-template-columns: 1fr 1fr;">
+      <div class="theme-panel p-md rounded-2xl" data-theme="light">
         <strong>Light mode</strong>
         {variants.map((v) => (
           <p class="my-1">
@@ -52,7 +52,7 @@ const variants = ["amber", "emerald", "cyan", "brown", "neutral", "red"] as cons
           </p>
         ))}
       </div>
-      <div class="theme-panel p-4 rounded-2xl" data-theme="dark">
+      <div class="theme-panel p-md rounded-2xl" data-theme="dark">
         <strong>Dark mode</strong>
         {variants.map((v) => (
           <p class="my-1">

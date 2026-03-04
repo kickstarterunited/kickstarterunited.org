@@ -4,7 +4,7 @@
     color: var(--ksru-color-text);
     border: 1px solid var(--ksru-color-border);
     border-radius: 1rem;
-    padding: clamp(var(--ksru-space-3), 2vw, var(--ksru-space-5));
+    padding: clamp(0.75rem, 2vw, var(--ksru-space-lg));
 
     @supports (corner-shape: squircle) {
       corner-shape: squircle;

@@ -6,8 +6,9 @@ export default {
 };
 
 /**
- * A 4px-based, 9-step spacing scale used for all padding, margin, and gap values.
- * Steps 1-4 match Tailwind defaults. Steps 5-9 use alternating ~1.5x and ~1.33x ratios.
+ * Semantic spacing tokens (--ksru-space-*) for component CSS.
+ * Tailwind's default spacing scale is unchanged - these add named
+ * intent for values used in component stylesheets.
  */
 export const Spacing = {
 	args: {},

@@ -1,6 +1,6 @@
 export default function LoadingSpinner() {
   return (
-    <div class="text-center mt-6">
+    <div class="text-center mt-xl">
       <div role="status">
         <svg
           aria-hidden="true"

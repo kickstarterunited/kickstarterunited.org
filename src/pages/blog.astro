@@ -23,12 +23,12 @@ const tagsPresent = tagCounts.length > 0;
     {tagsPresent && (<span>You can also click the tag buttons to sort by tag.</span>)}
   </p>
   {tagsPresent && (
-    <h3 class="mt-5">Tags:</h3>
+    <h3 class="mt-lg">Tags:</h3>
     <ul class="list-none flex">
       {
         tagCounts.map(([tag, count]) => (
-          <li class="m-2">
-            <a class="border-4 p-2 no-underline" href={`/blog/tags/${tag}`}>
+          <li class="m-sm">
+            <a class="border-4 p-sm no-underline" href={`/blog/tags/${tag}`}>
               <b>{tag}</b> ({count} posts)
             </a>
           </li>
@@ -37,7 +37,7 @@ const tagsPresent = tagCounts.length > 0;
     </ul>
   )}
 
-  <h3 class="mt-5">Posts:</h3>
+  <h3 class="mt-lg">Posts:</h3>
   {allBlogPosts.length > 0 ? (
     <ul>
       {

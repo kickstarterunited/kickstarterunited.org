@@ -25,12 +25,12 @@
   }
 
   .menu > * {
-    padding: var(--ksru-space-2) var(--ksru-space-4);
+    padding: var(--ksru-space-sm) var(--ksru-space-md);
   }
 
   .menu__item,
   .menu__title {
-    padding: var(--ksru-space-2) var(--ksru-space-4);
+    padding: var(--ksru-space-sm) var(--ksru-space-md);
   }
 
   .menu__title {
@@ -40,7 +40,7 @@
     color: var(--ksru-color-accent);
     text-transform: uppercase;
     border-bottom: 1px solid currentColor;
-    padding-top: var(--ksru-space-4);
+    padding-top: var(--ksru-space-md);
   }
 
   .menu__item {

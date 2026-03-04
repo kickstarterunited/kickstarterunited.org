@@ -5,7 +5,7 @@ import Prose from "./Prose.astro";
 import "./demo.css";
 ---
 
-<div class="grid gap-7 p-6">
+<div class="grid gap-14 p-xl">
   <p class="demo-intro text-sm">
     Shows how <code>Heading</code>, <code>Text</code>, and <code>Prose</code> work together
     in realistic layouts. These compositions demonstrate visual hierarchy, spacing relationships,
@@ -15,7 +15,7 @@ import "./demo.css";
   <section>
     <h3 class="demo-section-label">Hero + Body</h3>
     <div class="demo-specimen" style="border: none; padding: 0;">
-      <div class="grid gap-4">
+      <div class="grid gap-md">
         <Heading as="h1" size="xl">Tech Workers Deserve a Union</Heading>
         <Text as="p" size="lg" class="text-[var(--ksru-color-text-secondary)]">How Kickstarter United organized the first major tech union and changed the industry forever.</Text>
         <Text as="p" size="md">In February 2020, a supermajority of Kickstarter employees voted to form Kickstarter United with OPEIU Local 153. The campaign took months of quiet organizing, card signing, and difficult conversations. But when the votes were counted, the workers had won.</Text>
@@ -39,16 +39,16 @@ import "./demo.css";
   <section>
     <h3 class="demo-section-label">Card Layout</h3>
     <div class="demo-specimen" style="border: none; padding: 0;">
-      <div class="grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-5">
-        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+      <div class="grid grid-cols-[repeat(auto-fill,minmax(16rem,1fr))] gap-lg">
+        <div class="grid gap-sm content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
           <Heading as="h3" size="sm" maxLineLength={false}>Know Your Rights</Heading>
           <Text as="p" size="sm" maxLineLength={false}>Every worker has the legal right to organize. Learn what protections the NLRA provides and how to exercise them.</Text>
         </div>
-        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+        <div class="grid gap-sm content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
           <Heading as="h3" size="sm" maxLineLength={false}>Grievance Process</Heading>
           <Text as="p" size="sm" maxLineLength={false}>If management violates your contract, the union has your back. Here's how the grievance and arbitration process works.</Text>
         </div>
-        <div class="grid gap-2 content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
+        <div class="grid gap-sm content-start rounded-lg border border-[var(--ksru-color-border)] p-5">
           <Heading as="h3" size="sm" maxLineLength={false}>Get Involved</Heading>
           <Text as="p" size="sm" maxLineLength={false}>Attend meetings, join a committee, or talk to a steward. The union is only as strong as its most active members.</Text>
         </div>
@@ -59,7 +59,7 @@ import "./demo.css";
   <section>
     <h3 class="demo-section-label">Prose in Context</h3>
     <div class="demo-specimen" style="border: none; padding: 0;">
-      <article class="grid gap-5">
+      <article class="grid gap-lg">
         <header class="grid gap-3">
           <Heading as="h1" size="xl">Building Power on the Job</Heading>
           <Text as="p" size="lg" class="text-[var(--ksru-color-text-secondary)]">A practical guide to workplace organizing for tech workers.</Text>

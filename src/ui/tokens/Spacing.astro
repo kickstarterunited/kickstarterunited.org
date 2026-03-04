@@ -1,57 +1,37 @@
 ---
 const steps = [
-	{ token: '--ksru-space-1', step: '1', px: '4',  rem: '0.25', use: 'Micro: icon gaps, tight pairs' },
-	{ token: '--ksru-space-2', step: '2', px: '8',  rem: '0.5',  use: 'Small: chip padding, inline gaps' },
-	{ token: '--ksru-space-3', step: '3', px: '12', rem: '0.75', use: 'Medium: input padding, card gaps' },
-	{ token: '--ksru-space-4', step: '4', px: '16', rem: '1',    use: 'Base: standard padding & gaps' },
-	{ token: '--ksru-space-5', step: '5', px: '24', rem: '1.5',  use: 'Generous: card padding, group gaps' },
-	{ token: '--ksru-space-6', step: '6', px: '32', rem: '2',    use: 'Section: content block spacing' },
-	{ token: '--ksru-space-7', step: '7', px: '48', rem: '3',    use: 'Large: section separation' },
-	{ token: '--ksru-space-8', step: '8', px: '64', rem: '4',    use: 'XL: major section breaks' },
-	{ token: '--ksru-space-9', step: '9', px: '96', rem: '6',    use: 'Hero: page-level whitespace' },
+	{ token: '--ksru-space-xs',  label: 'xs',  px: '4',  rem: '0.25' },
+	{ token: '--ksru-space-sm',  label: 'sm',  px: '8',  rem: '0.5' },
+	{ token: '--ksru-space-md',  label: 'md',  px: '16', rem: '1' },
+	{ token: '--ksru-space-lg',  label: 'lg',  px: '24', rem: '1.5' },
+	{ token: '--ksru-space-xl',  label: 'xl',  px: '32', rem: '2' },
+	{ token: '--ksru-space-2xl', label: '2xl', px: '48', rem: '3' },
+	{ token: '--ksru-space-3xl', label: '3xl', px: '64', rem: '4' },
+	{ token: '--ksru-space-4xl', label: '4xl', px: '96', rem: '6' },
 ];
 ---
 
 <div class="spacing-demo">
 	<p class="description">
-		A 4px-based, 9-step spacing scale. Steps 1-4 match Tailwind defaults exactly.
-		Use via CSS tokens (<code>var(--ksru-space-4)</code>) or Tailwind utilities (<code>p-4</code>, <code>gap-7</code>, etc).
+		Semantic spacing tokens for component CSS. Tailwind's default linear scale is
+		unchanged - use utilities (<code>p-4</code>, <code>gap-6</code>) as normal. These
+		tokens add named intent for component stylesheets: <code>var(--ksru-space-md)</code>.
 	</p>
 
 	<div class="scale">
-		{steps.map(({ token, step, px, rem, use }) => (
+		{steps.map(({ token, label, px, rem }) => (
 			<div class="step">
 				<div class="step__bar" style={`width: var(${token})`} />
 				<div class="step__info">
 					<div class="step__header">
-						<strong class="step__name">{step}</strong>
+						<strong class="step__name">{label}</strong>
 						<code class="step__token">{token}</code>
 					</div>
 					<span class="step__values">{px}px / {rem}rem</span>
-					<span class="step__use">{use}</span>
 				</div>
 			</div>
 		))}
 	</div>
-
-	<section class="tailwind-map">
-		<h3 class="section-heading">Tailwind Mapping</h3>
-		<p class="description">
-			The default Tailwind spacing scale is replaced. Only these values are available:
-		</p>
-		<div class="utility-grid">
-			<code class="utility-header">Utility</code>
-			<code class="utility-header">Value</code>
-			<code>p-0, gap-0</code><span>0px</span>
-			<code>p-px, gap-px</code><span>1px</span>
-			{steps.map(({ step, px }) => (
-				<>
-					<code>p-{step}, gap-{step}</code>
-					<span>{px}px</span>
-				</>
-			))}
-		</div>
-	</section>
 </div>
 
 <style>
@@ -77,15 +57,6 @@ const steps = [
 		border-radius: 4px;
 	}
 
-	.section-heading {
-		font-size: 0.75rem;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--ksru-color-text-secondary);
-		margin-bottom: 0.75rem;
-	}
-
 	/* ── Scale visualization ── */
 	.scale {
 		display: flex;
@@ -105,7 +76,6 @@ const steps = [
 		min-width: 4px;
 		background: var(--ksru-color-accent);
 		border-radius: 4px;
-		transition: width 0.3s ease;
 	}
 
 	@supports (corner-shape: squircle) {
@@ -130,7 +100,6 @@ const steps = [
 
 	.step__name {
 		font-size: 1rem;
-		font-variant-numeric: tabular-nums;
 		color: var(--ksru-color-text);
 	}
 
@@ -143,45 +112,5 @@ const steps = [
 		font-size: 0.75rem;
 		font-variant-numeric: tabular-nums;
 		color: var(--ksru-color-text-secondary);
-	}
-
-	.step__use {
-		font-size: 0.75rem;
-		color: var(--ksru-color-text-secondary);
-		opacity: 0.75;
-	}
-
-	/* ── Tailwind mapping table ── */
-	.tailwind-map {
-		border-top: 1px solid var(--ksru-color-border);
-		padding-top: 1.5rem;
-	}
-
-	.utility-grid {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 0.25rem 1.5rem;
-		font-size: 0.8125rem;
-		align-items: baseline;
-	}
-
-	.utility-grid code {
-		font-size: 0.75rem;
-		color: var(--ksru-color-text);
-	}
-
-	.utility-grid span {
-		font-variant-numeric: tabular-nums;
-		color: var(--ksru-color-text-secondary);
-	}
-
-	.utility-header {
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.05em;
-		color: var(--ksru-color-text-secondary) !important;
-		font-size: 0.625rem !important;
-		padding-bottom: 0.25rem;
-		border-bottom: 1px solid var(--ksru-color-border);
 	}
 </style>
