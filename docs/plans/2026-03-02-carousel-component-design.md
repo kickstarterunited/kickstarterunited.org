@@ -123,12 +123,6 @@ Each demo includes inline consumer CSS to make the boundary between component an
 
 ## Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
->
-> **REQUIRED SKILLS FOR ALL SUBAGENTS:** Before starting any task, subagents MUST invoke:
-> 1. `/css-carousel` - CSS Carousel skill for correct `::scroll-button()`, `::scroll-marker`, and scroll-snap patterns
-> 2. `/frontend-ui-ux-engineer` - Frontend UI/UX skill for polished, high-quality visual output
-
 **Goal:** Build a progressive-enhancement Carousel component with CSS `::scroll-button()` support and JS fallback.
 
 **Architecture:** Astro component with three layers - base CSS for all browsers, `@supports` block for native CSS scroll-buttons, inline `<script>` for JS fallback. Layout-agnostic: component provides scroll/snap behavior and button wiring only; consumers apply their own layout CSS.

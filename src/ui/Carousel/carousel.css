@@ -17,13 +17,17 @@
     contain: inline-size;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .carousel__scroller {
+      scroll-behavior: auto;
+    }
+  }
+
   .carousel__scroller > * {
     scroll-snap-align: var(--carousel-snap-align, center);
   }
 
   .carousel__btn {
-    all: unset;
-    box-sizing: border-box;
     cursor: pointer;
   }
 

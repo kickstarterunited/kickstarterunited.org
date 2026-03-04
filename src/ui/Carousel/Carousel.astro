@@ -100,8 +100,9 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
 
         // scrollIntoView avoids a Firefox bug where scrollBy + mandatory
         // scroll-snap can silently fail for certain items.
+        const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
         items[targetIdx].scrollIntoView({
-          behavior: "smooth",
+          behavior: reducedMotion ? "auto" : "smooth",
           block: "nearest",
           inline: "center",
         });
