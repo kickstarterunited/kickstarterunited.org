@@ -82,7 +82,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
       };
 
       const scrollByItem = (dir: number) => {
-        const items = Array.from(scroller.children) as HTMLElement[];
+        const items = Array.from(scroller.children);
         if (!items.length) return;
 
         // Find the item whose center is closest to the scroller's visible center
