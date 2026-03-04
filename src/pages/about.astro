@@ -188,10 +188,13 @@ import Button from "../ui/Button/Button.astro";
     margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
   }
 
+  .about-hero > :where(h1, p) {
+    margin: 0;
+  }
+
   .about-hero__subtitle {
     color: color-mix(in oklch, currentColor, transparent 30%);
     text-wrap: balance;
-    margin-top: 0;
   }
 
   /* ═══ ORIGIN STORY ═══════════════════════════════════════════════════ */
@@ -211,6 +214,10 @@ import Button from "../ui/Button/Button.astro";
     color: color-mix(in oklch, currentColor, transparent 15%);
     float: inline-end;
     max-width: 50%;
+  }
+
+  .pullquote {
+    border-radius: 16px;
   }
 
   @supports (corner-shape: squircle) {
