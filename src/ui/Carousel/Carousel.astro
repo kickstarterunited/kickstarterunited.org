@@ -74,12 +74,36 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
       };
 
       const scrollByItem = (dir: number) => {
-        const firstChild = scroller.firstElementChild as HTMLElement | null;
-        if (!firstChild) return;
-        const gap = parseFloat(getComputedStyle(scroller).columnGap) || 0;
-        scroller.scrollBy({
-          left: (firstChild.offsetWidth + gap) * dir,
+        const items = Array.from(
+          scroller.children,
+        ) as HTMLElement[];
+        if (!items.length) return;
+
+        // Find the item whose center is closest to the scroller's visible center
+        const scrollerRect = scroller.getBoundingClientRect();
+        const scrollerCenter = scrollerRect.left + scrollerRect.width / 2;
+        let currentIdx = 0;
+        let minDist = Infinity;
+        for (let i = 0; i < items.length; i++) {
+          const rect = items[i].getBoundingClientRect();
+          const dist = Math.abs(rect.left + rect.width / 2 - scrollerCenter);
+          if (dist < minDist) {
+            minDist = dist;
+            currentIdx = i;
+          }
+        }
+
+        const targetIdx = Math.max(
+          0,
+          Math.min(items.length - 1, currentIdx + dir),
+        );
+
+        // scrollIntoView avoids a Firefox bug where scrollBy + mandatory
+        // scroll-snap can silently fail for certain items.
+        items[targetIdx].scrollIntoView({
           behavior: "smooth",
+          block: "nearest",
+          inline: "center",
         });
       };
 

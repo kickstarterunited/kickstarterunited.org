@@ -26,6 +26,7 @@ import FinalEveryWorker15 from "../images/every_worker_needs_a_union/FINAL_Every
 import FinalEveryWorker16 from "../images/every_worker_needs_a_union/FINAL_Every Worker_16.png";
 import BigQuote from "../images/every_worker_needs_a_union/bigquote.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Carousel from "../ui/Carousel/Carousel.astro";
 import { Icon } from "astro-icon/components";
 ---
 
@@ -66,7 +67,9 @@ import { Icon } from "astro-icon/components";
       charset="utf-8"></script>
   </div>
 
-  <div class="ewnu-carousel page-grid__bleed">
+  <Carousel scrollButtons class="ewnu-carousel page-grid__bleed">
+    <Icon name="tabler:chevron-left" size={24} slot="prev-button" />
+    <Icon name="tabler:chevron-right" size={24} slot="next-button" />
     <div class="ewnu-card" style="--bg: #000">
       <Image
         loading="lazy"
@@ -242,16 +245,7 @@ import { Icon } from "astro-icon/components";
         src={BigQuote}
       />
     </div>
-  </div>
-
-  <nav class="ewnu-nav" aria-label="Carousel navigation">
-    <button class="ewnu-nav__btn" data-dir="-1" aria-label="Previous card">
-      <Icon name="tabler:chevron-left" size={24} />
-    </button>
-    <button class="ewnu-nav__btn" data-dir="1" aria-label="Next card">
-      <Icon name="tabler:chevron-right" size={24} />
-    </button>
-  </nav>
+  </Carousel>
 </BaseLayout>
 
 <style>
@@ -291,29 +285,33 @@ import { Icon } from "astro-icon/components";
 
   /* ── Full-bleed scroll-snap carousel ── */
   .ewnu-carousel {
+    /* Mobile: flex-wrap puts scroller first, buttons centered below */
     display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
     margin-bottom: 3rem;
     scroll-snap-align: start;
     anchor-name: --ewnu-carousel;
+  }
 
-    /* Hide scrollbar but keep functionality */
+  .ewnu-carousel :global(.carousel__scroller) {
+    display: flex;
+    gap: 1.5rem;
+    order: -1;
+    flex: 0 0 100%;
     scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  }
 
-    /* Centering spacers: sized so the first/last card can reach viewport center */
-    &::before,
-    &::after {
-      content: "";
-      flex: 0 0 max(0px, calc(50% - min(85vw, 42rem) / 2 - 1.5rem));
-    }
+  .ewnu-carousel :global(.carousel__scroller::-webkit-scrollbar) {
+    display: none;
+  }
+
+  /* Centering spacers: sized so the first/last card can reach viewport center */
+  .ewnu-carousel :global(.carousel__scroller::before),
+  .ewnu-carousel :global(.carousel__scroller::after) {
+    content: "";
+    flex: 0 0 max(0px, calc(50% - min(85vw, 42rem) / 2 - 1.5rem));
   }
 
   .ewnu-card {
@@ -328,7 +326,6 @@ import { Icon } from "astro-icon/components";
       border-radius: 32px;
     }
     box-shadow: 0 4px 24px oklch(0% 0 0 / 15%);
-    scroll-snap-align: center;
     scroll-snap-stop: always;
     container-type: scroll-state;
   }
@@ -342,13 +339,18 @@ import { Icon } from "astro-icon/components";
   /* When wide enough: size cards by height instead of width */
   @media (width >= 768px) {
     .ewnu-carousel {
+      position: relative; /* containing block for absolute-positioned buttons */
       height: 80vh;
+    }
 
-      &::before,
-      &::after {
-        /* Cards are height-driven; ~35vh estimates half-width for typical aspect ratios */
-        flex-basis: max(0px, calc(50% - 35vh - 1.5rem));
-      }
+    .ewnu-carousel :global(.carousel__scroller) {
+      height: 100%;
+    }
+
+    .ewnu-carousel :global(.carousel__scroller::before),
+    .ewnu-carousel :global(.carousel__scroller::after) {
+      /* Cards are height-driven; ~35vh estimates half-width for typical aspect ratios */
+      flex-basis: max(0px, calc(50% - 35vh - 1.5rem));
     }
 
     .ewnu-card {
@@ -364,15 +366,8 @@ import { Icon } from "astro-icon/components";
 
   /* ── Carousel navigation arrows ── */
 
-  /* Layer 1: HTML buttons (mobile default - centered below carousel) */
-  .ewnu-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
-  }
-
-  .ewnu-nav__btn {
+  /* Layer 1: HTML buttons (mobile default - centered below carousel via flex-wrap) */
+  .ewnu-carousel :global(.carousel__btn) {
     --_btn-bg: color-mix(in oklch, var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%, var(--ksru-color-surface));
     display: grid;
     place-items: center;
@@ -387,47 +382,60 @@ import { Icon } from "astro-icon/components";
     transition: background-color 0.4s ease, border-color 0.15s;
   }
 
-  .ewnu-nav__btn:hover {
+  .ewnu-carousel :global(.carousel__btn:hover) {
     background: color-mix(in oklch, var(--_btn-bg) 92%, var(--ksru-color-text));
     border-color: var(--ksru-color-border-hover);
   }
 
-  .ewnu-nav__btn:active {
+  .ewnu-carousel :global(.carousel__btn:active) {
     background: color-mix(in oklch, var(--_btn-bg) 85%, var(--ksru-color-text));
     border-color: var(--ksru-color-border-active);
   }
 
-  .ewnu-nav__btn:disabled {
+  .ewnu-carousel :global(.carousel__btn:disabled) {
     opacity: 0.2;
     cursor: not-allowed;
   }
 
-  .ewnu-nav__btn:focus-visible {
+  .ewnu-carousel :global(.carousel__btn:focus-visible) {
     outline: 3px solid var(--ksru-color-outline, currentColor);
     outline-offset: 3px;
   }
 
-  /* Layer 2: Anchor-positioned at carousel edges on desktop */
+  /* Layer 2: Positioned at carousel edges on desktop */
   @media (width >= 768px) {
-    .ewnu-nav {
-      display: contents;
-    }
-
-    .ewnu-nav__btn {
-      position: fixed;
-      position-anchor: --ewnu-carousel;
-      top: anchor(center);
+    /* Base: absolute positioning (works in all browsers) */
+    .ewnu-carousel :global(.carousel__btn) {
+      position: absolute;
+      top: 50%;
       translate: 0 -50%;
-      position-visibility: anchors-visible;
       z-index: 10;
     }
 
-    .ewnu-nav__btn[data-dir="-1"] {
-      left: calc(anchor(left) + 1rem);
+    .ewnu-carousel :global(.carousel__btn[data-dir="prev"]) {
+      left: 1rem;
     }
 
-    .ewnu-nav__btn[data-dir="1"] {
-      right: calc(anchor(right) + 1rem);
+    .ewnu-carousel :global(.carousel__btn[data-dir="next"]) {
+      right: 1rem;
+    }
+
+    /* Upgrade: anchor positioning for browsers with native support */
+    @supports (anchor-name: --a) {
+      .ewnu-carousel :global(.carousel__btn) {
+        position: fixed;
+        position-anchor: --ewnu-carousel;
+        top: anchor(center);
+        position-visibility: anchors-visible;
+      }
+
+      .ewnu-carousel :global(.carousel__btn[data-dir="prev"]) {
+        left: calc(anchor(left) + 1rem);
+      }
+
+      .ewnu-carousel :global(.carousel__btn[data-dir="next"]) {
+        right: calc(anchor(right) + 1rem);
+      }
     }
   }
 </style>
@@ -457,8 +465,9 @@ import { Icon } from "astro-icon/components";
 </style>
 
 <script>
-  const carousel = document.querySelector(".ewnu-carousel");
-  if (carousel && "onscrollsnapchanging" in carousel) {
+  const scroller = document.querySelector(".ewnu-carousel .carousel__scroller");
+  const wrapper = scroller?.closest(".ewnu-carousel");
+  if (scroller && wrapper && "onscrollsnapchanging" in scroller) {
     let activeCard: Element | null = null;
     let activeBg = "";
     let visible = false;
@@ -467,7 +476,7 @@ import { Icon } from "astro-icon/components";
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    const first = carousel.querySelector<HTMLElement>(".ewnu-card");
+    const first = scroller.querySelector<HTMLElement>(".ewnu-card");
     if (first) {
       activeBg = first.style.getPropertyValue("--bg").trim();
       first.setAttribute("data-snapped", "");
@@ -475,14 +484,14 @@ import { Icon } from "astro-icon/components";
       document.documentElement.style.setProperty("--_ewnu-active-bg", activeBg);
     }
 
-    carousel.setAttribute("data-snap-active", "");
+    wrapper.setAttribute("data-snap-active", "");
 
     function apply() {
       document.body.style.backgroundColor =
         !reducedMotion && visible ? activeBg : "";
     }
 
-    carousel.addEventListener("scrollsnapchanging", (e) => {
+    scroller.addEventListener("scrollsnapchanging", (e) => {
       const card = e.snapTargetInline;
       if (card instanceof HTMLElement) {
         activeBg = card.style.getPropertyValue("--bg").trim();
@@ -500,7 +509,7 @@ import { Icon } from "astro-icon/components";
         apply();
       },
       { threshold: 0.5 },
-    ).observe(carousel);
+    ).observe(wrapper);
   }
 </script>
 
@@ -523,9 +532,7 @@ import { Icon } from "astro-icon/components";
       }
     }
 
-    .ewnu-nav { display: none !important; }
-
-    .ewnu-carousel::scroll-button(*) {
+    .ewnu-carousel .carousel__scroller::scroll-button(*) {
       --_btn-bg: color-mix(in oklch, var(--_ewnu-active-bg, var(--ksru-color-surface)) 35%, var(--ksru-color-surface));
       width: 44px;
       height: 44px;
@@ -546,28 +553,28 @@ import { Icon } from "astro-icon/components";
       margin-top: 1rem;
     }
 
-    .ewnu-carousel::scroll-button(*):hover {
+    .ewnu-carousel .carousel__scroller::scroll-button(*):hover {
       background-color: color-mix(in oklch, var(--_btn-bg) 92%, var(--ksru-color-text));
       border-color: var(--ksru-color-border-hover);
     }
 
-    .ewnu-carousel::scroll-button(*):disabled {
+    .ewnu-carousel .carousel__scroller::scroll-button(*):disabled {
       opacity: 0.2;
       cursor: not-allowed;
     }
 
-    .ewnu-carousel::scroll-button(*):focus-visible {
+    .ewnu-carousel .carousel__scroller::scroll-button(*):focus-visible {
       outline: 3px solid var(--ksru-color-outline, currentColor);
       outline-offset: 3px;
     }
 
-    .ewnu-carousel::scroll-button(left) {
+    .ewnu-carousel .carousel__scroller::scroll-button(left) {
       content: "" / "Previous";
       background-image: var(--_ewnu-chevron-l);
       right: calc(anchor(center) + 0.5rem);
     }
 
-    .ewnu-carousel::scroll-button(right) {
+    .ewnu-carousel .carousel__scroller::scroll-button(right) {
       content: "" / "Next";
       background-image: var(--_ewnu-chevron-r);
       left: calc(anchor(center) + 0.5rem);
@@ -575,58 +582,21 @@ import { Icon } from "astro-icon/components";
 
     /* Desktop: reposition to carousel edges */
     @media (width >= 768px) {
-      .ewnu-carousel::scroll-button(*) {
+      .ewnu-carousel .carousel__scroller::scroll-button(*) {
         top: anchor(center);
         translate: 0 -50%;
         margin-top: 0;
       }
 
-      .ewnu-carousel::scroll-button(left) {
+      .ewnu-carousel .carousel__scroller::scroll-button(left) {
         right: auto;
         left: calc(anchor(left) + 1rem);
       }
 
-      .ewnu-carousel::scroll-button(right) {
+      .ewnu-carousel .carousel__scroller::scroll-button(right) {
         left: auto;
         right: calc(anchor(right) + 1rem);
       }
     }
   }
 </style>
-
-<script>
-  if (!CSS.supports("selector(::scroll-button(*))")) {
-    const carousel = document.querySelector(".ewnu-carousel");
-    const btns = document.querySelectorAll<HTMLButtonElement>(".ewnu-nav__btn");
-
-    if (carousel && btns.length === 2) {
-      const cards = carousel.querySelectorAll<HTMLElement>(".ewnu-card");
-      const first = cards[0];
-      const last = cards[cards.length - 1];
-
-      const updateBtns = () => {
-        const { scrollLeft, clientWidth } = carousel;
-        // snap-align: center means snap position = card center - viewport center
-        const firstSnap = first.offsetLeft + first.offsetWidth / 2 - clientWidth / 2;
-        const lastSnap = last.offsetLeft + last.offsetWidth / 2 - clientWidth / 2;
-        btns[0].disabled = scrollLeft <= firstSnap + 2;
-        btns[1].disabled = scrollLeft >= lastSnap - 2;
-      };
-
-      for (const btn of btns) {
-        btn.addEventListener("click", () => {
-          const card = carousel.querySelector<HTMLElement>(".ewnu-card");
-          if (!card) return;
-          const gap = parseFloat(getComputedStyle(carousel).gap) || 24;
-          carousel.scrollBy({
-            left: (card.offsetWidth + gap) * Number(btn.dataset.dir),
-            behavior: "smooth",
-          });
-        });
-      }
-
-      carousel.addEventListener("scroll", updateBtns, { passive: true });
-      updateBtns();
-    }
-  }
-</script>
