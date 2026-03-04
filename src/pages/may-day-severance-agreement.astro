@@ -9,7 +9,9 @@ import { Icon } from "astro-icon/components";
 
 <BaseLayout title="May Day Severance Agreement">
   <section class="mayday-hero">
-    <Heading as="h1" size="xl" maxLineLength={false}>Statement from Kickstarter United</Heading>
+    <Heading as="h1" size="xl" maxLineLength={false}
+      >Statement from Kickstarter United</Heading
+    >
     <Text as="p" size="lg" class="mayday-hero__subtitle">
       May 2020 - Our first bargaining victory, just two months after forming.
     </Text>
@@ -39,38 +41,54 @@ import { Icon } from "astro-icon/components";
       payouts for lower-paid bargaining unit members. We also negotiated
       additional terms that are previously unheard-of in tech severance
       agreements, fulfilling another of our longstanding goals:
-      <Mark variant="emerald">moving our industry forward and demonstrating the necessity of
-      organizing in tech</Mark>
+      <Mark variant="emerald"
+        >moving our industry forward and demonstrating the necessity of
+        organizing in tech</Mark
+      >
     </Text>
   </section>
 
   <Surface elevation={1} class="mayday-wins">
     <Heading as="h2" size="md">What We Won</Heading>
-    <Text as="p" size="sm" class="mayday-wins__intro">The terms we won for our 86-member bargaining unit:</Text>
+    <Text as="p" size="sm" class="mayday-wins__intro"
+      >The terms we won for our 86-member bargaining unit:</Text
+    >
     <ul class="mayday-wins__list">
       <li>
         <Icon name="tabler:coin" size={20} class="mayday-wins__icon" />
-        <span>Four months of severance pay for all laid-off employees, both voluntary
-        and involuntary.</span>
+        <span
+          >Four months of severance pay for all laid-off employees, both
+          voluntary and involuntary.</span
+        >
       </li>
       <li>
-        <Icon name="tabler:heart-rate-monitor" size={20} class="mayday-wins__icon" />
-        <span>Continuing healthcare coverage increased by salary: four months for our
-        higher-paid colleagues, and six months for those who make less than the
-        bargaining unit's median salary.</span>
+        <Icon
+          name="tabler:heart-rate-monitor"
+          size={20}
+          class="mayday-wins__icon"
+        />
+        <span
+          >Continuing healthcare coverage increased by salary: four months for
+          our higher-paid colleagues, and six months for those who make less
+          than the bargaining unit's median salary.</span
+        >
       </li>
       <li>
         <Icon name="tabler:refresh" size={20} class="mayday-wins__icon" />
-        <span>Recall rights for a full year, so that if an eliminated position becomes
-        open again in the future, qualified laid-off workers will have priority
-        consideration in filling it.</span>
+        <span
+          >Recall rights for a full year, so that if an eliminated position
+          becomes open again in the future, qualified laid-off workers will have
+          priority consideration in filling it.</span
+        >
       </li>
       <li>
         <Icon name="tabler:lock-open" size={20} class="mayday-wins__icon" />
-        <span>A release from the non-compete and a modification of the
-        non-solicitation clauses included in our original hiring agreements - an
-        allowance unprecedented in tech that will enable our members to pursue
-        new avenues of employment unfettered.</span>
+        <span
+          >A release from the non-compete and a modification of the
+          non-solicitation clauses included in our original hiring agreements -
+          an allowance unprecedented in tech that will enable our members to
+          pursue new avenues of employment unfettered.</span
+        >
       </li>
     </ul>
   </Surface>

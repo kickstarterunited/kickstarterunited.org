@@ -29,7 +29,10 @@ const isExternal = href.startsWith("http");
     text-decoration: none;
     color: var(--ksru-color-text);
     border: 1px solid transparent;
-    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+    transition:
+      background-color 0.15s,
+      border-color 0.15s,
+      box-shadow 0.15s;
 
     @supports (corner-shape: squircle) {
       corner-shape: squircle;

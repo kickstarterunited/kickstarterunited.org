@@ -89,21 +89,27 @@ const socials = [
   </section>
 
   <nav class="social-links" aria-label="Social media links">
-    {socials.map((social) => (
-      <a
-        href={social.href}
-        target="_blank"
-        rel="me noopener noreferrer"
-        class="social-link"
-        style={`--brand-color: ${social.color}`}
-      >
-        <Icon name={social.icon} size={32} class="social-link__icon" />
-        <div>
-          <Heading as="span" size="sm" class="social-link__name">{social.name}</Heading>
-          <Text as="span" size="sm" class="social-link__desc">{social.description}</Text>
-        </div>
-      </a>
-    ))}
+    {
+      socials.map((social) => (
+        <a
+          href={social.href}
+          target="_blank"
+          rel="me noopener noreferrer"
+          class="social-link"
+          style={`--brand-color: ${social.color}`}
+        >
+          <Icon name={social.icon} size={32} class="social-link__icon" />
+          <div>
+            <Heading as="span" size="sm" class="social-link__name">
+              {social.name}
+            </Heading>
+            <Text as="span" size="sm" class="social-link__desc">
+              {social.description}
+            </Text>
+          </div>
+        </a>
+      ))
+    }
   </nav>
 </BaseLayout>
 

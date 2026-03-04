@@ -17,39 +17,86 @@ const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {showBanner && <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
-    <h1><Mark>Stop the Retaliation</Mark></h1>
-    <p>
-      On February 11, Kickstarter management terminated bargaining unit members
-      and forced others out, <strong>targeting strike leaders and union
-      activists</strong>, just 3 months after workers ratified a <a href="/contracts/2025">historic contract</a>
-      following a 42-day strike.
-    </p>
-    <p>
-      Are you also pissed? <strong>Here's what you can do to help:</strong>
-    </p>
-    <p class="mt-md">
-      <a href="/petition" class="btn btn-success urgent-banner__cta">Sign Our Letter</a>
-    </p>
-    <div class="urgent-banner__actions">
-      <a href="mailto:e@kickstarter.com" class="btn btn-info">Write to the CEO</a>
-    </div>
-    <p class="mt-md mb-0 opacity-85">Follow along:</p>
-    <div class="urgent-banner__actions" style="margin-top: var(--ksru-space-xs);">
-      <a href="https://www.instagram.com/kickstarter_united" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-instagram" size={24} /><span>Instagram</span>
-      </a>
-      <a href="https://bsky.app/profile/kickstarterunited.org" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-bluesky" size={24} /><span>Bluesky</span>
-      </a>
-      <a href="https://www.facebook.com/KickstarterUnited" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-facebook" size={24} /><span>Facebook</span>
-      </a>
-      <a href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/" target="_blank" rel="me noopener noreferrer" class="btn social-link__btn social-link__btn--labeled">
-        <Icon name="tabler:brand-linkedin" size={24} /><span>LinkedIn</span>
-      </a>
-    </div>
-  </UrgentBanner>}
+  {
+    showBanner && (
+      <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
+        <h1>
+          <Mark>Stop the Retaliation</Mark>
+        </h1>
+        <p>
+          On February 11, Kickstarter management terminated bargaining unit
+          members and forced others out,{" "}
+          <strong>targeting strike leaders and union activists</strong>, just 3
+          months after workers ratified a{" "}
+          <a href="/contracts/2025">historic contract</a>
+          following a 42-day strike.
+        </p>
+        <p>
+          Are you also pissed? <strong>Here's what you can do to help:</strong>
+        </p>
+        <p class="mt-md">
+          <a href="/petition" class="btn btn-success urgent-banner__cta">
+            Sign Our Letter
+          </a>
+        </p>
+        <div class="urgent-banner__actions">
+          <a href="mailto:e@kickstarter.com" class="btn btn-info">
+            Write to the CEO
+          </a>
+        </div>
+        <p class="mt-md mb-0 opacity-85">Follow along:</p>
+        <div
+          class="urgent-banner__actions"
+          style="margin-top: var(--ksru-space-xs);"
+        >
+          <a
+            href="https://www.instagram.com/kickstarter_united"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-instagram" size={24} />
+              <span>Instagram</span>
+            </>
+          </a>
+          <a
+            href="https://bsky.app/profile/kickstarterunited.org"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-bluesky" size={24} />
+              <span>Bluesky</span>
+            </>
+          </a>
+          <a
+            href="https://www.facebook.com/KickstarterUnited"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-facebook" size={24} />
+              <span>Facebook</span>
+            </>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
+            target="_blank"
+            rel="me noopener noreferrer"
+            class="btn social-link__btn social-link__btn--labeled"
+          >
+            <>
+              <Icon name="tabler:brand-linkedin" size={24} />
+              <span>LinkedIn</span>
+            </>
+          </a>
+        </div>
+      </UrgentBanner>
+    )
+  }
 
   <section class="hero col-[wide]">
     <Logo class="hero__logo" width={96} height={96} />
@@ -374,7 +421,8 @@ const hasPetition = "/petition" in redirects;
 
   .paths__card {
     position: relative;
-    padding: var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-xl);
+    padding: var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-lg)
+      var(--ksru-space-xl);
     border-radius: 16px;
     background: var(--ksru-color-bg);
     border: 2px solid
@@ -558,7 +606,8 @@ const hasPetition = "/petition" in redirects;
 
   .wins__item summary {
     cursor: pointer;
-    padding: var(--ksru-space-md) var(--ksru-space-lg) var(--ksru-space-md) 0.75rem;
+    padding: var(--ksru-space-md) var(--ksru-space-lg) var(--ksru-space-md)
+      0.75rem;
     font-family: var(--ksru-font-family-heading);
     font-weight: 700;
     font-size: 1.25rem;
