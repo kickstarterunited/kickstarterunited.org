@@ -1,15 +1,15 @@
 .social-link__btn {
-  padding: 8px;
+  padding: var(--ksru-space-sm);
   margin-top: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--ksru-space-sm);
   color: var(--ksru-color-icon);
 }
 
 .social-link__btn--labeled {
-  padding: 8px 16px;
+  padding: var(--ksru-space-sm) var(--ksru-space-md);
 }
 
 .social-link__btn:hover {

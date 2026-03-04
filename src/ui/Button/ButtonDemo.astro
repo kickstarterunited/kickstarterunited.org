@@ -2,22 +2,22 @@
 import Button from "./Button.astro";
 ---
 
-<div class="grid gap-12 p-8">
+<div class="grid gap-2xl p-xl">
   <section>
     <h3 class="mt-0">Variants</h3>
-    <div class="flex flex-wrap items-start gap-4">
+    <div class="flex flex-wrap items-start gap-md">
       <Button variant="primary">Primary</Button>
       <Button variant="accent">Accent</Button>
       <Button variant="ghost">Ghost</Button>
     </div>
-    <p class="mt-4">
+    <p class="mt-md">
       Inline text with a <Button variant="unstyled">unstyled button</Button> inside it.
     </p>
   </section>
 
   <section>
     <h3 class="mt-0">Sizes</h3>
-    <div class="flex flex-wrap items-center gap-4">
+    <div class="flex flex-wrap items-center gap-md">
       <Button variant="primary">Default (md)</Button>
       <Button variant="primary" size="sm">Small (sm)</Button>
       <Button variant="accent">Default (md)</Button>
@@ -27,7 +27,7 @@ import Button from "./Button.astro";
 
   <section>
     <h3 class="mt-0">As Links</h3>
-    <div class="flex flex-wrap items-start gap-4">
+    <div class="flex flex-wrap items-start gap-md">
       <Button as="a" href="#" variant="primary">Primary Link</Button>
       <Button as="a" href="#" variant="accent">Accent Link</Button>
       <Button as="a" href="#" variant="ghost">Ghost Link</Button>
@@ -35,12 +35,12 @@ import Button from "./Button.astro";
   </section>
 
   <section
-    class="p-8 rounded-2xl"
+    class="p-xl rounded-2xl"
     data-theme="dark"
     style="background-color: var(--ksru-color-accent);"
   >
     <h3 class="mt-0 text-white">Dark Background</h3>
-    <div class="flex flex-wrap items-start gap-4">
+    <div class="flex flex-wrap items-start gap-md">
       <Button variant="primary">Primary</Button>
       <Button variant="accent">Accent</Button>
       <Button variant="ghost">Ghost</Button>
@@ -49,7 +49,7 @@ import Button from "./Button.astro";
 
   <section>
     <h3 class="mt-0">Legacy Aliases</h3>
-    <div class="flex flex-wrap items-start gap-4">
+    <div class="flex flex-wrap items-start gap-md">
       <a href="#" class="btn btn-success">btn-success (= primary)</a>
       <a href="#" class="btn btn-info">btn-info (= accent)</a>
     </div>
