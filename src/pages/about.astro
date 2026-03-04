@@ -157,6 +157,25 @@ import Button from "../ui/Button/Button.astro";
 
 </BaseLayout>
 
+<script>
+  const grid = document.querySelector('.pillars__grid');
+  if (grid) {
+    grid.classList.add('has-reveal');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.8 },
+    );
+    grid.querySelectorAll('.pillars__card').forEach((card) => observer.observe(card));
+  }
+</script>
+
 <style>
   /* ═══ HERO ═══════════════════════════════════════════════════════════ */
 
@@ -165,8 +184,8 @@ import Button from "../ui/Button/Button.astro";
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.75rem;
-    margin-block: 2.5rem 2rem;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
   }
 
   .about-hero__subtitle {
@@ -178,7 +197,7 @@ import Button from "../ui/Button/Button.astro";
   /* ═══ ORIGIN STORY ═══════════════════════════════════════════════════ */
 
   .about-story {
-    margin-block: 1rem 2rem;
+    margin-block: 0 var(--ksru-space-2xl);
   }
 
   .pullquote {
@@ -187,8 +206,8 @@ import Button from "../ui/Button/Button.astro";
     border-inline-start: 4px solid var(--ksru-emerald-400);
     padding-inline-start: 1.25em;
     padding-block: 0.4em;
-    margin-block: 0.75rem 0.5rem;
-    margin-inline: 1rem clamp(-3rem, 5rem - 10vw, 0rem);
+    margin-block: var(--ksru-space-sm);
+    margin-inline: var(--ksru-space-md) clamp(-3rem, 5rem - 10vw, 0rem);
     color: color-mix(in oklch, currentColor, transparent 15%);
     float: inline-end;
     max-width: 50%;
@@ -206,24 +225,24 @@ import Button from "../ui/Button/Button.astro";
       float: none;
       max-width: none;
       margin-inline: 0;
-      margin-block: 1.5rem;
+      margin-block: var(--ksru-space-lg);
     }
   }
 
   /* ═══ ORGANIZING PILLARS ═════════════════════════════════════════════ */
 
   .pillars {
-    margin-block: 2rem 2.5rem;
+    margin-block: var(--ksru-space-2xl);
   }
 
   .pillars__heading {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--ksru-space-lg);
   }
 
   .pillars__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: var(--ksru-space-md);
   }
 
   .pillars__card {
@@ -231,7 +250,7 @@ import Button from "../ui/Button/Button.astro";
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1.5rem 1.25rem;
+    padding: var(--ksru-space-lg) var(--ksru-space-md);
   }
 
   .pillars__icon-badge {
@@ -242,7 +261,7 @@ import Button from "../ui/Button/Button.astro";
     border-radius: 50%;
     background: var(--ksru-emerald-500);
     color: white;
-    margin-bottom: 0.75rem;
+    margin-bottom: var(--ksru-space-sm);
   }
 
   .pillars__icon-badge :global(svg) {
@@ -251,7 +270,7 @@ import Button from "../ui/Button/Button.astro";
   }
 
   .pillars__title {
-    margin-bottom: 0.25rem;
+    margin-bottom: var(--ksru-space-xs);
   }
 
   .pillars__desc {
@@ -259,35 +278,43 @@ import Button from "../ui/Button/Button.astro";
     margin-top: 0;
   }
 
-  /* Scroll-driven reveal (progressive enhancement) */
-  @supports (animation-timeline: view()) {
-    .pillars__card {
-      animation: fade-up linear both;
-      animation-timeline: view();
-      animation-range: entry 100% cover 30%;
-    }
+  /* Staggered reveal (IntersectionObserver adds .has-reveal + .is-revealed) */
+  .pillars__card {
+    --_delay: 0s;
+    --_delay: calc((sibling-index() - 1) * 0.12s);
+  }
 
-    .pillars__icon-badge {
-      animation: spin-pop linear both;
-      animation-timeline: view();
-      animation-range: entry 100% cover 35%;
-    }
+  .pillars__grid.has-reveal .pillars__card {
+    opacity: 0;
+    translate: 0 2rem;
+    transition: opacity 0.6s ease-out var(--_delay), translate 0.6s ease-out var(--_delay);
+  }
 
-    @keyframes fade-up {
-      from { opacity: 0; translate: 0 2rem; }
-      to   { opacity: 1; translate: 0 0; }
-    }
+  .pillars__grid.has-reveal .pillars__card.is-revealed {
+    opacity: 1;
+    translate: 0 0;
+  }
 
-    @keyframes spin-pop {
-      from { opacity: 0; scale: 0; rotate: -180deg; }
-      to   { opacity: 1; scale: 1; rotate: 0deg; }
-    }
+  .pillars__grid.has-reveal .pillars__icon-badge {
+    scale: 0;
+    rotate: -180deg;
+    transition: scale 0.4s ease-out calc(var(--_delay) + 0.2s),
+                rotate 0.4s ease-out calc(var(--_delay) + 0.2s);
+  }
+
+  .pillars__grid.has-reveal .pillars__card.is-revealed .pillars__icon-badge {
+    scale: 1;
+    rotate: 0deg;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .pillars__card,
     .pillars__icon-badge {
-      animation: none !important;
+      opacity: 1 !important;
+      translate: none !important;
+      scale: 1 !important;
+      rotate: none !important;
+      transition: none !important;
     }
   }
 
@@ -306,15 +333,15 @@ import Button from "../ui/Button/Button.astro";
   /* ═══ MISSION ════════════════════════════════════════════════════════ */
 
   .about-mission {
-    margin-block: 2rem;
+    margin-block: var(--ksru-space-2xl);
   }
 
   /* ═══ CONTRACT VARIANT A: SURFACE CARD ═══════════════════════════════ */
 
   .contracts-card {
     text-align: center;
-    padding: 2rem;
-    margin-block: 2rem;
+    padding: var(--ksru-space-xl);
+    margin-block: var(--ksru-space-2xl);
   }
 
   .contracts-card__thanks {
@@ -324,9 +351,9 @@ import Button from "../ui/Button/Button.astro";
 
   .contracts-card__actions {
     display: flex;
-    gap: 0.75rem;
+    gap: var(--ksru-space-sm);
     justify-content: center;
-    margin-top: 1.25rem;
+    margin-top: var(--ksru-space-lg);
     flex-wrap: wrap;
   }
 

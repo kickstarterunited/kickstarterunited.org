@@ -4,6 +4,7 @@
 @import "./tokens/colors.css";
 @import "./tokens/palettes.css";
 @import "./tokens/type.css";
+@import "./tokens/space.css";
 
 /* Components (globally loaded) */
 @import "./Button/button.css";
