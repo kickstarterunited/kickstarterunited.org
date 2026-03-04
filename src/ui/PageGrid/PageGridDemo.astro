@@ -1,0 +1,206 @@
+---
+import PageGrid from "./PageGrid.astro";
+import Surface from "../Surface/Surface.astro";
+import Heading from "../typography/Heading.astro";
+import Text from "../typography/Text.astro";
+import Prose from "../typography/Prose.astro";
+---
+
+<div class="story-layout-padded">
+  <div class="page-grid demo">
+    <Heading as="h2" size="lg">Layout Breakouts</Heading>
+    <Text as="p" size="md">
+      A 7-column symmetric CSS grid with 4 named tiers. Children default to
+      the reading-width <code>content</code> column and can "break out" to
+      wider tiers just by changing <code>grid-column</code>. Based on
+      <a href="https://ryanmulligan.dev/blog/layout-breakouts/">Ryan Mulligan's technique</a>.
+    </Text>
+
+    <PageGrid subgrid as="section" class="demo__example">
+      <Text as="h3" size="sm" class="demo__label col-[bleed]">Viewport</Text>
+      <Surface elevation={0} class="demo__surface col-[bleed]">
+        <div class="page-grid demo__grid">
+          <PageGrid area="bleed" class="demo__item demo__item--bleed">
+            <code>bleed</code>
+          </PageGrid>
+          <PageGrid area="margins" class="demo__item demo__item--margins">
+            <code>margins</code>
+          </PageGrid>
+          <PageGrid area="wide" class="demo__item demo__item--wide">
+            <code>wide</code>
+          </PageGrid>
+          <PageGrid class="demo__item demo__item--content">
+            <code>content</code> (default)
+          </PageGrid>
+
+          <PageGrid subgrid as="section" class="demo__subgrid">
+            <p class="demo__item demo__item--content"><code>subgrid</code> child (defaults to content)</p>
+            <PageGrid area="wide" class="demo__item demo__item--wide">
+              <code>wide</code> inside subgrid
+            </PageGrid>
+          </PageGrid>
+
+          <PageGrid as="nav" area="wide" class="demo__item demo__item--wide">
+            <code>as="nav" area="wide"</code> - polymorphic
+          </PageGrid>
+        </div>
+      </Surface>
+    </PageGrid>
+
+    <Prose as="section">
+      <h3>How it works</h3>
+      <p>
+        The grid defines 7 column tracks arranged symmetrically around a center
+        <code>content</code> column. Named grid lines (<code>bleed-start</code>,
+        <code>margins-start</code>, <code>wide-start</code>, etc.) let children span
+        to any tier with a single declaration like <code>grid-column: wide</code>.
+      </p>
+
+      <h4>The 4 tiers (inside-out)</h4>
+      <dl class="demo__tiers">
+        <dt><code>content</code></dt>
+        <dd>Reading-width column, capped at <code>--ksru-line-length</code> (60ch). All grid children land here by default.</dd>
+
+        <dt><code>wide</code></dt>
+        <dd>Extra space for cards, grids, and media. Total width up to 1100px. Collapses to content width on narrow viewports.</dd>
+
+        <dt><code>margins</code></dt>
+        <dd>Fills remaining <code>1fr</code> space between wide and the edge gutters. Named "margins" instead of "full" to avoid colliding with Tailwind's <code>col-full</code>.</dd>
+
+        <dt><code>bleed</code></dt>
+        <dd>Edge-to-edge, spanning through the responsive gap gutters (<code>clamp(1rem, 3vw, 2rem)</code>).</dd>
+      </dl>
+
+      <h4>Usage</h4>
+      <pre><code>&lt;!-- Tailwind arbitrary value --&gt;
+&lt;div class="col-[wide]"&gt;...&lt;/div&gt;
+
+&lt;!-- PageGrid component --&gt;
+&lt;PageGrid area="wide"&gt;...&lt;/PageGrid&gt;
+
+&lt;!-- Subgrid for mixed-width sections --&gt;
+&lt;PageGrid subgrid as="section"&gt;
+  &lt;p&gt;I'm at content width&lt;/p&gt;
+  &lt;PageGrid area="wide"&gt;I break out&lt;/PageGrid&gt;
+&lt;/PageGrid&gt;</code></pre>
+
+      <h4>Subgrid</h4>
+      <p>
+        Sections that need children at different widths use <code>page-grid--subgrid</code>.
+        This spans the full <code>bleed</code> column and inherits the parent's column
+        lines via CSS <code>subgrid</code>, so children can independently choose their tier.
+      </p>
+
+      <h4>Responsive behavior</h4>
+      <p>
+        On narrow viewports, <code>wide</code> and <code>margins</code> collapse to 0,
+        making all tiers except <code>bleed</code> the same width. The <code>--gap</code>
+        gutters (<code>clamp(1rem, 3vw, 2rem)</code>) provide minimum edge padding. Only
+        <code>bleed</code> elements truly touch the viewport edges.
+      </p>
+    </Prose>
+
+    <PageGrid area="wide" class="demo__video">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/c13gpBrnGEw"
+        title="Kevin Powell explains Layout Breakouts"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <Text as="p" size="sm" maxLineLength={false} class="demo__video-caption">
+        Kevin Powell's walkthrough of the Layout Breakouts technique
+      </Text>
+    </PageGrid>
+  </div>
+</div>
+
+<style>
+  .demo {
+    row-gap: 1rem;
+  }
+
+  .demo__example {
+    row-gap: 0.25rem;
+  }
+
+  .demo__label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.5;
+  }
+
+  .demo__surface {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .demo__grid {
+    row-gap: 0.5rem;
+    padding-block: 1rem;
+  }
+
+  .demo__item {
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .demo__item--bleed {
+    background: color-mix(in oklch, var(--ksru-color-accent) 15%, transparent);
+    border: 1px dashed var(--ksru-color-accent);
+    border-radius: 0;
+  }
+
+  .demo__item--margins {
+    background: color-mix(in oklch, var(--ksru-color-accent-light) 15%, transparent);
+    border: 1px dashed var(--ksru-color-accent-light);
+  }
+
+  .demo__item--wide {
+    background: color-mix(in oklch, var(--ksru-color-accent-warm) 15%, transparent);
+    border: 1px dashed var(--ksru-color-accent-warm);
+  }
+
+  .demo__item--content {
+    background: color-mix(in oklch, var(--ksru-color-accent-rich) 15%, transparent);
+    border: 1px dashed var(--ksru-color-accent-rich);
+  }
+
+  .demo__subgrid {
+    row-gap: 0.5rem;
+    padding-block: 0.5rem;
+  }
+
+  .demo__tiers {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.25rem 1rem;
+    align-items: start;
+  }
+
+  .demo__tiers dt,
+  .demo__tiers dd {
+    margin: 0;
+  }
+
+  .demo__tiers dt {
+    font-weight: 600;
+  }
+
+  .demo__video {
+    margin-top: 0.5rem;
+  }
+
+  .demo__video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+  }
+
+  .demo__video-caption {
+    opacity: 0.5;
+    margin-top: 0.25rem;
+  }
+</style>

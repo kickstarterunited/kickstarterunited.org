@@ -1,68 +1,82 @@
+/*
+ * Layout Breakouts - a 4-tier symmetric CSS grid
+ *
+ * Based on Ryan Mulligan's "Layout Breakouts" technique:
+ *   https://ryanmulligan.dev/blog/layout-breakouts/
+ * Also explained by Kevin Powell:
+ *   https://www.youtube.com/watch?v=c13gpBrnGEw
+ *
+ * The grid has 7 column tracks arranged symmetrically around a center
+ * content column. Named grid lines let children "break out" to wider
+ * tiers just by setting `grid-column: wide` (or margins, bleed).
+ *
+ *   [bleed-start] gap [margins-start] 1fr [wide-start] wide [content-start]
+ *       CONTENT
+ *   [content-end] wide [wide-end] 1fr [margins-end] gap [bleed-end]
+ *
+ * Tiers (inside-out):
+ *   content  - reading-width column, capped at --ksru-line-length (60ch)
+ *   wide     - extra space for cards/grids, up to 1100px total
+ *   margins  - remaining 1fr space between wide and the edge gutters
+ *   bleed    - edge-to-edge including the gap gutters
+ *
+ * Usage:
+ *   - Direct children default to `content` (no class needed)
+ *   - Break out with Tailwind arbitrary values: `col-[wide]`, `col-[margins]`, `col-[bleed]`
+ *   - Or use the <PageGrid> component: `<PageGrid area="wide">`
+ *   - Sections containing mixed-width children use `page-grid--subgrid`
+ *     to inherit the parent's column lines via CSS subgrid
+ *
+ * Key variables:
+ *   --gap      Responsive edge gutter: clamp(1rem, 3vw, 2rem)
+ *              1rem on mobile, scales up to 2rem on wide viewports.
+ *   --content  min(line-length, available-space) so it never overflows.
+ *   --wide     The extra space on each side between content and margins.
+ *              Calculated as half the difference between 1100px and content.
+ *              When the viewport is narrower than content, this collapses to 0.
+ *   --margins  1fr - absorbs all remaining space between wide and gap.
+ *
+ * Gotchas:
+ *   - "margins" instead of "full" to avoid colliding with Tailwind's
+ *     built-in `col-full` (grid-column: 1 / -1).
+ *   - No `gap` is set by default (intentional). Use `row-gap` for
+ *     vertical spacing. Never set `column-gap` - it prevents the
+ *     wide/margins tracks from collapsing to 0 on narrow viewports,
+ *     breaking the alignment of different-width children.
+ */
+
 .page-grid {
-  @apply grid gap-0;
-  /* prettier-ignore */
-  grid:
-    "HEADER" auto
-    "MAIN  " 1fr
-    "FOOTER" auto
-    / [BLEED-start]
-        16px
-        [FULL-start]
-          1fr
-          [CONTENT] minmax(auto, var(--ksru-line-length))
-          1fr
-        [FULL-end]
-        16px
-      [BLEED-end];
+  --gap: clamp(var(--ksru-space-md), 3vw, var(--ksru-space-xl));
+  --content: min(var(--ksru-line-length), 100% - var(--gap) * 2);
+  --wide: minmax(0, calc((1100px - var(--ksru-line-length)) / 2));
+  --margins: minmax(0, 1fr);
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns:
+    [bleed-start] var(--gap)
+    [margins-start] var(--margins)
+    [wide-start] var(--wide)
+    [content-start] var(--content) [content-end]
+    var(--wide) [wide-end]
+    var(--margins) [margins-end]
+    var(--gap) [bleed-end];
 }
 
+/* Direct children default to content column */
 .page-grid > * {
-  @apply col-[CONTENT];
+  grid-column: content;
 }
 
-.page-grid__bleed {
-  @apply col-[BLEED];
+/* Subgrid sections: span bleed, inherit column lines.
+   Children of a subgrid also default to content. */
+.page-grid > .page-grid--subgrid,
+.page-grid--subgrid > .page-grid--subgrid {
+  grid-column: bleed;
+  display: grid;
+  grid-template-columns: subgrid;
 }
 
-.page-grid__full {
-  @apply col-[FULL];
-}
-
-.page-grid__content {
-  @apply col-[CONTENT];
-}
-
-.page-grid > .page-grid__subgrid,
-.page-grid__subgrid > .page-grid__subgrid {
-  @apply col-[BLEED];
-  @apply grid grid-cols-[subgrid] gap-[inherit];
-}
-
-/* Subgrid children default to the same CONTENT column as top-level items */
-.page-grid__subgrid > * {
-  @apply col-[CONTENT];
-}
-
-/* Allow explicit column overrides inside subgrids */
-.page-grid__subgrid > .page-grid__bleed {
-  @apply col-[BLEED];
-}
-
-.page-grid__subgrid > .page-grid__full {
-  @apply col-[FULL];
-}
-
-.page-grid__subgrid > .page-grid__wide {
-  @apply col-[FULL];
-}
-
-/* Wide content tier: wider than reading measure, narrower than full.
-   Use for cards, grids, media embeds - not for body text. */
-.page-grid__wide {
-  @apply col-[FULL];
-  max-width: 1100px;
-  justify-self: center;
-  width: 100%;
-  padding-inline: 2rem;
-  box-sizing: border-box;
+.page-grid--subgrid > * {
+  grid-column: content;
 }
