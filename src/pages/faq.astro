@@ -15,61 +15,68 @@ import Text from "../ui/typography/Text.astro";
     </Text>
   </section>
 
-  <div class="faq-list">
+  <dl class="faq-list">
     <div class="faq-item">
-      <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}
-        >What is Kickstarter United?</Heading
-      >
-      <Text as="p" class="faq-item__a">
-        Kickstarter United is the union that represents the employees of
-        Kickstarter, PBC. We are part of
-        <a href="https://www.opeiulocal153.org/">OPEIU Local 153</a>
-        and are also associated with
-        <a href="https://www.techworkersunion-1010.org/"
-          >OPEIU's Tech Workers Union Local 1010</a
-        >
-      </Text>
+      <dt>
+        <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}>What is Kickstarter United?</Heading>
+      </dt>
+      <dd>
+        <Text as="p" class="faq-item__a">
+          Kickstarter United is the union that represents the employees of
+          Kickstarter, PBC. We are part of
+          <a href="https://www.opeiulocal153.org/">OPEIU Local 153</a>
+          and are also associated with
+          <a href="https://www.techworkersunion-1010.org/">OPEIU's Tech Workers Union Local 1010</a>
+        </Text>
+      </dd>
     </div>
 
     <div class="faq-item">
-      <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}
-        >How does the 4-day work week (4DWW) work at Kickstarter?</Heading
-      >
-      <Text as="p" class="faq-item__a">
-        Kickstarter embarked on a 4DWW 32 hour pilot in April of 2022. The
-        premise of that pilot can be summarized by 100-80-100. That means 100%
-        of the work is completed in 80% of the time for 100% of the pay. The
-        important piece is that 100% of the work is getting done in less time.
-        Same work done = same pay.
-      </Text>
+      <dt>
+        <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}>How does the 4-day work week (4DWW) work at Kickstarter?</Heading>
+      </dt>
+      <dd>
+        <Text as="p" class="faq-item__a">
+          Kickstarter embarked on a 4DWW 32 hour pilot in April of 2022. The
+          premise of that pilot can be summarized by 100-80-100. That means 100%
+          of the work is completed in 80% of the time for 100% of the pay. The
+          important piece is that 100% of the work is getting done in less time.
+          Same work done = same pay.
+        </Text>
+      </dd>
     </div>
 
     <div class="faq-item">
-      <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}
-        >Has the 4DWW been a success?</Heading
-      >
-      <Text as="p" class="faq-item__a">
-        Kickstarter management sure thinks so - they've talked about it
-        extensively over the years - and we workers agree! Our output has
-        remained the same but our work life balance has improved immensely and
-        it's been a great recruiting tool for the company. Some folks even took
-        pay cuts to come work a 4-day work week at Kickstarter.
-      </Text>
+      <dt>
+        <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}>Has the 4DWW been a success?</Heading>
+      </dt>
+      <dd>
+        <Text as="p" class="faq-item__a">
+          Kickstarter management sure thinks so - they've talked about it
+          extensively over the years - and we workers agree! Our output has
+          remained the same but our work life balance has improved immensely and
+          it's been a great recruiting tool for the company. Some folks even
+          took pay cuts to come work a 4-day work week at Kickstarter.
+        </Text>
+      </dd>
     </div>
 
     <div class="faq-item">
-      <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}
-        >How is the 4DWW protected in the 2025 contract?</Heading
-      >
-      <Text as="p" class="faq-item__a">
-        Protecting the 4DWW was one of the key issues during our 2025 contract
-        negotiations and the 42-day strike that followed. Our
-        <a href="/contracts/2025">2025 contract</a> includes strong protections for
-        the 4-day work week, ensuring that the schedule Kickstarter and our workers
-        have thrived under cannot be unilaterally changed by management.
-      </Text>
+      <dt>
+        <Heading as="h2" size="sm" class="faq-item__q" maxLineLength={false}>How is the 4DWW protected in the 2025 contract?</Heading>
+      </dt>
+      <dd>
+        <Text as="p" class="faq-item__a">
+          Protecting the 4DWW was one of the key issues during our 2025
+          contract negotiations and the 42-day strike that followed. Our
+          <a href="/contracts/2025">2025 contract</a> includes strong
+          protections for the 4-day work week, ensuring that the schedule
+          Kickstarter and our workers have thrived under cannot be
+          unilaterally changed by management.
+        </Text>
+      </dd>
     </div>
-  </div>
+  </dl>
 </BaseLayout>
 
 <style>
@@ -98,6 +105,10 @@ import Text from "../ui/typography/Text.astro";
   .faq-item__q {
     color: light-dark(var(--ksru-cyan-700), var(--ksru-cyan-300));
     margin-bottom: var(--ksru-space-sm);
+  }
+
+  .faq-item dd {
+    margin: 0;
   }
 
   .faq-item__a {

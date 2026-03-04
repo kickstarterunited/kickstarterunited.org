@@ -52,8 +52,8 @@ import { Icon } from "astro-icon/components";
       <div class="contract-wins__group">
         <Heading as="h3" size="sm">Protections</Heading>
         <ul class="contract-wins__list">
-          <li><Icon name="tabler:gavel" size={20} class="contract-wins__icon" /> <span><a href="https://en.wikipedia.org/wiki/Just_cause_(employment_law)" target="_blank">"Just cause"</a> provisions - no one is disciplined or fired without clear, documented reason</span></li>
-          <li><Icon name="tabler:list-check" size={20} class="contract-wins__icon" /> <span>Clear process for <a href="https://en.wikipedia.org/wiki/Progressive_discipline" target="_blank">progressive discipline</a></span></li>
+          <li><Icon name="tabler:gavel" size={20} class="contract-wins__icon" /> <span><a href="https://en.wikipedia.org/wiki/Just_cause_(employment_law)" target="_blank" rel="noopener noreferrer">"Just cause"</a> provisions - no one is disciplined or fired without clear, documented reason</span></li>
+          <li><Icon name="tabler:list-check" size={20} class="contract-wins__icon" /> <span>Clear process for <a href="https://en.wikipedia.org/wiki/Progressive_discipline" target="_blank" rel="noopener noreferrer">progressive discipline</a></span></li>
           <li><Icon name="tabler:shield-check" size={20} class="contract-wins__icon" /> Anti-discrimination clause that goes far above the legal minimum</li>
           <li><Icon name="tabler:eye-off" size={20} class="contract-wins__icon" /> No intrusive monitoring on our work computers and devices</li>
           <li><Icon name="tabler:users" size={20} class="contract-wins__icon" /> Limits on subcontractors so that no bargaining unit role is replaced</li>
@@ -146,14 +146,6 @@ import { Icon } from "astro-icon/components";
 </BaseLayout>
 
 <style>
-  :global([class^="heading-"]) {
-    text-wrap: balance;
-  }
-
-  :global([class^="text-"]) {
-    text-wrap: pretty;
-  }
-
   .contract-hero {
     display: flex;
     flex-direction: column;
@@ -196,7 +188,7 @@ import { Icon } from "astro-icon/components";
 
   .contract-wins__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 35ch), 1fr));
     gap: var(--ksru-space-xl);
     margin-top: var(--ksru-space-lg);
   }
