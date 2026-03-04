@@ -1,12 +1,71 @@
 ---
+interface Props {
+  href: string;
+  outlet: string;
+  title: string;
+}
+
 const { href, outlet, title } = Astro.props;
+const isExternal = href.startsWith("http");
 ---
 
-<li>
-  <b>{outlet}</b>
-  <div>
-    <a target="_blank" href={href}>
-      "{title}"
-    </a>
-  </div>
-</li>
+<a
+  class="press-link"
+  href={href}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noopener noreferrer" : undefined}
+>
+  <span class="press-link__outlet">{outlet}</span>
+  <span class="press-link__title">{title}</span>
+</a>
+
+<style>
+  .press-link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-xs);
+    padding: var(--ksru-space-md) var(--ksru-space-lg);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--ksru-color-text);
+    border: 1px solid transparent;
+    transition: background-color 0.15s, border-color 0.15s, box-shadow 0.15s;
+
+    @supports (corner-shape: squircle) {
+      corner-shape: squircle;
+      border-radius: 24px;
+    }
+  }
+
+  .press-link:hover {
+    background: var(--ksru-color-surface-secondary);
+    border-color: var(--ksru-color-border);
+    box-shadow:
+      0 1px 2px -1px var(--ksru-color-shadow),
+      0 2px 6px -2px var(--ksru-color-shadow);
+  }
+
+  .press-link:active {
+    background: var(--ksru-color-surface-active);
+    box-shadow: none;
+  }
+
+  .press-link:focus-visible {
+    outline: 3px solid var(--ksru-color-outline, currentColor);
+    outline-offset: 3px;
+  }
+
+  .press-link__outlet {
+    font-family: var(--ksru-font-family-heading);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: light-dark(var(--ksru-cyan-700), var(--ksru-cyan-300));
+  }
+
+  .press-link__title {
+    line-height: 1.4;
+    text-wrap: pretty;
+  }
+</style>
