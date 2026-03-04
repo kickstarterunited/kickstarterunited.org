@@ -1,40 +1,32 @@
 ---
-import { Image } from "astro:assets";
-import KSRUOralHistoryCover from "../images/ksruoralhistory-cover.jpg";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
 ---
 
 <BaseLayout title="The Kickstarter United Oral History">
-  <div class="w-auto">
-    <div class="mx-auto w-1/2">
-      <Image
-        alt="Kickstarter United Oral History logo"
-        src={KSRUOralHistoryCover}
-      />
-    </div>
-  </div>
-
-  <hr />
-
-  <div>
-    <h1 class="heading-3">The Kickstarter United Oral History</h1>
-    <p>
+  <section class="oh-hero col-[wide]">
+    <Heading as="h1" size="xl" maxLineLength={false}>The Kickstarter United Oral History</Heading>
+    <Text as="p" size="lg" class="oh-hero__subtitle">
       In 2020, one of our former organizers,
       <a
         href="https://twitter.com/clarissaredwine"
         title="Clarissa's Twitter account"
-        target="_blank">Clarissa Redwine</a
+        target="_blank" rel="noopener noreferrer">Clarissa Redwine</a
       >, teamed up with
       <a
         href="https://www.law.nyu.edu/centers/engelberg"
         title="NYU's Engelberg Center"
-        target="_blank">NYU's Engelberg Center</a
+        target="_blank" rel="noopener noreferrer">NYU's Engelberg Center</a
       >
       to compile an oral history of our union from genesis all the way to the vote
       win. You can also search for "Engelberg Center Live!" in your podcast app of
       choice to find these episodes and more.
-    </p>
+    </Text>
+  </section>
 
+  <div class="oh-episodes col-[wide]">
+    <Heading as="h2" size="md">Episodes</Heading>
     <iframe
       seamless="true"
       height="200px"
@@ -155,3 +147,27 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       title="Chapter 10: The Pandemic"></iframe>
   </div>
 </BaseLayout>
+
+<style>
+  .oh-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
+  }
+
+  .oh-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  .oh-episodes {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-md);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+</style>

@@ -1,76 +1,154 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
+import Mark from "../ui/Mark/Mark.astro";
+import Surface from "../ui/Surface/Surface.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="May Day Severance Agreement">
-  <div id="about">
-    <h1 class="heading-3">Statement from Kickstarter United</h1>
-    <p>
+  <section class="mayday-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>Statement from Kickstarter United</Heading>
+    <Text as="p" size="lg" class="mayday-hero__subtitle">
+      May 2020 - Our first bargaining victory, just two months after forming.
+    </Text>
+  </section>
+
+  <section class="mayday-body">
+    <Text as="p">
       On Monday, April 20th, 2020 Kickstarter management
       <a
         href="https://www.theverge.com/2020/4/20/21228412/kickstarter-layoffs-planned-coronavirus-project-declines-crowdfunding-union"
         >announced</a
       >
-      that they were planning company-wide layoffs of ~40% of our workforce The bargaining
+      that they were planning company-wide layoffs of ~40% of our workforce. The bargaining
       unit was faced with the prospect of involuntary layoffs with two to three weeks
-      of severance per year of employment in the midst of a global pandemic
-    </p>
-    <p>
+      of severance per year of employment in the midst of a global pandemic.
+    </Text>
+    <Text as="p">
       Kickstarter United, a mere two months old, swiftly came together to work
       towards an agreement that protected our unit. After two weeks of
       bargaining, we negotiated a severance package that we are incredibly proud
       of, which has been unanimously ratified by KSRU.
-    </p>
-    <p>
+    </Text>
+    <Text as="p">
       The package prioritizes extended severance payments and health insurance
       coverage, and we were inspired to see dozens of our highest-paid
       colleagues volunteer to take layoffs in order to save jobs and increase
       payouts for lower-paid bargaining unit members. We also negotiated
       additional terms that are previously unheard-of in tech severance
       agreements, fulfilling another of our longstanding goals:
-      <strong
-        >moving our industry forward and demonstrating the necessity of
-        organizing in tech</strong
-      >
-    </p>
-    <p>The terms we won for our 86-member bargaining unit include:</p>
-    <ul>
+      <Mark variant="emerald">moving our industry forward and demonstrating the necessity of
+      organizing in tech</Mark>
+    </Text>
+  </section>
+
+  <Surface elevation={1} class="mayday-wins">
+    <Heading as="h2" size="md">What We Won</Heading>
+    <Text as="p" size="sm" class="mayday-wins__intro">The terms we won for our 86-member bargaining unit:</Text>
+    <ul class="mayday-wins__list">
       <li>
-        Four months of severance pay for all laid-off employees, both voluntary
-        and involuntary.
+        <Icon name="tabler:coin" size={20} class="mayday-wins__icon" />
+        <span>Four months of severance pay for all laid-off employees, both voluntary
+        and involuntary.</span>
       </li>
       <li>
-        Continuing healthcare coverage increased by salary: four months for our
+        <Icon name="tabler:heart-rate-monitor" size={20} class="mayday-wins__icon" />
+        <span>Continuing healthcare coverage increased by salary: four months for our
         higher-paid colleagues, and six months for those who make less than the
-        bargaining unit’s median salary.
+        bargaining unit's median salary.</span>
       </li>
       <li>
-        Recall rights for a full year, so that if an eliminated position becomes
+        <Icon name="tabler:refresh" size={20} class="mayday-wins__icon" />
+        <span>Recall rights for a full year, so that if an eliminated position becomes
         open again in the future, qualified laid-off workers will have priority
-        consideration in filling it.
+        consideration in filling it.</span>
       </li>
       <li>
-        A release from the non-compete and a modification of the
-        non-solicitation clauses included in our original hiring agreements—an
+        <Icon name="tabler:lock-open" size={20} class="mayday-wins__icon" />
+        <span>A release from the non-compete and a modification of the
+        non-solicitation clauses included in our original hiring agreements - an
         allowance unprecedented in tech that will enable our members to pursue
-        new avenues of employment unfettered.
+        new avenues of employment unfettered.</span>
       </li>
     </ul>
-    <p>
+  </Surface>
+
+  <section class="mayday-body">
+    <Text as="p">
       We are devastated to lose so many of our colleagues, who take with them
       their institutional knowledge, unceasing passion, and relentless
       dedication to the progressive ideals of our company. But as we move
       forward, Kickstarter United will still be here. We will continue to uphold
-      Kickstarter’s mission to foster creative work, and we look forward to
+      Kickstarter's mission to foster creative work, and we look forward to
       further demonstrating worker solidarity as we negotiate our first
       collective bargaining agreement.
-    </p>
-    <p>
+    </Text>
+    <Text as="p">
       This experience has shown us how crucial it is for tech workers to unite,
       to leverage our collective strength, and to focus on lifting each other up
       and protecting one another. Kickstarter United is committed to standing
       alongside workers everywhere, helping to bring our collective visions for
       a fairer, more just world to life.
-    </p>
-  </div>
+    </Text>
+  </section>
 </BaseLayout>
+
+<style>
+  .mayday-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
+  }
+
+  .mayday-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  .mayday-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-md);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .mayday-wins {
+    padding: var(--ksru-space-xl);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .mayday-wins__intro {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    margin-top: var(--ksru-space-xs);
+  }
+
+  .mayday-wins__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-md);
+    margin: var(--ksru-space-md) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mayday-wins__list li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--ksru-space-sm);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mayday-wins__icon {
+    flex-shrink: 0;
+    color: var(--ksru-emerald-500);
+    translate: 0 3px;
+  }
+</style>

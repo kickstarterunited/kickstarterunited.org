@@ -1,84 +1,138 @@
 ---
 import PressLink from "../components/PressLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
 ---
 
 <BaseLayout title="Press and Media Coverage">
-  <div id="press">
-    <h1>Selected Press and Media Coverage:</h1>
-    <h3 class="mt-lg">2025</h3>
-    <ul>
-      <PressLink
-        href="https://www.thepopverse.com/comics-gaming-kickstarter-union-strike"
-        outlet="Popverse"
-        title="Kickstarter is on strike - here's what you should know"
-      />
-      <PressLink
-        href="https://medium.com/labor-new-york/kickstarter-employees-launch-strike-over-four-day-workweek-pay-floor-e1403519e3a5"
-        outlet="Labor New York"
-        title="Kickstarter Employees Launch Strike Over Four-Day Workweek, Pay Floor"
-      />
-      <PressLink
-        href="https://www.theverge.com/news/790713/kickstarter-workers-are-on-strike"
-        outlet="The Verge"
-        title="Kickstarter workers are on strike."
-      />
-      <PressLink
-        href="https://www.rascal.news/kickstarter-united-workers-will-strike-beginning-october-2/"
-        outlet="Rascal News"
-        title="Kickstarter United Workers Will Strike Beginning October 2"
-      />
-    </ul>
-    <h3 class="mt-lg">2022</h3>
-    <ul>
-      <PressLink
-        href="https://www.crainsnewyork.com/labor-unions/kickstarter-workers-win-profit-sharing-and-guaranteed-raises-first-union-contract"
-        outlet="Crain's New York"
-        title="Kickstarter workers win profit sharing and guaranteed raises in first union"
-      />
-    </ul>
-    <h3 class="mt-lg">2020</h3>
-    <ul>
-      <PressLink
-        href="/oral-history"
-        outlet="The Oral History"
-        title="An oral history of our union, hosted by the Engelberg Center and compiled by one of our former organizers."
-      />
-      <PressLink
-        href="https://www.nytimes.com/2020/02/18/technology/kickstarter-union.html"
-        outlet="New York Times"
-        title="Kickstarter Employees Vote to Unionize in a Big Step for Tech"
-      />
-      <PressLink
-        href="https://www.washingtonpost.com/business/2020/02/18/kickstarter-forms-union/"
-        outlet="Washington Post"
-        title="Kickstarter staff votes to unionize, a sign of rising labor tensions in tech"
-      />
-      <PressLink
-        href="https://www.theguardian.com/us-news/2020/feb/18/kickstarter-union-crowdfunding-tech"
-        outlet="The Guardian"
-        title="Kickstarter workers vote to unionize amid growing industry unrest"
-      />
-      <PressLink
-        href="https://www.vice.com/en_us/article/3a8pp5/kickstarter-employees-win-historic-union-election"
-        outlet="Vice"
-        title="Kickstarter Employees Win Historic Union Election"
-      />
-      <PressLink
-        href="https://www.forbes.com/sites/mattperez/2020/02/18/kickstarter-staff-votes-to-unionize-paving-the-way-for-other-tech-workers/#73e8a73404f0"
-        outlet="Forbes"
-        title="Kickstarter Staff Votes To Unionize, Paving The Way For Other Tech Workers"
-      />
-      <PressLink
-        href="https://www.businessinsider.com/kickstarter-union-employees-tech-workers-2020-2"
-        outlet="Business Insider"
-        title="Kickstarter has unionized, becoming the first tech company to do so as workers organize across the industry"
-      />
-      <PressLink
-        href="https://www.theverge.com/2020/2/18/21142308/kickstarter-employee-vote-union-unionize"
-        outlet="The Verge"
-        title="Kickstarter employees vote to unionize"
-      />
-    </ul>
+  <section class="press-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>Press &amp; Media</Heading>
+    <Text as="p" size="lg" class="press-hero__subtitle">
+      Selected coverage of Kickstarter United's organizing, contracts, and
+      historic strike.
+    </Text>
+  </section>
+
+  <div class="press-years">
+    <section class="press-year">
+      <Heading as="h2" size="md" class="press-year__heading">2025</Heading>
+      <div class="press-year__links">
+        <PressLink
+          href="https://www.thepopverse.com/comics-gaming-kickstarter-union-strike"
+          outlet="Popverse"
+          title="Kickstarter is on strike - here's what you should know"
+        />
+        <PressLink
+          href="https://medium.com/labor-new-york/kickstarter-employees-launch-strike-over-four-day-workweek-pay-floor-e1403519e3a5"
+          outlet="Labor New York"
+          title="Kickstarter Employees Launch Strike Over Four-Day Workweek, Pay Floor"
+        />
+        <PressLink
+          href="https://www.theverge.com/news/790713/kickstarter-workers-are-on-strike"
+          outlet="The Verge"
+          title="Kickstarter workers are on strike."
+        />
+        <PressLink
+          href="https://www.rascal.news/kickstarter-united-workers-will-strike-beginning-october-2/"
+          outlet="Rascal News"
+          title="Kickstarter United Workers Will Strike Beginning October 2"
+        />
+      </div>
+    </section>
+
+    <section class="press-year">
+      <Heading as="h2" size="md" class="press-year__heading">2022</Heading>
+      <div class="press-year__links">
+        <PressLink
+          href="https://www.crainsnewyork.com/labor-unions/kickstarter-workers-win-profit-sharing-and-guaranteed-raises-first-union-contract"
+          outlet="Crain's New York"
+          title="Kickstarter workers win profit sharing and guaranteed raises in first union"
+        />
+      </div>
+    </section>
+
+    <section class="press-year">
+      <Heading as="h2" size="md" class="press-year__heading">2020</Heading>
+      <div class="press-year__links">
+        <PressLink
+          href="/oral-history"
+          outlet="The Oral History"
+          title="An oral history of our union, hosted by the Engelberg Center and compiled by one of our former organizers."
+        />
+        <PressLink
+          href="https://www.nytimes.com/2020/02/18/technology/kickstarter-union.html"
+          outlet="New York Times"
+          title="Kickstarter Employees Vote to Unionize in a Big Step for Tech"
+        />
+        <PressLink
+          href="https://www.washingtonpost.com/business/2020/02/18/kickstarter-forms-union/"
+          outlet="Washington Post"
+          title="Kickstarter staff votes to unionize, a sign of rising labor tensions in tech"
+        />
+        <PressLink
+          href="https://www.theguardian.com/us-news/2020/feb/18/kickstarter-union-crowdfunding-tech"
+          outlet="The Guardian"
+          title="Kickstarter workers vote to unionize amid growing industry unrest"
+        />
+        <PressLink
+          href="https://www.vice.com/en_us/article/3a8pp5/kickstarter-employees-win-historic-union-election"
+          outlet="Vice"
+          title="Kickstarter Employees Win Historic Union Election"
+        />
+        <PressLink
+          href="https://www.forbes.com/sites/mattperez/2020/02/18/kickstarter-staff-votes-to-unionize-paving-the-way-for-other-tech-workers/#73e8a73404f0"
+          outlet="Forbes"
+          title="Kickstarter Staff Votes To Unionize, Paving The Way For Other Tech Workers"
+        />
+        <PressLink
+          href="https://www.businessinsider.com/kickstarter-union-employees-tech-workers-2020-2"
+          outlet="Business Insider"
+          title="Kickstarter has unionized, becoming the first tech company to do so as workers organize across the industry"
+        />
+        <PressLink
+          href="https://www.theverge.com/2020/2/18/21142308/kickstarter-employee-vote-union-unionize"
+          outlet="The Verge"
+          title="Kickstarter employees vote to unionize"
+        />
+      </div>
+    </section>
   </div>
 </BaseLayout>
+
+<style>
+  .press-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
+  }
+
+  .press-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
+  }
+
+  .press-years {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-2xl);
+    margin-bottom: var(--ksru-space-2xl);
+  }
+
+  .press-year__heading {
+    padding-bottom: var(--ksru-space-sm);
+    border-bottom: 2px solid var(--ksru-cyan-600);
+    margin-bottom: var(--ksru-space-md);
+    color: var(--ksru-emerald-500);
+  }
+
+  .press-year__links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--ksru-space-xs);
+  }
+</style>

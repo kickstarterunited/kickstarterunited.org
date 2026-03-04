@@ -1,18 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
 ---
 
 <BaseLayout title="How Creators Can Help">
-  <div class="creators-hero">
-    <h1>How creators can support Kickstarter United</h1>
-    <p>
+  <section class="creators-hero col-[wide]">
+    <Heading as="h1" size="xl" maxLineLength={false}>How creators can support Kickstarter United</Heading>
+    <Text as="p" size="lg" class="creators-hero__subtitle">
       Kickstarter creators are a <strong>vital</strong> part of the Kickstarter community,
       and your support helps us build a better workplace for the people <em
         >behind the platform you rely on</em
       >.
-    </p>
-  </div>
+    </Text>
+  </section>
 
   <div class="creators-actions col-[wide]">
     <div class="action-card">
@@ -71,32 +73,30 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <style>
   .creators-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-block: 2rem 3rem;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
   }
 
-  .creators-hero h1 {
-    margin-bottom: 0.25rem;
-  }
-
-  .creators-hero p {
-    max-width: 50ch;
-    margin-inline: auto;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: color-mix(in oklch, currentColor, transparent 20%);
+  .creators-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: balance;
+    margin-top: 0;
   }
 
   .creators-actions {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    gap: var(--ksru-space-lg);
+    margin-bottom: var(--ksru-space-2xl);
   }
 
   .action-card {
     position: relative;
-    padding: 1.25rem 1.25rem 1.25rem 2rem;
+    padding: var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-lg) var(--ksru-space-xl);
     border-radius: 16px;
     corner-shape: squircle;
     background: var(--ksru-color-bg);
@@ -129,7 +129,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-family: var(--ksru-font-family-heading);
     font-weight: 700;
     color: var(--ksru-color-accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--ksru-space-sm);
     text-wrap: balance;
   }
 
@@ -143,29 +143,29 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   @supports (corner-shape: scoop) {
     @media (width >= 640px) {
       .action-card {
-        padding: 1.25rem;
+        padding: var(--ksru-space-lg);
       }
 
       .action-card:nth-child(1) {
-        padding-bottom: 1.5rem;
+        padding-bottom: var(--ksru-space-lg);
         border-bottom-right-radius: 32px;
         corner-shape: round round scoop round;
       }
 
       .action-card:nth-child(2) {
-        padding-bottom: 1.5rem;
+        padding-bottom: var(--ksru-space-lg);
         border-bottom-left-radius: 32px;
         corner-shape: round round round scoop;
       }
 
       .action-card:nth-child(3) {
-        padding-top: 1.5rem;
+        padding-top: var(--ksru-space-lg);
         border-top-right-radius: 32px;
         corner-shape: round scoop round round;
       }
 
       .action-card:nth-child(4) {
-        padding-top: 1.5rem;
+        padding-top: var(--ksru-space-lg);
         border-top-left-radius: 32px;
         corner-shape: scoop round round round;
       }

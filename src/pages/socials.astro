@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
 import Logo from "../images/logo.svg";
 
 const socials = [
@@ -75,73 +77,86 @@ const socials = [
 ---
 
 <BaseLayout title="Follow our Socials">
-  <div class="socials-hero">
-    <Logo width="88" height="88" class="mx-auto" />
-    <h1>Follow along</h1>
-    <p class="text-balance">
-      Stay in the loop on contract wins, actions, and what it takes to build a
-      union in tech.
-    </p>
-  </div>
+  <section class="socials-hero">
+    <Logo width="88" height="88" class="socials-hero__logo" />
+    <div class="socials-hero__text">
+      <Heading as="h1" size="xl" maxLineLength={false}>Follow Along</Heading>
+      <Text as="p" size="lg" class="socials-hero__subtitle">
+        Stay in the loop on contract wins, actions, and what it takes to build a
+        union in tech.
+      </Text>
+    </div>
+  </section>
 
   <nav class="social-links" aria-label="Social media links">
-    {
-      socials.map((social) => (
-        <a
-          href={social.href}
-          target="_blank"
-          rel="me noopener noreferrer"
-          class="social-link"
-          style={`--brand-color: ${social.color}`}
-        >
-          <Icon name={social.icon} size={32} class="social-link__icon" />
-          <div>
-            <div class="font-semibold">{social.name}</div>
-            <div class="text-sm opacity-70">{social.description}</div>
-          </div>
-        </a>
-      ))
-    }
+    {socials.map((social) => (
+      <a
+        href={social.href}
+        target="_blank"
+        rel="me noopener noreferrer"
+        class="social-link"
+        style={`--brand-color: ${social.color}`}
+      >
+        <Icon name={social.icon} size={32} class="social-link__icon" />
+        <div>
+          <Heading as="span" size="sm" class="social-link__name">{social.name}</Heading>
+          <Text as="span" size="sm" class="social-link__desc">{social.description}</Text>
+        </div>
+      </a>
+    ))}
   </nav>
 </BaseLayout>
 
 <style>
   .socials-hero {
-    text-align: center;
-    margin-block: 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ksru-space-lg);
+    align-items: center;
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
   }
 
-  .socials-hero h1 {
-    margin-bottom: 0.25rem;
+  @media (width >= 640px) {
+    .socials-hero {
+      grid-template-columns: auto 1fr;
+    }
   }
 
-  .socials-hero p {
-    max-width: 50ch;
+  .socials-hero__logo {
     margin-inline: auto;
-    font-size: 1.125rem;
-    line-height: 1.6;
-    color: color-mix(in oklch, currentColor, transparent 20%);
+  }
+
+  .socials-hero__text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-sm);
+  }
+
+  .socials-hero__subtitle {
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-wrap: pretty;
+    margin-top: 0;
   }
 
   .social-links {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--ksru-space-sm);
     max-width: 28rem;
     margin-inline: auto;
-    margin-bottom: 4rem;
+    margin-bottom: var(--ksru-space-2xl);
   }
 
   .social-link {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    gap: var(--ksru-space-md);
+    padding: var(--ksru-space-md);
+    border-radius: 12px;
 
     @supports (corner-shape: squircle) {
       corner-shape: squircle;
-      border-radius: 2rem;
+      border-radius: 24px;
     }
     border: 2px solid color-mix(in oklch, currentColor 10%, transparent);
     text-decoration: none;
@@ -151,6 +166,20 @@ const socials = [
   .social-link:hover,
   .social-link:focus-visible {
     border-color: color-mix(in oklch, var(--brand-color) 40%, transparent);
+  }
+
+  .social-link:focus-visible {
+    outline: 3px solid var(--ksru-color-outline, currentColor);
+    outline-offset: 3px;
+  }
+
+  .social-link__name {
+    display: block;
+  }
+
+  .social-link__desc {
+    display: block;
+    color: color-mix(in oklch, currentColor, transparent 30%);
   }
 
   .social-link__icon {

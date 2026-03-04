@@ -27,18 +27,20 @@ import FinalEveryWorker16 from "../images/every_worker_needs_a_union/FINAL_Every
 import BigQuote from "../images/every_worker_needs_a_union/bigquote.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Carousel from "../ui/Carousel/Carousel.astro";
+import Heading from "../ui/typography/Heading.astro";
+import Text from "../ui/typography/Text.astro";
 import { Icon } from "astro-icon/components";
 ---
 
 <BaseLayout title="Every Worker Needs a Union">
-  <div class="ewnu-hero">
-    <h1>Every Worker Needs a Union</h1>
-    <p>
+  <section class="ewnu-hero">
+    <Heading as="h1" size="xl" maxLineLength={false}>Every Worker Needs a Union</Heading>
+    <Text as="p" size="lg" class="ewnu-hero__subtitle">
       In May 2020, as colleagues faced layoffs during the pandemic, Kickstarter
       United members shared what building the first union in tech meant to them.
       These are their words.
-    </p>
-  </div>
+    </Text>
+  </section>
 
   <div class="ewnu-tweet">
     <blockquote class="twitter-tweet">
@@ -254,11 +256,11 @@ import { Icon } from "astro-icon/components";
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 0.75rem;
-    margin-block: 2.5rem 2rem;
+    gap: var(--ksru-space-sm);
+    margin-block: var(--ksru-space-2xl) var(--ksru-space-xl);
   }
 
-  .ewnu-hero p {
+  .ewnu-hero__subtitle {
     color: color-mix(in oklch, currentColor, transparent 30%);
     text-wrap: balance;
     margin-top: 0;
@@ -267,7 +269,7 @@ import { Icon } from "astro-icon/components";
   .ewnu-tweet {
     display: flex;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: var(--ksru-space-2xl);
   }
 
   /* ── Vertical page snap (scoped to this page) ── */
@@ -287,15 +289,15 @@ import { Icon } from "astro-icon/components";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: var(--ksru-space-md);
+    margin-bottom: var(--ksru-space-2xl);
     scroll-snap-align: start;
     anchor-name: --ewnu-carousel;
   }
 
   .ewnu-carousel :global(.carousel__scroller) {
     display: flex;
-    gap: 1.5rem;
+    gap: var(--ksru-space-lg);
     order: -1;
     flex: 0 0 100%;
     scrollbar-width: none;
@@ -309,13 +311,13 @@ import { Icon } from "astro-icon/components";
   .ewnu-carousel :global(.carousel__scroller::before),
   .ewnu-carousel :global(.carousel__scroller::after) {
     content: "";
-    flex: 0 0 max(0px, calc(50% - min(85vw, 42rem) / 2 - 1.5rem));
+    flex: 0 0 max(0px, calc(50% - min(85vw, 42rem) / 2 - var(--ksru-space-lg)));
   }
 
   .ewnu-card {
     flex: 0 0 auto;
     width: min(85vw, 42rem);
-    padding: 32px;
+    padding: var(--ksru-space-xl);
     background: var(--bg);
     border-radius: 12px;
 
@@ -348,7 +350,7 @@ import { Icon } from "astro-icon/components";
     .ewnu-carousel :global(.carousel__scroller::before),
     .ewnu-carousel :global(.carousel__scroller::after) {
       /* Cards are height-driven; ~35vh estimates half-width for typical aspect ratios */
-      flex-basis: max(0px, calc(50% - 35vh - 1.5rem));
+      flex-basis: max(0px, calc(50% - 35vh - var(--ksru-space-lg)));
     }
 
     .ewnu-card {
@@ -417,11 +419,11 @@ import { Icon } from "astro-icon/components";
     }
 
     .ewnu-carousel :global(.carousel__btn[data-dir="prev"]) {
-      left: 1rem;
+      left: var(--ksru-space-md);
     }
 
     .ewnu-carousel :global(.carousel__btn[data-dir="next"]) {
-      right: 1rem;
+      right: var(--ksru-space-md);
     }
 
     /* Upgrade: anchor positioning for browsers with native support */
@@ -434,11 +436,11 @@ import { Icon } from "astro-icon/components";
       }
 
       .ewnu-carousel :global(.carousel__btn[data-dir="prev"]) {
-        left: calc(anchor(left) + 1rem);
+        left: calc(anchor(left) + var(--ksru-space-md));
       }
 
       .ewnu-carousel :global(.carousel__btn[data-dir="next"]) {
-        right: calc(anchor(right) + 1rem);
+        right: calc(anchor(right) + var(--ksru-space-md));
       }
     }
   }
@@ -564,7 +566,7 @@ import { Icon } from "astro-icon/components";
       position-visibility: anchors-visible;
       z-index: 10;
       top: anchor(bottom);
-      margin-top: 1rem;
+      margin-top: var(--ksru-space-md);
     }
 
     .ewnu-carousel .carousel__scroller::scroll-button(*):hover {
@@ -589,13 +591,13 @@ import { Icon } from "astro-icon/components";
     .ewnu-carousel .carousel__scroller::scroll-button(left) {
       content: "" / "Previous";
       background-image: var(--_ewnu-chevron-l);
-      right: calc(anchor(center) + 0.5rem);
+      right: calc(anchor(center) + var(--ksru-space-sm));
     }
 
     .ewnu-carousel .carousel__scroller::scroll-button(right) {
       content: "" / "Next";
       background-image: var(--_ewnu-chevron-r);
-      left: calc(anchor(center) + 0.5rem);
+      left: calc(anchor(center) + var(--ksru-space-sm));
     }
 
     /* Desktop: reposition to carousel edges */
@@ -608,12 +610,12 @@ import { Icon } from "astro-icon/components";
 
       .ewnu-carousel .carousel__scroller::scroll-button(left) {
         right: auto;
-        left: calc(anchor(left) + 1rem);
+        left: calc(anchor(left) + var(--ksru-space-md));
       }
 
       .ewnu-carousel .carousel__scroller::scroll-button(right) {
         left: auto;
-        right: calc(anchor(right) + 1rem);
+        right: calc(anchor(right) + var(--ksru-space-md));
       }
     }
   }
