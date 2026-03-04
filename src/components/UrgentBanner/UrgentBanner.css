@@ -75,8 +75,8 @@
   background: color-mix(in oklch, var(--_teal), black 20%);
   border-left: 4px solid var(--_gold);
   border-radius: 8px;
-  padding: var(--ksru-space-4) var(--ksru-space-4);
-  margin-block: var(--ksru-space-4);
+  padding: var(--ksru-space-4) 1.25rem;
+  margin-block: 1.25rem;
   text-align: left;
   max-width: 28rem;
   margin-inline: auto;
