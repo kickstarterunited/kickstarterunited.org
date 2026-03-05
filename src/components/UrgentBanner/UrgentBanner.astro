@@ -24,9 +24,9 @@ interface Props extends HTMLAttributes<"div"> {
 const { badge, class: cls, ...props } = Astro.props;
 ---
 
-<div {...props} class:list={["urgent-banner", cls]} data-theme="inverse">
+<div {...props} class:list={["urgent-banner", cls]} data-theme="dark">
   <div class="urgent-banner__inner">
-    {badge && <p class="urgent-banner__badge">{badge}</p>}
+    {badge && <p class="urgent-banner__badge" data-theme="inverse">{badge}</p>}
     <slot />
   </div>
 </div>
