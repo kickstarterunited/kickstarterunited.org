@@ -6,6 +6,7 @@ import Button from "../../ui/Button/Button.astro";
 import MenuIcon from "../../images/icons/MenuIcon.svg";
 import DrawerMenu from "../../ui/Menu/DrawerMenu.astro";
 import Menu from "../../ui/Menu/Menu.astro";
+import ThemeToggle from "../ThemeToggle.tsx";
 ---
 
 {
@@ -14,6 +15,8 @@ import Menu from "../../ui/Menu/Menu.astro";
 }
 <nav class="page__nav">
   <a class="btn link sr-only" href="#content">Skip to main content</a>
+
+  <ThemeToggle client:load />
 
   {/* Render the mobile menu. */}
   <Button

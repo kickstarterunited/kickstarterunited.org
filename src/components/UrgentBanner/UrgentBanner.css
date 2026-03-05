@@ -1,44 +1,65 @@
 @reference "../../styles/global.css";
 
 .urgent-banner {
-  --_gold: var(--ksru-color-accent-rich);
-  --_teal: var(--ksru-color-accent);
-  --_green: var(--ksru-color-accent-light);
+  /* Static palette tokens for text/badge/decorative elements */
+  --_gold: var(--ksru-amber-300);
+  --_teal: var(--ksru-cyan-800);
+  --_green: var(--ksru-emerald-600);
+
+  /* Background layer tokens - overridden in dark mode to blend with page */
+  --_bg-base: var(--_teal);
+  --_glow-green-fade: 70%;
+  --_glow-gold-fade: 80%;
 
   /*
    * Three-layer gradient stack:
    * 1. Green glow (top-left, drifts via @property animation)
    * 2. Gold glow  (bottom-right, drifts opposite)
-   * 3. Dark teal base
+   * 3. Base (teal in light, page surface in dark)
    */
   background:
     radial-gradient(
       ellipse at var(--_glow1-x, 20%) var(--_glow1-y, 0%),
-      color-mix(in oklch, var(--_green), transparent 70%) 0%,
+      color-mix(in oklch, var(--_green), transparent var(--_glow-green-fade)) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse at var(--_glow2-x, 80%) var(--_glow2-y, 100%),
-      color-mix(in oklch, var(--_gold), transparent 80%) 0%,
+      color-mix(in oklch, var(--_gold), transparent var(--_glow-gold-fade)) 0%,
       transparent 50%
     ),
     radial-gradient(
       ellipse at 50% 50%,
-      color-mix(in oklch, var(--_teal), black 10%) 0%,
-      var(--_teal) 100%
+      color-mix(in oklch, var(--_bg-base), black 10%) 0%,
+      var(--_bg-base) 100%
     );
-  /* urgent-banner-glow: drifts the gradient glow positions via @property custom properties */
-  /* surface-border-rotate: rotates the animated conic-gradient border (defined in global CSS) */
   animation: urgent-banner-glow 12s ease-in-out infinite alternate;
   color: #fff;
   border: 3px solid var(--_gold);
   border-top: none;
-  box-shadow: 0 0 24px color-mix(in oklch, var(--_gold), transparent 60%);
+  box-shadow: none;
   text-align: center;
   padding-block: var(--ksru-space-xl);
 
   border-radius: 0;
   border-inline: none;
+}
+
+/* Dark mode: blend into page surface, glow becomes subtle accent lighting */
+:root[data-theme="dark"] .urgent-banner {
+  --_bg-base: oklch(0.23 0.01 151);
+  --_glow-green-fade: 82%;
+  --_glow-gold-fade: 85%;
+  border-color: color-mix(in oklch, var(--_gold), transparent 80%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"] .urgent-banner {
+    --_bg-base: oklch(0.23 0.01 151);
+    --_glow-green-fade: 82%;
+    --_glow-gold-fade: 85%;
+    border-color: color-mix(in oklch, var(--_gold), transparent 80%);
+  }
 }
 
 /* Bouncy scale-in entrance via @starting-style.
@@ -64,7 +85,7 @@
 }
 
 .urgent-banner h1 .mark {
-  color: var(--_teal);
+  color: var(--ksru-color-text);
 }
 
 .urgent-banner strong {
@@ -74,7 +95,7 @@
 .urgent-banner__badge {
   display: inline-block;
   background: var(--_gold);
-  color: var(--_teal);
+  color: var(--ksru-color-text);
   font-weight: 800;
   font-size: 0.85rem;
   letter-spacing: 0.1em;
@@ -84,7 +105,7 @@
 }
 
 .urgent-banner__when {
-  background: color-mix(in oklch, var(--_teal), black 20%);
+  background: color-mix(in oklch, var(--_bg-base), black 20%);
   border-left: 4px solid var(--_gold);
   border-radius: 8px;
   padding: var(--ksru-space-md) 1.25rem;

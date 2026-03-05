@@ -24,16 +24,16 @@
   /* MARK: Variants */
 
   .btn--primary {
-    background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-500));
+    background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-600));
     color: white;
   }
 
   .btn--primary:hover {
-    background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-400));
+    background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-500));
   }
 
   .btn--primary:active {
-    background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-600));
+    background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-700));
   }
 
   .btn--accent {
@@ -51,7 +51,7 @@
 
   .btn--ghost {
     background: transparent;
-    color: var(--ksru-color-text);
+    color: inherit;
   }
 
   .btn--ghost:hover {
@@ -98,16 +98,16 @@
   /* MARK: Legacy aliases (temporary, for unmigrated pages) */
 
   .btn-success {
-    background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-500));
+    background: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-600));
     color: white;
   }
 
   .btn-success:hover {
-    background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-400));
+    background: light-dark(var(--ksru-emerald-400), var(--ksru-emerald-500));
   }
 
   .btn-success:active {
-    background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-600));
+    background: light-dark(var(--ksru-emerald-600), var(--ksru-emerald-700));
   }
 
   .btn-info {

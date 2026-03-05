@@ -12,6 +12,7 @@ const { title } = Astro.props;
 
 <html
   lang="en"
+  data-theme="system"
   data-wf-page="5ce75a59757fff6268d29f8b"
   data-wf-site="5ce75a58757fffbe19d29f88"
 >
@@ -22,6 +23,16 @@ const { title } = Astro.props;
     <meta content="Kickstarter United" property="og:title" />
     <meta content="/images/logo.svg" property="og:image" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    {/* Theme: apply saved preference before first paint to prevent FOUC */}
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('ksru-theme');
+        if (t === 'light' || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      })();
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
@@ -59,7 +70,7 @@ const { title } = Astro.props;
       }
     </script>
   </head>
-  <body class="leading-[1.6]" data-theme="light">
+  <body class="leading-[1.6]">
     {/* Global SVG filters (defined once, referenced by CSS) */}
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +96,7 @@ const { title } = Astro.props;
       </defs>
     </svg>
     <div class="page page-grid">
-      <header class="page__header col-[bleed]" data-theme="dark">
+      <header class="page__header col-[bleed]">
         <p class="page__logo retro-ribbon retro-ribbon--end">
           <a class="link--standalone" href="/">Kickstarter United</a>
         </p>
@@ -97,7 +108,7 @@ const { title } = Astro.props;
         <slot />
       </main>
 
-      <footer class="page__footer col-[bleed]" data-theme="dark">
+      <footer class="page__footer col-[bleed]">
         <div class="page__footer-social">
           <SocialLinks />
         </div>

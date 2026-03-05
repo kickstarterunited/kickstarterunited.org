@@ -132,6 +132,16 @@ const socials = [
     margin-inline: auto;
   }
 
+  :global([data-theme="dark"]) .socials-hero__logo {
+    filter: invert(1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global([data-theme="system"]) .socials-hero__logo {
+      filter: invert(1);
+    }
+  }
+
   .socials-hero__text {
     display: flex;
     flex-direction: column;

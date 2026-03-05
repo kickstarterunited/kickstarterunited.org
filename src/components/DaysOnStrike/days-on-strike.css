@@ -12,12 +12,12 @@
   }
 
   .days-on-strike__bill {
-    @apply flex-2 shrink-0 basis-auto grid place-items-center border border-green-900/10 p-6 rounded-2xl bg-green-50 text-green-950 inset-shadow-xs inset-shadow-gray-300;
+    @apply flex-2 shrink-0 basis-auto grid place-items-center border border-emerald-900/10 p-6 rounded-2xl bg-emerald-50 text-emerald-950 inset-shadow-xs inset-shadow-neutral-300;
   }
 
   .days-on-strike .day-count {
     color: var(--ksru-color-accent-light);
 
-    @apply mt-0 h-28 w-28 text-5xl shadow-sm shadow-gray-200 border border-gray-300 rounded m-auto px-6 text-center bg-white aspect-square content-center;
+    @apply mt-0 h-28 w-28 text-5xl shadow-sm shadow-neutral-200 border border-neutral-300 rounded m-auto px-6 text-center bg-surface aspect-square content-center;
   }
 }

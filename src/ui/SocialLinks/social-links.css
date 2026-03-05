@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--ksru-space-sm);
-  color: var(--ksru-color-icon);
+  color: inherit;
 }
 
 .social-link__btn--labeled {

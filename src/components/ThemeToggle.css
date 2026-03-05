@@ -1,0 +1,47 @@
+.theme-toggle__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Star-shaped theme transition - scoped to .theme-star so MPA transitions are unaffected */
+html.theme-star::view-transition-old(root),
+html.theme-star::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.theme-star::view-transition-new(root) {
+  clip-path: var(--_star-0);
+  animation: theme-star-expand 1.05s linear forwards;
+  filter: drop-shadow(0 0 24px oklch(0.75 0.15 87))
+    drop-shadow(0 0 60px oklch(0.65 0.1 87 / 0.5));
+}
+
+html.theme-star::view-transition-old(root) {
+  z-index: -1;
+}
+
+/* 12 steps with rotation baked into polygon vertices, radius pre-eased in JS */
+@keyframes theme-star-expand {
+  0% { clip-path: var(--_star-0); }
+  8.33% { clip-path: var(--_star-1); }
+  16.67% { clip-path: var(--_star-2); }
+  25% { clip-path: var(--_star-3); }
+  33.33% { clip-path: var(--_star-4); }
+  41.67% { clip-path: var(--_star-5); }
+  50% { clip-path: var(--_star-6); }
+  58.33% { clip-path: var(--_star-7); }
+  66.67% { clip-path: var(--_star-8); }
+  75% { clip-path: var(--_star-9); }
+  83.33% { clip-path: var(--_star-10); }
+  91.67% { clip-path: var(--_star-11); }
+  100% { clip-path: var(--_star-12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-star::view-transition-new(root) {
+    animation: none;
+    clip-path: none;
+    filter: none;
+  }
+}

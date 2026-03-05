@@ -40,27 +40,27 @@
     &[data-mark="emerald"] {
       --mark-color: light-dark(
         var(--ksru-emerald-200),
-        var(--ksru-emerald-500)
+        var(--ksru-emerald-700)
       );
     }
 
     &[data-mark="cyan"] {
-      --mark-color: light-dark(var(--ksru-cyan-200), var(--ksru-cyan-500));
+      --mark-color: light-dark(var(--ksru-cyan-200), var(--ksru-cyan-700));
     }
 
     &[data-mark="brown"] {
-      --mark-color: light-dark(var(--ksru-brown-200), var(--ksru-brown-500));
+      --mark-color: light-dark(var(--ksru-brown-200), var(--ksru-brown-600));
     }
 
     &[data-mark="neutral"] {
       --mark-color: light-dark(
         var(--ksru-neutral-200),
-        var(--ksru-neutral-500)
+        var(--ksru-neutral-600)
       );
     }
 
     &[data-mark="red"] {
-      --mark-color: light-dark(var(--ksru-red-200), var(--ksru-red-500));
+      --mark-color: light-dark(var(--ksru-red-200), var(--ksru-red-700));
     }
   }
 }
