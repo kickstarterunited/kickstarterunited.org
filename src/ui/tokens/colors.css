@@ -94,3 +94,20 @@
     );
   }
 }
+
+/* MARK: Tailwind integration — semantic colors */
+@theme {
+  --color-text: var(--ksru-color-text);
+  --color-surface: var(--ksru-color-surface);
+  --color-text-secondary: var(--ksru-color-text-secondary);
+  --color-surface-secondary: var(--ksru-color-surface-secondary);
+  --color-text-inverse: var(--ksru-color-text-inverse);
+  --color-surface-inverse: var(--ksru-color-surface-inverse);
+  --color-border: var(--ksru-color-border);
+  --color-border-hover: var(--ksru-color-border-hover);
+  --color-border-active: var(--ksru-color-border-active);
+  --color-icon: var(--ksru-color-icon);
+  --color-surface-hover: var(--ksru-color-surface-hover);
+  --color-surface-active: var(--ksru-color-surface-active);
+  --color-shadow: var(--ksru-color-shadow);
+}

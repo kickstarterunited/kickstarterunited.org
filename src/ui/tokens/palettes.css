@@ -84,3 +84,78 @@
     --ksru-red-950: oklch(0.19 0.04 25);
   }
 }
+
+/* MARK: Tailwind integration — shade palettes */
+@theme {
+  --color-neutral-50: var(--ksru-neutral-50);
+  --color-neutral-100: var(--ksru-neutral-100);
+  --color-neutral-200: var(--ksru-neutral-200);
+  --color-neutral-300: var(--ksru-neutral-300);
+  --color-neutral-400: var(--ksru-neutral-400);
+  --color-neutral-500: var(--ksru-neutral-500);
+  --color-neutral-600: var(--ksru-neutral-600);
+  --color-neutral-700: var(--ksru-neutral-700);
+  --color-neutral-800: var(--ksru-neutral-800);
+  --color-neutral-900: var(--ksru-neutral-900);
+  --color-neutral-950: var(--ksru-neutral-950);
+
+  --color-emerald-50: var(--ksru-emerald-50);
+  --color-emerald-100: var(--ksru-emerald-100);
+  --color-emerald-200: var(--ksru-emerald-200);
+  --color-emerald-300: var(--ksru-emerald-300);
+  --color-emerald-400: var(--ksru-emerald-400);
+  --color-emerald-500: var(--ksru-emerald-500);
+  --color-emerald-600: var(--ksru-emerald-600);
+  --color-emerald-700: var(--ksru-emerald-700);
+  --color-emerald-800: var(--ksru-emerald-800);
+  --color-emerald-900: var(--ksru-emerald-900);
+  --color-emerald-950: var(--ksru-emerald-950);
+
+  --color-cyan-50: var(--ksru-cyan-50);
+  --color-cyan-100: var(--ksru-cyan-100);
+  --color-cyan-200: var(--ksru-cyan-200);
+  --color-cyan-300: var(--ksru-cyan-300);
+  --color-cyan-400: var(--ksru-cyan-400);
+  --color-cyan-500: var(--ksru-cyan-500);
+  --color-cyan-600: var(--ksru-cyan-600);
+  --color-cyan-700: var(--ksru-cyan-700);
+  --color-cyan-800: var(--ksru-cyan-800);
+  --color-cyan-900: var(--ksru-cyan-900);
+  --color-cyan-950: var(--ksru-cyan-950);
+
+  --color-amber-50: var(--ksru-amber-50);
+  --color-amber-100: var(--ksru-amber-100);
+  --color-amber-200: var(--ksru-amber-200);
+  --color-amber-300: var(--ksru-amber-300);
+  --color-amber-400: var(--ksru-amber-400);
+  --color-amber-500: var(--ksru-amber-500);
+  --color-amber-600: var(--ksru-amber-600);
+  --color-amber-700: var(--ksru-amber-700);
+  --color-amber-800: var(--ksru-amber-800);
+  --color-amber-900: var(--ksru-amber-900);
+  --color-amber-950: var(--ksru-amber-950);
+
+  --color-brown-50: var(--ksru-brown-50);
+  --color-brown-100: var(--ksru-brown-100);
+  --color-brown-200: var(--ksru-brown-200);
+  --color-brown-300: var(--ksru-brown-300);
+  --color-brown-400: var(--ksru-brown-400);
+  --color-brown-500: var(--ksru-brown-500);
+  --color-brown-600: var(--ksru-brown-600);
+  --color-brown-700: var(--ksru-brown-700);
+  --color-brown-800: var(--ksru-brown-800);
+  --color-brown-900: var(--ksru-brown-900);
+  --color-brown-950: var(--ksru-brown-950);
+
+  --color-red-50: var(--ksru-red-50);
+  --color-red-100: var(--ksru-red-100);
+  --color-red-200: var(--ksru-red-200);
+  --color-red-300: var(--ksru-red-300);
+  --color-red-400: var(--ksru-red-400);
+  --color-red-500: var(--ksru-red-500);
+  --color-red-600: var(--ksru-red-600);
+  --color-red-700: var(--ksru-red-700);
+  --color-red-800: var(--ksru-red-800);
+  --color-red-900: var(--ksru-red-900);
+  --color-red-950: var(--ksru-red-950);
+}
