@@ -12,7 +12,7 @@
   }
 
   .page__nav :is(button, .btn):not([popover] *):hover {
-    background-color: color-mix(in srgb, white, transparent 90%);
+    background-color: var(--ksru-color-surface-hover);
   }
 
   .nav__list > * {
