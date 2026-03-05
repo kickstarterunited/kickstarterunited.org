@@ -96,6 +96,22 @@
       var(--ksru-cyan-800),
       var(--ksru-cyan-700)
     ); /* branded surface for header/footer/accent sections */
+    --ksru-color-accent: light-dark(
+      var(--ksru-cyan-800),
+      var(--ksru-cyan-400)
+    ); /* accent text/decorative */
+    --ksru-color-accent-light: light-dark(
+      var(--ksru-emerald-500),
+      var(--ksru-emerald-400)
+    ); /* green highlights */
+    --ksru-color-accent-rich: light-dark(
+      var(--ksru-amber-300),
+      var(--ksru-amber-400)
+    ); /* gold decorative */
+    --ksru-color-accent-warm: light-dark(
+      var(--ksru-brown-500),
+      var(--ksru-brown-400)
+    ); /* warm accent */
   }
 }
 
@@ -115,4 +131,8 @@
   --color-surface-active: var(--ksru-color-surface-active);
   --color-shadow: var(--ksru-color-shadow);
   --color-surface-accent: var(--ksru-color-surface-accent);
+  --color-accent: var(--ksru-color-accent);
+  --color-accent-light: var(--ksru-color-accent-light);
+  --color-accent-rich: var(--ksru-color-accent-rich);
+  --color-accent-warm: var(--ksru-color-accent-warm);
 }

@@ -17,12 +17,9 @@
 
     --ksru-line-length: 60ch;
 
-    --ksru-color-accent: light-dark(var(--ksru-cyan-800), var(--ksru-cyan-400));
-    --ksru-color-accent-light: light-dark(var(--ksru-emerald-500), var(--ksru-emerald-400));
+    /* Legacy aliases — definitions live in src/ui/tokens/colors.css */
     --ksru-color-bg: var(--ksru-color-surface);
     --ksru-color-bg-loading: light-dark(var(--ksru-neutral-200), var(--ksru-neutral-700));
-    --ksru-color-accent-warm: light-dark(var(--ksru-brown-500), var(--ksru-brown-400));
-    --ksru-color-accent-rich: light-dark(var(--ksru-amber-300), var(--ksru-amber-400));
     --ksru-color-outline: var(--ksru-color-accent);
     --ksru-color-outline-accent: var(--ksru-color-accent-rich);
 
