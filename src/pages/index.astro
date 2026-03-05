@@ -382,6 +382,16 @@ const hasPetition = "/petition" in redirects;
     flex-shrink: 0;
   }
 
+  :global([data-theme="dark"]) .hero__logo {
+    filter: invert(1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global([data-theme="system"]) .hero__logo {
+      filter: invert(1);
+    }
+  }
+
   .hero__headline {
     font-size: clamp(2rem, 6vw, 3.5rem);
     line-height: 1.1;
@@ -612,8 +622,11 @@ const hasPetition = "/petition" in redirects;
     font-weight: 700;
     font-size: 1.25rem;
     color: white;
-    background-color: var(--ksru-color-surface-accent);
-    border-left: 20px solid transparent;
+    background-color: light-dark(
+      var(--ksru-color-surface-accent),
+      var(--ksru-color-surface-secondary)
+    );
+    border-left: 20px solid light-dark(transparent, var(--ksru-color-accent));
     background-clip: border-box;
     border-radius: 0px;
     transition:
@@ -647,7 +660,10 @@ const hasPetition = "/petition" in redirects;
 
   .wins__item[open] summary {
     border-left-color: var(--ksru-color-accent-rich);
-    background-color: color-mix(in oklch, var(--ksru-color-surface-accent), black 15%);
+    background-color: light-dark(
+      color-mix(in oklch, var(--ksru-color-surface-accent), black 15%),
+      var(--ksru-color-surface-secondary)
+    );
     border-radius: var(--wins-radius);
     corner-shape: squircle;
   }
@@ -680,13 +696,19 @@ const hasPetition = "/petition" in redirects;
   }
 
   .wins__item summary:hover {
-    background-color: color-mix(in oklch, var(--ksru-color-surface-accent), white 10%);
+    background-color: light-dark(
+      color-mix(in oklch, var(--ksru-color-surface-accent), white 10%),
+      var(--ksru-color-surface-active)
+    );
   }
 
   /* Separator between items */
   .wins__item + .wins__item summary {
     border-top: 1px solid
-      color-mix(in oklch, var(--ksru-color-surface-accent), white 20%);
+      light-dark(
+        color-mix(in oklch, var(--ksru-color-surface-accent), white 20%),
+        var(--ksru-color-border)
+      );
   }
 
   /* Content panel */
@@ -758,5 +780,26 @@ const hasPetition = "/petition" in redirects;
     .wins__item::details-content {
       transition: none;
     }
+  }
+
+  /* Dark mode: tone down the breaking card */
+  .card-surface.breaking {
+    background-color: light-dark(
+      color-mix(in oklch, var(--ksru-color-accent-light), white 90%),
+      var(--ksru-color-surface-secondary)
+    );
+    color: light-dark(
+      color-mix(in oklch, var(--ksru-color-accent), black 30%),
+      var(--ksru-color-text)
+    );
+    border-color: light-dark(
+      color-mix(in oklch, var(--ksru-color-accent-light), var(--ksru-color-accent) 50%),
+      color-mix(in oklch, var(--ksru-color-accent), transparent 50%)
+    );
+    box-shadow: 0 0 8px
+      light-dark(
+        color-mix(in oklch, var(--ksru-color-accent), transparent 50%),
+        transparent
+      );
   }
 </style>
