@@ -92,6 +92,10 @@
       oklch(0.23 0.01 151 / 0.1),
       oklch(0 0 0 / 0)
     );
+    --ksru-color-surface-accent: light-dark(
+      var(--ksru-cyan-800),
+      var(--ksru-cyan-700)
+    ); /* branded surface for header/footer/accent sections */
   }
 }
 
@@ -110,4 +114,5 @@
   --color-surface-hover: var(--ksru-color-surface-hover);
   --color-surface-active: var(--ksru-color-surface-active);
   --color-shadow: var(--ksru-color-shadow);
+  --color-surface-accent: var(--ksru-color-surface-accent);
 }
