@@ -2,7 +2,7 @@
 @layer base {
   body {
     font-family: Montserrat, sans-serif;
-    color: #1a1b1f;
+    color: var(--ksru-color-text);
     font-size: 16px;
     line-height: 28px;
     font-weight: 400;
@@ -64,7 +64,7 @@
     display: block;
     -webkit-transition: opacity 200ms ease;
     transition: opacity 200ms ease;
-    color: #1a1b1f;
+    color: var(--ksru-color-text);
     text-decoration: underline;
   }
 
