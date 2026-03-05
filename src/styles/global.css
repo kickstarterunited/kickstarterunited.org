@@ -26,6 +26,16 @@ ol {
   overflow: hidden;
 }
 
+[data-theme="dark"] .formkit-form {
+  filter: brightness(0.82) saturate(0.6);
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] .formkit-form {
+    filter: brightness(0.82) saturate(0.6);
+  }
+}
+
 @supports (corner-shape: squircle) {
   .formkit-form {
     corner-shape: squircle;
