@@ -541,7 +541,7 @@ const hasPetition = "/petition" in redirects;
   }
 
   .paths__links a:hover {
-    background: var(--ksru-color-accent);
+    background: var(--ksru-color-surface-accent);
     color: white;
   }
 
@@ -612,7 +612,7 @@ const hasPetition = "/petition" in redirects;
     font-weight: 700;
     font-size: 1.25rem;
     color: white;
-    background-color: var(--ksru-color-accent);
+    background-color: var(--ksru-color-surface-accent);
     border-left: 20px solid transparent;
     background-clip: border-box;
     border-radius: 0px;
@@ -647,7 +647,7 @@ const hasPetition = "/petition" in redirects;
 
   .wins__item[open] summary {
     border-left-color: var(--ksru-color-accent-rich);
-    background-color: color-mix(in oklch, var(--ksru-color-accent), black 15%);
+    background-color: color-mix(in oklch, var(--ksru-color-surface-accent), black 15%);
     border-radius: var(--wins-radius);
     corner-shape: squircle;
   }
@@ -680,19 +680,19 @@ const hasPetition = "/petition" in redirects;
   }
 
   .wins__item summary:hover {
-    background-color: color-mix(in oklch, var(--ksru-color-accent), white 10%);
+    background-color: color-mix(in oklch, var(--ksru-color-surface-accent), white 10%);
   }
 
   /* Separator between items */
   .wins__item + .wins__item summary {
     border-top: 1px solid
-      color-mix(in oklch, var(--ksru-color-accent), white 20%);
+      color-mix(in oklch, var(--ksru-color-surface-accent), white 20%);
   }
 
   /* Content panel */
   .wins__body {
     padding: var(--ksru-space-lg);
-    background-color: white;
+    background-color: var(--ksru-color-surface);
     display: flex;
     flex-wrap: wrap;
     align-items: start;
