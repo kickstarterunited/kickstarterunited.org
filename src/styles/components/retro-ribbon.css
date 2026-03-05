@@ -8,7 +8,7 @@
   text-transform: uppercase;
   letter-spacing: 0.03em;
 
-  background-color: var(--_stop-3);
+  background-color: light-dark(var(--_stop-3), transparent);
   color: white;
 
   --_stop-1: var(--ksru-color-accent-light);
@@ -30,11 +30,11 @@
   }
 
   &::after {
-    background-color: var(--_stop-1);
+    background-color: light-dark(var(--_stop-1), transparent);
   }
 
   &::before {
-    background-color: var(--_stop-2);
+    background-color: light-dark(var(--_stop-2), transparent);
   }
 }
 

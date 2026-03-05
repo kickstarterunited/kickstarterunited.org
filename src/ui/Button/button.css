@@ -51,7 +51,7 @@
 
   .btn--ghost {
     background: transparent;
-    color: var(--ksru-color-text);
+    color: inherit;
   }
 
   .btn--ghost:hover {

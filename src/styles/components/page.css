@@ -5,7 +5,7 @@
 
 .page__header,
 .page__footer {
-  color: var(--ksru-color-text);
+  color: white;
   --ksru-outline-color: var(--ksru-color-outline-accent);
 }
 
@@ -18,7 +18,10 @@
   padding: 0;
   align-items: stretch;
 
-  background-color: var(--ksru-color-surface-accent);
+  background-color: light-dark(
+    var(--ksru-color-surface-accent),
+    oklch(0.15 0.005 151)
+  );
 }
 
 .page__footer-social {
@@ -54,7 +57,10 @@
   padding: 0;
   align-items: stretch;
 
-  background-color: var(--ksru-color-surface-accent);
+  background-color: light-dark(
+    var(--ksru-color-surface-accent),
+    oklch(0.15 0.005 151)
+  );
 
   position: sticky;
   top: 0;
@@ -68,6 +74,10 @@
     1.5rem
   );
   font-weight: 600;
+}
+
+.page__logo.retro-ribbon {
+  color: light-dark(white, var(--ksru-emerald-400));
 }
 
 .link--standalone {
