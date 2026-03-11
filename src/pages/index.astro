@@ -108,6 +108,24 @@ const hasPetition = "/petition" in redirects;
     </p>
   </section>
 
+  <!-- ═══ RALLY VIDEO ═══════════════════════════════════════════════════ -->
+  <section class="rally col-[wide]">
+    <h2 class="rally__heading">Rally to End Retaliation</h2>
+    <div class="rally__embed">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/kGBHA8Cs7uI"
+        title="Kickstarter United - Rally to End Retaliation | Feb 27, 2026"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+    <p class="rally__caption">
+      On February 27, Kickstarter United rallied outside Kickstarter HQ to
+      demand an end to management's retaliation against union workers.
+    </p>
+  </section>
+
   <!-- ═══ AUDIENCE PATHWAY CARDS ═════════════════════════════════════════ -->
   <section class="paths">
     <h2 class="paths__heading">I'm here because...</h2>
@@ -409,6 +427,57 @@ const hasPetition = "/petition" in redirects;
     color: color-mix(in oklch, currentColor, transparent 30%);
     max-width: 45ch;
     text-wrap: balance;
+  }
+
+  /* ═══ RALLY VIDEO ═══════════════════════════════════════════════════ */
+
+  .rally {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--ksru-space-md);
+    margin-bottom: var(--ksru-space-3xl);
+  }
+
+  .rally__heading {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    text-align: center;
+    margin: 0;
+  }
+
+  .rally__embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 24px color-mix(in oklch, var(--ksru-color-text), transparent 85%),
+      0 0 0 1px color-mix(in oklch, var(--ksru-color-text), transparent 90%);
+  }
+
+  @supports (corner-shape: squircle) {
+    .rally__embed {
+      border-radius: 48px;
+      corner-shape: squircle;
+    }
+  }
+
+  .rally__embed iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .rally__caption {
+    font-size: 0.9375rem;
+    color: color-mix(in oklch, currentColor, transparent 30%);
+    text-align: center;
+    max-width: 55ch;
+    text-wrap: balance;
+    margin: 0;
   }
 
   /* ═══ PATHWAY CARDS ══════════════════════════════════════════════════ */
