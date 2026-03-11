@@ -8,6 +8,7 @@ import { Icon } from "astro-icon/components";
 import "../ui/SocialLinks/social-links.css";
 import Mark from "../ui/Mark/Mark.astro";
 
+
 import { allBlogPosts } from "../blog/getBlogPosts";
 import { redirects } from "../data/redirects";
 
@@ -108,10 +109,13 @@ const hasPetition = "/petition" in redirects;
     </p>
   </section>
 
-  <!-- ═══ RALLY VIDEO ═══════════════════════════════════════════════════ -->
-  <section class="rally col-[wide]">
-    <h2 class="rally__heading">Rally to End Retaliation</h2>
-    <div class="rally__embed">
+  <!-- ═══ RALLY VIDEO ════════════════════════════════════════════════════ -->
+  <section class="rally-video page-grid--subgrid">
+    <h2 class="rally-video__heading">
+      <Icon name="tabler:video" class="rally-video__icon" />
+      Watch our rally to end retaliation
+    </h2>
+    <div class="rally-video__embed col-[wide]">
       <iframe
         src="https://www.youtube-nocookie.com/embed/kGBHA8Cs7uI"
         title="Kickstarter United - Rally to End Retaliation | Feb 27, 2026"
@@ -120,9 +124,9 @@ const hasPetition = "/petition" in redirects;
         allowfullscreen
         loading="lazy"></iframe>
     </div>
-    <p class="rally__caption">
-      On February 27, Kickstarter United rallied outside Kickstarter HQ to
-      demand an end to management's retaliation against union workers.
+    <p class="rally-video__caption">
+      On February 27, Kickstarter United rallied to demand an end to
+      management's retaliation against union workers.
     </p>
   </section>
 
@@ -431,53 +435,108 @@ const hasPetition = "/petition" in redirects;
 
   /* ═══ RALLY VIDEO ═══════════════════════════════════════════════════ */
 
-  .rally {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--ksru-space-md);
-    margin-bottom: var(--ksru-space-3xl);
-  }
-
-  .rally__heading {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    text-align: center;
-    margin: 0;
-  }
-
-  .rally__embed {
+  .rally-video {
     position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    border-radius: 16px;
     overflow: hidden;
-    box-shadow:
-      0 4px 24px color-mix(in oklch, var(--ksru-color-text), transparent 85%),
-      0 0 0 1px color-mix(in oklch, var(--ksru-color-text), transparent 90%);
+    text-align: center;
+    padding-block: var(--ksru-space-3xl);
+    row-gap: var(--ksru-space-md);
+    max-height: 100vh;
+    border-radius: 32px;
   }
 
   @supports (corner-shape: squircle) {
-    .rally__embed {
-      border-radius: 48px;
+    .rally-video {
+      border-radius: 64px;
       corner-shape: squircle;
     }
   }
 
-  .rally__embed iframe {
+  .rally-video::after {
+    --_emerald: color-mix(in oklch, var(--ksru-emerald-400), transparent 40%);
+    --_cyan: color-mix(in oklch, var(--ksru-cyan-400), transparent 40%);
+    --_amber: color-mix(in oklch, var(--ksru-amber-300), transparent 40%);
+
+    content: "";
     position: absolute;
-    inset: 0;
+    inset: -40%;
+    grid-column: bleed;
+    background:
+      radial-gradient(circle at 10% 15%, var(--_emerald) 0%, transparent 55%),
+      radial-gradient(circle at 85% 35%, var(--_cyan) 0%, transparent 45%),
+      radial-gradient(circle at 35% 90%, var(--_amber) 0%, transparent 50%);
+    filter: blur(60px);
+    z-index: 0;
+  }
+
+  .rally-video > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  :global([data-theme="dark"]) .rally-video::after {
+    --_emerald: color-mix(in oklch, var(--ksru-emerald-700), transparent 50%);
+    --_cyan: color-mix(in oklch, var(--ksru-cyan-700), transparent 50%);
+    --_amber: color-mix(in oklch, var(--ksru-amber-600), transparent 50%);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :global([data-theme="system"]) .rally-video::after {
+      --_emerald: color-mix(in oklch, var(--ksru-emerald-700), transparent 50%);
+      --_cyan: color-mix(in oklch, var(--ksru-cyan-700), transparent 50%);
+      --_amber: color-mix(in oklch, var(--ksru-amber-600), transparent 50%);
+    }
+  }
+
+  .rally-video__heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ksru-space-sm);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    margin: 0;
+  }
+
+  .rally-video__icon {
+    width: 1.25em;
+    height: 1.25em;
+    color: var(--ksru-color-accent);
+    flex-shrink: 0;
+  }
+
+  .rally-video__embed {
     width: 100%;
-    height: 100%;
+    max-height: 60vh;
+    max-width: calc(60vh * 16 / 9);
+    justify-self: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 4px 24px oklch(0 0 0 / 0.15),
+      0 0 0 1px var(--ksru-color-border);
+  }
+
+  @supports (corner-shape: squircle) {
+    .rally-video__embed {
+      border-radius: 64px;
+      corner-shape: squircle;
+    }
+  }
+
+  .rally-video__embed iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     border: none;
   }
 
-  .rally__caption {
-    font-size: 0.9375rem;
-    color: color-mix(in oklch, currentColor, transparent 30%);
-    text-align: center;
-    max-width: 55ch;
+  .rally-video__caption {
+    font-size: 0.875rem;
+    opacity: 0.65;
+    max-width: 50ch;
     text-wrap: balance;
     margin: 0;
+    justify-self: center;
   }
 
   /* ═══ PATHWAY CARDS ══════════════════════════════════════════════════ */
