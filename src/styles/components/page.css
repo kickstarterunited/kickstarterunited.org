@@ -65,6 +65,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  border-bottom: 2px solid light-dark(var(--ksru-amber-300), var(--ksru-amber-600));
 }
 
 .page__logo {
