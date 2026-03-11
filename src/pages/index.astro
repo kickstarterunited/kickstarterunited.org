@@ -3,102 +3,17 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Logo from "../images/logo.svg";
 import WeWon from "../images/2025_contract/we-won.png";
-import UrgentBanner from "../components/UrgentBanner/UrgentBanner.astro";
 import { Icon } from "astro-icon/components";
-import "../ui/SocialLinks/social-links.css";
-import Mark from "../ui/Mark/Mark.astro";
-
+import SocialLink from "../ui/SocialLinks/SocialLink.astro";
 
 import { allBlogPosts } from "../blog/getBlogPosts";
 import { redirects } from "../data/redirects";
 
-const showBanner = true;
 const hasBlogPosts = allBlogPosts.length > 0;
 const hasPetition = "/petition" in redirects;
 ---
 
 <BaseLayout title="Home">
-  {
-    showBanner && (
-      <UrgentBanner badge="TAKE ACTION" class="page-grid--subgrid -mt-xl">
-        <h1 data-theme="inverse">
-          <Mark>Stop the Retaliation</Mark>
-        </h1>
-        <p>
-          On February 11, Kickstarter management terminated bargaining unit
-          members and forced others out,{" "}
-          <strong>targeting strike leaders and union activists</strong>, just 3
-          months after workers ratified a{" "}
-          <a href="/contracts/2025">historic contract</a>
-          following a 42-day strike.
-        </p>
-        <p>
-          Are you also pissed? <strong>Here's what you can do to help:</strong>
-        </p>
-        <p class="mt-md">
-          <a href="/petition" class="btn btn-success urgent-banner__cta">
-            Sign Our Letter
-          </a>
-        </p>
-        <div class="urgent-banner__actions">
-          <a href="mailto:e@kickstarter.com" class="btn btn-info">
-            Write to the CEO
-          </a>
-        </div>
-        <p class="mt-md mb-0 opacity-85">Follow along:</p>
-        <div
-          class="urgent-banner__actions"
-          style="margin-top: var(--ksru-space-xs);"
-        >
-          <a
-            href="https://www.instagram.com/kickstarter_united"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-instagram" size={24} />
-              <span>Instagram</span>
-            </>
-          </a>
-          <a
-            href="https://bsky.app/profile/kickstarterunited.org"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-bluesky" size={24} />
-              <span>Bluesky</span>
-            </>
-          </a>
-          <a
-            href="https://www.facebook.com/KickstarterUnited"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-facebook" size={24} />
-              <span>Facebook</span>
-            </>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/"
-            target="_blank"
-            rel="me noopener noreferrer"
-            class="btn social-link__btn social-link__btn--labeled"
-          >
-            <>
-              <Icon name="tabler:brand-linkedin" size={24} />
-              <span>LinkedIn</span>
-            </>
-          </a>
-        </div>
-      </UrgentBanner>
-    )
-  }
-
   <section class="hero col-[wide]">
     <Logo class="hero__logo" width={96} height={96} />
     <h1 class="hero__headline">We are Kickstarter United</h1>
@@ -109,25 +24,57 @@ const hasPetition = "/petition" in redirects;
     </p>
   </section>
 
-  <!-- ═══ RALLY VIDEO ════════════════════════════════════════════════════ -->
+  <!-- ═══ RALLY VIDEO + TAKE ACTION ════════════════════════════════════ -->
   <section class="rally-video page-grid--subgrid">
-    <h2 class="rally-video__heading">
-      <Icon name="tabler:video" class="rally-video__icon" />
-      Watch our rally to end retaliation
-    </h2>
-    <div class="rally-video__embed col-[wide]">
-      <iframe
-        src="https://www.youtube-nocookie.com/embed/kGBHA8Cs7uI"
-        title="Kickstarter United - Rally to End Retaliation | Feb 27, 2026"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-        loading="lazy"></iframe>
+    <h2 class="rally-video__heading heading-xl">Stop the retaliation</h2>
+
+    <div class="rally-video__layout col-[wide]">
+      <div class="rally-video__embed">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/kGBHA8Cs7uI"
+          title="Kickstarter United - Rally to End Retaliation | Feb 27, 2026"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+
+      <div class="rally-video__panel">
+        <p class="text-sm">
+          Kickstarter management terminated bargaining unit members and forced
+          others out, <strong>targeting strike leaders and union activists</strong
+          >, just 3 months after workers ratified a{" "}
+          <a href="/contracts/2025">historic contract</a>.
+        </p>
+
+        <div class="rally-video__ctas">
+          {hasPetition && (
+            <a href="/petition" class="btn btn--primary">Sign our letter</a>
+          )}
+          <a href="mailto:e@kickstarter.com" class="btn btn--accent">
+            Write to the CEO
+          </a>
+        </div>
+
+        <div class="rally-video__social">
+          <span class="rally-video__social-label text-sm">Follow along</span>
+          <ul class="rally-video__social-links" aria-label="Follow us on social media">
+            <SocialLink label="Instagram" href="https://www.instagram.com/kickstarter_united">
+              <Icon name="tabler:brand-instagram" size={24} />
+            </SocialLink>
+            <SocialLink label="Bluesky" href="https://bsky.app/profile/kickstarterunited.org">
+              <Icon name="tabler:brand-bluesky" size={24} />
+            </SocialLink>
+            <SocialLink label="Facebook" href="https://www.facebook.com/KickstarterUnited">
+              <Icon name="tabler:brand-facebook" size={24} />
+            </SocialLink>
+            <SocialLink label="LinkedIn" href="https://www.linkedin.com/in/kickstarter-united-4924ba37b/">
+              <Icon name="tabler:brand-linkedin" size={24} />
+            </SocialLink>
+          </ul>
+        </div>
+      </div>
     </div>
-    <p class="rally-video__caption">
-      On February 27, Kickstarter United rallied to demand an end to
-      management's retaliation against union workers.
-    </p>
   </section>
 
   <!-- ═══ AUDIENCE PATHWAY CARDS ═════════════════════════════════════════ -->
@@ -433,20 +380,20 @@ const hasPetition = "/petition" in redirects;
     text-wrap: balance;
   }
 
-  /* ═══ RALLY VIDEO ═══════════════════════════════════════════════════ */
+  /* ═══ RALLY VIDEO + TAKE ACTION ═════════════════════════════════════ */
 
   .rally-video {
     position: relative;
     overflow: hidden;
-    text-align: center;
-    padding-block: var(--ksru-space-3xl);
-    row-gap: var(--ksru-space-md);
+    padding-block: var(--ksru-space-2xl);
+    row-gap: var(--ksru-space-lg);
     max-height: 100vh;
     border-radius: 32px;
   }
 
   @supports (corner-shape: squircle) {
-    .rally-video {
+    .rally-video,
+    .rally-video::before {
       border-radius: 64px;
       corner-shape: squircle;
     }
@@ -466,7 +413,20 @@ const hasPetition = "/petition" in redirects;
       radial-gradient(circle at 85% 35%, var(--_cyan) 0%, transparent 45%),
       radial-gradient(circle at 35% 90%, var(--_amber) 0%, transparent 50%);
     filter: blur(60px);
+    z-index: -1;
+  }
+
+  .rally-video::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     z-index: 0;
+    opacity: 0.2;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.45' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    overflow: hidden;
+    border-radius: 32px;
   }
 
   .rally-video > * {
@@ -489,26 +449,65 @@ const hasPetition = "/petition" in redirects;
   }
 
   .rally-video__heading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--ksru-space-sm);
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    text-align: center;
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: linear-gradient(
+      135deg,
+      var(--ksru-emerald-600) 0%,
+      var(--ksru-cyan-600) 50%,
+      var(--ksru-amber-500) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 
-  .rally-video__icon {
-    width: 1.25em;
-    height: 1.25em;
-    color: var(--ksru-color-accent);
-    flex-shrink: 0;
+  :global([data-theme="dark"]) .rally-video__heading {
+    background: linear-gradient(
+      135deg,
+      var(--ksru-emerald-400) 0%,
+      var(--ksru-cyan-400) 50%,
+      var(--ksru-amber-300) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
+
+  @media (prefers-color-scheme: dark) {
+    :global([data-theme="system"]) .rally-video__heading {
+      background: linear-gradient(
+        135deg,
+        var(--ksru-emerald-400) 0%,
+        var(--ksru-cyan-400) 50%,
+        var(--ksru-amber-300) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+
+  /* ── Two-column layout ── */
+
+  .rally-video__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--ksru-space-lg);
+    align-items: center;
+  }
+
+  @media (width >= 768px) {
+    .rally-video__layout {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  /* ── Video embed ── */
 
   .rally-video__embed {
-    width: 100%;
-    max-height: 60vh;
-    max-width: calc(60vh * 16 / 9);
-    justify-self: center;
     border-radius: 12px;
     overflow: hidden;
     box-shadow:
@@ -518,7 +517,7 @@ const hasPetition = "/petition" in redirects;
 
   @supports (corner-shape: squircle) {
     .rally-video__embed {
-      border-radius: 64px;
+      border-radius: 32px;
       corner-shape: squircle;
     }
   }
@@ -530,13 +529,47 @@ const hasPetition = "/petition" in redirects;
     border: none;
   }
 
-  .rally-video__caption {
-    font-size: 0.875rem;
-    opacity: 0.65;
-    max-width: 50ch;
-    text-wrap: balance;
+  /* ── Action panel ── */
+
+  .rally-video__panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ksru-space-md);
+  }
+
+  .rally-video__panel p {
     margin: 0;
-    justify-self: center;
+  }
+
+  .rally-video__panel a:not(.btn) {
+    color: var(--ksru-color-accent);
+  }
+
+  .rally-video__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--ksru-space-sm);
+  }
+
+  .rally-video__social {
+    display: flex;
+    align-items: center;
+    gap: var(--ksru-space-sm);
+    flex-wrap: wrap;
+  }
+
+  .rally-video__social-label {
+    font-weight: 600;
+    opacity: 0.6;
+  }
+
+  .rally-video__social-links {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: var(--ksru-space-xs);
   }
 
   /* ═══ PATHWAY CARDS ══════════════════════════════════════════════════ */
