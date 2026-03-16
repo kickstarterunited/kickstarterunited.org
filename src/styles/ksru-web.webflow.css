@@ -20,7 +20,10 @@
 
     /* Legacy aliases — definitions live in src/ui/tokens/colors.css */
     --ksru-color-bg: var(--ksru-color-surface);
-    --ksru-color-bg-loading: light-dark(var(--ksru-neutral-200), var(--ksru-neutral-700));
+    --ksru-color-bg-loading: light-dark(
+      var(--ksru-neutral-200),
+      var(--ksru-neutral-700)
+    );
     --ksru-color-outline: var(--ksru-color-accent);
     --ksru-color-outline-accent: var(--ksru-color-accent-rich);
 

@@ -34,7 +34,6 @@ export default defineConfig({
 
   redirects,
 
-
   vite: {
     plugins: [tailwindcss()],
   },
