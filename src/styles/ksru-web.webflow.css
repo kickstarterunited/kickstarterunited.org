@@ -6,9 +6,10 @@
       "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     /* Font families */
-    --ksru-font-family-jost: "Jost", var(--ksru-font-stack-system, sans-serif);
+    --ksru-font-family-jost:
+      var(--font-jost), var(--ksru-font-stack-system, sans-serif);
     --ksru-font-family-libre-franklin:
-      "Libre Franklin", var(--ksru-font-stack-system, sans-serif);
+      var(--font-libre-franklin), var(--ksru-font-stack-system, sans-serif);
 
     /* Content types */
     --ksru-font-family-heading: var(--ksru-font-family-jost, monospace);

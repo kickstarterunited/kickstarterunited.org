@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
 import preact from "@astrojs/preact";
@@ -13,7 +13,27 @@ const isDev = process.env.NODE_ENV === "development";
 export default defineConfig({
   site: "https://kickstarterunited.org/",
 
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Jost",
+      cssVariable: "--font-jost",
+      weights: [400, 500, 600, 700],
+      styles: ["normal", "italic"],
+      subsets: ["latin"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Libre Franklin",
+      cssVariable: "--font-libre-franklin",
+      weights: [400, 500, 600, 700],
+      styles: ["normal", "italic"],
+      subsets: ["latin"],
+    },
+  ],
+
   redirects,
+
 
   vite: {
     plugins: [tailwindcss()],
