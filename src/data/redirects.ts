@@ -14,4 +14,5 @@ export const redirects: Record<string, string> = {
   "/rally": "https://us02web.zoom.us/meeting/register/plLF1q1GQvamUkXaiqDxJg",
   "/petition":
     "https://actionnetwork.org/letters/kickstarter-stop-the-retaliation-reinstate-our-teammates-now/",
+  "/merch": "https://shop.worxprinting.coop/collections/ksru",
 };
