@@ -38,6 +38,9 @@ importers:
       invokers-polyfill:
         specifier: ^1.0.1
         version: 1.0.3
+      preact:
+        specifier: ^10.29.7
+        version: 10.29.7(preact-render-to-string@6.7.0)
     devDependencies:
       prettier:
         specifier: ^3.8.1

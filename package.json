@@ -18,7 +18,8 @@
     "astro-icon": "^1.1.5",
     "astrobook": "^0.12.4",
     "interestfor": "^1.0.8",
-    "invokers-polyfill": "^1.0.1"
+    "invokers-polyfill": "^1.0.1",
+    "preact": "^10.29.7"
   },
   "devDependencies": {
     "prettier": "^3.8.1",
