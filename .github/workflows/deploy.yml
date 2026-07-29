@@ -27,8 +27,6 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 11
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -46,7 +44,6 @@ jobs:
         uses: withastro/action@v5
         with:
           node-version: 24
-          package-manager: pnpm@11
 
   deploy:
     needs: build
