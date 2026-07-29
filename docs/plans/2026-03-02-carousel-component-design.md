@@ -160,7 +160,7 @@ Expected: Only `CarouselItem.astro` remains.
 **Step 3: Verify build still works**
 
 ```bash
-bun run build
+pnpm run build
 ```
 
 Expected: Clean build (old Carousel was unused).
@@ -232,7 +232,7 @@ git commit -m "chore: remove unused CSS-only Carousel component"
 **Step 2: Verify it compiles**
 
 ```bash
-bun run build
+pnpm run build
 ```
 
 Expected: Clean build (CSS is loaded on-demand via import, nothing references it yet).
@@ -350,7 +350,7 @@ const { scrollButtons = false, class: cls, ...props } = Astro.props;
 **Step 2: Run type check**
 
 ```bash
-bun astro check
+pnpm exec astro check
 ```
 
 Expected: No errors from the new component.
@@ -358,7 +358,7 @@ Expected: No errors from the new component.
 **Step 3: Verify build**
 
 ```bash
-bun run build
+pnpm run build
 ```
 
 Expected: Clean build.
@@ -408,7 +408,7 @@ export const Carousel = { args: {} satisfies CarouselDemoProps };
 **Step 3: Run type check and build**
 
 ```bash
-bun astro check && bun run build
+pnpm exec astro check && pnpm run build
 ```
 
 Expected: No errors.
@@ -416,7 +416,7 @@ Expected: No errors.
 **Step 4: Visually verify in dev server**
 
 ```bash
-bun dev
+pnpm dev
 ```
 
 Open Astrobook and verify the Carousel story renders all three demo sections. Check:
