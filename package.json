@@ -1,7 +1,7 @@
 {
   "name": "kickstarterunited.org",
   "type": "module",
-  "packageManager": "pnpm@11.18.0",
+  "packageManager": "pnpm@12.4.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -18,9 +18,9 @@
     "astro-icon": "^1.1.5",
     "astrobook": "^0.12.4",
     "interestfor": "^1.0.8",
-    "invokers-polyfill": "^1.0.1",
-    "preact": "^10.29.7",
-    "sharp": "^0.35.3"
+    "invokers-polyfill": "^1.0.4",
+    "preact": "^10.29.8",
+    "sharp": "^0.35.4"
   },
   "devDependencies": {
     "prettier": "^3.8.1",
