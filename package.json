@@ -1,7 +1,7 @@
 {
   "name": "kickstarterunited.org",
   "type": "module",
-  "packageManager": "pnpm@12.4.1",
+  "packageManager": "pnpm@12.4.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,21 +9,21 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.8",
-    "@astrojs/preact": "^5.0.1",
-    "@iconify-json/tabler": "^1.2.31",
-    "@oddbird/css-anchor-positioning": "^0.9.0",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "^6.0.5",
-    "astro-icon": "^1.1.5",
-    "astrobook": "^0.12.4",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/preact": "^6.0.5",
+    "@iconify-json/tabler": "^1.2.38",
+    "@oddbird/css-anchor-positioning": "^0.10.2",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "astro-icon": "^1.2.0",
+    "astrobook": "^0.13.3",
     "interestfor": "^1.0.8",
     "invokers-polyfill": "^1.0.4",
     "preact": "^10.29.8",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0"
   }
 }
