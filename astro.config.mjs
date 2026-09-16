@@ -7,7 +7,7 @@ import icon from "astro-icon";
 import astrobook from "astrobook";
 import { redirects } from "./src/data/redirects.ts";
 
-const isDev = process.env.NODE_ENV === "development";
+const isDev = import.meta.env.DEV;
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,6 +36,11 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    // TODO: Remove when Lightning CSS supports anchored container queries.
+    // https://github.com/parcel-bundler/lightningcss/issues/1176
+    build: {
+      cssMinify: "esbuild",
+    },
   },
 
   integrations: [
