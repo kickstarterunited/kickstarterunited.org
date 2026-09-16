@@ -4,8 +4,8 @@ Kickstarter United’s website
 
 ## Setup
 
-1. Install [Node.js](https://nodejs.org/).
-2. Enable pnpm via `corepack enable` (or install pnpm directly).
+1. Install [Node.js](https://nodejs.org/) 22.13 or newer.
+2. Install pnpm’s native binary with `npx get-pnpm`. The project pins the required pnpm version in `package.json`.
 3. `pnpm install` to install packages.
 4. `pnpm dev` to start your local dev server.
 
